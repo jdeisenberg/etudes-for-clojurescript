@@ -1,0 +1,372 @@
+<section data-type="chapter" id="chapter03">
+<h1>Lists, Vectors, and Higher-Order Functions</h1>
+
+<p>
+In this chapter, you will work with lists and vectors, along with the <code>map</code>, <code>filter</code>, and <code>reduce</code> functions. All of these take functions as one of their arguments, and are thus higher-order functions.
+</p>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section data-type="sect1" id="ETUDE03-01">
+  <h1>Étude 3-1: Move the Zeros</h1>
+  <p>
+  This is a quick warm-up étude: Given a list of integers that have zeros interspered throughout, move all the zeros to the end. Name the function <code>move-zeros</code>; it accepts a list as an argument and returns a new list with the zeros at the end. I saw the problem <a href="http://javaconceptoftheday.com/how-to-separate-zeros-from-non-zeros-in-an-array/">at this page</a>, solved in Java, and wondered if I could do it in ClojureScript. Answer: Yes, I could. And so can you. Hint: <code>filter</code> is useful. After I solved it, I realized just how much my thinking about functional programming had changed the way I look at imperative code. You may have the same experience.
+  </p>
+  
+  <pre>move-zeros.core=&gt; (move-zeros [1 0 0 2 0 3 0 4 5 0 6])
+(1 2 3 4 5 6 0 0 0 0 0)</pre>
+
+  <p>See a suggested solution: <a href="#SOLUTION03-ET01" data-type="xref">#SOLUTION03-ET01</a></p>
+  </section>
+
+  <section data-type="sect1" id="ETUDE03-02">
+  <h1>Étude 3-2: More List Manipulation</h1>
+  <p>
+  Write a function named <code>ordinal-day</code> which takes a day, month, and year as its three arguments and returns the ordinal (Julian) day of the year. Bonus points if you return zero for invalid dates such as 29-02-2015 or 40-40-2015.  Don’t worry about handling dates before the year 1584 correctly.
+  </p>
+  
+  <p>
+  You will need to know if a year is a leap year or not. I’ll give you that one for free:
+  </p>
+<pre>(defn leap-year?
+  "Return true if given year is a leap year; false otherwise"
+  [year]
+  (or (and (= 0 (rem year 4)) (not= 0 (rem year 100)))
+    (= 0 (rem year 400))))</pre>
+
+  <p>Some sample output from the REPL:</p>
+  <pre>formulas.core=&gt; (ordinal-day 1 3 2015)
+60
+formulas.core=&gt; (ordinal-day 1 3 2016)
+61
+formulas.core=&gt; (ordinal-day 1 13 2015)
+0
+formulas.core=&gt; (ordinal-day 29 2 2015)
+0
+formulas.core=&gt; (ordinal-day 29 2 2016)
+60
+formulas.core=&gt; (ordinal-day 31 9 2015)
+0</pre>
+
+  <p>
+  Then, modify the daylight calculator from <a href="#chapter02" data-type="xref">#chapter02</a> to allow entry of a date in the form <em>yyyy-mm-dd</em>.  You will need to split the input data into individual numbers. You could use the <code>split</code> method for JavaScript strings, or you can use the <code>split</code> method from the <code>clojure.string</code> library. If you want to use the latter method, you will need to add
+  that library to your <code>require</code>:
+  </p>
+
+<pre data-type="programlisting" data-code-language="clojure">(ns stats.core
+  (:require [clojure.browser.repl :as repl]
+            <strong>[clojure.string :as str]</strong>))</pre>
+
+  <p>
+  To specify a regular expression for <code>split</code>, prefix a string with <code>#</code>. Here is some sample output from the REPL. Using JavaScript’s <code>split</code> returns a JavaScript array. Notice that you do not need to escape backslashes in patterns (see the last example).
+  </p>
+
+<pre>formula.core=&gt; (require '[clojure.string :as str])
+nil
+formula.core=&gt; (.split "a:b:c:d" #":")
+#js ["a" "b" "c" "d"]
+formula.core=&gt; (str/split "a:b:c:d" #":")
+["a" "b" "c" "d"]
+formula.core=&gt; (str/split "abc123def456ghi789jkl" #"\d+")
+["abc" "def" "ghi" "jkl"]
+formula.core=&gt;</pre>
+
+  <p>Bonus points: display the daylight as hours and minutes. Here is the relevant HTML to put in your <em>index.html</em> file:</p>
+  
+<pre data-type="programlisting" data-code-language="html">&lt;h1&gt;Amount of Daylight&lt;/h1&gt;
+&lt;p&gt;
+Latitude: &lt;input type="text" size="8" id="latitude" /&gt;&#176;&lt;br /&gt;
+Enter date in format &lt;em&gt;yyyy-mm-dd&lt;/em&gt;: &lt;input type="text" size="15" id="gregorian" /&gt;&lt;br /&gt;
+&lt;input type="button" value="Calculate" id="calculate"/&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+Amount of daylight: &lt;span id="result"&gt;&lt;/span&gt;
+&lt;/p&gt;</pre>
+  
+  <p>See a suggested solution: <a href="#SOLUTION03-ET02" data-type="xref">#SOLUTION03-ET02</a></p>
+  </section>
+
+  <section data-type="sect1" id="ETUDE03-03">
+  <h1>Étude 3-3: Basic Statistics</h1>
+
+  <p>Create a project named <em>stats</em> and write these functions, each of which takes a list of numbers as its argument:</p>
+
+  <ul>
+    <li><code>mean</code>: calculates the arithmetic average of the list by summing the numbers (hint: use <code>reduce</code> or <code>apply&#160;+</code>) and dividing by the number of items in the list.</li>
+    <li><code>median</code>: calculates the median of the numbers. The algorithm is as follows:
+
+      <ul>
+        <li>Sort the list (hint: use <code>sort</code>)</li>
+        <li>If <em>n</em>, the number of items in the list, is odd, take the item at position (<em>n</em>&#2014;1)&#160;/&#160;2.</li>
+        <li>Otherwise, take the average of the items at positions <em>n</em>&#160;/&#160;2 and (<em>n</em>&#2014;1)&#160;/&#160;2</li>
+      </ul>
+
+      <p>I used <code>drop</code> in my solution rather than <code>nth</code></p>
+    </li>
+    <li><code>stdev</code>: calculates the standard deviation of the numbers. Use the computational formula: <math class="ltx_Math" display="inline"><msqrt><mfrac><mrow><mrow><mo largeop="true" symmetric="true">∑</mo><msup><mi>x</mi><mn>2</mn></msup></mrow><mo>-</mo><mfrac><msup><mrow><mo stretchy="false">(</mo><mrow><mo largeop="true" symmetric="true">∑</mo><mi>x</mi></mrow><mo stretchy="false">)</mo></mrow><mn>2</mn></msup><mi>n</mi></mfrac></mrow><mrow><mo stretchy="false">(</mo><mrow><mi>n</mi><mo>-</mo><mn>1</mn></mrow><mo stretchy="false">)</mo></mrow></mfrac></msqrt></math>, which works out to this algorithm.
+
+        <ol>
+          <li>Get the sum of the squares of all the numbers in the list</li>
+          <li>Get the sum of all the numbers of the list, and square that result.</li>
+          <li>Divide the result of step two by <em>n</em></li>
+          <li>Subtract the result of step three from the result of step one.</li>
+          <li>Divide the result of step four by <em>n</em>&#x2014;1</li>
+          <li>Take the square root of the result of step five.</li>
+        </ol>
+
+    <p>
+    You could write two functions, one to get the sum of the list and another to get the sum of squares (hint: use <code>reduce</code>), but, as a challenge, try to write a single function to get both numbers. Hint: There is no law that says the “accumulator” of the function that you give to <code>reduce</code> has to be a single number. It could just as well be a vector of two items. If you take this approach, you might want to make the reducing function a separate function rather than an anonymous function.
+    </p>
+    </li>
+    </ul>
+
+  <p>See a suggested solution: <a href="#SOLUTION03-ET03" data-type="xref">#SOLUTION03-ET03</a></p>
+
+  </section>
+
+  <section data-type="sect1" id="ETUDE03-04">
+  <h1>Étude 3-4: Basic Statistics in a Web Page</h1>
+  <p>
+  Now that you have the functions working, connect them to a web page where people can enter a list of numbers and the program will display the resulting statistics when the input field changes. Here’s the HTML:
+  </p>
+
+  <pre data-type="programlisting" data-code-language="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Basic Statistics&lt;/title&gt;
+        &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Basic Statistics&lt;/h1&gt;
+        &lt;p&gt;
+        Enter numbers, separated by blanks or commas:
+        &lt;input type="text" size="50" id="numbers"/&gt;
+        &lt;/p&gt;
+
+        &lt;p&gt;
+        Mean: &lt;span id="mean"&gt;&lt;/span&gt;&lt;br /&gt;
+        Median: &lt;span id="median"&gt;&lt;/span&gt;&lt;br /&gt;
+        Standard deviation: &lt;span id="stdev"&gt;&lt;/span&gt;
+        &lt;/p&gt;
+
+        &lt;script src="out/stats.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre>
+
+    <p>
+    Once you have the individual items, you have to use <code>js/window.parseFloat</code> to convert them to numbers. You must do this because ClojureScript’s (and JavaScript’s) <code>+</code> operator works differently on strings than on numbers: <code>(+&#160;"12"&#160;"30")</code> works out to <code>"1230"</code>, not 42. Hint: use <code>map</code>.
+    </p>
+    
+    <p>
+    Use whichever method of interacting with JavaScript (see <a href="#chapter02" data-type="xref">#chapter02</a>) that you prefer. In this étude you will listen for a <code>change</code> event, and you may want to use the JavaScript <code>event.target</code> property. Given a function like <code>(defn&#160;handler&#160;[evt]&#160;...)</code>, here is how you access the value of a form field via the target property:
+    </p>
+
+    <table>
+      <thead>
+        <tr><th>Library</th><th>ClojureScript</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>JavaScript<br />Google Closure</td><td><code>(.-value (.-target evt))</code></td>
+        </tr>
+        <tr>
+          <td>dommy</td><td><code>(dommy/value (.-target evt))</code></td>
+        </tr>
+        <tr>
+          <td>Domina</td><td><code>(domina/value (domina.events/target evt))</code></td>
+        </tr>
+        <tr>
+          <td>Enfocus</td><td><code>(ef/at (.-target evt) (ef/get-prop :value))</code></td>
+        </tr>
+      </tbody>
+    </table>
+
+    
+  <p>See a suggested solution: <a href="#SOLUTION03-ET04" data-type="xref">#SOLUTION03-ET04</a></p>
+
+  </section>
+
+  <section data-type="sect1" id="ETUDE03-05">
+  <h1>Étude 3-5: Dental Hygiene</h1>
+
+  <p>
+  OK, I’ll admit this is a fairly strange étude, but I couldn’t resist. Dentists check the health of your gums by checking the depth of the “pockets” at six different locations around each of your 32 teeth. The depth is measured in millimeters. If any of the depths is greater than or equal to four millimeters, that tooth needs attention. (Thanks to Dr. Patricia Lee, DDS, for explaining this to me.)
+  </p>
+  
+  <p>
+  Your task is to write a function named <code>alert</code> which takes a vector of 32 vectors of six numbers as its input. If a tooth isn’t present, it is represented by the empty vector <code>[]</code> instead of the six numbers. The function produces a list of the tooth numbers that require attention.  The numbers must be in ascending order.
+  </p>
+  
+  <p>
+  Here’s a definition of a set of pocket depths for a person who has had her upper wisdom teeth, numbers 1 and 16, removed. Just copy and paste it into your project. Note that list entries may be separated by either a comma or by spaces.
+  </p>
+
+<pre>(def pocket-depths
+  [[], [2 2 1 2 2 1], [3 1 2 3 2 3],
+  [3 1 3 2 1 2], [3 2 3 2 2 1], [2 3 1 2 1 1],
+  [3 1 3 2 3 2], [3 3 2 1 3 1], [4 3 3 2 3 3],
+  [3 1 1 3 2 2], [4 3 4 3 2 3], [2 3 1 3 2 2],
+  [1 2 1 1 3 2], [1 2 2 3 2 3], [1 3 2 1 3 3], [],
+  [3 2 3 1 1 2], [2 2 1 1 3 2], [2 1 1 1 1 2],
+  [3 3 2 1 1 3], [3 1 3 2 3 2], [3 3 1 2 3 3],
+  [1 2 2 3 3 3], [2 2 3 2 3 3], [2 2 2 4 3 4],
+  [3 4 3 3 3 4], [1 1 2 3 1 2], [2 2 3 2 1 3],
+  [3 4 2 4 4 3], [3 3 2 1 2 3], [2 2 2 2 3 3],
+  [3 2 3 2 3 2]])</pre>
+
+  <p>
+  And here’s the output:
+  </p>
+
+  <pre>cljs.user=&gt; (require 'teeth.core :reload)
+nil
+teeth.core=&gt; (in-ns 'teeth.core)
+nil
+teeth.core=&gt; (alert pocket-depths)
+[9 11 25 26 29]
+teeth.core=&gt;</pre>
+
+  <p>See a suggested solution: <a href="#SOLUTION03-ET05" data-type="xref">#SOLUTION03-ET05</a></p>
+  </section>
+
+  <section data-type="sect1" id="ETUDE03-06">
+  <h1>Étude 3-6: Random Numbers; Generating Lists of Lists</h1>
+
+  <p>
+  How do you think I got the numbers for the teeth in the preceding étude? Do you really think I made up and typed all 180 of them? No, of course not. Instead, I wrote a ClojureScript program to create the vector of vectors for me, and that's what you'll do in this étude.
+  </p>
+
+  <p>
+  ClojureScript is luckily provided with the <code>rand</code> function. It generates a random floating point number from 0 up to but not including 1 (if given no argument), or, if given a single argument <em>n</em>, returns a random floating value from 0 up to <em>n</em>. More useful for this étude is the <code>rand-int</code> function, which takes one argument <em>n</em> and returns a random integer from 0 up to but not including <em>n</em>.
+  </p>
+  
+  <p>
+  In this étude, create a project named <code>make_teeth</code> and write a function 
+  <code>generate-pockets</code> which takes two arguments. The first argument is a string consisting of the letters <code>T</code> and <code>F</code>. A <code>T</code> indicates that the tooth is present, and an <code>F</code> indicates a missing tooth. The second argument is a floating point number between 0 and 1.0 (inclusive) that indicates the probability that a tooth will be a good tooth.
+  </p>
+  
+  <p>
+  The result is a vector of vectors, one sub-vector per tooth. If a tooth is present, the sub-vector has six entries; if a tooth is absent, the sublist is empty: <code>[]</code>. Here is some sample output from the REPL.
+  </p>
+
+  <pre>make_teeth.core=> (generate-pockets "TFTT" 0.75)
+[[1 2 2 3 1 1] [] [2 3 1 1 3 2] [4 2 2 3 2 3]]</pre>
+  <p>
+  These are the helper functions I needed:
+  </p>
+
+  <dl>
+    <dt><code>(generate-list <em>teeth-present</em> <em>probability</em> <em>result</em>)</code></dt>
+    <dd>
+    The first two arguments are the same as for <code>generate_pockets</code>; the
+    third argument is the accumulated list. If a tooth isn’t present, add <code>[]</code> to the result; otherwise add the return value of <code>generate_tooth</code> with the probability of a good tooth as its argument. 
+    </dd>
+  
+    <dt><code>(one-tooth <em>present</em> <em>probability</em>)</code></dt>
+    <dd>
+    This function takes as its arguments a single-character string (<code>"T"</code> or <code>"F"</code>) to signiify the presence or absence of a tooth, and the probability of a good tooth. If there’s no tooth, it returns <code>[]</code>. Otherwise, it sets a “base depth” for all the pockets by generating a random number between 0 and 1. If that number is less than the probability
+    of a good tooth, base depth is 2, otherwise it’s 3. It then generates a vector of six numbers, each time randomly adding an integer from -1 to 1 to the base depth.
+    </dd>
+  </dl>
+  
+  <p>
+  I imagine that, with a great deal of effort, I could have found a way to use <code>map</code> and <code>reduce</code> to give me the results I wanted, but I was too lazy. Instead, I used <code>recur</code> in <code>generate-list</code> and <code>loop</code>/<code>recur</code> in <code>one-tooth</code>.
+  </p>
+
+  <p>See a suggested solution: <a href="#SOLUTION03-ET06" data-type="xref">#SOLUTION03-ET06</a></p>
+
+  </section>
+
+  <section data-type="sect1" id="ETUDE03-07">
+  <h1>Étude 3-7: Monthly Daylight</h1>
+  <p>
+  This étude puts together a lot of the things you have been doing in this chapter into one rather large-ish project. The project name is <em>daylight_summary</em>, and it gives a table of average minutes of daylight per month for a given latitude or city (selected from a drop-down menu). Here is the HTML:
+  </p>
+<pre data-type="programlisting" data-code-language="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Amount of Daylight&lt;/title&gt;
+        &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;
+        &lt;style type="text/css"&gt;
+          th, td {
+            border: 1px solid gray;
+            padding: 0.5em;
+          }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Amount of Daylight&lt;/h1&gt;
+        &lt;p&gt;
+        &lt;input type="radio" name="locationType" id="menu" checked="checked"&gt;
+          &lt;select id="cityMenu"&gt;
+            &lt;option value="39.9075"&gt;Beijing&lt;/option&gt;
+            &lt;option value="52.52437"&gt;Berlin&lt;/option&gt;
+            &lt;option value="-15.77972"&gt;Brasília&lt;/option&gt;
+            &lt;option value="30.06263"&gt;Cairo&lt;/option&gt;
+            &lt;option value="-35.28346"&gt;Canberra&lt;/option&gt;
+            &lt;option value="-17.82772"&gt;Harare&lt;/option&gt;
+            &lt;option value="-12.04318"&gt;Lima&lt;/option&gt;
+            &lt;option value="51.50853"&gt;London&lt;/option&gt;
+            &lt;option value="55.75222"&gt;Moscow&lt;/option&gt;
+            &lt;option value="-1.28333"&gt;Nairobi&lt;/option&gt;
+            &lt;option value="28.63576"&gt;New Delhi&lt;/option&gt;
+            &lt;option value="12.36566"&gt;Ouagadougou&lt;/option&gt;
+            &lt;option value="59.91273"&gt;Oslo&lt;/option&gt;
+            &lt;option value="48.85341"&gt;Paris&lt;/option&gt;
+            &lt;option value="35.6895"&gt;Tokyo&lt;/option&gt;
+            &lt;option value="38.89511"&gt;Washington, D. C.&lt;/option&gt;
+          &lt;/select&gt;
+          &lt;input type="radio" id="userSpecified" name="locationType"&gt;
+          Other latitude: &lt;input type="text" size="8" id="latitude"/&gt;
+          &lt;input type="button" value="Calculate" id="calculate"/&gt;
+        &lt;/p&gt;
+        
+        &lt;h2&gt;Monthly Average Daylight&lt;/h2&gt;
+        &lt;table&gt;
+          &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Month&lt;/th&gt;&lt;th&gt;Average&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+          &lt;tbody&gt;
+            &lt;tr&gt;&lt;td&gt;January&lt;/td&gt;&lt;td id="m1"&gt;&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td&gt;February&lt;/td&gt;&lt;td id="m2"&gt;&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td&gt;March&lt;/td&gt;&lt;td id="m3"&gt;&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td&gt;April&lt;/td&gt;&lt;td id="m4"&gt;&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td&gt;May&lt;/td&gt;&lt;td id="m5"&gt;&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td&gt;June&lt;/td&gt;&lt;td id="m6"&gt;&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td&gt;July&lt;/td&gt;&lt;td id="m7"&gt;&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td&gt;August&lt;/td&gt;&lt;td id="m8"&gt;&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td&gt;September&lt;/td&gt;&lt;td id="m9"&gt;&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td&gt;October&lt;/td&gt;&lt;td id="m10"&gt;&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td&gt;November&lt;/td&gt;&lt;td id="m11"&gt;&lt;/td&gt;&lt;/tr&gt;
+            &lt;tr&gt;&lt;td&gt;December&lt;/td&gt;&lt;td id="m12"&gt;&lt;/td&gt;&lt;/tr&gt;
+           
+          &lt;/tbody&gt;
+        &lt;/table&gt;
+        &lt;script src="out/daylight_summary.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre>
+
+  <p>
+  In this program, don’t worry about leap years; do the calculation based on a 365-day year.
+  To determine which of the radio buttons is selected, you use code like this in Enfocus, where <code>ef</code> is the abbreviation for the <code>enfocus.core</code> namespace:
+  </p>
+  
+<pre data-type="programlisting" data-code-language="clojure">(ef/from "input[name='locationType']" (ef/get-prop :checked)))</pre>
+
+  <p>The selector is a CSS style selector, and the expression returns a list of the status of the two radio buttons, with <code>true</code> if selected and <code>false</code> if not.</p>
+
+  <p>
+  If you are using Domina, use code like this, again using a CSS selector:
+  </p>
+
+<pre data-type="programlisting" data-code-language="clojure">(def radio (domina/nodes (domina.css/sel "input[name='locationType']")))
+(domina/value (first radio))</pre>
+
+  <p>
+  The result of the second expression is the string <code>"on"</code> if the radio button is selected, <code>nil</code> if not.
+  </p>
+
+  
+  <p>See a suggested solution: <a href="#SOLUTION03-ET07" data-type="xref">#SOLUTION03-ET07</a></p>
+
+  </section>
+</section>

@@ -1,0 +1,518 @@
+<section data-type="chapter" id="chapter02">
+<h1>Interacting With JavaScript and Web Pages</h1>
+
+<p>
+Since ClojureScript compiles to JavaScript, you need to have a way to interact with native JavaScript and with web pages. In this chapter, you will find out five different ways to do this:
+</p>
+
+<ol>
+  <li>Direct use of JavaScript</li>
+  <li>The Google Closure library</li>
+  <li>The Dommy library</li>
+  <li>The Domina library</li>
+  <li>The Enfocus library</li>
+</ol>
+
+<div data-type="note">
+All of these methods are fairly “old school.” As of this writing, all the Cool Kids<sup>&#8482;</sup> are using <em>reactive programming</em> to handle the user interface. I still think it is useful to have knowledge of the older methods, as they might sometimes be the right tool to solve a problem. However, if you want, skip ahead to the (as yet unwritten) chapter on reactive programming.   
+</div>
+
+<p>
+You’ll be doing the same task with each of these: calculating the number of hours of daylight based on a latitude and Julian date, as in <a href="#CH01-ET05" data-type="xref">#CH01-ET05</a>.
+Here is the relevant HTML:
+</p>
+
+<pre data-type="programlisting" data-code-language="html">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Daylight Minutes&lt;/title&gt;
+        &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Daylight Minutes&lt;/h1&gt;
+        &lt;p&gt; 
+        Latitude: &lt;input type="text" size="8" id="latitude" /&gt;&amp;#176;&lt;br /&gt;
+        Day of year: &lt;input type="text" size="4" id="julian" /&gt;&lt;br /&gt;
+        &lt;input type="button" value="Calculate" id="calculate"/&gt;
+        &lt;/p&gt;
+
+        &lt;p&gt; 
+        Minutes of daylight: &lt;span id="result"&gt;&lt;/span&gt;
+        &lt;/p&gt;
+
+        &lt;script src="out/<em>project_name</em>.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre>
+
+<p>I suggest you create a new project for each of these études and copy the preceding HTML into the project’s <em>index.html</em> file. Remember to make the
+<code>src</code> attribute of the <code>script</code> element match your project name.</p>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section data-type="sect1" id="CH02-ET01">
+  <h1>Étude 2-1: Direct use of JavaScript</h1>
+  
+  <p>This is the most direct method to interact with a page, and is the least ClojureScript-like in its approach.</p>
+  
+    <section data-type="sect2" id="javascript-methods">
+    <h2>Invoking Methods</h2>
+    <p>In order to invoke JavaScript methods directly, you use expressions of the general form:</p>
+    <pre data-type="programlisting" data-code-language="clojure">(.<em>methodname</em> <em>JavaScript object</em> <em>arguments</em>)</pre>
+    
+    <p>Here are some examples, which you can try in the REPL.</p>
+    <pre data-type="programlisting" data-code-language="clojure">;; call the sqrt function from JavaScript's Math object with an argument 3
+(.sqrt js/Math 3)
+
+;; equivalent of window.parseFloat("3.5")
+(.parseFloat js/window "3.5")
+
+;; equivalent of "shouting".toUpperCase()
+(.toUpperCase "shouting")
+
+;; equivalent of "ClojureScript".substr(2,3)
+(.substr "ClojureScript" 2 3)
+
+;; equivalent of document.getElementById("latitude")
+(.getElementById js/document "latitude")</pre>
+
+      <p>
+      You can also use a different form for methods that belong to the <code>js</code> namespace:
+      </p>
+      
+      <pre data-type="programlisting" data-code-language="clojure">;; call the sqrt function from JavaScript's Math object with an argument 3
+(js/Math.sqrt 3)
+
+;; equivalent of window.parseFloat("3.5")
+(js/Window.parseFloat "3.5")
+
+;; equivalent of document.getElementById("latitude")
+(js/document.getElementById "latitude")</pre>
+      
+    </section>
+  
+    <section data-type="sect2" id="javascript-properties">
+    <h2>Accessing Properties</h2>
+    <p>
+    To access an object’s properties, use <code>.-</code>; before you try these in the browser REPL, type something into the <code>latitude</code> field in the form.
+    </p>
+
+<pre data-type="programlisting" data-code-language="clojure">
+;; equivalent of Math.PI
+(.-PI js/Math)
+
+;; equivalent of "ClojureScript".length
+(.-length "ClojureScript")
+
+;; equivalent of document.getElementById("latitude").value
+(.-value (.getElementById js/document "latitude"))
+
+;; setting properties: equivalent of document.getElementById("latitude").value = 23.5;
+(set! (.-value (.getElementById js/document "latitude")) 23.5)</pre>
+
+    </section>
+    
+    <section data-type="sect2" id="javascript-objects">
+    <h2>Creating JavaScript Objects</h2>
+    <p>
+    This étude doesn’t need you to create any JavaScript objects, but if you are interacting with an existing library you may need to do so. To create an object, give the class name followed by a period:
+    </p>
+    
+<pre data-type="programlisting" data-code-language="clojure">;; equivalent of d = new Date
+(def d (js/Date.))
+
+;; now you can use it
+(.getHours d)
+
+;; if you need a true JavaScript Array object
+(def arr (js/Array. 10 20 30))
+(get arr 2)</pre>
+    </section>
+    
+    <section data-type="sect2" id="javascript-events">
+    <h2>Listening for Events</h2>
+    <p>
+    In JavaScript, if you want an HTML element to respond to an event, you add an event listener to that element, tell it what type of event you want to listen for, and give it the name of a function that handles the event.  That event handling function must have one parameter to hold the event object. In ClojureScript, you need to define functions before you use them, so you have to write the event handler first and then invoke <code>addEventListener</code>. Here is an example of what I did in the REPL (my project name was <code>daylight_js</code>.
+    </p>
+    
+    <pre data-type="programlisting">cljs.user=> (in-ns 'daylight_js.core)
+nil
+daylight_js.core=&gt; (defn testing [evt] (.alert js/window "You clicked me!!!"))
+#&lt;function daylight_js$core$testing(evt){
+return window.alert("You clicked me!!!");
+}&gt;
+daylight_js.core=&gt; (let [btn (.getElementById js/document "calculate")]
+(.addEventListener btn "click" testing))
+nil</pre>
+
+    <p>
+    The first line switches to the correct namespace for the project. The second line defines the event handler, which calls JavaScript’s <code>alert()</code> function to display a message. The third line tells the “Calculate” button to listen for <code>click</code> events and call the <code>testing</code> function when they occur.
+    </p>
+
+    </section>
+  
+  <p>Given this information, complete the code for the project such that, when you click the “Calculate” button, the program will read the values from the latitude and
+  Julian day field, calculate the number of daylight hours, and place the result in the <code>&lt;span id="result"&gt;</code>. (Hint: use the <code>innerHTML</code> property.) You may also want to write a function that takes a form field name as its argument and returns the floating-point value from that field.</p>
+
+  <p>See a suggested solution: <a href="#SOLUTION02-ET01" data-type="xref">#SOLUTION02-ET01</a></p>
+
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  
+  <section data-type="sect1" id="CH02-ET02">
+  <h1>Étude 2-2: Using Google Closure</h1>
+  
+  <p>Using JavaScript directly is all well and good; one advantage is that (if you’re a JavaScript programmer), you already know this stuff. The bad news is that you have all the problems of getting JavaScript to work on multiple browsers and platforms. Enter <a href="https://developers.google.com/closure/">Google Closure</a>, a library of JavaScript utilities that has all of those nasty compatibility parts all figured out for you. In this étude, you’ll use Closure for the interaction.</p>
+  
+    <section data-type="sect2" id="closure-require">
+    <h2>Putting Google Closure into Your Project</h2>
+    <p>
+    To use Google Closure, you need to change the first lines of your <em>core.cljs</em> file to require the code that maniuplates the DOM and handles events. In this example, the project has been named <code>daylight_gc</code>.
+    </p>
+    
+    <pre data-type="programlisting" data-code-language="clojure">(ns daylight_gc.core
+  (:require [clojure.browser.repl :as repl]
+            [goog.dom :as dom]
+            [goog.events :as events]))</pre>
+
+    <p>
+    In the REPL, type <code>(require 'goog.dom :as dom)</code> to access the code.
+    </p>
+    </section>
+    
+    <section data-type="sect2" id="closure-dom">
+    <h2>Using Google Closure to Access the DOM</h2>
+    <p>
+    When accessing DOM elements, the main difference between Closure and pure JavaScript is that you use <code>dom/getElement</code> instead of <code>.getElementById&#160;js/document</code>. Thus, after starting the browser REPL and typing 55 into the latitude input area:
+    </p>
+    
+    <pre>cljs.user=&gt; (require 'daylight_gc.core)
+nil
+cljs.user=&gt; (in-ns 'daylight_gc.core)
+nil
+daylight_gc.core=&gt; (require '[goog.dom :as dom])
+nil
+daylight_gc.core=&gt; (dom/getElement "latitude")
+#&lt;[object HTMLInputElement]&gt;
+daylight_gc.core=&gt; (.-value (dom/getElement "latitude"))
+"55"
+daylight_gc.core=&gt; (set! (.-value (dom/getElement "latitude")) -20)
+-20
+daylight_gc.core=> ;; Closure has its own way to set an element's text
+daylight_gc.core=> (dom/setTextContent (dom/getElement "result") "Here is some text")
+nil
+</pre>
+    </section>
+    
+    <section data-type="sect2" id="closure-events">
+    <h2>Using Google Closure to Handle Events</h2>
+    <p>
+    Again, the code is quite similar to what you would do with plain JavaScript; you use <code>events/listener</code> instead of <code>.addListener</code>. The following adds a listener to the “Calculate” button.
+    </p>
+    
+<pre>daylight_gc.core=&gt; (defn testing [evt] (.alert js/window "Clickety-click"))
+#&lt;function daylight_gc$core$testing(evt){
+return window.alert("Clickety-click");
+}&gt;
+daylight_gc.core=&gt; (events/listen (dom/getElement "calculate") "click" testing)
+#&lt;[object Object]&gt;</pre>
+
+    <p>
+    After you test it, you may want to remove the listener so that it doesn’t interfere with the code you put in your source <em>core.cljs</em> file.
+    </p>
+  
+  <pre>daylight_gc.core=&gt; (events/unlisten (dom/getElement "calculate") "click" testing)
+true</pre>
+    </section>
+  
+  <p>Given this information, complete the code for the project. Note: If you created a new project and just copy/pasted the <em>index.html</em> file, make sure you change the <code>&lt;script&gt;</code> element to refer to the right file.</p>
+
+  <p>See a suggested solution: <a href="#SOLUTION02-ET02" data-type="xref">#SOLUTION02-ET02</a></p>
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- DOMMY -->
+
+  <section data-type="sect1" id="CH02-ET03">
+  <h1>Étude 2-3: Using dommy</h1>
+  
+  <p>While Google Closure gives you a lot of great code, it’s still JavaScript, and it “feels” like JavaScript. What you would like is a library that gives you the capabilities but in a more functional way. One of those libraries is <a href="https://github.com/Prismatic/dommy">dommy</a>. In this étude, you will use dommy to interact with the web page.</p>
+  
+    <section data-type="sect2" id="dommy-require">
+    <h2>Putting dommy into Your Project</h2>
+    <p>
+    To use dommy, you need to change the first lines of your <em>core.cljs</em> file to require the code that maniuplates the DOM and handles events. In this example, the project has been named <code>daylight_dommy</code>.
+    </p>
+    
+    <pre data-type="programlisting" data-code-language="clojure">(ns daylight_dommy.core
+  (:require [clojure.browser.repl :as repl]
+            [dommy.core :as dommy :refer-macros [sel sel1]]))</pre>
+
+    <p>
+    The <code>:refer-macros</code> is new, and beyond the scope of this book. The oversimplified explanation is that ClojureScript macros are like functions with extra super powers. I <em>will</em> explain the <code>sel</code> and <code>sel1</code> later.
+    </p>
+    
+    <p>
+    You also need to change the <em>project.clj</em> file to specify dommy as one of your project’s dependencies. The additional code is highlighted:
+    </p>
+
+<pre>  :dependencies [[org.clojure/clojure "1.7.0-beta2"]
+                 [org.clojure/clojurescript "0.0-3211"]
+                 <strong>[prismatic/dommy "1.1.0"]</strong>]</pre>
+
+    </section>
+    
+    <section data-type="sect2" id="closure-dom">
+    <h2>Using dommy to Access the DOM</h2>
+    <p>
+    Dommy has two functions for accessing elements: <code>sel1</code> and <code>sel</code>.  <code>sel1</code> will return a single HTML node; <code>sel</code> will return a JavaScript array of all matching elements. The <em>index.html</em> file has three <code>&lt;input/&gt;</code> elements. Compare the results:
+    </p>
+    
+<pre>cljs.user=&gt; ;; set up name spaces
+cljs.user=&gt; (require 'daylight_dommy.core)
+nil
+cljs.user=&gt; (in-ns 'daylight_dommy.core)
+nil
+daylight_dommy.core=&gt; (require '[dommy.core :as dommy :refer-macros [sel sel1]])
+nil
+daylight_dommy.core=&gt; ;; access the first &lt;input&gt; element
+daylight_dommy.core=&gt; (sel1 "input")
+#&lt;[object HTMLInputElement]&gt;
+daylight_dommy.core=&gt; ;; access all the &lt;input&gt; elements
+daylight_dommy.core=&gt; (sel "input")
+#js [#&lt;[object HTMLInputElement]&gt; #&lt;[object HTMLInputElement]&gt; #&lt;[object HTMLInputElement]&gt;]
+daylight_dommy.core=&gt; ;; since IDs are unique, you use sel1 for them.
+daylight_dommy.core=&gt; (sel1 "#latitude")
+#&lt;[object HTMLInputElement]&gt;</pre>
+
+    <p>
+    To access values of form fields, use dommy’s <code>value</code> and <code>set-value!</code> functions. (I typed 55 into the latitude field before doing these commands.) Similarly, <code>text</code> and <code>set-text!</code> let you read and write text content of elements. <code>html</code> and <code>set-html!</code> let you read and write HTML content of an element. Notice that you can use either a string or a keyword as an argument to <code>sel</code>.
+    </p>
+  
+<pre>daylight_dommy.core=&gt; ;; retrieve and set form field
+daylight_dommy.core=&gt; (dommy/value (sel1 "#latitude"))
+"55"
+daylight_dommy.core=&gt; (dommy/set-value! (sel1 "#latitude") 10.24)
+#&lt;[object HTMLInputElement]&gt;
+daylight_dommy.core=&gt; ;; set and retrieve text content
+daylight_dommy.core=&gt; (dommy/set-text! (sel1 :#result) "some text")
+#&lt;[object HTMLSpanElement]&gt;
+daylight_dommy.core=&gt; (dommy/text (sel1 :#result))
+"some text"
+daylight_dommy.core-&gt; (dommy/set-html! (sel1 :#result) "&lt;i&gt;Yes!&lt;/i&gt;")</pre>
+    </section>
+    
+    <section data-type="sect2" id="dommy-events">
+    <h2>Using dommy to Handle Events</h2>
+    <p>
+    Here is the code to add and remove an event listener. You may use either keywords or strings for event names. If you use a keyword for the event name, such as <code>:click</code> when you listen for events, you <em>must</em> use a keyword when you remove the listener.
+    </p>
+    
+<pre>daylight_dommy.core=&gt; (defn testing [event] (.alert js/window "Clicked."))
+#&lt;function daylight_dommy$core$testing(event){
+return window.alert("Clicked.");
+}&gt;
+daylight_dommy.core=&gt; (dommy/listen! (sel1 :#calculate) :click testing)
+#&lt;[object HTMLInputElement]&gt;
+daylight_dommy.core=&gt; ;; the web page should now respond to clicks. Try it.
+daylight_dommy.core=&gt; ;; now remove the listener.
+daylight_dommy.core=&gt; (dommy/unlisten! (sel1 "#calculate") :click testing)
+#&lt;[object HTMLInputElement]&gt;
+daylight_dommy.core=&gt; 
+</pre>
+    </section>
+  
+  <p>Given this information, complete the code for the project. Note: If you created a new project and just copy/pasted the <em>index.html</em> file, make sure you change the <code>&lt;script&gt;</code> element to refer to the right file.</p>
+
+  <p>See a suggested solution: <a href="#SOLUTION02-ET03" data-type="xref">#SOLUTION02-ET03</a></p>
+  </section>
+  
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  
+<!-- DOMINA -->
+
+  <section data-type="sect1" id="CH02-ET04">
+  <h1>Étude 2-4: Using Domina</h1>
+  
+  <p>The <a href="https://github.com/levand/domina">Domina</a> library is very similar in approach to dommy. In this étude, you will use Domina to interact with the web page.</p>
+  
+    <section data-type="sect2" id="dommy-require">
+    <h2>Putting Domina into Your Project</h2>
+    <p>
+    To use Domina, you need to change the first lines of your <em>core.cljs</em> file to require the code that maniuplates the DOM and handles events. In this example, the project has been named <code>daylight_domina</code>.
+    </p>
+    
+    <pre data-type="programlisting" data-code-language="clojure">(ns daylight_dommy.core
+  (:require [clojure.browser.repl :as repl]
+            [domina]
+            [domina.events :as events]))</pre>
+
+    <p>
+    The <code>:refer-macros</code> is new, and beyond the scope of this book. The oversimplified explanation is that ClojureScript macros are like functions with extra super powers. I <em>will</em> explain the <code>sel</code> and <code>sel1</code> later.
+    </p>
+    
+    <p>
+    You also need to change the <em>project.clj</em> file to specify dommy as one of your project’s dependencies. The additional code is highlighted:
+    </p>
+
+<pre>  :dependencies [[org.clojure/clojure "1.7.0-beta2"]
+                 [org.clojure/clojurescript "0.0-3211"]
+                 <strong>[domina "1.0.3"]</strong>]</pre>
+    </section>
+    
+    <section data-type="sect2" id="closure-dom">
+    <h2>Using Domina to Access the DOM</h2>
+    <p>
+    In Domina, you can access an item by its ID, by a CSS class, or by an XPath expression. This étude only uses the first of these methods with the <code>by-id</code> function.
+    </p>
+    
+<pre>cljs.user=&gt; ;; set up name spaces
+cljs.user=&gt; (require 'daylight_domina.core)
+nil
+cljs.user=&gt; (in-ns 'daylight_domina.core)
+nil
+daylight_domina.core=&gt; (require 'domina)
+nil
+daylight_domina.core=&gt; (require '[domina.events :as events])
+nil
+daylight_domina.core=> (domina/by-id "latitude")
+#&lt;[object HTMLInputElement]></pre>
+
+    <p>
+    To access values of form fields, use Domina’s <code>value</code> and <code>set-value!</code> functions. (I typed 55 into the latitude field before doing these commands.) Similarly, <code>text</code> and <code>set-text!</code> let you read and write text content of elements. <code>html</code> and <code>set-html!</code> let you read and write HTML content of an element. Notice that you can use either a string or a keyword as an argument to <code>sel</code>.
+    </p>
+  
+<pre>daylight_domina.core=&gt; ;; retrieve and set form field
+daylight_domina.core=&gt; (domina/value (domina/by-id "#latitude"))
+"55"
+daylight_domina.core=&gt; (domina/set-value! (domina/by-id "#latitude") 10.24)
+#&lt;[object HTMLInputElement]&gt;
+daylight_domina.core=&gt; ;; set and retrieve text content
+daylight_domina.core=&gt; (domina/set-text! (domina/by-id :result) "Testing 1 2 3")
+#&lt;[object HTMLSpanElement]&gt;
+daylight_domina.core=&gt; (def resultspan (domina/by-id :result)) ;; to save typing
+#&lt;[object HTMLSpanElement]&gt;
+daylight_domina.core=&gt; (domina/text resultspan)
+"Testing 1 2 3"
+daylight_domina.core-&gt; (domina/set-html! resultspan "&lt;i&gt;Yes!&lt;/i&gt;")#
+&lt;[object HTMLSpanElement]&gt;
+daylight_domina.core=&gt; ;; look at web page to see result</pre>
+    </section>
+    
+    <section data-type="sect2" id="domina-events">
+    <h2>Using Domina to Handle Events</h2>
+    <p>
+    Here is the code to add and remove an event listener. You may use either keywords or strings for event names. You may use either a string or keyword when you remove the listener. The <code>unlisten!</code> function removes <em>all</em> listeners associated with the event type.
+    </p>
+    
+<pre>daylight_domina.core=&gt; (defn testing [event] (.alert js/window "You clicked me."))
+#&lt;function daylight_domina$core$testing(event){
+return window.alert("You clicked me.");
+}&gt;
+daylight_domina.core=&gt; (events/listen! (domina/by-id "calculate") :click testing)
+#&lt;[object HTMLInputElement]&gt;
+daylight_domina.core=&gt; ;; the web page should now respond to clicks. Try it.
+daylight_domina.core=&gt; ;; now remove the listener.
+daylight_domina.core=&gt; (events/unlisten! (domina/by-id "calculate") "click")
+#&lt;[object HTMLInputElement]&gt;
+daylight_domina.core=&gt; </pre>
+    </section>
+  
+  <p>Given this information, complete the code for the project. Note: If you created a new project and just copy/pasted the <em>index.html</em> file, make sure you change the <code>&lt;script&gt;</code> element to refer to the right file.</p>
+
+  <p>See a suggested solution: <a href="#SOLUTION02-ET04" data-type="xref">#SOLUTION02-ET04</a></p>
+  </section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  
+<!-- ENFOCUS -->
+
+  <section data-type="sect1" id="CH02-ET05">
+  <h1>Étude 2-5: Using Enfocus</h1>
+  
+  <p>The <a href="https://github.com/ckirkendall/enfocus">Enfocus</a> library is very different from dommy and Domina.</p>
+  
+    <section data-type="sect2" id="dommy-require">
+    <h2>Putting Enfocus into Your Project</h2>
+    <p>
+    To use Enfocus, you need to change the first lines of your <em>core.cljs</em> file to require the code that maniuplates the DOM and handles events. In this example, the project has been named <code>daylight_enfocus</code>.
+    </p>
+
+    <pre data-type="programlisting" data-code-language="clojure">(ns daylight_dommy.core
+  (:require [clojure.browser.repl :as repl]
+            [enfocus.core :as ef]
+            [enfocus.events :as ev]))</pre>
+
+    <p>
+    You also need to change the <em>project.clj</em> file to specify Enfocus as one of your project’s dependencies. The additional code is highlighted:
+    </p>
+
+<pre>  :dependencies [[org.clojure/clojure "1.7.0-beta2"]
+                 [org.clojure/clojurescript "0.0-3211"]
+                 <strong>[enfocus "2.1.0"]</strong>]</pre>
+    </section>
+    
+    <section data-type="sect2" id="closure-dom">
+    <h2>Using Enfocus to Access the DOM</h2>
+    <p>
+    The idea behind Enfocus is that you select a node and then do transformations on it. This is a very powerful concept, but this étude will use only its simplest forms. First, set up namespaces:
+    </p>
+    
+<pre>cljs.user=&gt; (require 'daylight_enfocus.core)
+nil
+cljs.user=&gt; (in-ns 'daylight_enfocus.core)
+nil
+daylight_enfocus.core=&gt; (require '[enfocus.core :as ef])
+nil
+daylight_enfocus.core=&gt; (require '[enfocus.events :as ev])
+nil</pre>
+
+    <p>
+     Enfocus lets you select an element by its ID either as a CSS selector, an <a href="https://github.com/cgrand/enlive">Enlive</a> selector, or an XPath Selector. In this case, let’s just stick with the old familar CSS form. To access values of form fields, use Enfocus’s <code>from</code> function to select the field, then use the  <code>get-prop</code> transformation to extract the value. (I typed 55 into the latitude field before doing these commands.) Similarly, <code>at</code> selects an element you want to alter, and the <code>content</code> and <code>html-content</code> transformation lets you set an element’s content.
+    </p>
+  
+<pre>daylight_enfocus.core=&gt; (ef/from "#latitude" (ef/get-prop :value))
+"55"
+daylight_enfocus.core=&gt; (ef/at "#latitude" (ef/set-prop :value 10.24))
+nil
+daylight_enfocus.core=&gt; (ef/at "#result" (ef/content "New text"))
+nil
+daylight_enfocus.core=&gt; (ef/at "#result" (ef/html-content "&lt;i&gt;Improved text&lt;/i&gt;"))
+nil
+daylight_enfocus.core=&gt; ;; look at web page to see result</pre>
+
+    <p>
+    Note: when you use the <code>content</code> transformation, the argument must be a string or a node. You can’t use a number&#x2015;you must convert it to a string:
+    </p>
+
+<pre>daylight_enfocus.core=&gt; (ef/at "#result" (ef/content (.toString 3.14159)))
+nil</pre>
+    </section>
+    
+    <section data-type="sect2" id="domina-events">
+    <h2>Using Enfocus to Handle Events</h2>
+    <p>
+    Here is the code to add and remove an event listener.
+    </p>
+    
+<pre>daylight_enfocus.core=&gt; (defn testing [evt] (.alert js/window "Click-o-rama"))
+#&lt;function daylight_enfocus$core$testing(evt){
+return window.alert("Click-o-rama");
+}&gt;
+daylight_enfocus.core=&gt; (ef/at "#calculate" (ev/listen :click testing))
+nil
+daylight_enfocus.core=&gt; ;; the web page should now respond to clicks. Try it.
+daylight_enfocus.core=&gt; ;; now remove the listener.
+daylight_enfocus.core=&gt; (ef/at "#calculate" (ev/remove-listeners :click))
+nil</pre>
+    </section>
+  
+  <p>
+  Given this information, complete the code for the project. Note: If you created a new project and just copy/pasted the <em>index.html</em> file, make sure you change the <code>&lt;script&gt;</code> element to refer to the right file.
+  </p>
+
+  <p>See a suggested solution: <a href="#SOLUTION02-ET05" data-type="xref">#SOLUTION02-ET05</a></p>
+  </section>
+
+</section>

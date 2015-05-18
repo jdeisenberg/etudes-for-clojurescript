@@ -1,0 +1,549 @@
+<section data-type="appendix" id="appendix-solutions">
+<h1>Solutions</h1>
+
+<p>
+Here are suggested solutions for the études. Of course, your solutions may well be entirely different, and better.
+</p>
+
+  <section data-type="sect1" id="SOLUTION01-ET02">
+  <h1>Solution 1-2</h1>
+<pre data-type="programlisting" data-code-language="clojure">(ns formulas.core
+  (:require [clojure.browser.repl :as repl]))
+
+(defonce conn
+  (repl/connect "http://localhost:9000/repl"))
+
+(enable-console-print!)
+
+(defn distance
+  "Calculate distance traveled by an object moving
+  with a given acceleration for a given amount of time."
+  [accel time]
+  (* accel time time))
+  
+(defn kinetic-energy
+  "Calculate kinetic energy given mass and velocity"
+  [m v]
+  (/ (* m v v) 2.0))
+  
+(defn centripetal
+  "Calculate centripetal acceleration given velocity and radius"
+  [v r]
+  (/ (* v v) r))
+  
+(defn average
+  "Calculate average of two numbers"
+  [a b]
+  (/ (+ a b) 2.0))
+
+(defn variance
+  "Calculate variance of two numbers"
+  [a b]
+  (- (* 2 (+ (* a a) (* b b))) (* (+ a b) (+ a b))))</pre>
+  
+  </section>
+
+  <section data-type="sect1" id="SOLUTION01-ET03">
+  <h1>Solution 1-3</h1>
+<pre data-type="programlisting" data-code-language="clojure">(def G 6.6784e-11)
+
+(defn gravitational-force
+  "Calculate gravitational force of two objects of
+  mass m1 and m2, with centers of gravity at a distance r"
+  [m1 m2 r]
+  (/ (* G m1 m2) (* r r)))</pre>
+  </section>
+  
+  <section data-type="sect1" id="SOLUTION01-ET04">
+  <h1>Solution 1-4</h1>
+<pre data-type="programlisting" data-code-language="clojure">(defn monthly-payment
+  "Calculate monthly payment on a loan of amount p,
+  with annual percentage rate apr, and a given number of years"
+  [p apr years]
+  (let [r (/ apr 12.0)
+        n (* years 12)
+        factor (.pow js/Math (+ 1 r) n)]
+    (* p (/ (* r factor) (- factor 1)))))</pre>
+  </section>
+
+ <section data-type="sect1" id="SOLUTION01-ET05">
+  <h1>Solution 1-5</h1>
+<pre data-type="programlisting" data-code-language="clojure">(defn radians
+  "Convert degrees to radians"
+  [degrees]
+  (* (/ (.-PI js/Math) 180) degrees))
+
+(defn daylight
+  "Find minutes of daylight given latitude in degrees and day of year.
+  Formula from http://mathforum.org/library/drmath/view/56478.html"
+  [lat-degrees day]
+  (let [lat (radians lat-degrees)
+        part1 (* 0.9671396 (.tan js/Math (* 0.00860 (- day 186))))
+        part2 (.cos js/Math (+ 0.2163108 (* 2 (.atan js/Math part1))))
+        p (.asin js/Math (* 0.39795 part2))
+        numerator (+ (.sin js/Math 0.01454) (* (.sin js/Math lat) (.sin js/Math p)))
+        denominator (* (.cos js/Math lat) (.cos js/Math p))]
+    (* 60 (- 24 (* 7.63944 (.acos js/Math (/ numerator denominator)))))))</pre>
+  </section>
+
+  <section data-type="sect1" id="SOLUTION02-ET01">
+  <h1>Solution 2-1</h1>
+<pre data-type="programlisting" data-code-language="clojure">(ns daylight_js.core
+  (:require [clojure.browser.repl :as repl]))
+
+(enable-console-print!)
+
+(defonce conn
+  (repl/connect "http://localhost:9000/repl"))
+
+(defn radians
+  "Convert degrees to radians"
+  [degrees]
+  (* (/ (.-PI js/Math) 180) degrees))
+
+(defn daylight
+  "Find minutes of daylight given day of year and latitude in degrees.
+  Formula from http://mathforum.org/library/drmath/view/56478.html"
+  [day lat-degrees]
+  (let [lat (radians lat-degrees)
+        part1 (* 0.9671396 (tan js/Math (* 0.00860 (- day 186))))
+        part2 (cos js/Math (+ 0.2163108 (* 2 (atan js/Math part1))))
+        p (asin js/Math (* 0.39795 part2))
+        numerator (+ (sin js/Math 0.01454) (* (sin js/Math lat) (sin js/Math p)))
+        denominator (* (cos js/Math lat) (cos js/Math p))]
+    (* 60 (- 24 (* 7.63944 (acos js/Math (/ numerator denominator)))))))
+
+(defn get-float-value
+  "Get the floating point value of a field"
+  [field]
+  (.parseFloat js/window (.-value (.getElementById js/document field))))
+
+(defn calculate [evt]
+  (let [lat-d (get-float-value "latitude")
+        julian (get-float-value "julian")
+        minutes (daylight lat-d julian)]
+    (set! (.-innerHTML (.getElementById js/document "result")) minutes)))
+    
+(.addEventListener (.getElementById js/document "calculate") "click" calculate)</pre>
+  </section>
+
+  <section data-type="sect1" id="SOLUTION02-ET02">
+  <h1>Solution 2-2</h1>
+  <p>Much of the code is duplicated from the previous étude, only new code is shown here, with ellipses to represent omitted code.</p>
+  
+<pre data-type="programlisting" data-code-language="clojure">(ns daylight_gc.core
+  (:require [clojure.browser.repl :as repl]
+            [goog.dom :as dom]
+            [goog.events :as events]))
+
+...
+
+(defn radians...)
+
+(defn daylight...)
+
+(defn get-float-value
+  "Get the floating point value of a field"
+  [field]
+  (.parseFloat js/window (.-value (dom/getElement field))))
+
+(defn calculate [evt]
+  (let [lat-d (get-float-value "latitude")
+        julian (get-float-value "julian")
+        minutes (daylight lat-d julian)]
+    (dom/setTextContent (dom/getElement "result") minutes)))
+    
+(events/listen (dom/getElement "calculate") "click" calculate)</pre>
+  </section>
+
+  <section data-type="sect1" id="SOLUTION02-ET03">
+  <h1>Solution 2-3</h1>
+  <p>Much of the code is duplicated from the previous étude. Only new code is shown here, with ellipses to represent omitted code.</p>
+  
+<pre data-type="programlisting" data-code-language="clojure">(ns daylight_dommy.core
+  (:require [clojure.browser.repl :as repl]
+            [dommy.core :as dommy :refer-macros [sel sel1]]))
+            
+...
+
+(defn radians ... )
+
+(defn daylight ... )
+
+(defn get-float-value
+  "Get the floating point value of a field"
+  [field]
+  (.parseFloat js/window (dommy/value (sel1 field))))
+
+(defn calculate [evt]
+  (let [lat-d (get-float-value "#latitude")
+        julian (get-float-value "#julian")
+        minutes (daylight lat-d julian)]
+    (dommy/set-text! (sel1 "#result") minutes)))
+    
+(dommy/listen! (sel1 "#calculate") :click calculate)</pre>
+  </section>
+  
+  <section data-type="sect1" id="SOLUTION02-ET04">
+  <h1>Solution 2-4</h1>
+  <p>Much of the code is duplicated from the previous étude. Only new code is shown here, with ellipses to represent omitted code.</p>
+  
+<pre data-type="programlisting" data-code-language="clojure">(ns daylight_domina.core
+  (:require [clojure.browser.repl :as repl]
+            [domina]
+            [domina.events :as events]))        
+...
+
+(defn radians ... )
+
+(defn daylight ...)
+
+(defn get-float-value
+  "Get the floating point value of a field"
+  [field]
+  (.parseFloat js/window (domina/value (domina/by-id field))))
+
+(defn calculate [evt]
+  (let [lat-d (get-float-value "latitude")
+        julian (get-float-value "julian")
+        minutes (daylight lat-d julian)]
+    (domina/set-text! (domina/by-id "result") minutes)))
+    
+(events/listen! (domina/by-id "calculate") :click calculate)
+</pre>
+  </section>
+  
+  
+  <section data-type="sect1" id="SOLUTION02-ET05">
+  <h1>Solution 2-5</h1>
+  <p>Much of the code is duplicated from the previous étude. Only new code is shown here, with ellipses to represent omitted code.</p>
+  
+<pre data-type="programlisting" data-code-language="clojure">(ns daylight_enfocus.core
+  (:require [clojure.browser.repl :as repl]
+            [enfocus.core :as ef]
+            [enfocus.events :as ev]))
+            
+... 
+
+(defn daylight ... )
+
+(defn get-float-value
+  "Get the floating point value of a field"
+  [field]
+  (.parseFloat js/window (ef/from field (ef/get-prop :value))))
+
+(defn calculate [evt]
+  (let [lat-d (get-float-value "#latitude")
+        julian (get-float-value "#julian")
+        minutes (daylight lat-d julian)]
+    (ef/at "#result" (ef/content (.toString minutes)))))
+    
+(ef/at "#calculate" (ev/listen :click calculate))</pre>
+  </section>
+
+  <section data-type="sect1" id="SOLUTION03-ET01">
+  <h1>Solution 3-1</h1>
+<pre data-type="programlisting" data-code-language="clojure">(defn move-zeros
+  "Move zeros to end of a list or vector of numbers"
+  [numbers]
+  (let [nonzero (filter (fn[x] (not= x 0)) numbers)]
+    (concat nonzero
+       (repeat (- (count numbers) (count nonzero)) 0))))</pre>
+  </section>
+
+  
+  <section data-type="sect1" id="SOLUTION03-ET02">
+  <h1>Solution 3-2</h1>
+<pre data-type="programlisting" data-code-language="clojure">(ns daylight_by_date.core
+  (:require [clojure.browser.repl :as repl]
+            [clojure.string :as str]
+            [domina]
+            [domina.events :as events]))
+
+(enable-console-print!)
+
+(defonce conn
+  (repl/connect "http://localhost:9000/repl"))
+
+(defn radians
+  "Convert degrees to radians"
+  [degrees]
+  (* (/ (.-PI js/Math) 180) degrees))
+
+(defn daylight
+  "Find minutes of daylight given latitude in degrees and day of year.
+  Formula from http://mathforum.org/library/drmath/view/56478.html"
+  [lat-degrees day]
+  (let [lat (radians lat-degrees)
+        part1 (* 0.9671396 (.tan js/Math (* 0.00860 (- day 186))))
+        part2 (.cos js/Math (+ 0.2163108 (* 2 (.atan js/Math part1))))
+        p (.asin js/Math (* 0.39795 part2))
+        numerator (+ (.sin js/Math 0.01454) (* (.sin js/Math lat) (.sin js/Math p)))
+        denominator (* (.cos js/Math lat) (.cos js/Math p))]
+    (* 60 (- 24 (* 7.63944 (.acos js/Math (/ numerator denominator)))))))
+
+(defn get-float-value
+  "Get the floating point value of a field"
+  [field]
+  (.parseFloat js/window (domina/value (domina/by-id field))))
+
+(defn leap-year?
+  "Return true if given year is a leap year; false otherwise"
+  [year]
+  (or (and (= 0 (rem year 4)) (not= 0 (rem year 100)))
+    (= 0 (rem year 400))))
+
+(defn ordinal-day
+  "Compute ordinal day given Gregorian day, month, and year"
+  [day month year]
+  (let [leap (leap-year? year)
+        feb-days (if leap 29 28)
+        days-per-month [0 31 feb-days 31 30 31 30 31 31 30 31 30 31]
+        month-ok (and (&gt; month 0) (&lt; month 13))
+        day-ok (and month-ok (&gt; day 0) (&lt;= day (+ (nth days-per-month month))))
+        subtotal (reduce + (take month days-per-month))]
+    (if day-ok (+ subtotal day) 0)))
+
+(defn to-julian
+  "Convert Gregorian date to Julian"
+  []
+  (let [greg (domina/value (domina/by-id "gregorian"))
+        parts (str/split greg #"[-/]")
+        [y m d] (map (fn [x] (.parseInt js/window x 10)) parts)]
+    (ordinal-day d m y)))
+
+(defn calculate [evt]
+  (let [lat-d (get-float-value "latitude")
+        julian (to-julian)
+        minutes (daylight lat-d julian)]
+    (domina/set-text! (domina/by-id "result") (str (quot minutes 60) "h "
+                      (.toFixed (rem minutes 60) 2) "m"))))
+    
+(events/listen! (domina/by-id "calculate") :click calculate)</pre>
+  </section>
+  
+  <section data-type="sect1" id="SOLUTION03-ET03">
+  <h1>Solution 3-3</h1>
+
+<pre data-type="programlisting" data-code-language="clojure">(defn mean
+  "Compute mean of a sequence of numbers."
+  [x]
+  (let [n (count x)]
+    (/ (apply + x) n)))
+
+(defn median
+  "Compute median of a sequence of numbers."
+  [x]
+  (let [n (count x)
+        remainder (drop (- (int (/ n 2)) 1) (sort x))]
+    (if (odd? n)
+      (second remainder)
+      (/ (+ (first remainder) (second remainder)) 2))))
+
+(defn getsums
+  "Reducing function for computing sum and sum of squares.
+  The accumulator is a two-vector with the current sum and sum of squares
+  Could be made clearer with destructuring, but that's not in
+  this chapter."
+  [acc item]
+  (vector (+ (first acc) item) (+ (last acc) (* item item))))
+
+(defn stdev
+  "Compute standard deviation of a sequence of numbers"
+  [x]
+  (let [[sum sumsq] (reduce getsums [0 0] x)
+        n (count x)]
+    (.sqrt js/Math (/ (- sumsq (/ (* sum sum) n)) (- n 1)))))</pre>
+  </section>
+  
+  <section data-type="sect1" id="SOLUTION03-ET04">
+  <h1>Solution 3-4</h1>
+
+  <p>
+  This solution uses the Domina library to interact with the web page. The <code>ns</code> special form needs to be updated to require the correct libraries.
+  </p>
+  
+<pre data-type="programlisting" data-code-language="clojure">(ns stats.core
+  (:require [clojure.browser.repl :as repl]
+            [clojure.string :as str]
+            [domina :as dom]
+            [domina.events :as ev]))</pre>
+
+  <p>
+  This is the additional code for interacting with the web page.
+  </p>
+  
+<pre data-type="programlisting" data-code-language="clojure">(defn calculate
+  "Event handler"
+  [evt]
+  (let [numbers (map js/window.parseFloat
+                  (str/split (domina/value (ev/target evt)) #"[, ]+"))]
+       (domina/set-text! (domina/by-id "mean") (mean numbers))
+       (domina/set-text! (domina/by-id "median") (median numbers))
+       (domina/set-text! (domina/by-id "stdev") (stdev numbers))))
+
+;; connect event handler
+(ev/listen! (domina/by-id "numbers") :change calculate)
+</pre>
+
+  </section>
+  
+  <section data-type="sect1" id="SOLUTION03-ET05">
+  <h1>Solution 3-5</h1>
+
+<pre data-type="programlisting" data-code-language="clojure">(ns teeth.core
+  (:require [clojure.browser.repl :as repl]))
+
+(defonce conn
+  (repl/connect "http://localhost:9000/repl"))
+
+(enable-console-print!)
+
+(def pocket-depths
+  [[0], [2 2 1 2 2 1], [3 1 2 3 2 3],
+  [3 1 3 2 1 2], [3 2 3 2 2 1], [2 3 1 2 1 1],
+  [3 1 3 2 3 2], [3 3 2 1 3 1], [4 3 3 2 3 3],
+  [3 1 1 3 2 2], [4 3 4 3 2 3], [2 3 1 3 2 2],
+  [1 2 1 1 3 2], [1 2 2 3 2 3], [1 3 2 1 3 3], [0],
+  [3 2 3 1 1 2], [2 2 1 1 3 2], [2 1 1 1 1 2],
+  [3 3 2 1 1 3], [3 1 3 2 3 2], [3 3 1 2 3 3],
+  [1 2 2 3 3 3], [2 2 3 2 3 3], [2 2 2 4 3 4],
+  [3 4 3 3 3 4], [1 1 2 3 1 2], [2 2 3 2 1 3],
+  [3 4 2 4 4 3], [3 3 2 1 2 3], [2 2 2 2 3 3],
+  [3 2 3 2 3 2]])
+
+(defn bad-tooth
+  "Accumulator: vector of bad tooth numbers
+  and current index"
+  [[bad-list index] tooth]
+  (if (some (fn[x] (>= x 4)) tooth)
+    (vector (conj bad-list index) (inc index))
+    (vector bad-list (inc index))))
+
+(defn alert
+  "Display tooth numbers where any of the
+  pocket depths is 4 or greater."
+  [depths]
+  (first (reduce bad-tooth [[] 1] depths)))</pre>
+  </section>
+  
+  <section data-type="sect1" id="SOLUTION03-ET06">
+  <h1>Solution 3-6</h1>
+
+<pre data-type="programlisting" data-code-language="clojure">(ns make_teeth.core
+  (:require [clojure.browser.repl :as repl]))
+
+(defonce conn
+  (repl/connect "http://localhost:9000/repl"))
+
+(defn one-tooth
+  "Generate one tooth"
+  [present probability]
+  (if (= present "F") []
+    (let [base-depth (if (&lt; (rand) probability) 2 3)]
+      (loop [n 6
+             result []]
+         (if (= n 0) result
+           (recur (dec n) (conj result (+ base-depth (- 1 (rand-int 3))))))))))
+
+(defn generate-list
+  "Take list of teeth, probability, and current vector of vectors.
+  Add pockets for each tooth."
+  [teeth-present probability result]
+  (if (empty? teeth-present) result
+    (recur (rest teeth-present) probability (conj result (one-tooth (first teeth-present) probability)))))
+    
+(defn generate-pockets
+  "Take list of teeth present and probability of a good tooth,
+  and create a list of pocket depths."
+  [teeth-present probability]
+  (generate-list teeth-present probability []))</pre>
+  </section>
+  
+  <section data-type="sect1" id="SOLUTION03-ET07">
+  <h1>Solution 3-7</h1>
+
+  <p>
+  This suggested solution uses the <a href="https://github.com/ckirkendall/enfocus">Enfocus</a> library to interact with the web page.
+  </p>
+  
+<pre data-type="programlisting" data-code-language="clojure">(ns daylight_summary.core
+  (:require [clojure.browser.repl :as repl]
+            [enfocus.core :as ef]
+            [enfocus.events :as ev]))
+
+(defonce conn
+  (repl/connect "http://localhost:9000/repl"))
+
+(enable-console-print!)
+
+(defn radians
+  "Convert degrees to radians"
+  [degrees]
+  (* (/ (.-PI js/Math) 180) degrees))
+
+(defn daylight
+  "Find minutes of daylight given day of year and latitude in degrees.
+  Formula from http://mathforum.org/library/drmath/view/56478.html"
+  [lat-degrees day]
+  (let [lat (radians lat-degrees)
+        part1 (* 0.9671396 (.tan js/Math (* 0.00860 (- day 186))))
+        part2 (.cos js/Math (+ 0.2163108 (* 2 (.atan js/Math part1))))
+        p (.asin js/Math (* 0.39795 part2))
+        numerator (+ (.sin js/Math 0.01454) (* (.sin js/Math lat) (.sin js/Math p)))
+        denominator (* (.cos js/Math lat) (.cos js/Math p))]
+    (* 60 (- 24 (* 7.63944 (.acos js/Math (/ numerator denominator)))))))
+
+(defn make-ranges
+  "Return vector of begin-end ordinal dates for a list of days per month"
+  [mlist]
+  (reduce (fn [acc x] (conj acc (+ x (last acc)))) [1] (rest mlist)))
+
+(def month-ranges
+  "Days per month for non-leap years"
+  (make-ranges '(0 31 28 31 30 31 30 31 31 30 31 30 31)))
+
+(defn to-hours-minutes
+  "Convert minutes to hours and minutes"
+  [m]
+  (str (quot m 60) "h "  (.toFixed (mod m 60) 0) "m"))
+
+(defn get-value
+  "Get the value from a field"
+  [field]
+  (ef/from field (ef/get-prop :value)))
+
+(defn mean
+  "Compute mean of a sequence of numbers."
+  [x]
+  (/ (apply + x) (count x)))
+
+(defn mean-daylight
+  "Get mean daylight for a range of days"
+  [start finish latitude]
+  (let [f (fn [x] (daylight latitude x))]
+    (mean (map f (range start finish)))))
+  
+(defn generate-averages
+  "Generate monthly averages for a given latitude"
+  [latitude]
+  (loop [ranges month-ranges
+         result []]
+    (if (&lt; (count ranges) 2)
+        result
+        (recur (rest ranges)
+               (conj result (mean-daylight (first ranges) (second ranges) latitude))))))
+        
+(defn calculate [evt]
+  (let [fromMenu (first (ef/from "input[name='locationType']" (ef/get-prop :checked)))
+        lat-d (if fromMenu (.parseFloat js/window (get-value "#cityMenu"))
+                           (.parseFloat js/window (get-value "#latitude")))
+        averages (generate-averages lat-d)]
+    (doall (map-indexed
+             (fn [n item] (ef/at (str "#m" (inc n)) (ef/content (to-hours-minutes item))))
+             averages))))
+
+(ef/at "#calculate" (ev/listen :click calculate))</pre>
+  </section>
+</section>
+

@@ -1,0 +1,147 @@
+<section data-type="appendix" id="appendix_environment">
+<h1>Setting Up Your ClojureScript Environment</h1>
+
+  <section data-type="sect1">
+  <h1>Setting Up ClojureScript</h1>
+
+  <p>ClojureScript is a dialect of Clojure that compiles to JavaScript. Clojure is a Lisp dialect that runs on the Java Virtual Machine. So, in order to use JavaScript, you need Java and Clojure.</p>
+
+    <section data-type="sect2" id="getting-java">
+    <h2>Getting Java</h2>
+    <p>
+    You can test to see if Java is already installed on your computer by opening a command window (on Windows) or a terminal window (on Mac OSX or Linux) and type <code>java&#160;-version</code> at the command line. If you get some output describing a version of Java, such as the following, you have Java installed.
+    </p>
+
+    <pre>java version "1.8.0_40"
+    Java(TM) SE Runtime Environment (build 1.8.0_40-b26)
+    Java HotSpot(TM) 64-Bit Server VM (build 25.40-b25, mixed mode)</pre>
+
+    <p>
+    If you get an error message, then you need to install Java. You may either use <a href="http://openjdk.java.net/">OpenJDK</a> or
+    <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">Oracle’s Java Development Kit</a>.  Follow the download and installation instructons you find there.
+    </p>
+    </section>
+    
+    <section data-type="sect2" id="getting-clojure">
+    <h2>Getting Clojure</h2>
+    <p>
+    The easiest way to get Clojure is to use <a href="http://leiningen.org/">Leiningen</a>, a tool (as the website puts it) “for automating Clojure projects without setting your hair on fire.” Follow the download instructions at the Leiningen website, and then, as it says, type <code>lein</code>. Leiningen will download the self-install package and you will then be ready to create ClojureScript (and Clojure) projects.
+    </p>
+    </section>
+
+    <section data-type="sect2" id="create-project">
+    <h2>Creating a ClojureScript Project</h2>
+    <p>
+    Leiningen lets you create projects based on <em>templates</em>. You create a new project with a command of the form
+    <code>lein&#160;new&#160;<em>template-name</em>&#160;<em>project-name</em></code>. There are plenty of templates out there, but the one I’m going to use in this book is the minimal <em>mies</em> template. Use the <code>git</code> utility to download the latest version and install it:
+    </p>
+    
+<pre data-type="programlisting">[etudes@localhost ~]$ <strong>git clone https://github.com/swannodette/mies.git</strong>
+Cloning into 'mies'...
+remote: Counting objects: 524, done.
+remote: Total 524 (delta 0), reused 0 (delta 0), pack-reused 524 
+Receiving objects: 100% (524/524), 48.61 KiB | 0 bytes/s, done.
+Resolving deltas: 100% (217/217), done.
+Checking connectivity... done.
+[etudes@localhost ~]$ <strong>cd mies</strong>
+[etudes@localhost mies]$ <strong>lein install</strong>
+Created /home/etudes/mies/target/lein-template-0.6.0.jar
+Wrote /home/etudes/mies/pom.xml
+Installed jar and pom into local repo.</pre>
+
+    <p>
+    Here is the file structure that came from the command <code>lein&#160;new&#160;mies&#160;example</code>:
+    </p>
+    
+<pre>example
+├── index.html
+├── index_release.html
+├── project.clj
+├── README.md
+├── scripts
+│   ├── brepl
+│   ├── build
+│   ├── compile_cljsc
+│   ├── release
+│   ├── repl
+│   └── watch
+└── src
+    └── example
+        └── core.cljs</pre>
+        
+    <p>
+    The <em>project.clj</em> file contains information about your project’s requirements and dependencies. The <em>scripts</em> directory contains scripts that:
+    </p>
+    
+    <ul>
+      <li>Open a browser REPL (<em>brepl</em>)</li>
+      <li>Build the development version of the project (<em>build</em>)</li>
+      <li>Compile parts of the ClojureScript system so you don’t have to recompile them every time you rebuild the project (<em>compile_cljsc</em>)</li>
+      <li>Build the relase version of the project, which optimizes the compiled JavaScript code (<em>release</em>)</li>
+      <li>Open a <code>node.js</code> REPL (<em>repl</em>)</li>
+      <li>Monitor the source directory and rebuild the project whenever a source file changes (<em>watch</em>)</li>
+    </ul>
+    
+    <p>
+    The <em>core.cljs</em> file will contain your code. For a new project, it looks like this:
+    </p>
+    
+<pre>(ns example.core
+  (:require [clojure.browser.repl :as repl]))
+
+;; (defonce conn
+;;   (repl/connect "http://localhost:9000/repl"))
+
+(enable-console-print!)
+
+(println "Hello world!")</pre>
+
+    <p>
+    The lines beginning with the two semicolons are ClojureScript comments. The commented-out lines enable the browser REPL. You will almost certainly want to uncomment those lines by removing the semicolons.  Then you can, from the main <em>example</em> folder, invoke <em>scripts/compile_cljsc</em>&#x2015;which you need to do only once&#x2015;then build the project with <em>scripts/build</em>, and start the browser REPL with <em>scripts/brepl</em>. All these scripts use Leiningen, which will automatically retrieve any dependencies that your project needs. You will eventually see something like this:
+    </p>
+    
+<pre>[etudes@localhost example]$ <strong>scripts/brepl</strong>
+Compiling client js ...
+Waiting for browser to connect ...
+Watch compilation log available at: out/watch.log
+To quit, type: :cljs/quit
+cljs.user=> </pre>
+    
+    <div data-type="note">
+    <h1>Automatic Compilation</h1>
+    <p>
+    As set up in the <code>mies</code> template, the <code>brepl</code> script keeps track of your <code>src</code> directory, and the project is recompiled whenever a file changes. The results are placed in the file <code>out/watch.log</code>. You can open a separate terminal window and use this command: <code>tail&#xa0;out/watch.log</code> to continuously monitor that file. If you do not want to automatically rebuild, go to the <code>scripts/brepl.clj</code> file and change this line:
+    </p>
+    
+    <pre>{:watch "src"</pre>
+
+    <p>to this, making sure that you put the semicolons <em>after</em> the opening brace:</p>
+    
+    <pre>{ ;; :watch "src"</pre>
+    
+    <p>
+    If you do this, then you must manually recompile files, and compile errors will appear in the REPL window.
+    </p>
+    </div>
+    
+   <p>
+    This is not to say that <em>mies</em> is the only template you can use; a search for <em>clojurescript template</em> at <a href="https://clojars.org/">https://clojars.org/</a> will produce a whole list of templates with varying purposes. Choose whichever works best for you.
+    </p>
+
+    </section>
+
+    <section data-type="sect2" id="text-editor">
+    <h2>Getting A Text Editor</h2>
+    <p>
+    You can use any text editor you like to create your ClojureScript programs. The <a href="http://www.gnu.org/software/emacs/">emacs</a> editor seems to be quite popular, with <a href="http://www.vim.org/">vim</a> another popular choice. Yes, both have plugins for support of Clojure (<a href="https://github.com/clojure-emacs/cider">CIDER</a> for emacs; <a href="https://github.com/tpope/vim-fireplace">Fireplace</a> for vim). No, I will not get involved in the theological battle between these two editors. If you are in search of an IDE (Integrated Development Environment), you have a number of choices there as well:
+    </p>
+    
+    <ul>
+      <li><a href="https://www.jetbrains.com/idea/">IntelliJ IDEA</a> with the <a href="https://cursiveclojure.com/">Cursive</a> plugin</li>
+      <li><a href="http://lighttable.com/">Light Table</a></li>
+      <li><a href="https://sekao.net/nightcode/">Nightcode</a></li>
+      <li><a href="">Eclipse</a> with the <a href="https://github.com/laurentpetit/ccw/wiki/GoogleCodeHome">Counterclockwise</a> plugin for Clojure</li>
+    </ul>
+    </section>
+</section>
+</section>

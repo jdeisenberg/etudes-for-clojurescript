@@ -1,0 +1,97 @@
+\documentclass{article}
+\begin{document}
+% latexml file > output.xml
+% latexmlpost --format html5 output.xml
+
+
+% Complex daylight calculation
+
+
+\def\sind{\mathrm{sin^{\circ}}}
+\def\cosd{\mathrm{cos^{\circ}}}
+\def\tand{\mathrm{tan^{\circ}}}
+\def\mi{\mathit{#1}}
+\def\mr{\mathrm{#1}}
+
+Ask Dr. Math:
+
+$P = \arcsin(0.39795 \cdot \cos(0.2163108 + 2 \cdot \arctan(0.9671396 \cdot \tan(0.00860 \cdot (\mathit{day} - 186)))))$
+
+$D = 24 - 7.63944 \cdot \arccos\left(\frac {\sin(0.01454) + \sin(\mathit{latitude})\cdot\sin(p)}{\cos(\mathit{latitude})\cdot\cos(p)}\right)$
+
+$\sqrt { {{\sum(x - {\bar x})}^2} \over {n - 1} }$
+
+$\sqrt{{{\sum x^2} - {{(\sum x)^2} \over n}} \over {(n - 1)}}$
+
+% $\sqrt{{{n\sum x^2} - {(\sum x)^2}} \over {n (n - 1)}}$
+
+Complete day length
+
+$$a = \left\lfloor\frac{14 - \mi{gmonth}} {12}\right\rfloor$$
+$$y = \mi{gyear} + 4800 - a$$
+$$m = \mi{gmonth} + 12a - 3$$
+$$\mi{jday} = \mi{gday} + \left\lfloor\frac {153m + 2}{5} \right\rfloor
+  + 365y + \left\lfloor\frac {y}{4} \right\rfloor -
+  \left\lfloor\frac {y}{100} \right\rfloor +
+  \left\lfloor\frac {y}{400} \right\rfloor - 32045$$
+$$\mi{jcentury} = \frac{\mi{jday} - 2451545}{36525}$$
+$$\mi{longsun} = ({280.46646 +
+  \mi{jcentury}(36000.76983 + \mi{jcentury}\cdot 0.003032)}) \mathrm{mod} \,  360$$
+$$\mi{anomsun} = 375.52911 + \mi{jcentury} \cdot(35999.05029 - 0.0001537 \cdot \mi{jcentury})$$
+$$\mi{sunctr} = \sind \mi{anomsun} \cdot (1.914602 - \mi{jcentury} \cdot (0.000042037 + 0.0000001267 \cdot \mi{jcentury}))
+  + \sind({2 \cdot \mi{anomsun}}) \cdot (0.019993-0.000101 \cdot \mi{jcentury})
+  + \sind({3 \cdot \mi{anomsun}}) \cdot 0.000289$$
+
+  
+$$\mathit{sunrise} =
+\mathrm{degrees}\left(\mathrm{acos}\left( \frac {\cosd(90.833)}
+  {(\cosd(\mi{latitude})\cdot\cosd(\mi{declination}))}-\tand(\mi{latitude})\cdot\tand(\mi{declination})\right)\right)$$
+
+$3 + {5 \over 2}$
+
+${3 + 5} \over 2$
+
+$3 \cdot 4 \cdot 5$
+
+$3^2 + 5^2 - {(3 + 5)^2 \over 2}$
+
+$\mathit{KE} = {1 \over 2} mv^2$
+
+$d = at^2$
+
+Gravitational force:
+
+$F = {G m_1 m_2 \over r^2}$
+
+$G = 6.67384 \times 10^{-11}$
+
+% centripetal acceleration
+$a_c = {v^2 \over r}$
+
+% average
+$\mathit{avg} = { {a + b} \over 2}$
+
+%variance
+$\mathit{variance} = 2(a^2+b^2) - {(a+b)}^2$
+
+Wind chill:
+
+$\mathit{WCT} = 13.12 + 0.6215 \cdot T - 11.37 \cdot v^{0.16} + 0.3965 \cdot T \cdot v^{0.16}$
+
+Loan Amortization
+
+$\mathit{payment} = p \cdot {{r(1+r)^n} \over {{(1+r)^n} - 1}}$
+
+Day length
+
+$j = {\pi \over 182.625}$
+
+$m = 1 - \tan(\mathit{lat}) \cdot \tan(\mathit{axis} \cdot \cos(j \cdot day))$
+
+$b = {\arccos(1 - m) \over 180}$
+
+
+
+\end{document}
+
+

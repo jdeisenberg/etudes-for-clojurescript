@@ -1,0 +1,5 @@
+/* Add your custom CSS styles for the HTML here */
+.borderedTable th, .borderedTable td {
+  border: 1px solid gray;
+  padding: 0.25em;
+}

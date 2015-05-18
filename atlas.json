@@ -1,0 +1,48 @@
+{
+  "name": "jdeisenberg/etudes-for-clojurescript"
+  "branch": "master",
+  "files": [
+    "cover.html",
+    "titlepage.html",
+    "copyright.html",
+    "toc.html",
+    "preface.html",
+    "ch01-functions-variables.html",
+    "ch02-interact-javascript.html",
+    "ch03-lists-vectors.html",
+    "appendix_a.html",
+    "appendix_b.html",
+    "ix.html"
+  ],
+  "formats": {
+    "pdf": {
+      "version": "web",
+      "toc": true,
+      "index": false,
+      "syntaxhighlighting": true,
+      "show_comments": false
+    },
+    "epub": {
+      "toc": true,
+      "index": true,
+      "syntaxhighlighting": true,
+      "epubcheck": true,
+      "show_comments": false
+    },
+    "mobi": {
+      "toc": true,
+      "index": true,
+      "syntaxhighlighting": true,
+      "show_comments": false
+    },
+    "html": {
+      "toc": true,
+      "index": true,
+      "syntaxhighlighting": true,
+      "show_comments": false,
+      "consolidated": false
+    }
+  },
+  "theme": "oreillymedia/atlas_tech1c_theme",
+  "title": "Études for ClojureScript"
+}

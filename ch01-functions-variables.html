@@ -1,0 +1,160 @@
+<section data-type="chapter" id="chapter01">
+<h1>Functions and Variables</h1>
+
+<p>
+This chapter starts with a couple of “warm-up exercises” so that you can get comfortable with your ClojureScript development environment. First, a quick review of how to define functions. Here is the generic model for a function:
+</p>
+
+<pre>(defn <em>function-name</em> [<em>parameters</em>] <em>function-body</em>)</pre>
+
+<p>Here is a function that takes an acceleration and an amount of time as its parameters and returns the distance traveled:</p>
+
+<pre>(defn distance [accel time] (* accel time time))</pre>
+
+<p>You can also put a documentation string between the function name and parameter list:</p>
+
+<pre>(defn distance
+  "Calculate distance traveled by an object moving
+  with a given acceleration for a given amount of time."
+  [accel time]
+  (* accel time time))</pre>
+
+  <section data-type="sect1" id="CH01-ET01">
+  <h1>Étude 1-1: Defining a Function in the REPL</h1>
+  <p>Create a project named <em>formulas</em> (see <a data-type="xref" href="#create-project">#create-project</a>) and start a browser REPL (Read/Evaluate/Print/Loop). If you haven’t yet installed ClojureScript, follow the instructions in <a data-type="xref" href="#appendix_environment">#appendix_environment</a> and create a project to work with.
+  In the REPL, type the preceding <code>distance</code> function and test it.</p> 
+  </section>
+  
+  <section data-type="sect1" id="CH01-ET02">
+  <h1>Étude 1-2: Defining Functions in a Source File</h1>
+  
+  <p>
+  In the previous étude, when you defined a function in the REPL, you saw the resulting JavaScript function. Defining functions in the REPL is fine
+  for a quick test, but it is not something you want to do on an application-level scale. Instead, you want to define the functions in a source file.
+  In the <em>formulas</em> project, open the <em>src/formulas/core.cljs</em> file and create functions for these formulas:</p>
+  
+  <ul>
+  <li>Distance equals acceleration multplied by time squared: <math class="ltx_Math" display="inline"><mrow><mi>d</mi><mo>=</mo><mrow><mi>a</mi><mo>⁢</mo><msup><mi>t</mi><mn>2</mn></msup></mrow></mrow></math></li>
+  <li>Kinetic energy equals one-half the mass times velocity squared: <math class="ltx_Math" alttext="\mathit{KE}={1\over 2}mv^{2}" display="inline"><mrow><mi>𝐾𝐸</mi><mo>=</mo><mrow><mfrac><mn>1</mn><mn>2</mn></mfrac><mo>⁢</mo><mi>m</mi><mo>⁢</mo><msup><mi>v</mi><mn>2</mn></msup></mrow></mrow></math></li>
+  <li>Centripetal acceleration is velocity squared over the radius: <math class="ltx_Math" display="inline"><mrow><msub><mi>a</mi><mi>c</mi></msub><mo>=</mo><mfrac><msup><mi>v</mi><mn>2</mn></msup><mi>r</mi></mfrac></mrow></math></li>
+  </ul>
+  
+  <p>Here is some sample output. <code>(in-ns&#x0a0;'formulas.core)</code> switches you to that <em>namespace</em> so that you can type the function name without having to specify the module that it is in.  <code>(require&#x0a0;'formulas.core&#x0a0;:reload)</code> will recompile the code if you are not using the <code>:watch&#x0a0;"src"</code> option.</p>
+  
+  <pre>cljs.user=> cljs.user=> (in-ns 'formulas.core)
+nil
+formulas.core=> (require 'formulas.core :reload)
+nil
+formulas.core=> (distance 9.8 5)
+245
+formulas.core=> (kinetic-energy 35 4)
+280
+formulas.core=> (centripetal 30 2)</pre>
+
+  <p>See a suggested solution: <a href="#SOLUTION01-ET02" data-type="xref">#SOLUTION01-ET02</a></p>
+  </section>
+  
+  <section data-type="sect1" id="CH01-ET03">
+  <h1>Étude 1-3: Using <code>def</code></h1>
+  <p>
+  The <code>def</code> special form lets you bind a symbol to a value. The symbol is globally available to all functions in the
+  namespace where it is defined. This is not an “evil global variable” as in imperative programming languages; the binding is immutable, so there is no chance that some rogue function can change its value. Add a function named <code>gravitational-force</code> that calculates the gravitational force between two masses whose centers of mass are at a distance <em>r</em> from each other to your code:
+  </p>
+  
+  <p>
+  <math id="p7.m1" class="ltx_Math" alttext="F={Gm_{1}m_{2}\over r^{2}}" display="inline"><mrow><mi>F</mi><mo>=</mo><mfrac><mrow><mi>G</mi><mo>⁢</mo><msub><mi>m</mi><mn>1</mn></msub><mo>⁢</mo><msub><mi>m</mi><mn>2</mn></msub></mrow><msup><mi>r</mi><mn>2</mn></msup></mfrac></mrow></math>,
+  where the gravitational constant <math  class="ltx_Math" alttext="G=6.67384\times 10^{-11}" display="inline"><mrow><mi>G</mi><mo>=</mo><mrow><mn>6.67384</mn><mo>×</mo><msup><mn>10</mn><mrow><mo>-</mo><mn>11</mn></mrow></msup></mrow></mrow></math>. Use a <code>def</code> for the gravitational constant.</p>
+  
+  <p>Here is the calculation for two masses of 100kg that are 5 meters apart:</p>
+  
+  <pre>formulas.core=> (gravitational-force 100 100 5)
+2.67136e-8</pre>
+
+  <p>See a suggested solution: <a href="#SOLUTION01-ET03" data-type="xref">#SOLUTION01-ET03</a></p>
+  </section>
+  
+  <section data-type="sect1" id="CH01-ET04">
+  <h1>Étude 1-4: Using <code>let</code></h1>
+  <p>
+  To create local bindings of symbols to values within a function, you use <code>let</code>. The <code>let</code> is followed by a vector of symbol and value pairs.<span data-type="footnote">Technically, <code>let</code> is followed by a vector of <em>binding forms</em> and values. Binding forms include <em>destructuring</em> as well as simple symbols.</span>
+  </p>
+
+  <p>In this étude, you will write a function named <code>monthly-payment</code> that calculates monthly payments on a loan. Your function will take the amount of the loan, the annual percentage rate, and the number of years of the loan as its three parameters. Calculate the monthly payment according to this formula:</p>
+  <p><math id="p16.m1" class="ltx_Math" display="inline"><mrow><mi>𝑝𝑎𝑦𝑚𝑒𝑛𝑡</mi><mo>=</mo><mrow><mi>p</mi><mo>⋅</mo><mfrac><mrow><mi>r</mi><mo>⁢</mo><msup><mrow><mo stretchy="false">(</mo><mrow id="XM4"><mn>1</mn><mo>+</mo><mi>r</mi></mrow><mo stretchy="false">)</mo></mrow><mi>n</mi></msup></mrow><mrow><msup><mrow><mo stretchy="false">(</mo><mrow id="XM5"><mn>1</mn><mo>+</mo><mi>r</mi></mrow><mo stretchy="false">)</mo></mrow><mi>n</mi></msup><mo>-</mo><mn>1</mn></mrow></mfrac></mrow></mrow></math></p>
+  
+  <ul>
+    <li><em>p</em> is the principal (the amount of the loan)</li>
+    <li><em>r</em> is the <strong>monthly</strong> interest rate</li>
+    <li><em>n</em> is the number of <strong>months</strong> of the loan</li>
+  </ul>
+  
+  <p>Use <code>let</code> to make local bindings for:</p>
+  
+  <ul>
+    <li>The monthly interest rate <em>r</em>, which equals the annual rate divided by 12</li>
+    <li>The number of months <em>n</em>, which equals the number of years times 12</li>
+    <li>The common sub-formula <math display="inline"><mrow><msup><mrow><mo stretchy="false">(</mo><mrow id="XM5"><mn>1</mn><mo>+</mo><mi>r</mi></mrow><mo stretchy="false">)</mo></mrow><mi>n</mi></msup></mrow></math>
+    
+   <p>To raise a number to a power, invoke the JavaScript <code>pow</code> function with code in this format:</p>
+  <pre data-type="programlisting" data-code-language="clojure">(.pow js/Math <em>number</em> <em>power</em>)
+;; Thus, to calculate 3 to the fifth power:
+(.pow js/Math 3 5)</pre>
+
+  <p>You can also use this shorthand:</p>
+  
+  <pre data-type="programlisting" data-code-language="clojure">(js/Math.pow 3 5)</pre>
+  
+  <p>You will learn more about interacting with JavaScript in <a href="#chapter02" data-type="xref">#chapter02</a>.</p></li>
+  </ul>
+  
+  <p>Here is some sample output for a loan of $1,000.00 at 5.5% for 15 years. You can also check the results of your function against the results of the <code>PMT</code> function in your favorite spreadsheet.</p>
+  
+<pre data-type="programlisting" data-code-language="clojure">formulas.core=> (monthly-payment 1000 5.5 15). 
+458.3333333333333</pre>
+  
+  <p>See a suggested solution: <a href="#SOLUTION01-ET04" data-type="xref">#SOLUTION01-ET04</a></p>
+  </section>
+
+  <section data-type="sect1" id="CH01-ET05">
+  <h1>Étude 1-5: More Practice with <code>def</code> and <code>let</code></h1>
+  
+  <p>
+  Here’s a somewhat more complicated formula&#x2015;determining the amount of sunlight in a day, given the day of year and the latitude of your location.
+  Write a function named <code>daylight</code> with two parameters: a latitude in degrees and a Julian day. The function returns the number of minutes of
+  sunshine for the day, using the formula <a href="http://mathforum.org/library/drmath/view/56478.html">explained at the “Ask Dr. Math” web site</a>.  The latitude is in degrees, but JavaScript’s trigonometric functions use radians, so you will need a function to convert degrees to radians, and I’ll give you that for free:
+  </p>
+  
+<pre data-type="programlisting" data-code-language="clojure">(defn radians
+  "Convert degrees to radians"
+  [degrees]
+  (* (/ (.-PI js/Math) 180) degrees))</pre>
+  
+  <p>
+  The expression <code>(.-PI&#160;js/Math)</code> gets the <code>PI</code> property of the JavaScript <code>Math</code> object. 
+  </p>
+  
+  <ul>
+    <li>You will want a variable that holds the latitude converted to radians.</li>
+    <li>Calculate <math class="ltx_Math" display="inline"><mrow><mi>P</mi><mo>=</mo><mrow><mi>arcsin</mi><mo>⁡</mo><mrow><mo stretchy="false">(</mo><mrow><mn>0.39795</mn><mo>⋅</mo><mrow><mi>cos</mi><mo>⁡</mo><mrow><mo stretchy="false">(</mo><mrow><mn>0.2163108</mn><mo>+</mo><mrow><mn>2</mn><mo>⋅</mo><mrow><mi>arctan</mi><mo>⁡</mo><mrow><mo stretchy="false">(</mo><mrow><mn>0.9671396</mn><mo>⋅</mo><mrow><mi>tan</mi><mo>⁡</mo><mrow><mo stretchy="false">(</mo><mrow><mn>0.00860</mn><mo>⋅</mo><mrow><mo stretchy="false">(</mo><mrow><mi>𝑑𝑎𝑦</mi><mo>-</mo><mn>186</mn></mrow><mo stretchy="false">)</mo></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow><mo stretchy="false">)</mo></mrow></mrow></mrow></math></li>
+    <li>Calculate <math class="ltx_Math" display="inline"><mrow><mi>D</mi><mo>=</mo><mrow><mn>24</mn><mo>-</mo><mrow><mn>7.63944</mn><mo>⋅</mo><mrow><mi>arccos</mi><mo>⁡</mo><mrow><mo>(</mo><mfrac><mrow><mrow><mi>sin</mi><mo>⁡</mo><mrow><mo stretchy="false">(</mo><mn>0.01454</mn><mo stretchy="false">)</mo></mrow></mrow><mo>+</mo><mrow><mrow><mi>sin</mi><mo>⁡</mo><mrow><mo stretchy="false">(</mo><mi>𝑙𝑎𝑡𝑖𝑡𝑢𝑑𝑒</mi><mo stretchy="false">)</mo></mrow></mrow><mo>⋅</mo><mrow><mi>sin</mi><mo>⁡</mo><mrow><mo stretchy="false">(</mo><mi>p</mi><mo stretchy="false">)</mo></mrow></mrow></mrow></mrow><mrow><mrow><mi>cos</mi><mo>⁡</mo><mrow><mo stretchy="false">(</mo><mi>𝑙𝑎𝑡𝑖𝑡𝑢𝑑𝑒</mi><mo stretchy="false">)</mo></mrow></mrow><mo>⋅</mo><mrow><mi>cos</mi><mo>⁡</mo><mrow><mo stretchy="false">(</mo><mi>p</mi><mo stretchy="false">)</mo></mrow></mrow></mrow></mfrac><mo>)</mo></mrow></mrow></mrow></mrow></mrow></math></li>
+  </ul>
+  
+  <p>
+  The variable <em>D</em> holds the number of hours of daylight, so multiply that by 60 for your final result. If you feel that these formulas are a bit too complicated to type as single expressions (I certainly did!), break them down by using <code>let</code> for the parts.
+  </p>
+
+  <p>On Mac OSX or Linux, you can get a Julian date with the <code>date</code> command:</p>
+  
+  <pre>$ date '+%j' # today
+127
+$ date -d '2015-09-15' '+%j' # arbitrary date
+258</pre>
+
+  <p>
+  Your results should be very close to those generated by the <a href="http://www.esrl.noaa.gov/gmd/grad/solcalc/calcdetails.html">National Oceanic and Atmospheric Administration spreadsheets</a>, which use a <em>far</em> more complicated algorithm than the one given here.
+  </p>
+  
+  <p>See a suggested solution: <a href="#SOLUTION01-ET05" data-type="xref">#SOLUTION01-ET05</a></p>
+  </section>
+
+</section>
