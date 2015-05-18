@@ -8,7 +8,7 @@ In this book, you will find descriptions of programs that you can compose (write
 
 ## Information
 
-This book is written in [HTMLBook](https://github.com/oreillymedia/HTMLBook) and is built with O’Reilly Media’s Atlas system. Although the Atlas toolchain belongs to O’Reilly Media, the XSL stylesheets to convert HTMLBook to a variety of formats is available from the HTMLBook repository.
+This book is written in [HTMLBook](https://github.com/oreillymedia/HTMLBook) and is built with O’Reilly Media’s Atlas system. Although the Atlas toolchain belongs to O’Reilly Media, the XSL stylesheets to convert HTMLBook to a variety of formats are available from the HTMLBook repository.
 
 ## License
 
