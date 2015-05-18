@@ -1,6 +1,7 @@
 {
   "name": "jdeisenberg/etudes-for-clojurescript",
   "branch": "master",
+  "export_formats": ["html","pdf","epub"],
   "files": [
     "cover.html",
     "titlepage.html",
