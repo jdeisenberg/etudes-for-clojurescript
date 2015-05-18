@@ -8,6 +8,6 @@ In this book, you will find descriptions of programs that you can compose (write
 
 ## License
 
-Copyright © 2015 J David Eisenberg
+Copyright © 2015 J David Eisenberg and O’Reilly Media
 
 Distributed under the Eclipse Public License either version 1.0 or (at your option) any later version.
