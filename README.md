@@ -14,4 +14,4 @@ This book is written in [HTMLBook](https://github.com/oreillymedia/HTMLBook) and
 
 Copyright © 2015 J David Eisenberg and O’Reilly Media
 
-Distributed under the Eclipse Public License either version 1.0 or (at your option) any later version.
+Distributed under the Creative Commons Attribution-NonCommercial-NoDerivs 3.0 Unported License.
