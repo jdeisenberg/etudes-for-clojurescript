@@ -549,7 +549,7 @@ Here are suggested solutions for the études. Of course, your solutions may well
   <section data-type="sect1" id="SOLUTION04-ET01">
   <h1>Solution 4-1</h1>
 
-<pre>(ns nodetest.core
+<pre>(ns condiments.core
   (:require [cljs.nodejs :as nodejs]))
 
 (nodejs/enable-util-print!)
@@ -577,19 +577,24 @@ Here are suggested solutions for the études. Of course, your solutions may well
   "Given a current food and result map, and an item,
   return the new food name and result map"
   [[food result] item]
-  (cond
-    (= (.-name item) "display_name") (vector (first (.-childs item)) result)
-    (.test #"cond_._name" (.-name item))
-      (vector food (add-condiment result food (first (.-childs item))))
-    (and (.-childs item) (.-name (first (.-childs item))))
-      (process-children [food result] (.-childs item))
-    :else [food result]))
+  
+  ;; The first child of an element is text - either a food name
+  ;; or a condiment name, depending on the element name.
+  (let [firstchild (first (.-childs item))]
+    (cond
+      (= (.-name item) "display_name") (vector firstchild result)
+      (.test #"cond_._name" (.-name item))
+        (vector food (add-condiment result food firstchild))
+      (and (.-childs item) (.-name firstchild))
+        (process-children [food result] (.-childs item))
+      :else [food result])))
 
 (defn -main []
   (let [docmap (.parseFileSync xml (nth (.-argv js/process) 2))]
   (println (last (process-children ["" {}] (.-childs docmap))))))
 
-(set! *main-cli-fn* -main)</pre>
+(set! *main-cli-fn* -main)
+</pre>
   </section>
 </section>
 

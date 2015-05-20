@@ -48,66 +48,10 @@ up in <a href="#appendix_server_cljs">#appendix_server_cljs</a>.
 &lt;/Foods_Needing_Condiments_Table&gt;</pre>
 
   <p>
-  How do you parse XML using Node.js? Install the <code>node-xml-lite</code> module:
+  Your task, in this étude, is to take this JavaScript object build a ClojureScript map whose keys are the condiments and whose values are vectors of foods that go with those condiments. Thus, for the sample file, running the program from the command line the output would be this map (formatted and quotemarked for ease of reading):
   </p>
   
-  <pre>[etudes@localhost ~]$ <strong>npm install node-xml-lite</strong>
-npm http GET https://registry.npmjs.org/node-xml-lite
-npm http 304 https://registry.npmjs.org/node-xml-lite
-npm http GET https://registry.npmjs.org/iconv-lite
-npm http 304 https://registry.npmjs.org/iconv-lite
-node-xml-lite@0.0.3 node_modules/node-xml-lite
-└── iconv-lite@0.4.8</pre>
-
-  <p>
-  Bring the XML parsing module into your <em>core.cljs</em> file:
-  </p>
-  
-  <pre>(def xml (js/require "node-xml-lite"))</pre>
-  
-  <p>
-  And the following code will parse an XML file and return a JavaScript object:
-  </p>
-  
-  <pre>(.parseFileSync xml "test.xml")</pre>
-  
-  <p>
-  And here is the JavaScript object that it produces:
-  </p>
-  
-  
-<pre>
-{:name "Foods_Needing_Condiments_Table", :childs [
-  {:name "Foods_Needing_Condiments_Row", :childs [
-    {:name "Survey_Food_Code", :childs ["51208000"]}
-    {:name "display_name", :childs ["100% Whole Wheat Bagel"]}
-    {:name "cond_1_name", :childs ["Butter"]}
-    {:name "cond_2_name", :childs ["Tub margarine"]}
-    {:name "cond_3_name", :childs ["Reduced calorie spread (margarine type)"]}
-    {:name "cond_4_name", :childs ["Cream cheese (regular)"]}
-    {:name "cond_5_name", :childs ["Low fat cream cheese"]}
-  ]}
-  {:name "Foods_Needing_Condiments_Row", :childs [
-    {:name "Survey_Food_Code", :childs ["58100100"]}
-    {:name "display_name", :childs ["Beef burrito (no beans):"]}
-    {:name "cond_1_name", :childs ["Sour cream"]}
-    {:name "cond_2_name", :childs ["Guacamole"]}
-    {:name "cond_3_name", :childs ["Salsa"]}
-  ]}
-  {:name "Foods_Needing_Condiments_Row", :childs [
-    {:name "Survey_Food_Code", :childs ["58104740"]}
-    {:name "display_name", :childs ["Chicken &amp; cheese quesadilla:"]}
-    {:name "cond_1_name", :childs ["Sour cream"]}
-    {:name "cond_2_name", :childs ["Guacamole"]}
-    {:name "cond_3_name", :childs ["Salsa"]}
-  ]}
-]}</pre>
-  
-  <p>
-  Now, after all that build-up, here’s the point of this étude: from the JavaScript object, build a ClojureScript map whose keys are the condiments and whose values are vectors of foods that go with those condiments. Thus, for the sample file, running the program from the command line the output would be this map (formatted and quotemarked for ease of reading):
-  </p>
-  
-  <pre>[etudes@localhost nodetest]$ node nodetest.js test.xml
+  <pre>[etudes@localhost nodetest]$ node condiments.js test.xml
 {"Butter" ["100% Whole Wheat Bagel"],
 "Tub margarine" ["100% Whole Wheat Bagel"],
 "Reduced calorie spread (margarine type)" ["100% Whole Wheat Bagel"],
@@ -117,26 +61,101 @@ node-xml-lite@0.0.3 node_modules/node-xml-lite
 "Guacamole" ["Beef burrito (no beans):" "Chicken &amp; cheese quesadilla:"],
 "Salsa" ["Beef burrito (no beans):" "Chicken &amp; cheese quesadilla:"]}</pre>
 
-  <p>
-  To get command line options, use the <code>arg</code> property of the global <code>js/process</code> variable. Element 0 is <code>"node"</code>, element 1 is the name of the JavaScript file, and element 2 is where your command line arguments begin. Thus, you can get the file name with:
-  </p>
+    <section data-type="sect2" id="parse-xml">
+    <h2>Parsing XML</h2>
+    <p>
+    How do you parse XML using Node.js? Install the <code>node-xml-lite</code> module:
+    </p>
   
-  <pre>(nth (.-argv js/process) 2)</pre>
+    <pre>[etudes@localhost ~]$ <strong>npm install node-xml-lite</strong>
+npm http GET https://registry.npmjs.org/node-xml-lite
+npm http 304 https://registry.npmjs.org/node-xml-lite
+npm http GET https://registry.npmjs.org/iconv-lite
+npm http 304 https://registry.npmjs.org/iconv-lite
+node-xml-lite@0.0.3 node_modules/node-xml-lite
+└── iconv-lite@0.4.8</pre>
+
+    <p>
+    Bring the XML parsing module into your <em>core.cljs</em> file:
+    </p>
+    
+    <pre>(def xml (js/require "node-xml-lite"))</pre>
+    
+    <p>
+    The following code will parse an XML file and return a JavaScript object:
+    </p>
+    
+    <pre>(.parseFileSync xml "test.xml")</pre>
+    
+    <p>
+    And here is the JavaScript object that it produces:
+    </p>
+    
+  <pre>
+  {:name "Foods_Needing_Condiments_Table", :childs [
+    {:name "Foods_Needing_Condiments_Row", :childs [
+      {:name "Survey_Food_Code", :childs ["51208000"]}
+      {:name "display_name", :childs ["100% Whole Wheat Bagel"]}
+      {:name "cond_1_name", :childs ["Butter"]}
+      {:name "cond_2_name", :childs ["Tub margarine"]}
+      {:name "cond_3_name", :childs ["Reduced calorie spread (margarine type)"]}
+      {:name "cond_4_name", :childs ["Cream cheese (regular)"]}
+      {:name "cond_5_name", :childs ["Low fat cream cheese"]}
+    ]}
+    {:name "Foods_Needing_Condiments_Row", :childs [
+      {:name "Survey_Food_Code", :childs ["58100100"]}
+      {:name "display_name", :childs ["Beef burrito (no beans):"]}
+      {:name "cond_1_name", :childs ["Sour cream"]}
+      {:name "cond_2_name", :childs ["Guacamole"]}
+      {:name "cond_3_name", :childs ["Salsa"]}
+    ]}
+    {:name "Foods_Needing_Condiments_Row", :childs [
+      {:name "Survey_Food_Code", :childs ["58104740"]}
+      {:name "display_name", :childs ["Chicken &amp; cheese quesadilla:"]}
+      {:name "cond_1_name", :childs ["Sour cream"]}
+      {:name "cond_2_name", :childs ["Guacamole"]}
+      {:name "cond_3_name", :childs ["Salsa"]}
+    ]}
+  ]}</pre>
+    </section>
   
-  <p>
-  While writing my solution, I had two separate functions: <code>process-children</code>, which iterated through all the <code>childs</code>. calling function <code>process-child</code> for each of them. However, a child element could itself have children, so <code>process-child</code> had to be able to call <code>process-children</code>. ClojureScript requires you to define a function before you can use it, so you would think this is an unsolvable problem. Luckily, the inventor of Clojure foresaw this sort of situations, and created the <code>declare</code> form which lets you declare a symbol that you will define later.  Thus, I was able to write code like this:
-  </p>
+    <section data-type="sect2" id="command-line-options">
+    <h2>Command Line Arguments</h2>
+    <p>
+    While you can hard-code the XML file name into your program, it makes the program less flexible.. It would be much nicer if (as in the description of the étude) you could specify the file name to process on the command line.
+    </p>
+    <p>
+    To get command line arguments, use the <code>arg</code> property of the global <code>js/process</code> variable. Element 0 is <code>"node"</code>, element 1 is the name of the JavaScript file, and element 2 is where your command line arguments begin. Thus, you can get the file name with:
+    </p>
+    
+    <pre>(nth (.-argv js/process) 2)</pre>
+    </section>
+    
+    <section data-type="sect2" id="mutual-recursion">
+    <h2>Mutually Recursive Functions</h2>
   
-  <pre>(declare process-child)
+    <p>
+    While writing my solution, I had two separate functions: <code>process-children</code>, which iterated through all the <code>childs</code>. calling function <code>process-child</code> for each of them. However, a child element could itself have children, so <code>process-child</code> had to be able to call <code>process-children</code>. The term for this sort of situtation is that you have <em>mutually recursive functions</em>. Here’s the problem: ClojureScript requires you to define a function before you can use it, so you would think that you can’t have mutually recursive functions. Luckily, the inventor of Clojure foresaw this sort of situation and created the <code>declare</code> form which lets you declare a symbol that you will define later.  Thus, I was able to write code like this:
+    </p>
+  
+    <pre>(declare process-child)
   
 (defn process-children [...]
    (process-child ...))
 
 (defn process-child [...]
    (process-children ...))</pre>
-   
-  <p>See a suggested solution: <a href="#SOLUTION04-ET01" 
-data-type="xref">#SOLUTION04-ET01</a></p>
+    
+    <p>
+    Just because I used mutually recursive functions to solve the problem doesn’t mean you have to. If you can find a way to do it with a single recursive function, go for it. I was following the philosophy of “the first way you think of doing it that works is the right way.”
+    </p>
+    </section>
+    
+  <p>
+  There’s a lot of explanation in this étude, and you are probably thinking this is going to be a huge program. It sure seemed that way to me while I was writing it, but it turned that was mostly because I was doing lots of tests in the REPL and looking things up in documentation. When I looked at the resulting program, it was only 45 lines. Here it is: <a href="#SOLUTION04-ET01" 
+data-type="xref">#SOLUTION04-ET01</a>
+
+  </p>
   </section>
 
 </section>
