@@ -545,5 +545,51 @@ Here are suggested solutions for the études. Of course, your solutions may well
 
 (ef/at "#calculate" (ev/listen :click calculate))</pre>
   </section>
+  
+  <section data-type="sect1" id="SOLUTION04-ET01">
+  <h1>Solution 4-1</h1>
+
+<pre>(ns nodetest.core
+  (:require [cljs.nodejs :as nodejs]))
+
+(nodejs/enable-util-print!)
+
+(def xml (js/require "node-xml-lite"))
+
+;; forward reference
+(declare process-child)
+
+(defn process-children
+  "Process an array of child nodes, with a current food name
+  and accumulate a result"
+  [[food result] children]
+  (let [[final-food final-map] (reduce process-child [food result] children)]
+    [final-food final-map]))
+
+(defn add-condiment
+  "Add food to the vector of foods that go with this condiment"
+  [result food condiment]
+  (let [food-list (get result condiment)
+        new-list (if food-list (conj food-list food) [food])]
+    (assoc result condiment new-list)))
+
+(defn process-child
+  "Given a current food and result map, and an item,
+  return the new food name and result map"
+  [[food result] item]
+  (cond
+    (= (.-name item) "display_name") (vector (first (.-childs item)) result)
+    (.test #"cond_._name" (.-name item))
+      (vector food (add-condiment result food (first (.-childs item))))
+    (and (.-childs item) (.-name (first (.-childs item))))
+      (process-children [food result] (.-childs item))
+    :else [food result]))
+
+(defn -main []
+  (let [docmap (.parseFileSync xml (nth (.-argv js/process) 2))]
+  (println (last (process-children ["" {}] (.-childs docmap))))))
+
+(set! *main-cli-fn* -main)</pre>
+  </section>
 </section>
 
