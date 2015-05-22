@@ -1,0 +1,111 @@
+<section data-type="appendix" id="appendix_server_cljs">
+<h1>ClojureScript on the Server</h1>
+
+  <section data-type="sect1">
+  <h1>ClojureScript on the Server</h1>
+
+  <p>Just as JavaScript works in the browser and on the server, via a library like <a href="https://nodejs.org">Node.js</a>, so does ClojureScript. In this book I’m using Node.js for the server side.</p>
+
+    <section data-type="sect2" id="getting-node">
+    <h2>Getting Node.js</h2>
+    <p>
+    You can get Node.js from <a href="https://nodejs.org/download/">the download page</a>. This will also give you <em>npm</em>, Node’s package manager.
+    </p>
+    </section>
+    
+    <section data-type="sect2" id="create-node-project">
+    <h2>Creating a ClojureScript/Node Project</h2>
+    <p>
+    I am using the minimal <em>mies-node</em> template to create a ClojureScript project that works with Node.js. Use the <code>git</code> utility to download the latest version and install it:
+    </p>
+    
+<pre data-type="programlisting">[etudes@localhost ~]$ <strong>git clone https://github.com/swannodette/mies-node-template.git</strong>
+Cloning into 'mies-node-template'...
+remote: Counting objects: 114, done.
+remote: Total 114 (delta 0), reused 0 (delta 0), pack-reused 114
+Receiving objects: 100% (114/114), 14.78 KiB | 0 bytes/s, done.
+Resolving deltas: 100% (46/46), done.
+Checking connectivity... done.
+[etudes@localhost ~]$ <strong>cd mies-node-template</strong>
+[etudes@localhost mies]$ <strong>lein install</strong>
+Created /home/etudes/mies-node-template/target/lein-template-0.3.0.jar
+Wrote /home/etudes/mies-node-template/pom.xml
+Installed jar and pom into local repo.</pre>
+
+    <p>
+    Here is the file structure that came from the command <code>lein&#160;new&#160;mies-node&#160;example</code>:
+    </p>
+    
+<pre>example
+├── project.clj
+├── script
+│   ├── compile
+│   ├── compile.clj
+│   ├── repl
+│   ├── repl.clj
+│   ├── watch
+│   └── watch.clj
+└── src
+    └── example
+        └── core.cljs</pre>
+        
+    <p>
+    The <em>project.clj</em> file contains information about your project’s requirements and dependencies. The <em>script</em> directory contains scripts that:
+    </p>
+  
+    <ul>
+      <li>Open a REPL (<em>repl</em>)</li>
+      <li>Compile your project project (<em>compile</em>)</li>
+      <li>Compile parts of the ClojureScript system so you don’t have to recompile them every time you rebuild the project (<em>compile_cljsc</em>)</li>
+      <li>Monitor the source directory and rebuild the project whenever a source file changes (<em>watch</em>)</li>
+    </ul>
+    
+    <p>
+    The <em>core.cljs</em> file will contain your code. For a new project, it looks like this:
+    </p>
+    
+<pre>(ns example.core
+  (:require [cljs.nodejs :as nodejs]))
+
+(nodejs/enable-util-print!)
+
+(defn -main []
+  (println "Hello world!"))
+
+(set! *main-cli-fn* -main)</pre>
+
+    <p>
+    You can, from the main <em>example</em> folder, invoke <em>script/compile</em>to build the project and start the browser REPL with <em>script/repl</em>. All these scripts use Leiningen, which will automatically retrieve any dependencies that your project needs. You will eventually see something like this:
+    </p>
+    
+<pre>[etudes@localhost example]$ <strong>script/repl</strong>
+ClojureScript Node.js REPL server listening on 57065
+To quit, type: :cljs/quit
+cljs.user=> </pre>
+    
+    <p>
+    To run the program:
+    </p>
+    
+    <pre>[etudes@localhost example]$ <strong>node example.js</strong>
+Hello world!</pre>
+    
+    </section>
+
+    <section data-type="sect2" id="integrating-node">
+    <h2>Using Node.js Modules</h2>
+    <p>
+    To use a Node.js module, you need to define a binding for the library via the <code>js/require</code> function. You can then use that binding’s methods and properties in your ClojureScript code. The following is a REPL session that shows the use of the built-in <code>os</code> module.
+    </p>
+    
+<pre>example.core=&gt; (def os (js/require "os"))
+;; much output omitted
+example.core=&gt; (.hostname os)
+"localhost.localdomain"
+example.core=&gt; (.platform os)
+"linux"
+example.core=&gt; (.-EOL os) ;; this is a property
+"\n"</pre>
+    </section>
+  </section>
+</section>
