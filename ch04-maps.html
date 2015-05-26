@@ -187,7 +187,7 @@ data-type="xref">#SOLUTION04-ET01</a>
                (println "Server started on port 3000")))))</pre>
                
       <p>
-      This starts a server on port 3000, and when it receives a <code>get</code> request, calls the <code>generate-page</code> function. (You can also set up the server to accept <code>post</code> requests and route them to other URLS than the server root, but that is beyond the scope of this book.)
+      This starts a server on port 3000, and when it receives a <code>get</code> request, calls the <code>generate-page!</code> function. (You can also set up the server to accept <code>post</code> requests and route them to other URLS than the server root, but that is beyond the scope of this book.)
       </p>
       </li>
       </ul>
@@ -229,7 +229,7 @@ data-type="xref">#SOLUTION04-ET01</a>
             [hiccups.runtime :as hiccupsrt]))</pre>
             
       <p>
-      You are now ready to write the <code>generate-page</code> function, which has two parameters: the HTTP request that the server received, and the HTTP response that you will send back to the client.  The property <code>(.-query request)</code> is a JavaScript object with the form names as its properties.  Thus, if you have a form entry like this:
+      You are now ready to write the <code>generate-page!</code> function, which has two parameters: the HTTP request that the server received, and the HTTP response that you will send back to the client.  The property <code>(.-query request)</code> is a JavaScript object with the form names as its properties.  Thus, if you have a form entry like this:
       </p>
       
       <pre>&lt;input type="text" name="userName"/&gt;</pre>
@@ -246,7 +246,7 @@ data-type="xref">#SOLUTION04-ET01</a>
       <section data-type="sect2">
       <h2>Putting the Étude Together</h2>
       <p>
-      Your program will use the previous étude’s code to build the map of condiments and compatible foods from the XML file. To make the program easier to read, I put the code for creating the map into a separate file with its own namespace. Then use the same framework that was developed in <a href="#dynamic-html" datatype="xref">#dynamic-html</a>, with the generated page containing:
+      Your program will use the previous étude’s code to build the map of condiments and compatible foods from the XML file. To make the program easier to read, I put the code for creating the map into a separate file with its own namespace. Then use the same framework that was developed in <a href="#dynamic-html" data-type="xref">#dynamic-html</a>, with the generated page containing:
       </p>
       
       <ul>
