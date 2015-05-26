@@ -157,5 +157,111 @@ data-type="xref">#SOLUTION04-ET01</a>
 
   </p>
   </section>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
+  <section data-type="sect1" id="ETUDE04-02">
+  <h1>Étude 4-2: Condiment Server</h1>
+  <p>
+  Now that you have the map from the previous étude, what can you do with it? Well, how many times have you been staring at that jar of mustard and asking yourself “What food would go well with this?” This étude will cure that indecision once and for all. You will write a server using <a href="http://expressjs.com/">Express</a>, which, as the web site says, is a “minimalist web framework for Node.js.” <a href="http://www.mase.io/code/clojure/node/2015/01/25/clojurescript-and-node-part-2-express/">This article about using ClojureScript and Express</a> was very helpful when I was first learning about the subject; I strongly suggest you read it.
+  </p>
+  
+  <p>
+  Let’s set up a simple server that you can use as a basis for this étude. The server presents a form with an input field for the user's name. When the user clicks the submit button,  the data is submitted back to the server and it echoes back the form and a message: “Pleased to meet you, <em>username</em>.”
+   </p>
+  
+    <section id="setup-express" data-type="sect2">
+    <h2>Setting up Express</h2>
+    <p>You will need to do the following:</p>
+    
+    <ul>
+    <li>Add <code>[express "4.11.1"]</code> to the <code>:node-dependencies</code> in your
+    <em>project.clj</em> file.</li>
+    <li>Add <code>(def express (nodejs/require "express"))</code> in your <em>core.cljs</em> file</li>
+    <li>Make your <code>main</code> function look like this:
+    
+<pre>(defn -main []
+  (let [app (express)]
+    (.get app "/" generate-page!)
+    (.listen app 3000
+             (fn []
+               (println "Server started on port 3000")))))</pre>
+               
+      <p>
+      This starts a server on port 3000, and when it receives a <code>get</code> request, calls the <code>generate-page</code> function. (You can also set up the server to accept <code>post</code> requests and route them to other URLS than the server root, but that is beyond the scope of this book.)
+      </p>
+      </li>
+      </ul>
+    </section>
+    
+    <section data-type="sect2" id="dynamic-html">
+    <h2>Generating HTML from ClojureScript</h2>
+    <p>
+    To generate the HTML dynamically, you will use the <code>html</code> function of the <a href="">hiccups</a> library. The function takes as its argument a vector that has a keyword as an element name, an optional map of attributes and values, and element content.  Here are some examples:
+      </p>
+      
+      <table>
+        <thead>
+          <tr><th>HTML</th><th>Hiccup</th></tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>&lt;h1&gt;Heading&lt;/h1&gt;</td>
+          <td>(html [:h1 "Heading"])</td>
+        </tr>
+        <tr>
+          <td>&lt;p id="intro"&gt;test&lt;/p&gt;</td>
+          <td>(html [:p {:id "intro"} test])</td>
+        </tr>
+        <tr>
+          <td>&lt;p&gt;Click to &lt;a href="page2.html"&gt;go to page two&lt;/a&gt;.&lt;/p&gt;</td>
+          <td>(html [:p "Click to " [:a {:href "page2.html"} "go to page two"] "."])</td>
+        </tr>
+        </tbody>
+      </table>
+      
+      <p>
+      You add <code>[hiccups "0.3.0"]</code> to your <em>project.clj</em> dependencies and modify your <em>core.cljs</em> file to require hiccups:
+      </p>
+      
+      <pre>(ns servertest.core
+  (:require-macros [hiccups.core :as hiccups])
+  (:require [cljs.nodejs :as nodejs]
+            [hiccups.runtime :as hiccupsrt]))</pre>
+            
+      <p>
+      You are now ready to write the <code>generate-page</code> function, which has two parameters: the HTTP request that the server received, and the HTTP response that you will send back to the client.  The property <code>(.-query request)</code> is a JavaScript object with the form names as its properties.  Thus, if you have a form entry like this:
+      </p>
+      
+      <pre>&lt;input type="text" name="userName"/&gt;</pre>
+      
+      <p>
+      You would access the value via <code>(.-userName (.-query request))</code>.
+      </p>
+      
+      <p>
+      The <code>generate-page</code> function creates the HTML page as a string to send back to the client; you send it back by calling <code>(.send response <em>html-string</em>)</code>. The HTML page will contain a form whose <code>action</code> URL is the server root (<code>/</code>). The form will have an input area for the user name and a submit button. This will be followed by a paragraph that has the text “Pleased to meet you, <em>user name</em>.” (or an empty paragraph if there's no user name). You can either figure out this code on your own or <a href="#SOLUTION04-ET02A">see a suggested solution</a>. I’m giving you the code here because the purpose of this étude is to process the condiment map in the web page context rather than setting up the web page in the first place. (Of course, I strongly encourage you to figure it out on your own; you will learn a lot&#x2014;I certainly did!)
+      </p>
+      </section>
+      
+      <section data-type="sect2">
+      <h2>Putting the Étude Together</h2>
+      <p>
+      Your program will use the previous étude’s code to build the map of condiments and compatible foods from the XML file. To make the program easier to read, I put the code for creating the map into a separate file with its own namespace. Then use the same framework that was developed in <a href="#dynamic-html" datatype="xref">#dynamic-html</a>, with the generated page containing:
+      </p>
+      
+      <ul>
+      <li>A form with a <code>&lt;select&gt;</code> menu that gives the condiment names (the keys of the map). You may want to add an entry with the text “Choose a condiment” at the beginning of the menu to indicate “no choice yet.” When you create the menu, remember to select the <code>selected="selected"</code> attribute for the current menu choice.</li>
+      <li>A submit button for the form</li>
+      <li>An unordered list that gives the matching foods for that condiment (the value from the map), or an empty list if no condiment has been chosen.</li>
+      </ul>
+      
+      <p>
+      Your code should alphabetize the condiment names and compatible foods. Some of the foods begin with capital letters; others with lower case. You will want to do a case-insensitive form. (Hint: use the form of <code>sort</code> that takes a comparison function.) 
+      </p>
+      
+      <p>
+      See a suggested solution: <a href="#SOLUTION04-ET02B" data-type="xref">#SOLUTION04-ET02B</a>
+      </p>
+      </section>
+    </section>
 </section>

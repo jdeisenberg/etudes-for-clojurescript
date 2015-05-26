@@ -595,5 +595,162 @@ Here are suggested solutions for the études. Of course, your solutions may well
 
 (set! *main-cli-fn* -main)</pre>
   </section>
+  
+  <section data-type="sect1" id="SOLUTION04-ET02A">
+  <h1>Solution 4-2A</h1>
+  <p>
+  This is a sample web server that simply echoes back the user’s input. Use this as a guide for the remainder of the étude.
+  </p>
+
+<pre>(ns servertest.core
+  (:require-macros [hiccups.core :as hiccups])
+  (:require [cljs.nodejs :as nodejs]
+            [hiccups.runtime :as hiccupsrt]))
+
+(nodejs/enable-util-print!)
+
+(def express (nodejs/require "express"))
+
+(defn generate-page! [request response]
+  (let [query (.-query request)
+        user-name (if query (.-userName query) "")]
+    (.send response
+           (hiccups/html
+             [:html
+              [:head [:title "Server Example"]
+               [:meta {:http-equiv "Content-type" :content "text/html"
+                       :charset "utf-8"}]]
+              [:body
+               [:p "Enter your name:"]
+               [:form {:action "/"
+                       :method "get"}
+                [:input {:name "userName" :value user-name}]
+                [:input {:type "submit" :value "Send Data"}]]
+               [:p (if (and user-name (not= user-name ""))
+                     (str "Pleased to meet you, " user-name ".") "")]]]))))
+
+(defn -main []
+  (let [app (express)]
+    (.get app "/" generate-page!)
+    (.listen app 3000
+             (fn []
+               (println "Server started on port 3000")))))
+
+(set! *main-cli-fn* -main)</pre>
+  </section>
+  
+  <section data-type="sect1" id="SOLUTION04-ET02B">
+  <h1>Solution 4-2B</h1>
+  <p>
+  This is a solution for the condiment matcher web page. It has separated the code for creating the condiment map from the XML page into a separate file to keep the code cleaner.
+  </p>
+  
+<pre>(ns foodserver.mapmaker)
+
+(def xml (js/require "node-xml-lite"))
+
+;; forward reference
+(declare process-child)
+
+(defn process-children
+  "Process an array of child nodes, with a current food name
+  and accumulate a result"
+  [[food result] children]
+  (let [[final-food final-map] (reduce process-child [food result] children)]
+    [final-food final-map]))
+
+(defn add-condiment
+  "Add food to the vector of foods that go with this condiment"
+  [result food condiment]
+  (let [food-list (get result condiment)
+        new-list (if food-list (conj food-list food) [food])]
+    (assoc result condiment new-list)))
+
+(defn process-child
+  "Given a current food and result map, and an item,
+  return the new food name and result map"
+  [[food result] item]
+
+  ;; The first child of an element is text - either a food name
+  ;; or a condiment name, depending on the element name.
+  (let [firstchild (first (.-childs item))]
+    (cond
+      (= (.-name item) "display_name") (vector firstchild result)
+      (.test #"cond_._name" (.-name item))
+      (vector food (add-condiment result food firstchild))
+      (and (.-childs item) (.-name firstchild))
+      (process-children [food result] (.-childs item))
+      :else [food result])))
+
+(defn foodmap [filename]
+  (let [docmap (.parseFileSync xml filename)]
+    (last (process-children ["" {}] (.-childs docmap)))))</pre>
+    
+    <p>Here is the main file.</p>
+    
+<pre>(ns foodserver.core
+  (:require-macros [hiccups.core :as hiccups])
+  (:require [cljs.nodejs :as nodejs]
+            [hiccups.runtime :as hiccupsrt]
+            [foodserver.mapmaker :as mapmaker]
+            [clojure.string :as str]))
+
+(nodejs/enable-util-print!)
+
+(def express (nodejs/require "express"))
+
+(def foodmap (mapmaker/foodmap "food.xml"))
+
+(defn case-insensitive [a b]
+  (compare (str/upper-case a) (str/upper-case b)))
+
+(defn condiment-menu
+  "Create HTML menu with the given selection
+  as the 'selected' item"
+  [selection]
+  (map (fn [item] [:option
+                   (if (= item selection){:value item :selected "selected"} {:value item})
+                   item])
+       (sort case-insensitive (keys foodmap))))
+
+(defn compatible-foods
+  "Create unordered list of foods compatible with selected condiment"
+  [selection]
+  (if selection
+    (map (fn [item] [:li item]) (sort case-insensitive (foodmap selection)))
+    nil))
+
+(defn generate-page! [request response]
+  (let [query (.-query request)
+        chosen-condiment (if query (.-condiment query) "")]
+    (.send response
+           (hiccups/html
+             [:html
+              [:head
+               [:title "Condiment Matcher"]
+               [:meta {:http-equiv "Content-type"
+                       :content "text/html; charset=utf-8"}]]
+              [:body
+               [:h1 "Condiment Matcher"]
+               [:form {:action "http://localhost:3000"
+                       :method "get"}
+                [:select {:name "condiment"}
+                 [:option {:value ""} "Choose a condiment"]
+                 (condiment-menu chosen-condiment)]
+                [:input {:type "submit" :value "Find Compatible Foods"}]]
+               [:ul (compatible-foods chosen-condiment)]
+               [:p "Source data: "
+                [:a {:href "http://catalog.data.gov/dataset/mypyramid-food-raw-data-f9ed6"}
+                 "MyPyramid Food Raw Data"]
+                " from the Food and Nutrition Service of the United States Department of Agriculture."]]]))))
+
+(defn -main []
+  (let [app (express)]
+    (.get app "/" generate-page!)
+    (.listen app 3000 (fn []
+                        (println "Server started on port 3000")))))
+
+(set! *main-cli-fn* -main)</pre>
+  </section>
 </section>
 
