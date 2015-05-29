@@ -17,7 +17,7 @@
     "appendix_c.html",
     "appendix_d.html",
     "ix.html",
-    "README.md"
+    "README.asciidoc"
   ],
   "formats": {
     "pdf": {
