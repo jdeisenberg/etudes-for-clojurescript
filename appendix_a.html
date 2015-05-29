@@ -549,7 +549,7 @@ Here are suggested solutions for the études. Of course, your solutions may well
   <section data-type="sect1" id="SOLUTION04-ET01">
   <h1>Solution 4-1</h1>
 
-<pre>(ns condiments.core
+<pre data-type="programlisting" data-code-language="clojure">(ns condiments.core
   (:require [cljs.nodejs :as nodejs]))
 
 (nodejs/enable-util-print!)
@@ -602,7 +602,7 @@ Here are suggested solutions for the études. Of course, your solutions may well
   This is a sample web server that simply echoes back the user’s input. Use this as a guide for the remainder of the étude.
   </p>
 
-<pre>(ns servertest.core
+<pre data-type="programlisting" data-code-language="clojure">(ns servertest.core
   (:require-macros [hiccups.core :as hiccups])
   (:require [cljs.nodejs :as nodejs]
             [hiccups.runtime :as hiccupsrt]))
@@ -645,7 +645,7 @@ Here are suggested solutions for the études. Of course, your solutions may well
   This is a solution for the condiment matcher web page. It has separated the code for creating the condiment map from the XML page into a separate file to keep the code cleaner.
   </p>
   
-<pre>(ns foodserver.mapmaker)
+<pre data-type="programlisting" data-code-language="clojure">(ns foodserver.mapmaker)
 
 (def xml (js/require "node-xml-lite"))
 
@@ -688,7 +688,7 @@ Here are suggested solutions for the études. Of course, your solutions may well
     
     <p>Here is the main file.</p>
     
-<pre>(ns foodserver.core
+<pre data-type="programlisting" data-code-language="clojure">(ns foodserver.core
   (:require-macros [hiccups.core :as hiccups])
   (:require [cljs.nodejs :as nodejs]
             [hiccups.runtime :as hiccupsrt]
