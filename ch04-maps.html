@@ -264,4 +264,159 @@ data-type="xref">#SOLUTION04-ET01</a>
       </p>
       </section>
     </section>
+    
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section data-type="sect1" id="ETUDE04-03">
+  <h1>Étude 4-3: Complex Maps</h1>
+  <p>
+  This is a rather open-ended étude. It uses an excerpt of the Montgomery County, Maryland (USA) traffic violation database, which you may find <a href="http://catalog.data.gov/dataset/traffic-violations-56dda">at this URL</a>. I have taken only the violations for July 2014, removed several of the columns of the data, and put the result into a CSV (comma-separated value) file named <em>traffic_july_2014_edited.csv</em>, which you may find at <em>URL to be determined later</em>.
+  </p>
+  
+  <p>
+  Here are the column headings:
+  </p>
+  
+  <ul>
+  <li>Date Of Stop, in format <em>mm</em>/<em>dd</em>/<em>yyyy</em></li>
+  <li>Time Of Stop, in format <em>hh</em>:<em>mm</em>:<em>ss</em></li>
+  <li>Description</li>
+  <li>Accident (Yes/No)</li>
+  <li>Personal Injury (Yes/No)</li>
+  <li>Property Damage (Yes/No)</li>
+  <li>Fatal (Yes/No)</li>
+  <li>State (two-letter abbreviation)</li>
+  <li>Vehicle Type</li>
+  <li>Year</li>
+  <li>Make</li>
+  <li>Model</li>
+  <li>Color</li>
+  <li>Violation Type (Warning / Citation / ESERO [Electronic Safety Equipment Repair Order])</li>
+  <li>Article (Maryland Government traffic code section)</li>
+  <li>Race</li>
+  <li>Gender</li>
+  <li>Driver State (two-letter abbreviation)</li>
+  <li>Driver’s License State (two-letter abbreviation)</li>
+  </ul>
+
+  <p>
+  As you can see, you have a treasure trove of data here. For example, one reason I chose July is that I was interested in seeing if the number of traffic violations was greater around the July 4th holiday (in the United States) than during the rest of the month.
+  </p>
+  
+  <p>
+  If you look at the data, you can see that the “Make” (vehicle manufacturer) column would need some cleaning up to be truly useful. For example, there are entries such as TOYOTA, TOYT, TOYO, and TOUOTA. Various other creative spellings and abbreviations abound in that column. Also, the Scion is listed as both a make and a model. Go figure.
+  </p>
+  
+  <p>
+  In this étude, you are going to write a function that reads the CSV file and creates a data structure (I suggest a vector of maps) for each row. 
+  For example:
+  </p>
+<pre>[{:date "07/31/2014", :time "22:08:00" ... :gender "F", :driver-state "MD"},
+  {:date "07/31/2014", :time "21:27:00" ... :gender "F", :driver-state "MD"}, ...]</pre>
+    
+  <p>
+  Hints: do <code>npm&#x0a0;install&#x0a0;line-by-line</code> in order to read the CSV file one line at a time. Documentation for the module is at <a href="https://www.npmjs.com/package/line-by-line">https://www.npmjs.com/package/line-by-line</a>. Use <code>zipmap</code> to make it easy to construct a map for each row.
+  </p>
+  
+  <p>
+  You will then write two functions. The first one, named <code>frequency-table</code>, has two parameters: 
+  </p>
+     <ol>
+      <li>The data structure from the CSV file</li>
+      <li>A column specifier<li>
+      <li>Return column totals (boolean)</li>
+    </ol>
+  <p>
+  You’ll take advantage of ClojureScript’s higher order functions here. Instead of the specifier being simple keyword, the specifier is a function that takes one entry (a “row”) in the data structure and returns a value. So, if you wanted a frequency table to figure out how many violations there are in each hour of the day, you would write code like this:
+  </p>
+   
+<pre data-type="programlisting" data-code-language="clojure">(defn hour [csv-row]
+  (.substr (csv-row :time) 0 2))
+
+(defn frequency-table [all-data col-spec]
+  ;; your code here
+  )
+  
+;; now you do a call like this:
+(frequency-table traffic-data hour true)</pre>
+
+  <p>
+  The return value from <code>frequency-table</code> will be a vector that consists of:
+  </p>
+  <ul>
+    <li>A vector of labels, sorted</li>
+    <li>A vector giving the frequency counts for each label</li>
+    <li>The total count</li>
+  </ul>
+  
+  <p>
+  Here are some frequency tables that might be interesting: Color of car&#x2014;which car colors are most likely to have a violation? Year of car manufacture&#x2014;are older cars more likely to have a violation?
+  </p>
+ 
+  <p>
+  Your second function will be named <code>cross-tab</code>; it creates frequency cross-tabluations. It has these parameters:
+  </p>
+    <ol>
+      <li>The data structure from the CSV file</li>
+      <li>A row specifier<li>
+      <li>A column specifier</li>
+      <li>Return row totals (boolean)</li>
+      <li>Return column totals (boolean)</li>
+    </ol>
+  <p>
+  Again, the row and column specifiers are functions. So, if you wanted a cross-tabulation with hour of day as the rows and gender as the columns, you might write code like this:
+  </p>
+   
+<pre data-type="programlisting" data-code-language="clojure">(defn hour [csv-row]
+  (.substr (csv-row :time) 0 2))
+
+(defn gender [csv-row]
+  (:gender csv-row))
+  
+(defn cross-tab [all-data row-spec col-spec]
+  ;; your code here
+  )
+  
+;; now you do a call like this:
+(crosstab traffic-data hour gender true false)</pre>
+
+  <p>
+  The return value from <code>cross-tab</code> will be a vector that consists of:
+  </p>
+  <ul>
+    <li>A vector of row labels, sorted</li>
+    <li>A vector of column labels, sorted</li>
+    <li>A vector of vectors that gives the frequency counts for each row and column</li>
+    <li>A vector of row totals (if requested)</li>
+    <li>A vector of column totals (if requested)</li>
+  </ul>
+  
+  <p>
+  Here are some of the tables that might be interesting:
+  </p>
+  
+    <ul>
+      <li>Day by hour. The marginal totals will tell you which days and hours have the most violations. Are the days around 4 July 2014 (a US holiday) more active than other days? Which hours are the most and least active?</li>
+      <li>Gender by Color of vehicle (although the driver might not be the person who purchased the car)</li>
+      <li>Driver’s state by Property Damage&#x2014;are out-of-state drivers more likely to damage property than an in-state driver?</li>
+    </ul>
+  
+    <sect data-type="sect2" id="crosstab-bonus">
+    <h2>Bonus Points</h2>
+    <ul>
+      <li>Make the last two parameters of <code>crosstab</code> optional; if not given, presume <code>false</code>.</li>
+      <li>Allow the row and column specifier to be either keywords or functions.</li>
+    </ul>
+    
+    <p>If you implement both of these, the previous call to <code>crosstab</code> could be written like this:</p>
+    
+<pre data-type="programlisting" data-code-language="clojure">(crosstab traffic-data hour :gender true)</pre>
+
+    <p>
+    Ultra bonus points: if you give <code>cross-tab</code> a <code>nil</code> for the column specifier, it will return a simple frequency table. (That is, <code>frequency-table</code> will just become a call to <code>cross-tab</code> with <code>nil</code> for the column specifier.
+    </p>
+    </section>
+
+  </section>
+  
 </section>
