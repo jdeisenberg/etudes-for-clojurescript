@@ -56,14 +56,14 @@ The following screen will appear while GitHub copies the repository to your acco
 
 image::images/tutorial_forking.png[]
 
-==== Edit your file using AsciiDoc
+==== Edit your file using HTMLBook
 
 Once you've got the file created, you can start editing it at your leisure.  Remember to:
 
 * Mark up your text using http://oreillymedia.github.io/HTMLBook/[HTMLBook].
 * Change the line wrapping from "No Wrap" to "Soft Wrap."  Otherwise, all your text will appear on a single line.
 
-To edit the file, all you have to do is click its name in the directory listing in GitHub and then press the "Edit" button or the pencil icon in .  
+To edit the file, all you have to do is click its name in the directory listing in GitHub and then press the "Edit" button. If you do not see an "Edit" button, there is a pencil icon that serves the same purpose.  
 
 image::images/tutorial_edit.png[]
 
