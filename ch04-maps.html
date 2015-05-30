@@ -270,7 +270,7 @@ data-type="xref">#SOLUTION04-ET01</a>
   <section data-type="sect1" id="ETUDE04-03">
   <h1>Étude 4-3: Complex Maps</h1>
   <p>
-  This is a rather open-ended étude. It uses an excerpt of the Montgomery County, Maryland (USA) traffic violation database, which you may find <a href="http://catalog.data.gov/dataset/traffic-violations-56dda">at this URL</a>. I have taken only the violations for July 2014, removed several of the columns of the data, and put the result into a CSV (comma-separated value) file named <em>traffic_july_2014_edited.csv</em>, which you may find at <em>URL to be determined later</em>.
+  This étude uses an excerpt of the Montgomery County, Maryland (USA) traffic violation database, which you may find <a href="http://catalog.data.gov/dataset/traffic-violations-56dda">at this URL</a>. I have taken only the violations for July 2014, removed several of the columns of the data, and put the result into a TAB-separated value file named <em>traffic_july_2014_edited.csv</em>, which you may find at <em>URL to be determined later</em>. (Yes, I know CSV should be comma-separated, but using TAB makes life much easier.)
   </p>
   
   <p>
@@ -292,7 +292,7 @@ data-type="xref">#SOLUTION04-ET01</a>
   <li>Model</li>
   <li>Color</li>
   <li>Violation Type (Warning / Citation / ESERO [Electronic Safety Equipment Repair Order])</li>
-  <li>Article (Maryland Government traffic code section)</li>
+  <li>Charge (Maryland Government traffic code section)</li>
   <li>Race</li>
   <li>Gender</li>
   <li>Driver State (two-letter abbreviation)</li>
@@ -308,7 +308,7 @@ data-type="xref">#SOLUTION04-ET01</a>
   </p>
   
   <p>
-  In this étude, you are going to write a function that reads the CSV file and creates a data structure (I suggest a vector of maps) for each row. 
+  In this étude, you are going to write a Node.js function that reads the CSV file and creates a data structure (I suggest a vector of maps) for each row. 
   For example:
   </p>
 <pre>[{:date "07/31/2014", :time "22:08:00" ... :gender "F", :driver-state "MD"},
@@ -324,10 +324,9 @@ data-type="xref">#SOLUTION04-ET01</a>
      <ol>
       <li>The data structure from the CSV file</li>
       <li>A column specifier</li>
-      <li>Return column totals (boolean)</li>
     </ol>
   <p>
-  You’ll take advantage of ClojureScript’s higher order functions here. Instead of the specifier being simple keyword, the specifier is a function that takes one entry (a “row”) in the data structure and returns a value. So, if you wanted a frequency table to figure out how many violations there are in each hour of the day, you would write code like this:
+  You’ll take advantage of ClojureScript’s higher order functions here. The specifier is a function that takes one entry (a “row”) in the data structure and returns a value. So, if you wanted a frequency table to figure out how many violations there are in each hour of the day, you would write code like this:
   </p>
    
 <pre data-type="programlisting" data-code-language="clojure">(defn hour [csv-row]
@@ -335,19 +334,29 @@ data-type="xref">#SOLUTION04-ET01</a>
 
 (defn frequency-table [all-data col-spec]
   ;; your code here
-  )
+)
   
 ;; now you do a call like this:
-(frequency-table traffic-data hour true)</pre>
+(frequency-table traffic-data hour)</pre>
 
+  <p>
+  Note that, because keyword access to maps works like a function, you could get the frequency of genders by doing this call:
+  </p>
+  
+<pre data-type="programlisting" data-code-language="clojure">(frequency-table traffic-data :gender true)</pre>
   <p>
   The return value from <code>frequency-table</code> will be a vector that consists of:
   </p>
   <ul>
-    <li>A vector of labels, sorted</li>
+    <li>A vector of labels (the values from the specified column), sorted</li>
     <li>A vector giving the frequency counts for each label</li>
     <li>The total count</li>
   </ul>
+  
+  <p>
+  The return value from the call for gender looks like this: <code>[["F" "M" "U"] [6732 12776 7] 19515]</code>.
+  Hint: Build a map whose keys are labels and whose values are their frequency, then use <code>seq</code>.
+  </p>
   
   <p>
   Here are some frequency tables that might be interesting: Color of car&#x2014;which car colors are most likely to have a violation? Year of car manufacture&#x2014;are older cars more likely to have a violation?
@@ -369,16 +378,13 @@ data-type="xref">#SOLUTION04-ET01</a>
    
 <pre data-type="programlisting" data-code-language="clojure">(defn hour [csv-row]
   (.substr (csv-row :time) 0 2))
-
-(defn gender [csv-row]
-  (:gender csv-row))
   
 (defn cross-tab [all-data row-spec col-spec]
   ;; your code here
   )
   
 ;; now you do a call like this:
-(crosstab traffic-data hour gender true false)</pre>
+(crosstab traffic-data hour :gender)</pre>
 
   <p>
   The return value from <code>cross-tab</code> will be a vector that consists of:
@@ -387,12 +393,19 @@ data-type="xref">#SOLUTION04-ET01</a>
     <li>A vector of row labels, sorted</li>
     <li>A vector of column labels, sorted</li>
     <li>A vector of vectors that gives the frequency counts for each row and column</li>
-    <li>A vector of row totals (if requested)</li>
-    <li>A vector of column totals (if requested)</li>
+    <li>A vector of row totals (if requested), otherwise <code>nil</code></li>
+    <li>A vector of column totals (if requested), otherwise <code>nil</code></li>
   </ul>
   
   <p>
-  Here are some of the tables that might be interesting:
+  The previous search on the full data set returns this result:
+  </p>
+ 
+<pre>(cross-tab traffic hour :gender)
+[["00" "01" "02" "03" "04" "05" "06" "07" "08" "09" "10" "11" "12" "13" "14" "15" "16" "17" "18" "19" "20" "21" "22" "23"] ["F" "M" "U"] [[335 719 0] [165 590 0] [141 380 0] [96 249 0] [73 201 0] [63 119 0] [129 214 2] [380 625 0] [564 743 1] [481 704 0] [439 713 1] [331 527 0] [243 456 0] [280 525 0] [344 515 0] [276 407 0] [307 514 1] [317 553 0] [237 434 1] [181 461 0] [204 553 1] [289 657 0] [424 961 0] [433 956 0]] [1054 755 521 345 274 182 345 1005 1308 1185 1153 858 699 805 859 683 822 870 672 642 758 946 1385 1389] [6732 12776 7] 19515]</pre>
+
+  <p>
+  Here are some of the cross-tabulations that might be interesting:
   </p>
   
     <ul>
@@ -404,8 +417,8 @@ data-type="xref">#SOLUTION04-ET01</a>
     <section data-type="sect2" id="crosstab-bonus">
     <h2>Bonus Points</h2>
     <ul>
+      <li>Make the last parameter of <code>frequency-table</code> optional; if not given, presume <code>false</code>.</li>
       <li>Make the last two parameters of <code>crosstab</code> optional; if not given, presume <code>false</code>.</li>
-      <li>Allow the row and column specifier to be either keywords or functions.</li>
     </ul>
     
     <p>If you implement both of these, the previous call to <code>crosstab</code> could be written like this:</p>
@@ -417,6 +430,46 @@ data-type="xref">#SOLUTION04-ET01</a>
     </p>
     </section>
 
+    <section data-type="sect2" id="read-csv-section">
+    <h2>Reading the CSV File</h2>
+    <p>
+    Reading a file one line at a time from node.js is a non-trivial matter. Luckily for you and me, Jonathan Boston (twitter/github: <a href="https://github.com/bostonou">bostonou</a>), author of the <a href="clojurescriptmadeeasy.com">ClojureScript Made Easy</a> blog <a href="http://clojurescriptmadeeasy.com/blog/cljs-read-files-line-by-line-on-nodejs-part-2.html">posted a wonderful solution</a> just days before I wrote this étude. He has kindly given me permission to use the code, which you can get <a href="https://gist.github.com/bostonou/a54c029fa6f29459eafe">at this GitHub gist</a>. Follow the instructions in the gist, and separate the Clojure and ClojureScript code. Your <em>src</em> directory will look like this:
+    </p>
+<pre>src
+├── cljs_made_easy
+│   ├── line_seq.clj
+│   └── line_seq.cljs
+└── traffic
+    └── core.cljs</pre>
+    
+    <p>
+    Inside the <em>core.cljs</em> file, you will have these requirements:
+    </p>
+    
+<pre data-type="programlisting" data-code-language="clojure">(ns traffic.core
+  (:require [cljs.nodejs :as nodejs]
+            [clojure.string :as str]
+            [cljs-made-easy.line-seq :as cme]))
+ 
+(def filesystem (js/require "fs")) ;;require nodejs lib</pre>
+
+    <p>
+    You can then read a file like this, using <code><a href="http://clojuredocs.org/clojure.core/with-open">with-open</a></code> and <code><a href="http://clojuredocs.org/clojure.core/line-seq">line-seq</a></code> very much as they are used in Clojure. In the following code, the call to <code>.openSync</code> has three arguments: the filesystem defined earlier, the file name, and the file mode, with <code>"r"</code> for reading.
+    </p>
+    
+<pre data-type="programlisting" data-code-language="clojure">(defn example [filename]
+  (cme/with-open [file-descriptor (.openSync filesystem filename "r")]
+             (println (cme/line-seq file-descriptor))))</pre>
+             
+     <p>
+     Note: You may want to use a smaller version of the file for testing.
+     </p>
+     
+     <p>
+     See a suggested solution: <a href="#SOLUTION04-ET03" data-type="xref">#SOLUTION04-ET03</a>
+     </p>
+    </section>
+    
   </section>
   
 </section>
