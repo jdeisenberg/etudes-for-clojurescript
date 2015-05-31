@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Amount of Daylight</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <style type="text/css">
+          th, td {
+            border: 1px solid gray;
+            padding: 0.5em;
+          }
+        </style>
+    </head>
+    <body>
+        <h1>Amount of Daylight</h1>
+        <p>
+        <input type="radio" name="locationType" id="menu" checked="checked">
+          <select id="cityMenu">
+            <option value="39.9075">Beijing</option>
+            <option value="52.52437">Berlin</option>
+            <option value="-15.77972">Brasília</option>
+            <option value="30.06263">Cairo</option>
+            <option value="-35.28346">Canberra</option>
+            <option value="-17.82772">Harare</option>
+            <option value="-12.04318">Lima</option>
+            <option value="51.50853">London</option>
+            <option value="55.75222">Moscow</option>
+            <option value="-1.28333">Nairobi</option>
+            <option value="28.63576">New Delhi</option>
+            <option value="12.36566">Ouagadougou</option>
+            <option value="59.91273">Oslo</option>
+            <option value="48.85341">Paris</option>
+            <option value="35.6895">Tokyo</option>
+            <option value="38.89511">Washington, D. C.</option>
+          </select>
+          <input type="radio" id="userSpecified" name="locationType">
+          Other latitude: <input type="text" size="8" id="latitude"/>
+          <input type="button" value="Calculate" id="calculate"/>
+        </p>
+        
+        <h2>Monthly Average Daylight</h2>
+        <table>
+          <thead><tr><th>Month</th><th>Average</th></tr></thead>
+          <tbody>
+            <tr><td>January</td><td id="m1"></td></tr>
+            <tr><td>February</td><td id="m2"></td></tr>
+            <tr><td>March</td><td id="m3"></td></tr>
+            <tr><td>April</td><td id="m4"></td></tr>
+            <tr><td>May</td><td id="m5"></td></tr>
+            <tr><td>June</td><td id="m6"></td></tr>
+            <tr><td>July</td><td id="m7"></td></tr>
+            <tr><td>August</td><td id="m8"></td></tr>
+            <tr><td>September</td><td id="m9"></td></tr>
+            <tr><td>October</td><td id="m10"></td></tr>
+            <tr><td>November</td><td id="m11"></td></tr>
+            <tr><td>December</td><td id="m12"></td></tr>
+           
+          </tbody>
+        </table>
+        <script src="out/daylight_summary.js" type="text/javascript"></script>
+    </body>
+</html>

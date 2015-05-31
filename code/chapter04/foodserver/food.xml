@@ -1,0 +1,3659 @@
+<?xml version="1.0"?>
+<Foods_Needing_Condiments_Table>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>51208000</Survey_Food_Code>
+    <display_name>100% Whole Wheat Bagel</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>14301010</cond_4_code>
+    <cond_4_name>Cream cheese (regular)</cond_4_name>
+    <cond_5_code>14303010</cond_5_code>
+    <cond_5_name>Low fat cream cheese</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>58100100</Survey_Food_Code>
+    <display_name>Beef burrito (no beans):</display_name>
+    <cond_1_code>12310100</cond_1_code>
+    <cond_1_name>Sour cream</cond_1_name>
+    <cond_2_code>63409010</cond_2_code>
+    <cond_2_name>Guacamole</cond_2_name>
+    <cond_3_code>74402100</cond_3_code>
+    <cond_3_name>Salsa</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>58104740</Survey_Food_Code>
+    <display_name>Chicken &amp; cheese quesadilla:</display_name>
+    <cond_1_code>12310100</cond_1_code>
+    <cond_1_name>Sour cream</cond_1_name>
+    <cond_2_code>63409010</cond_2_code>
+    <cond_2_name>Guacamole</cond_2_name>
+    <cond_3_code>74402100</cond_3_code>
+    <cond_3_name>Salsa</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>23559</Survey_Food_Code>
+    <display_name>Ground beef (95% lean)</display_name>
+    <cond_1_code>74303000</cond_1_code>
+    <cond_1_name>Ketchup (catsup)</cond_1_name>
+    <cond_2_code>74406010</cond_2_code>
+    <cond_2_name>Barbeque sauce</cond_2_name>
+    <cond_3_code>28500040</cond_3_code>
+    <cond_3_name>Beef gravy</cond_3_name>
+    <cond_4_code>74406100</cond_4_code>
+    <cond_4_name>Steak sauce (A-1)</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>23564</Survey_Food_Code>
+    <display_name>Ground beef (90% lean)</display_name>
+    <cond_1_code>74303000</cond_1_code>
+    <cond_1_name>Ketchup (catsup)</cond_1_name>
+    <cond_2_code>74406010</cond_2_code>
+    <cond_2_name>Barbeque sauce</cond_2_name>
+    <cond_3_code>28500040</cond_3_code>
+    <cond_3_name>Beef gravy</cond_3_name>
+    <cond_4_code>74406100</cond_4_code>
+    <cond_4_name>Steak sauce (A-1)</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>21101120</Survey_Food_Code>
+    <display_name>Beef steak, grilled or broiled (eat lean &amp; fat)</display_name>
+    <cond_1_code>74303000</cond_1_code>
+    <cond_1_name>Ketchup (catsup)</cond_1_name>
+    <cond_2_code>74406100</cond_2_code>
+    <cond_2_name>Steak sauce (A-1)</cond_2_name>
+    <cond_3_code>81101000</cond_3_code>
+    <cond_3_name>Butter</cond_3_name>
+    <cond_4_code>81102020</cond_4_code>
+    <cond_4_name>Tub margarine</cond_4_name>
+    <cond_5_code>28500040</cond_5_code>
+    <cond_5_name>Beef gravy</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>21101130</Survey_Food_Code>
+    <display_name>Beef steak, grilled or broiled (eat lean only)</display_name>
+    <cond_1_code>74303000</cond_1_code>
+    <cond_1_name>Ketchup (catsup)</cond_1_name>
+    <cond_2_code>74406100</cond_2_code>
+    <cond_2_name>Steak sauce (A-1)</cond_2_name>
+    <cond_3_code>81101000</cond_3_code>
+    <cond_3_name>Butter</cond_3_name>
+    <cond_4_code>81102020</cond_4_code>
+    <cond_4_name>Tub margarine</cond_4_name>
+    <cond_5_code>28500040</cond_5_code>
+    <cond_5_name>Beef gravy</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>21102120</Survey_Food_Code>
+    <display_name>Beef steak, fried (eat lean &amp; fat)</display_name>
+    <cond_1_code>74303000</cond_1_code>
+    <cond_1_name>Ketchup (catsup)</cond_1_name>
+    <cond_2_code>74406100</cond_2_code>
+    <cond_2_name>Steak sauce (A-1)</cond_2_name>
+    <cond_3_code>81101000</cond_3_code>
+    <cond_3_name>Butter</cond_3_name>
+    <cond_4_code>81102020</cond_4_code>
+    <cond_4_name>Tub margarine</cond_4_name>
+    <cond_5_code>28500040</cond_5_code>
+    <cond_5_name>Beef gravy</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>21102130</Survey_Food_Code>
+    <display_name>Beef steak, fried (eat lean only)</display_name>
+    <cond_1_code>74303000</cond_1_code>
+    <cond_1_name>Ketchup (catsup)</cond_1_name>
+    <cond_2_code>74406100</cond_2_code>
+    <cond_2_name>Steak sauce (A-1)</cond_2_name>
+    <cond_3_code>81101000</cond_3_code>
+    <cond_3_name>Butter</cond_3_name>
+    <cond_4_code>81102020</cond_4_code>
+    <cond_4_name>Tub margarine</cond_4_name>
+    <cond_5_code>28500040</cond_5_code>
+    <cond_5_name>Beef gravy</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>21103120</Survey_Food_Code>
+    <display_name>Beef steak, breaded and fried (eat lean &amp; fat)</display_name>
+    <cond_1_code>74303000</cond_1_code>
+    <cond_1_name>Ketchup (catsup)</cond_1_name>
+    <cond_2_code>74406100</cond_2_code>
+    <cond_2_name>Steak sauce (A-1)</cond_2_name>
+    <cond_3_code>81101000</cond_3_code>
+    <cond_3_name>Butter</cond_3_name>
+    <cond_4_code>81102020</cond_4_code>
+    <cond_4_name>Tub margarine</cond_4_name>
+    <cond_5_code>28500040</cond_5_code>
+    <cond_5_name>Beef gravy</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>21103130</Survey_Food_Code>
+    <display_name>Beef steak, breaded and fried (eat lean only)</display_name>
+    <cond_1_code>74303000</cond_1_code>
+    <cond_1_name>Ketchup (catsup)</cond_1_name>
+    <cond_2_code>74406100</cond_2_code>
+    <cond_2_name>Steak sauce (A-1)</cond_2_name>
+    <cond_3_code>81101000</cond_3_code>
+    <cond_3_name>Butter</cond_3_name>
+    <cond_4_code>81102020</cond_4_code>
+    <cond_4_name>Tub margarine</cond_4_name>
+    <cond_5_code>28500040</cond_5_code>
+    <cond_5_name>Beef gravy</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>21401110</Survey_Food_Code>
+    <display_name>Roast beef (eat lean &amp; fat)</display_name>
+    <cond_1_code>81302060</cond_1_code>
+    <cond_1_name>Horseradish sauce</cond_1_name>
+    <cond_2_code>74303000</cond_2_code>
+    <cond_2_name>Ketchup (catsup)</cond_2_name>
+    <cond_3_code>74406010</cond_3_code>
+    <cond_3_name>Barbeque sauce</cond_3_name>
+    <cond_4_code>28500040</cond_4_code>
+    <cond_4_name>Beef gravy</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>21401120</Survey_Food_Code>
+    <display_name>Roast beef (eat lean only)</display_name>
+    <cond_1_code>81302060</cond_1_code>
+    <cond_1_name>Horseradish sauce</cond_1_name>
+    <cond_2_code>74303000</cond_2_code>
+    <cond_2_name>Ketchup (catsup)</cond_2_name>
+    <cond_3_code>74406010</cond_3_code>
+    <cond_3_name>Barbeque sauce</cond_3_name>
+    <cond_4_code>28500040</cond_4_code>
+    <cond_4_name>Beef gravy</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>21501000</Survey_Food_Code>
+    <display_name>Ground beef (75% lean, regular)</display_name>
+    <cond_1_code>74303000</cond_1_code>
+    <cond_1_name>Ketchup (catsup)</cond_1_name>
+    <cond_2_code>74406010</cond_2_code>
+    <cond_2_name>Barbeque sauce</cond_2_name>
+    <cond_3_code>28500040</cond_3_code>
+    <cond_3_name>Beef gravy</cond_3_name>
+    <cond_4_code>74406100</cond_4_code>
+    <cond_4_name>Steak sauce (A-1)</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>21501200</Survey_Food_Code>
+    <display_name>Ground beef (80% lean)</display_name>
+    <cond_1_code>74303000</cond_1_code>
+    <cond_1_name>Ketchup (catsup)</cond_1_name>
+    <cond_2_code>74406010</cond_2_code>
+    <cond_2_name>Barbeque sauce</cond_2_name>
+    <cond_3_code>28500040</cond_3_code>
+    <cond_3_name>Beef gravy</cond_3_name>
+    <cond_4_code>74406100</cond_4_code>
+    <cond_4_name>Steak sauce (A-1)</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>21501300</Survey_Food_Code>
+    <display_name>Ground beef (85% lean)</display_name>
+    <cond_1_code>74303000</cond_1_code>
+    <cond_1_name>Ketchup (catsup)</cond_1_name>
+    <cond_2_code>74406010</cond_2_code>
+    <cond_2_name>Barbeque sauce</cond_2_name>
+    <cond_3_code>28500040</cond_3_code>
+    <cond_3_name>Beef gravy</cond_3_name>
+    <cond_4_code>74406100</cond_4_code>
+    <cond_4_name>Steak sauce (A-1)</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>24107010</Survey_Food_Code>
+    <display_name>Fried chicken, boneless and battered (skin eaten)</display_name>
+    <cond_1_code>74406010</cond_1_code>
+    <cond_1_name>Barbeque sauce</cond_1_name>
+    <cond_2_code>83200100</cond_2_code>
+    <cond_2_name>Low-calorie salad dressing</cond_2_name>
+    <cond_3_code>83112500</cond_3_code>
+    <cond_3_name>Creamy dressing (ranch)</cond_3_name>
+    <cond_4_code>28500000</cond_4_code>
+    <cond_4_name>Chicken gravy</cond_4_name>
+    <cond_5_code>91361010</cond_5_code>
+    <cond_5_name>Sweet and sour sauce</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>24122110</Survey_Food_Code>
+    <display_name>Baked or roasted chicken breast (skin eaten)</display_name>
+    <cond_1_code>74303000</cond_1_code>
+    <cond_1_name>Ketchup (catsup)</cond_1_name>
+    <cond_2_code>28500000</cond_2_code>
+    <cond_2_name>Chicken gravy</cond_2_name>
+    <cond_3_code>74406010</cond_3_code>
+    <cond_3_name>Barbeque sauce</cond_3_name>
+    <cond_4_code>83112500</cond_4_code>
+    <cond_4_name>Creamy dressing (ranch)</cond_4_name>
+    <cond_5_code>83200100</cond_5_code>
+    <cond_5_name>Low-calorie salad dressing</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>24122120</Survey_Food_Code>
+    <display_name>Baked or roasted chicken breast (skin not eaten)</display_name>
+    <cond_1_code>74303000</cond_1_code>
+    <cond_1_name>Ketchup (catsup)</cond_1_name>
+    <cond_2_code>28500000</cond_2_code>
+    <cond_2_name>Chicken gravy</cond_2_name>
+    <cond_3_code>74406010</cond_3_code>
+    <cond_3_name>Barbeque sauce</cond_3_name>
+    <cond_4_code>83112500</cond_4_code>
+    <cond_4_name>Creamy dressing (ranch)</cond_4_name>
+    <cond_5_code>83200100</cond_5_code>
+    <cond_5_name>Low-calorie salad dressing</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>24124120</Survey_Food_Code>
+    <display_name>Fried chicken breast (no coating, skin not eaten)</display_name>
+    <cond_1_code>74406010</cond_1_code>
+    <cond_1_name>Barbeque sauce</cond_1_name>
+    <cond_2_code>83200100</cond_2_code>
+    <cond_2_name>Low-calorie salad dressing</cond_2_name>
+    <cond_3_code>83112500</cond_3_code>
+    <cond_3_name>Creamy dressing (ranch)</cond_3_name>
+    <cond_4_code>28500000</cond_4_code>
+    <cond_4_name>Chicken gravy</cond_4_name>
+    <cond_5_code>91361010</cond_5_code>
+    <cond_5_name>Sweet and sour sauce</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>24127110</Survey_Food_Code>
+    <display_name>Fried chicken breast (battered, skin eaten)</display_name>
+    <cond_1_code>74406010</cond_1_code>
+    <cond_1_name>Barbeque sauce</cond_1_name>
+    <cond_2_code>83200100</cond_2_code>
+    <cond_2_name>Low-calorie salad dressing</cond_2_name>
+    <cond_3_code>83112500</cond_3_code>
+    <cond_3_name>Creamy dressing (ranch)</cond_3_name>
+    <cond_4_code>28500000</cond_4_code>
+    <cond_4_name>Chicken gravy</cond_4_name>
+    <cond_5_code>91361010</cond_5_code>
+    <cond_5_name>Sweet and sour sauce</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>24127150</Survey_Food_Code>
+    <display_name>Fried chicken breast (skinless, battered)</display_name>
+    <cond_1_code>74406010</cond_1_code>
+    <cond_1_name>Barbeque sauce</cond_1_name>
+    <cond_2_code>83200100</cond_2_code>
+    <cond_2_name>Low-calorie salad dressing</cond_2_name>
+    <cond_3_code>83112500</cond_3_code>
+    <cond_3_name>Creamy dressing (ranch)</cond_3_name>
+    <cond_4_code>28500000</cond_4_code>
+    <cond_4_name>Chicken gravy</cond_4_name>
+    <cond_5_code>91361010</cond_5_code>
+    <cond_5_name>Sweet and sour sauce</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>24132210</Survey_Food_Code>
+    <display_name>Baked or roasted chicken dark meat quarter (skin eaten)</display_name>
+    <cond_1_code>74303000</cond_1_code>
+    <cond_1_name>Ketchup (catsup)</cond_1_name>
+    <cond_2_code>28500000</cond_2_code>
+    <cond_2_name>Chicken gravy</cond_2_name>
+    <cond_3_code>74406010</cond_3_code>
+    <cond_3_name>Barbeque sauce</cond_3_name>
+    <cond_4_code>83112500</cond_4_code>
+    <cond_4_name>Creamy dressing (ranch)</cond_4_name>
+    <cond_5_code>83200100</cond_5_code>
+    <cond_5_name>Low-calorie salad dressing</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>24132220</Survey_Food_Code>
+    <display_name>Baked or roasted chicken dark meat quarter (skin not eaten)</display_name>
+    <cond_1_code>74303000</cond_1_code>
+    <cond_1_name>Ketchup (catsup)</cond_1_name>
+    <cond_2_code>28500000</cond_2_code>
+    <cond_2_name>Chicken gravy</cond_2_name>
+    <cond_3_code>74406010</cond_3_code>
+    <cond_3_name>Barbeque sauce</cond_3_name>
+    <cond_4_code>83112500</cond_4_code>
+    <cond_4_name>Creamy dressing (ranch)</cond_4_name>
+    <cond_5_code>83200100</cond_5_code>
+    <cond_5_name>Low-calorie salad dressing</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>24142220</Survey_Food_Code>
+    <display_name>Baked or roasted chicken drumstick (skin not eaten)</display_name>
+    <cond_1_code>74303000</cond_1_code>
+    <cond_1_name>Ketchup (catsup)</cond_1_name>
+    <cond_2_code>28500000</cond_2_code>
+    <cond_2_name>Chicken gravy</cond_2_name>
+    <cond_3_code>74406010</cond_3_code>
+    <cond_3_name>Barbeque sauce</cond_3_name>
+    <cond_4_code>83112500</cond_4_code>
+    <cond_4_name>Creamy dressing (ranch)</cond_4_name>
+    <cond_5_code>83200100</cond_5_code>
+    <cond_5_name>Low-calorie salad dressing</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>24147210</Survey_Food_Code>
+    <display_name>Fried chicken drumstick (battered, skin eaten)</display_name>
+    <cond_1_code>74303000</cond_1_code>
+    <cond_1_name>Ketchup (catsup)</cond_1_name>
+    <cond_2_code>28500000</cond_2_code>
+    <cond_2_name>Chicken gravy</cond_2_name>
+    <cond_3_code>74406010</cond_3_code>
+    <cond_3_name>Barbeque sauce</cond_3_name>
+    <cond_4_code>83112500</cond_4_code>
+    <cond_4_name>Creamy dressing (ranch)</cond_4_name>
+    <cond_5_code>83200100</cond_5_code>
+    <cond_5_name>Low-calorie salad dressing</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>24152220</Survey_Food_Code>
+    <display_name>Baked or roasted chicken thigh (skin not eaten)</display_name>
+    <cond_1_code>74303000</cond_1_code>
+    <cond_1_name>Ketchup (catsup)</cond_1_name>
+    <cond_2_code>28500000</cond_2_code>
+    <cond_2_name>Chicken gravy</cond_2_name>
+    <cond_3_code>74406010</cond_3_code>
+    <cond_3_name>Barbeque sauce</cond_3_name>
+    <cond_4_code>83112500</cond_4_code>
+    <cond_4_name>Creamy dressing (ranch)</cond_4_name>
+    <cond_5_code>83200100</cond_5_code>
+    <cond_5_name>Low-calorie salad dressing</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>24154210</Survey_Food_Code>
+    <display_name>Fried Chicken thigh (no coating, skin eaten)</display_name>
+    <cond_1_code>74406010</cond_1_code>
+    <cond_1_name>Barbeque sauce</cond_1_name>
+    <cond_2_code>83200100</cond_2_code>
+    <cond_2_name>Low-calorie salad dressing</cond_2_name>
+    <cond_3_code>83112500</cond_3_code>
+    <cond_3_name>Creamy dressing (ranch)</cond_3_name>
+    <cond_4_code>28500000</cond_4_code>
+    <cond_4_name>Chicken gravy</cond_4_name>
+    <cond_5_code>91361010</cond_5_code>
+    <cond_5_name>Sweet and sour sauce</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>24154220</Survey_Food_Code>
+    <display_name>Fried Chicken thigh (no coating, skin not eaten)</display_name>
+    <cond_1_code>74406010</cond_1_code>
+    <cond_1_name>Barbeque sauce</cond_1_name>
+    <cond_2_code>83200100</cond_2_code>
+    <cond_2_name>Low-calorie salad dressing</cond_2_name>
+    <cond_3_code>83112500</cond_3_code>
+    <cond_3_name>Creamy dressing (ranch)</cond_3_name>
+    <cond_4_code>28500000</cond_4_code>
+    <cond_4_name>Chicken gravy</cond_4_name>
+    <cond_5_code>91361010</cond_5_code>
+    <cond_5_name>Sweet and sour sauce</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>24157210</Survey_Food_Code>
+    <display_name>Fried chicken thigh (battered, skin eaten)</display_name>
+    <cond_1_code>74406010</cond_1_code>
+    <cond_1_name>Barbeque sauce</cond_1_name>
+    <cond_2_code>83200100</cond_2_code>
+    <cond_2_name>Low-calorie salad dressing</cond_2_name>
+    <cond_3_code>83112500</cond_3_code>
+    <cond_3_name>Creamy dressing (ranch)</cond_3_name>
+    <cond_4_code>28500000</cond_4_code>
+    <cond_4_name>Chicken gravy</cond_4_name>
+    <cond_5_code>91361010</cond_5_code>
+    <cond_5_name>Sweet and sour sauce</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>24164110</Survey_Food_Code>
+    <display_name>Fried chicken wing (no coating, skin eaten)</display_name>
+    <cond_1_code>74406010</cond_1_code>
+    <cond_1_name>Barbeque sauce</cond_1_name>
+    <cond_2_code>83200100</cond_2_code>
+    <cond_2_name>Low-calorie salad dressing</cond_2_name>
+    <cond_3_code>83112500</cond_3_code>
+    <cond_3_name>Creamy dressing (ranch)</cond_3_name>
+    <cond_4_code>28500000</cond_4_code>
+    <cond_4_name>Chicken gravy</cond_4_name>
+    <cond_5_code>91361010</cond_5_code>
+    <cond_5_name>Sweet and sour sauce</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>24167110</Survey_Food_Code>
+    <display_name>Fried chicken wing (battered, skin eaten)</display_name>
+    <cond_1_code>74406010</cond_1_code>
+    <cond_1_name>Barbeque sauce</cond_1_name>
+    <cond_2_code>83200100</cond_2_code>
+    <cond_2_name>Low-calorie salad dressing</cond_2_name>
+    <cond_3_code>83112500</cond_3_code>
+    <cond_3_name>Creamy dressing (ranch)</cond_3_name>
+    <cond_4_code>28500000</cond_4_code>
+    <cond_4_name>Chicken gravy</cond_4_name>
+    <cond_5_code>91361010</cond_5_code>
+    <cond_5_name>Sweet and sour sauce</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>24198700</Survey_Food_Code>
+    <display_name>Chicken patty, fillet or tenders (breaded)</display_name>
+    <cond_1_code>74406010</cond_1_code>
+    <cond_1_name>Barbeque sauce</cond_1_name>
+    <cond_2_code>83200100</cond_2_code>
+    <cond_2_name>Low-calorie salad dressing</cond_2_name>
+    <cond_3_code>83112500</cond_3_code>
+    <cond_3_name>Creamy dressing (ranch)</cond_3_name>
+    <cond_4_code>28500000</cond_4_code>
+    <cond_4_name>Chicken gravy</cond_4_name>
+    <cond_5_code>91361010</cond_5_code>
+    <cond_5_name>Sweet and sour sauce</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>24198740</Survey_Food_Code>
+    <display_name>CHICKEN NUGGETS</display_name>
+    <cond_1_code>74406010</cond_1_code>
+    <cond_1_name>Barbeque sauce</cond_1_name>
+    <cond_2_code>83200100</cond_2_code>
+    <cond_2_name>Low-calorie salad dressing</cond_2_name>
+    <cond_3_code>83112500</cond_3_code>
+    <cond_3_name>Creamy dressing (ranch)</cond_3_name>
+    <cond_4_code>74303000</cond_4_code>
+    <cond_4_name>Ketchup (catsup)</cond_4_name>
+    <cond_5_code>91361010</cond_5_code>
+    <cond_5_name>Sweet and sour sauce</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>24201120</Survey_Food_Code>
+    <display_name>Roasted turkey (white meat)</display_name>
+    <cond_1_code>28500000</cond_1_code>
+    <cond_1_name>Turkey gravy</cond_1_name>
+    <cond_2_code>75506010</cond_2_code>
+    <cond_2_name>Mustard</cond_2_name>
+    <cond_3_code>74303000</cond_3_code>
+    <cond_3_name>Ketchup (catsup)</cond_3_name>
+    <cond_4_code>83107000</cond_4_code>
+    <cond_4_name>Mayonnaise, regular</cond_4_name>
+    <cond_5_code>83203250</cond_5_code>
+    <cond_5_name>Fat-free mayonnaise-type dressing</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>24201320</Survey_Food_Code>
+    <display_name>Roasted turkey (white &amp; dark meat)</display_name>
+    <cond_1_code>28500000</cond_1_code>
+    <cond_1_name>Turkey gravy</cond_1_name>
+    <cond_2_code>75506010</cond_2_code>
+    <cond_2_name>Mustard</cond_2_name>
+    <cond_3_code>74303000</cond_3_code>
+    <cond_3_name>Ketchup (catsup)</cond_3_name>
+    <cond_4_code>83107000</cond_4_code>
+    <cond_4_name>Mayonnaise, regular</cond_4_name>
+    <cond_5_code>83203250</cond_5_code>
+    <cond_5_name>Fat-free mayonnaise-type dressing</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>25210230</Survey_Food_Code>
+    <display_name>Low fat hot dog</display_name>
+    <cond_1_code>75506010</cond_1_code>
+    <cond_1_name>Mustard</cond_1_name>
+    <cond_2_code>75230010</cond_2_code>
+    <cond_2_name>Sauerkraut, no fat added</cond_2_name>
+    <cond_3_code>74303000</cond_3_code>
+    <cond_3_name>Ketchup (catsup)</cond_3_name>
+    <cond_4_code>75503020</cond_4_code>
+    <cond_4_name>Pickle relish</cond_4_name>
+    <cond_5_code>27111410</cond_5_code>
+    <cond_5_name>Chili con carne (with beans)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>25210280</Survey_Food_Code>
+    <display_name>HOT DOG</display_name>
+    <cond_1_code>75506010</cond_1_code>
+    <cond_1_name>Mustard</cond_1_name>
+    <cond_2_code>75230010</cond_2_code>
+    <cond_2_name>Sauerkraut, no fat added</cond_2_name>
+    <cond_3_code>74303000</cond_3_code>
+    <cond_3_name>Ketchup (catsup)</cond_3_name>
+    <cond_4_code>75503020</cond_4_code>
+    <cond_4_name>Pickle relish</cond_4_name>
+    <cond_5_code>27111410</cond_5_code>
+    <cond_5_name>Chili con carne (with beans)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>25220350</Survey_Food_Code>
+    <display_name>BRATWURST</display_name>
+    <cond_1_code>75506010</cond_1_code>
+    <cond_1_name>Mustard</cond_1_name>
+    <cond_2_code>75230010</cond_2_code>
+    <cond_2_name>Sauerkraut, no fat added</cond_2_name>
+    <cond_3_code>74303000</cond_3_code>
+    <cond_3_name>Ketchup (catsup)</cond_3_name>
+    <cond_4_code>75503020</cond_4_code>
+    <cond_4_name>Pickle relish</cond_4_name>
+    <cond_5_code>27111410</cond_5_code>
+    <cond_5_name>Chili con carne (with beans)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>26100120</Survey_Food_Code>
+    <display_name>baked fish</display_name>
+    <cond_1_code>81302050</cond_1_code>
+    <cond_1_name>Tartar sauce</cond_1_name>
+    <cond_2_code>74303000</cond_2_code>
+    <cond_2_name>Ketchup (catsup)</cond_2_name>
+    <cond_3_code>61204010</cond_3_code>
+    <cond_3_name>Lemon juice</cond_3_name>
+    <cond_4_code>81101000</cond_4_code>
+    <cond_4_name>Butter</cond_4_name>
+    <cond_5_code>81102020</cond_5_code>
+    <cond_5_name>Tub margarine</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>26100150</Survey_Food_Code>
+    <display_name>Fried fish (breaded or battered)</display_name>
+    <cond_1_code>81302050</cond_1_code>
+    <cond_1_name>Tartar sauce</cond_1_name>
+    <cond_2_code>74303000</cond_2_code>
+    <cond_2_name>Ketchup (catsup)</cond_2_name>
+    <cond_3_code>61204010</cond_3_code>
+    <cond_3_name>Lemon juice</cond_3_name>
+    <cond_4_code>81101000</cond_4_code>
+    <cond_4_name>Butter</cond_4_name>
+    <cond_5_code>81102020</cond_5_code>
+    <cond_5_name>Tub margarine</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>26100230</Survey_Food_Code>
+    <display_name>Baked FISH STICK or FILLET (BREADED or BATTERED)</display_name>
+    <cond_1_code>81302050</cond_1_code>
+    <cond_1_name>Tartar sauce</cond_1_name>
+    <cond_2_code>74303000</cond_2_code>
+    <cond_2_name>Ketchup (catsup)</cond_2_name>
+    <cond_3_code>61204010</cond_3_code>
+    <cond_3_name>Lemon juice</cond_3_name>
+    <cond_4_code>81101000</cond_4_code>
+    <cond_4_name>Butter</cond_4_name>
+    <cond_5_code>81102020</cond_5_code>
+    <cond_5_name>Tub margarine</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>26100240</Survey_Food_Code>
+    <display_name>Fried FISH STICK or FILLET (BREADED or BATTERED)</display_name>
+    <cond_1_code>81302050</cond_1_code>
+    <cond_1_name>Tartar sauce</cond_1_name>
+    <cond_2_code>74303000</cond_2_code>
+    <cond_2_name>Ketchup (catsup)</cond_2_name>
+    <cond_3_code>61204010</cond_3_code>
+    <cond_3_name>Lemon juice</cond_3_name>
+    <cond_4_code>81101000</cond_4_code>
+    <cond_4_name>Butter</cond_4_name>
+    <cond_5_code>81102020</cond_5_code>
+    <cond_5_name>Tub margarine</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>26107120</Survey_Food_Code>
+    <display_name>BAKED OR BROILED catfish</display_name>
+    <cond_1_code>81302050</cond_1_code>
+    <cond_1_name>Tartar sauce</cond_1_name>
+    <cond_2_code>74402100</cond_2_code>
+    <cond_2_name>Salsa</cond_2_name>
+    <cond_3_code>61204010</cond_3_code>
+    <cond_3_name>Lemon juice</cond_3_name>
+    <cond_4_code>81101000</cond_4_code>
+    <cond_4_name>Butter</cond_4_name>
+    <cond_5_code>81102020</cond_5_code>
+    <cond_5_name>Tub margarine</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>26107150</Survey_Food_Code>
+    <display_name>Fried CATFISH (breaded or BATTERED)</display_name>
+    <cond_1_code>81302050</cond_1_code>
+    <cond_1_name>Tartar sauce</cond_1_name>
+    <cond_2_code>74303000</cond_2_code>
+    <cond_2_name>Ketchup (catsup)</cond_2_name>
+    <cond_3_code>61204010</cond_3_code>
+    <cond_3_name>Lemon juice</cond_3_name>
+    <cond_4_code>81101000</cond_4_code>
+    <cond_4_name>Butter</cond_4_name>
+    <cond_5_code>81102020</cond_5_code>
+    <cond_5_name>Tub margarine</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>26109120</Survey_Food_Code>
+    <display_name>BAKED OR BROILED cod</display_name>
+    <cond_1_code>81302050</cond_1_code>
+    <cond_1_name>Tartar sauce</cond_1_name>
+    <cond_2_code>74402100</cond_2_code>
+    <cond_2_name>Salsa</cond_2_name>
+    <cond_3_code>61204010</cond_3_code>
+    <cond_3_name>Lemon juice</cond_3_name>
+    <cond_4_code>81101000</cond_4_code>
+    <cond_4_name>Butter</cond_4_name>
+    <cond_5_code>81102020</cond_5_code>
+    <cond_5_name>Tub margarine</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>26109150</Survey_Food_Code>
+    <display_name>Fried COD (breaded or battered)</display_name>
+    <cond_1_code>81302050</cond_1_code>
+    <cond_1_name>Tartar sauce</cond_1_name>
+    <cond_2_code>74303000</cond_2_code>
+    <cond_2_name>Ketchup (catsup)</cond_2_name>
+    <cond_3_code>61204010</cond_3_code>
+    <cond_3_name>Lemon juice</cond_3_name>
+    <cond_4_code>81101000</cond_4_code>
+    <cond_4_name>Butter</cond_4_name>
+    <cond_5_code>81102020</cond_5_code>
+    <cond_5_name>Tub margarine</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>26115120</Survey_Food_Code>
+    <display_name>baked or broiled FLOUNDER</display_name>
+    <cond_1_code>81302050</cond_1_code>
+    <cond_1_name>Tartar sauce</cond_1_name>
+    <cond_2_code>74402100</cond_2_code>
+    <cond_2_name>Salsa</cond_2_name>
+    <cond_3_code>61204010</cond_3_code>
+    <cond_3_name>Lemon juice</cond_3_name>
+    <cond_4_code>81101000</cond_4_code>
+    <cond_4_name>Butter</cond_4_name>
+    <cond_5_code>81102020</cond_5_code>
+    <cond_5_name>Tub margarine</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>26127120</Survey_Food_Code>
+    <display_name>baked or broiled PERCH </display_name>
+    <cond_1_code>81302050</cond_1_code>
+    <cond_1_name>Tartar sauce</cond_1_name>
+    <cond_2_code>74402100</cond_2_code>
+    <cond_2_name>Salsa</cond_2_name>
+    <cond_3_code>61204010</cond_3_code>
+    <cond_3_name>Lemon juice</cond_3_name>
+    <cond_4_code>81101000</cond_4_code>
+    <cond_4_name>Butter</cond_4_name>
+    <cond_5_code>81102020</cond_5_code>
+    <cond_5_name>Tub margarine</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>26137120</Survey_Food_Code>
+    <display_name>baked or broiled SALMON</display_name>
+    <cond_1_code>81302050</cond_1_code>
+    <cond_1_name>Tartar sauce</cond_1_name>
+    <cond_2_code>74402100</cond_2_code>
+    <cond_2_name>Salsa</cond_2_name>
+    <cond_3_code>61204010</cond_3_code>
+    <cond_3_name>Lemon juice</cond_3_name>
+    <cond_4_code>81101000</cond_4_code>
+    <cond_4_name>Butter</cond_4_name>
+    <cond_5_code>81102020</cond_5_code>
+    <cond_5_name>Tub margarine</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>26151120</Survey_Food_Code>
+    <display_name>baked or broiled TROUT</display_name>
+    <cond_1_code>81302050</cond_1_code>
+    <cond_1_name>Tartar sauce</cond_1_name>
+    <cond_2_code>74402100</cond_2_code>
+    <cond_2_name>Salsa</cond_2_name>
+    <cond_3_code>61204010</cond_3_code>
+    <cond_3_name>Lemon juice</cond_3_name>
+    <cond_4_code>81101000</cond_4_code>
+    <cond_4_name>Butter</cond_4_name>
+    <cond_5_code>81102020</cond_5_code>
+    <cond_5_name>Tub margarine</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>26153120</Survey_Food_Code>
+    <display_name>baked or broiled TUNA</display_name>
+    <cond_1_code>81302050</cond_1_code>
+    <cond_1_name>Tartar sauce</cond_1_name>
+    <cond_2_code>74402100</cond_2_code>
+    <cond_2_name>Salsa</cond_2_name>
+    <cond_3_code>61204010</cond_3_code>
+    <cond_3_name>Lemon juice</cond_3_name>
+    <cond_4_code>81101000</cond_4_code>
+    <cond_4_name>Butter</cond_4_name>
+    <cond_5_code>81102020</cond_5_code>
+    <cond_5_name>Tub margarine</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>26155180</Survey_Food_Code>
+    <display_name>canned TUNA (in oil)</display_name>
+    <cond_1_code>83107000</cond_1_code>
+    <cond_1_name>Mayonnaise, regular</cond_1_name>
+    <cond_2_code>83110000</cond_2_code>
+    <cond_2_name>Miracle whip salad dressing</cond_2_name>
+    <cond_3_code>83203250</cond_3_code>
+    <cond_3_name>Fat-free mayonnaise-type dressing</cond_3_name>
+    <cond_4_code>75503020</cond_4_code>
+    <cond_4_name>Pickle relish</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>26155190</Survey_Food_Code>
+    <display_name>canned TUNA (in water)</display_name>
+    <cond_1_code>83107000</cond_1_code>
+    <cond_1_name>Mayonnaise, regular</cond_1_name>
+    <cond_2_code>83110000</cond_2_code>
+    <cond_2_name>Miracle whip salad dressing</cond_2_name>
+    <cond_3_code>83203250</cond_3_code>
+    <cond_3_name>Fat-free mayonnaise-type dressing</cond_3_name>
+    <cond_4_code>75503020</cond_4_code>
+    <cond_4_name>Pickle relish</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>26157140</Survey_Food_Code>
+    <display_name>Fried WHITING (FLOURED OR BREADED)</display_name>
+    <cond_1_code>81302050</cond_1_code>
+    <cond_1_name>Tartar sauce</cond_1_name>
+    <cond_2_code>74303000</cond_2_code>
+    <cond_2_name>Ketchup (catsup)</cond_2_name>
+    <cond_3_code>61204010</cond_3_code>
+    <cond_3_name>Lemon juice</cond_3_name>
+    <cond_4_code>81101000</cond_4_code>
+    <cond_4_name>Butter</cond_4_name>
+    <cond_5_code>81102020</cond_5_code>
+    <cond_5_name>Tub margarine</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>26213140</Survey_Food_Code>
+    <display_name>Fried calamari (fried squid)</display_name>
+    <cond_1_code>81302050</cond_1_code>
+    <cond_1_name>Tartar sauce</cond_1_name>
+    <cond_2_code>74303000</cond_2_code>
+    <cond_2_name>Ketchup (catsup)</cond_2_name>
+    <cond_3_code>61204010</cond_3_code>
+    <cond_3_name>Lemon juice</cond_3_name>
+    <cond_4_code>74406500</cond_4_code>
+    <cond_4_name>Cocktail sauce</cond_4_name>
+    <cond_5_code>83112500</cond_5_code>
+    <cond_5_name>Creamy dressing (ranch)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>26303150</Survey_Food_Code>
+    <display_name>Fried clams (breaded)</display_name>
+    <cond_1_code>81302050</cond_1_code>
+    <cond_1_name>Tartar sauce</cond_1_name>
+    <cond_2_code>74303000</cond_2_code>
+    <cond_2_name>Ketchup (catsup)</cond_2_name>
+    <cond_3_code>61204010</cond_3_code>
+    <cond_3_name>Lemon juice</cond_3_name>
+    <cond_4_code>74406500</cond_4_code>
+    <cond_4_name>Cocktail sauce</cond_4_name>
+    <cond_5_code>83112500</cond_5_code>
+    <cond_5_name>Creamy dressing (ranch)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>26303160</Survey_Food_Code>
+    <display_name>Steamed CLAMS (oysters, mussels)</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>61204010</cond_3_code>
+    <cond_3_name>Lemon juice</cond_3_name>
+    <cond_4_code>74406500</cond_4_code>
+    <cond_4_name>Cocktail sauce</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>26309160</Survey_Food_Code>
+    <display_name>Steamed or boiled CRAYFISH</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>61204010</cond_3_code>
+    <cond_3_name>Lemon juice</cond_3_name>
+    <cond_4_code>74406500</cond_4_code>
+    <cond_4_name>Cocktail sauce</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>26311160</Survey_Food_Code>
+    <display_name>Steamed or boiled LOBSTER </display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>61204010</cond_3_code>
+    <cond_3_name>Lemon juice</cond_3_name>
+    <cond_4_code>74406500</cond_4_code>
+    <cond_4_name>Cocktail sauce</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>26315150</Survey_Food_Code>
+    <display_name>Fried oysters (breaded or battered)</display_name>
+    <cond_1_code>81302050</cond_1_code>
+    <cond_1_name>Tartar sauce</cond_1_name>
+    <cond_2_code>74303000</cond_2_code>
+    <cond_2_name>Ketchup (catsup)</cond_2_name>
+    <cond_3_code>61204010</cond_3_code>
+    <cond_3_name>Lemon juice</cond_3_name>
+    <cond_4_code>74406500</cond_4_code>
+    <cond_4_name>Cocktail sauce</cond_4_name>
+    <cond_5_code>83112500</cond_5_code>
+    <cond_5_name>Creamy dressing (ranch)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>26317120</Survey_Food_Code>
+    <display_name>Baked or broiled SCALLOPS</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>61204010</cond_3_code>
+    <cond_3_name>Lemon juice</cond_3_name>
+    <cond_4_code>74406500</cond_4_code>
+    <cond_4_name>Cocktail sauce</cond_4_name>
+    <cond_5_code>81302050</cond_5_code>
+    <cond_5_name>Tartar sauce</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>26317140</Survey_Food_Code>
+    <display_name>Fried scallops (floured or breaded)</display_name>
+    <cond_1_code>81302050</cond_1_code>
+    <cond_1_name>Tartar sauce</cond_1_name>
+    <cond_2_code>74303000</cond_2_code>
+    <cond_2_name>Ketchup (catsup)</cond_2_name>
+    <cond_3_code>61204010</cond_3_code>
+    <cond_3_name>Lemon juice</cond_3_name>
+    <cond_4_code>74406500</cond_4_code>
+    <cond_4_name>Cocktail sauce</cond_4_name>
+    <cond_5_code>83112500</cond_5_code>
+    <cond_5_name>Creamy dressing (ranch)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>26319120</Survey_Food_Code>
+    <display_name>Baked, broiled, or sauteed SHRIMP </display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>61204010</cond_3_code>
+    <cond_3_name>Lemon juice</cond_3_name>
+    <cond_4_code>74406500</cond_4_code>
+    <cond_4_name>Cocktail sauce</cond_4_name>
+    <cond_5_code>81302050</cond_5_code>
+    <cond_5_name>Tartar sauce</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>26319130</Survey_Food_Code>
+    <display_name>Steamed or boiled SHRIMP</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>61204010</cond_3_code>
+    <cond_3_name>Lemon juice</cond_3_name>
+    <cond_4_code>74406500</cond_4_code>
+    <cond_4_name>Cocktail sauce</cond_4_name>
+    <cond_5_code>81302050</cond_5_code>
+    <cond_5_name>Tartar sauce</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>26319140</Survey_Food_Code>
+    <display_name>Fried SHRIMP (BREADED OR BATTERED)</display_name>
+    <cond_1_code>81302050</cond_1_code>
+    <cond_1_name>Tartar sauce</cond_1_name>
+    <cond_2_code>74303000</cond_2_code>
+    <cond_2_name>Ketchup (catsup)</cond_2_name>
+    <cond_3_code>61204010</cond_3_code>
+    <cond_3_name>Lemon juice</cond_3_name>
+    <cond_4_code>74406500</cond_4_code>
+    <cond_4_name>Cocktail sauce</cond_4_name>
+    <cond_5_code>83112500</cond_5_code>
+    <cond_5_name>Creamy dressing (ranch)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>27115100</Survey_Food_Code>
+    <display_name>Teriyaki steak with sauce</display_name>
+    <cond_1_code>56205010</cond_1_code>
+    <cond_1_name>White rice, no fat added</cond_1_name>
+    <cond_2_code>56205110</cond_2_code>
+    <cond_2_name>Brown rice, no fat added</cond_2_name>
+    <cond_3_code>58150110</cond_3_code>
+    <cond_3_name>Fried rice (plain)</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>27120060</Survey_Food_Code>
+    <display_name>Sweet &amp; sour pork </display_name>
+    <cond_1_code>56205010</cond_1_code>
+    <cond_1_name>White rice, no fat added</cond_1_name>
+    <cond_2_code>56205110</cond_2_code>
+    <cond_2_name>Brown rice, no fat added</cond_2_name>
+    <cond_3_code>58150110</cond_3_code>
+    <cond_3_name>Fried rice (plain)</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>27145000</Survey_Food_Code>
+    <display_name>Chicken teriyaki                    </display_name>
+    <cond_1_code>56205010</cond_1_code>
+    <cond_1_name>White rice, no fat added</cond_1_name>
+    <cond_2_code>56205110</cond_2_code>
+    <cond_2_name>Brown rice, no fat added</cond_2_name>
+    <cond_3_code>58150110</cond_3_code>
+    <cond_3_name>Fried rice (plain)</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>27146050</Survey_Food_Code>
+    <display_name>Buffalo wing (chicken wing &amp; sauce)</display_name>
+    <cond_1_code>83101000</cond_1_code>
+    <cond_1_name>Blue cheese dressing</cond_1_name>
+    <cond_2_code>83112500</cond_2_code>
+    <cond_2_name>Creamy dressing (ranch)</cond_2_name>
+    <cond_3_code>74406010</cond_3_code>
+    <cond_3_name>Barbeque sauce</cond_3_name>
+    <cond_4_code>83200100</cond_4_code>
+    <cond_4_name>Low-calorie salad dressing</cond_4_name>
+    <cond_5_code>91361010</cond_5_code>
+    <cond_5_name>Sweet and sour sauce</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>27146100</Survey_Food_Code>
+    <display_name>Sweet &amp; sour chicken</display_name>
+    <cond_1_code>56205010</cond_1_code>
+    <cond_1_name>White rice, no fat added</cond_1_name>
+    <cond_2_code>56205110</cond_2_code>
+    <cond_2_name>Brown rice, no fat added</cond_2_name>
+    <cond_3_code>58150110</cond_3_code>
+    <cond_3_name>Fried rice (plain)</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>27146350</Survey_Food_Code>
+    <display_name>Lemon chicken</display_name>
+    <cond_1_code>56205010</cond_1_code>
+    <cond_1_name>White rice, no fat added</cond_1_name>
+    <cond_2_code>56205110</cond_2_code>
+    <cond_2_name>Brown rice, no fat added</cond_2_name>
+    <cond_3_code>58150110</cond_3_code>
+    <cond_3_name>Fried rice (plain)</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>27445110</Survey_Food_Code>
+    <display_name>Stir-fried chicken and vegetables</display_name>
+    <cond_1_code>56205010</cond_1_code>
+    <cond_1_name>White rice, no fat added</cond_1_name>
+    <cond_2_code>56205110</cond_2_code>
+    <cond_2_name>Brown rice, no fat added</cond_2_name>
+    <cond_3_code>58150110</cond_3_code>
+    <cond_3_name>Fried rice (plain)</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>27445150</Survey_Food_Code>
+    <display_name>General Tso chicken</display_name>
+    <cond_1_code>56205010</cond_1_code>
+    <cond_1_name>White rice, no fat added</cond_1_name>
+    <cond_2_code>56205110</cond_2_code>
+    <cond_2_name>Brown rice, no fat added</cond_2_name>
+    <cond_3_code>58150110</cond_3_code>
+    <cond_3_name>Fried rice (plain)</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>27445220</Survey_Food_Code>
+    <display_name>Kung Pao chicken</display_name>
+    <cond_1_code>56205010</cond_1_code>
+    <cond_1_name>White rice, no fat added</cond_1_name>
+    <cond_2_code>56205110</cond_2_code>
+    <cond_2_name>Brown rice, no fat added</cond_2_name>
+    <cond_3_code>58150110</cond_3_code>
+    <cond_3_name>Fried rice (plain)</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>27450410</Survey_Food_Code>
+    <display_name>Stir-fried shrimp and vegetables</display_name>
+    <cond_1_code>56205010</cond_1_code>
+    <cond_1_name>White rice, no fat added</cond_1_name>
+    <cond_2_code>56205110</cond_2_code>
+    <cond_2_name>Brown rice, no fat added</cond_2_name>
+    <cond_3_code>58150110</cond_3_code>
+    <cond_3_name>Fried rice (plain)</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>27460490</Survey_Food_Code>
+    <display_name>Chef salad (no dressing)</display_name>
+    <cond_1_code>83112500</cond_1_code>
+    <cond_1_name>Creamy dressing (ranch)</cond_1_name>
+    <cond_2_code>83106000</cond_2_code>
+    <cond_2_name>Italian dressing (oil and vinegar)</cond_2_name>
+    <cond_3_code>83200100</cond_3_code>
+    <cond_3_name>Low-calorie salad dressing</cond_3_name>
+    <cond_4_code>83101000</cond_4_code>
+    <cond_4_name>Blue cheese dressing</cond_4_name>
+    <cond_5_code>83104000</cond_5_code>
+    <cond_5_name>French dressing</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>27510210</Survey_Food_Code>
+    <display_name>Cheeseburger, plain on bun</display_name>
+    <cond_1_code>74303000</cond_1_code>
+    <cond_1_name>Ketchup (catsup)</cond_1_name>
+    <cond_2_code>75506010</cond_2_code>
+    <cond_2_name>Mustard</cond_2_name>
+    <cond_3_code>83107000</cond_3_code>
+    <cond_3_name>Mayonnaise, regular</cond_3_name>
+    <cond_4_code>75113000</cond_4_code>
+    <cond_4_name>Lettuce</cond_4_name>
+    <cond_5_code>74101000</cond_5_code>
+    <cond_5_name>Raw tomatoes</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>27510240</Survey_Food_Code>
+    <display_name>Quarter pound cheeseburger on bun</display_name>
+    <cond_1_code>74303000</cond_1_code>
+    <cond_1_name>Ketchup (catsup)</cond_1_name>
+    <cond_2_code>75506010</cond_2_code>
+    <cond_2_name>Mustard</cond_2_name>
+    <cond_3_code>83107000</cond_3_code>
+    <cond_3_name>Mayonnaise, regular</cond_3_name>
+    <cond_4_code>75113000</cond_4_code>
+    <cond_4_name>Lettuce</cond_4_name>
+    <cond_5_code>74101000</cond_5_code>
+    <cond_5_name>Raw tomatoes</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>27510300</Survey_Food_Code>
+    <display_name>Double cheeseburger on double decker bun</display_name>
+    <cond_1_code>74303000</cond_1_code>
+    <cond_1_name>Ketchup (catsup)</cond_1_name>
+    <cond_2_code>75506010</cond_2_code>
+    <cond_2_name>Mustard</cond_2_name>
+    <cond_3_code>83107000</cond_3_code>
+    <cond_3_name>Mayonnaise, regular</cond_3_name>
+    <cond_4_code>75113000</cond_4_code>
+    <cond_4_name>Lettuce</cond_4_name>
+    <cond_5_code>74101000</cond_5_code>
+    <cond_5_name>Raw tomatoes</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>27510360</Survey_Food_Code>
+    <display_name>Bacon cheeseburger on bun</display_name>
+    <cond_1_code>74303000</cond_1_code>
+    <cond_1_name>Ketchup (catsup)</cond_1_name>
+    <cond_2_code>75506010</cond_2_code>
+    <cond_2_name>Mustard</cond_2_name>
+    <cond_3_code>83107000</cond_3_code>
+    <cond_3_name>Mayonnaise, regular</cond_3_name>
+    <cond_4_code>75113000</cond_4_code>
+    <cond_4_name>Lettuce</cond_4_name>
+    <cond_5_code>74101000</cond_5_code>
+    <cond_5_name>Raw tomatoes</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>27510500</Survey_Food_Code>
+    <display_name>HAMBURGER, PLAIN ON BUN</display_name>
+    <cond_1_code>74303000</cond_1_code>
+    <cond_1_name>Ketchup (catsup)</cond_1_name>
+    <cond_2_code>75506010</cond_2_code>
+    <cond_2_name>Mustard</cond_2_name>
+    <cond_3_code>83107000</cond_3_code>
+    <cond_3_name>Mayonnaise, regular</cond_3_name>
+    <cond_4_code>75113000</cond_4_code>
+    <cond_4_name>Lettuce</cond_4_name>
+    <cond_5_code>74101000</cond_5_code>
+    <cond_5_name>Raw tomatoes</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>27510530</Survey_Food_Code>
+    <display_name>Quarter pound hamburger on bun</display_name>
+    <cond_1_code>74303000</cond_1_code>
+    <cond_1_name>Ketchup (catsup)</cond_1_name>
+    <cond_2_code>75506010</cond_2_code>
+    <cond_2_name>Mustard</cond_2_name>
+    <cond_3_code>83107000</cond_3_code>
+    <cond_3_name>Mayonnaise, regular</cond_3_name>
+    <cond_4_code>75113000</cond_4_code>
+    <cond_4_name>Lettuce</cond_4_name>
+    <cond_5_code>74101000</cond_5_code>
+    <cond_5_name>Raw tomatoes</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>27510540</Survey_Food_Code>
+    <display_name>Double hamburger on bun</display_name>
+    <cond_1_code>74303000</cond_1_code>
+    <cond_1_name>Ketchup (catsup)</cond_1_name>
+    <cond_2_code>75506010</cond_2_code>
+    <cond_2_name>Mustard</cond_2_name>
+    <cond_3_code>83107000</cond_3_code>
+    <cond_3_name>Mayonnaise, regular</cond_3_name>
+    <cond_4_code>75113000</cond_4_code>
+    <cond_4_name>Lettuce</cond_4_name>
+    <cond_5_code>74101000</cond_5_code>
+    <cond_5_name>Raw tomatoes</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>27513010</Survey_Food_Code>
+    <display_name>ROAST BEEF SANDWICH</display_name>
+    <cond_1_code>81302060</cond_1_code>
+    <cond_1_name>Horseradish sauce</cond_1_name>
+    <cond_2_code>83107000</cond_2_code>
+    <cond_2_name>Mayonnaise, regular</cond_2_name>
+    <cond_3_code>83204000</cond_3_code>
+    <cond_3_name>Low calorie mayonnaise</cond_3_name>
+    <cond_4_code>74303000</cond_4_code>
+    <cond_4_name>Ketchup (catsup)</cond_4_name>
+    <cond_5_code>74406010</cond_5_code>
+    <cond_5_name>Barbeque sauce</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>27515010</Survey_Food_Code>
+    <display_name>Steak sandwich on roll </display_name>
+    <cond_1_code>81302060</cond_1_code>
+    <cond_1_name>Horseradish sauce</cond_1_name>
+    <cond_2_code>83107000</cond_2_code>
+    <cond_2_name>Mayonnaise, regular</cond_2_name>
+    <cond_3_code>83204000</cond_3_code>
+    <cond_3_name>Low calorie mayonnaise</cond_3_name>
+    <cond_4_code>74303000</cond_4_code>
+    <cond_4_name>Ketchup (catsup)</cond_4_name>
+    <cond_5_code>74406010</cond_5_code>
+    <cond_5_name>Barbeque sauce</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>27515070</Survey_Food_Code>
+    <display_name>Philly cheese steak (with fried peppers and onions, on roll)</display_name>
+    <cond_1_code>74303000</cond_1_code>
+    <cond_1_name>Ketchup (catsup)</cond_1_name>
+    <cond_2_code>74406010</cond_2_code>
+    <cond_2_name>Barbeque sauce</cond_2_name>
+    <cond_3_code>83107000</cond_3_code>
+    <cond_3_name>Mayonnaise, regular</cond_3_name>
+    <cond_4_code>83204000</cond_4_code>
+    <cond_4_name>Low calorie mayonnaise</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>27520130</Survey_Food_Code>
+    <display_name>Club sandwich (chicken, bacon, tomato and lettuce)</display_name>
+    <cond_1_code>83107000</cond_1_code>
+    <cond_1_name>Mayonnaise, regular</cond_1_name>
+    <cond_2_code>83204000</cond_2_code>
+    <cond_2_name>Low calorie mayonnaise</cond_2_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>27520300</Survey_Food_Code>
+    <display_name>Ham sandwich with mayo</display_name>
+    <cond_1_code>75113000</cond_1_code>
+    <cond_1_name>Lettuce</cond_1_name>
+    <cond_2_code>74101000</cond_2_code>
+    <cond_2_name>Raw tomatoes</cond_2_name>
+    <cond_3_code>75506010</cond_3_code>
+    <cond_3_name>Mustard</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>27540110</Survey_Food_Code>
+    <display_name>CHICKEN SANDWICH with mayo</display_name>
+    <cond_1_code>75113000</cond_1_code>
+    <cond_1_name>Lettuce</cond_1_name>
+    <cond_2_code>74101000</cond_2_code>
+    <cond_2_name>Raw tomatoes</cond_2_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>27540140</Survey_Food_Code>
+    <display_name>FRIED CHICKEN FILLET SANDWICH</display_name>
+    <cond_1_code>75113000</cond_1_code>
+    <cond_1_name>Lettuce</cond_1_name>
+    <cond_2_code>74101000</cond_2_code>
+    <cond_2_name>Raw tomatoes</cond_2_name>
+    <cond_3_code>83107000</cond_3_code>
+    <cond_3_name>Mayonnaise, regular</cond_3_name>
+    <cond_4_code>83204000</cond_4_code>
+    <cond_4_name>Low calorie mayonnaise</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>27550000</Survey_Food_Code>
+    <display_name>Fried FISH SANDWICH with tartar sauce</display_name>
+    <cond_1_code>75113000</cond_1_code>
+    <cond_1_name>Lettuce</cond_1_name>
+    <cond_2_code>74101000</cond_2_code>
+    <cond_2_name>Raw tomatoes</cond_2_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>27560300</Survey_Food_Code>
+    <display_name>CORN DOG (hot dog with cornbread coating)</display_name>
+    <cond_1_code>74303000</cond_1_code>
+    <cond_1_name>Ketchup (catsup)</cond_1_name>
+    <cond_2_code>75506010</cond_2_code>
+    <cond_2_name>Mustard</cond_2_name>
+    <cond_3_code>14420100</cond_3_code>
+    <cond_3_name>Cheese spread or dip (Velveeta, Cheez Wiz)</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>27560350</Survey_Food_Code>
+    <display_name>PIG IN A BLANKET (HOT DOG WRAPPED IN DOUGH)</display_name>
+    <cond_1_code>74303000</cond_1_code>
+    <cond_1_name>Ketchup (catsup)</cond_1_name>
+    <cond_2_code>75506010</cond_2_code>
+    <cond_2_name>Mustard</cond_2_name>
+    <cond_3_code>74406010</cond_3_code>
+    <cond_3_name>Barbeque sauce</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>31103000</Survey_Food_Code>
+    <display_name>hard or soft boiled egg</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>83107000</cond_3_code>
+    <cond_3_name>Mayonnaise, regular</cond_3_name>
+    <cond_4_code>83204000</cond_4_code>
+    <cond_4_name>Low calorie mayonnaise</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>31105000</Survey_Food_Code>
+    <display_name>fried egg</display_name>
+    <cond_1_code>74303000</cond_1_code>
+    <cond_1_name>Ketchup (catsup)</cond_1_name>
+    <cond_2_code>74402100</cond_2_code>
+    <cond_2_name>Salsa</cond_2_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>32104950</Survey_Food_Code>
+    <display_name>scrambed egg or omelet (cooked without fat)</display_name>
+    <cond_1_code>74303000</cond_1_code>
+    <cond_1_name>Ketchup (catsup)</cond_1_name>
+    <cond_2_code>74402100</cond_2_code>
+    <cond_2_name>Salsa</cond_2_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>32105000</Survey_Food_Code>
+    <display_name>srambled egg or omelet (cooked with fat)</display_name>
+    <cond_1_code>74303000</cond_1_code>
+    <cond_1_name>Ketchup (catsup)</cond_1_name>
+    <cond_2_code>74402100</cond_2_code>
+    <cond_2_name>Salsa</cond_2_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>51101000</Survey_Food_Code>
+    <display_name>White bread</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>91401000</cond_4_code>
+    <cond_4_name>Jelly, all flavors</cond_4_name>
+    <cond_5_code>91406500</cond_5_code>
+    <cond_5_name>Jam preserves, marmalades</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>51107010</Survey_Food_Code>
+    <display_name>French bread</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>82101000</cond_4_code>
+    <cond_4_name>Vegetable oil</cond_4_name>
+    <cond_5_code>64401000</cond_5_code>
+    <cond_5_name>Vinegar</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>51109100</Survey_Food_Code>
+    <display_name>Pita bread (white)</display_name>
+    <cond_1_code>41205070</cond_1_code>
+    <cond_1_name>Hummus</cond_1_name>
+    <cond_2_code>14301010</cond_2_code>
+    <cond_2_name>Cream cheese (regular)</cond_2_name>
+    <cond_3_code>14303010</cond_3_code>
+    <cond_3_name>Low fat cream cheese</cond_3_name>
+    <cond_4_code>82101000</cond_4_code>
+    <cond_4_name>Vegetable oil</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>51111010</Survey_Food_Code>
+    <display_name>cheese bread</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>51113010</Survey_Food_Code>
+    <display_name>Cinnamon bread or toast</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>91401000</cond_4_code>
+    <cond_4_name>Jelly, all flavors</cond_4_name>
+    <cond_5_code>91406500</cond_5_code>
+    <cond_5_name>Jam preserves, marmalades</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>51122000</Survey_Food_Code>
+    <display_name>Reduced-calorie, high-fiber bread</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>91401000</cond_4_code>
+    <cond_4_name>Jelly, all flavors</cond_4_name>
+    <cond_5_code>91406500</cond_5_code>
+    <cond_5_name>Jam preserves, marmalades</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>51129010</Survey_Food_Code>
+    <display_name>raisin bread</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>91401000</cond_4_code>
+    <cond_4_name>Jelly, all flavors</cond_4_name>
+    <cond_5_code>91406500</cond_5_code>
+    <cond_5_name>Jam preserves, marmalades</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>51133010</Survey_Food_Code>
+    <display_name>sourdough bread</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>82101000</cond_4_code>
+    <cond_4_name>Vegetable oil</cond_4_name>
+    <cond_5_code>91406500</cond_5_code>
+    <cond_5_name>Jam preserves, marmalades</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>51150000</Survey_Food_Code>
+    <display_name>white roll </display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>91401000</cond_4_code>
+    <cond_4_name>Jelly, all flavors</cond_4_name>
+    <cond_5_code>91406500</cond_5_code>
+    <cond_5_name>Jam preserves, marmalades</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>51157000</Survey_Food_Code>
+    <display_name>submarine roll</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>51160110</Survey_Food_Code>
+    <display_name>frosted sweet roll or cinnamon bun</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>51166000</Survey_Food_Code>
+    <display_name>CROISSANT</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>91401000</cond_4_code>
+    <cond_4_name>Jelly, all flavors</cond_4_name>
+    <cond_5_code>91406500</cond_5_code>
+    <cond_5_name>Jam preserves, marmalades</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>51180010</Survey_Food_Code>
+    <display_name>BAGEL (plain)</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>14301010</cond_3_code>
+    <cond_3_name>Cream cheese (regular)</cond_3_name>
+    <cond_4_code>91406500</cond_4_code>
+    <cond_4_name>Jam preserves, marmalades</cond_4_name>
+    <cond_5_code>14303010</cond_5_code>
+    <cond_5_name>Low fat cream cheese</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>51180030</Survey_Food_Code>
+    <display_name>Raisin bagel</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>14301010</cond_3_code>
+    <cond_3_name>Cream cheese (regular)</cond_3_name>
+    <cond_4_code>91406500</cond_4_code>
+    <cond_4_name>Jam preserves, marmalades</cond_4_name>
+    <cond_5_code>14303010</cond_5_code>
+    <cond_5_name>Low fat cream cheese</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>51186010</Survey_Food_Code>
+    <display_name>ENGLISH muffin</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>91401000</cond_4_code>
+    <cond_4_name>Jelly, all flavors</cond_4_name>
+    <cond_5_code>91406500</cond_5_code>
+    <cond_5_name>Jam preserves, marmalades</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>51186100</Survey_Food_Code>
+    <display_name>English muffin with raisins</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>91401000</cond_4_code>
+    <cond_4_name>Jelly, all flavors</cond_4_name>
+    <cond_5_code>91406500</cond_5_code>
+    <cond_5_name>Jam preserves, marmalades</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>51187000</Survey_Food_Code>
+    <display_name>MELBA TOAST</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>91401000</cond_4_code>
+    <cond_4_name>Jelly, all flavors</cond_4_name>
+    <cond_5_code>91406500</cond_5_code>
+    <cond_5_name>Jam preserves, marmalades</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>51201010</Survey_Food_Code>
+    <display_name>100% WHOLE WHEAT bread</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>91401000</cond_4_code>
+    <cond_4_name>Jelly, all flavors</cond_4_name>
+    <cond_5_code>91406500</cond_5_code>
+    <cond_5_name>Jam preserves, marmalades</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>51201150</Survey_Food_Code>
+    <display_name>Pita bread (100%  WHOLE WHEAT)</display_name>
+    <cond_1_code>82101000</cond_1_code>
+    <cond_1_name>Vegetable oil</cond_1_name>
+    <cond_2_code>41205070</cond_2_code>
+    <cond_2_name>Hummus</cond_2_name>
+    <cond_3_code>14301010</cond_3_code>
+    <cond_3_name>Cream cheese (regular)</cond_3_name>
+    <cond_4_code>14303010</cond_4_code>
+    <cond_4_name>Low fat cream cheese</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>51202000</Survey_Food_Code>
+    <display_name>Whole wheat English muffin</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>91401000</cond_4_code>
+    <cond_4_name>Jelly, all flavors</cond_4_name>
+    <cond_5_code>91406500</cond_5_code>
+    <cond_5_name>Jam preserves, marmalades</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>51301010</Survey_Food_Code>
+    <display_name>WHEAT OR CRACKED WHEAT bread</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>91401000</cond_4_code>
+    <cond_4_name>Jelly, all flavors</cond_4_name>
+    <cond_5_code>91406500</cond_5_code>
+    <cond_5_name>Jam preserves, marmalades</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>51301700</Survey_Food_Code>
+    <display_name>wheat Bagel (part whole wheat)</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>14301010</cond_4_code>
+    <cond_4_name>Cream cheese (regular)</cond_4_name>
+    <cond_5_code>14303010</cond_5_code>
+    <cond_5_name>Low fat cream cheese</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>51303010</Survey_Food_Code>
+    <display_name>English muffin (cracked wheat, part  WHOLE WHEAT)</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>91401000</cond_4_code>
+    <cond_4_name>Jelly, all flavors</cond_4_name>
+    <cond_5_code>91406500</cond_5_code>
+    <cond_5_name>Jam preserves, marmalades</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>51320530</Survey_Food_Code>
+    <display_name>wheat Roll (part WHOLE WHEAT)</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>91401000</cond_4_code>
+    <cond_4_name>Jelly, all flavors</cond_4_name>
+    <cond_5_code>91406500</cond_5_code>
+    <cond_5_name>Jam preserves, marmalades</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>51401010</Survey_Food_Code>
+    <display_name>Rye bread </display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>91401000</cond_4_code>
+    <cond_4_name>Jelly, all flavors</cond_4_name>
+    <cond_5_code>91406500</cond_5_code>
+    <cond_5_name>Jam preserves, marmalades</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>51601020</Survey_Food_Code>
+    <display_name>multigrain bread</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>91401000</cond_4_code>
+    <cond_4_name>Jelly, all flavors</cond_4_name>
+    <cond_5_code>91406500</cond_5_code>
+    <cond_5_name>Jam preserves, marmalades</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>51602010</Survey_Food_Code>
+    <display_name>Reduced calori, high fiber multigrain bread</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>91401000</cond_4_code>
+    <cond_4_name>Jelly, all flavors</cond_4_name>
+    <cond_5_code>91406500</cond_5_code>
+    <cond_5_name>Jam preserves, marmalades</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>52102040</Survey_Food_Code>
+    <display_name>Refrigerated biscuit (canned dough)</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>91401000</cond_4_code>
+    <cond_4_name>Jelly, all flavors</cond_4_name>
+    <cond_5_code>91302010</cond_5_code>
+    <cond_5_name>Honey</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>52103000</Survey_Food_Code>
+    <display_name>biscuit (baking powder or buttermilk)</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>91401000</cond_4_code>
+    <cond_4_name>Jelly, all flavors</cond_4_name>
+    <cond_5_code>91302010</cond_5_code>
+    <cond_5_name>Honey</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>52206010</Survey_Food_Code>
+    <display_name>cornbread</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>91401000</cond_4_code>
+    <cond_4_name>Jelly, all flavors</cond_4_name>
+    <cond_5_code>91406500</cond_5_code>
+    <cond_5_name>Jam preserves, marmalades</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>52302010</Survey_Food_Code>
+    <display_name>fruit muffin (blueberry, banana, etc.)</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>91401000</cond_4_code>
+    <cond_4_name>Jelly, all flavors</cond_4_name>
+    <cond_5_code>91406500</cond_5_code>
+    <cond_5_name>Jam preserves, marmalades</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>52302100</Survey_Food_Code>
+    <display_name>fat free fruit muffin (blueberry, banana, etc.)</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>91401000</cond_4_code>
+    <cond_4_name>Jelly, all flavors</cond_4_name>
+    <cond_5_code>91406500</cond_5_code>
+    <cond_5_name>Jam preserves, marmalades</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>52302500</Survey_Food_Code>
+    <display_name>chocolate chip muffin</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>91401000</cond_4_code>
+    <cond_4_name>Jelly, all flavors</cond_4_name>
+    <cond_5_code>91406500</cond_5_code>
+    <cond_5_name>Jam preserves, marmalades</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>52304010</Survey_Food_Code>
+    <display_name>Bran muffin</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>91401000</cond_4_code>
+    <cond_4_name>Jelly, all flavors</cond_4_name>
+    <cond_5_code>91406500</cond_5_code>
+    <cond_5_name>Jam preserves, marmalades</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>52304040</Survey_Food_Code>
+    <display_name>lowfat bran and fruit muffin</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>91401000</cond_4_code>
+    <cond_4_name>Jelly, all flavors</cond_4_name>
+    <cond_5_code>91406500</cond_5_code>
+    <cond_5_name>Jam preserves, marmalades</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>52306010</Survey_Food_Code>
+    <display_name>Plain Muffin</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>91401000</cond_4_code>
+    <cond_4_name>Jelly, all flavors</cond_4_name>
+    <cond_5_code>91406500</cond_5_code>
+    <cond_5_name>Jam preserves, marmalades</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>52405010</Survey_Food_Code>
+    <display_name>fruit bread</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>91401000</cond_4_code>
+    <cond_4_name>Jelly, all flavors</cond_4_name>
+    <cond_5_code>91406500</cond_5_code>
+    <cond_5_name>Jam preserves, marmalades</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>52407000</Survey_Food_Code>
+    <display_name>zucchini bread</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>91401000</cond_4_code>
+    <cond_4_name>Jelly, all flavors</cond_4_name>
+    <cond_5_code>91406500</cond_5_code>
+    <cond_5_name>Jam preserves, marmalades</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>55101000</Survey_Food_Code>
+    <display_name>Pancakes</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>91300010</cond_4_code>
+    <cond_4_name>Syrup</cond_4_name>
+    <cond_5_code>63101120</cond_5_code>
+    <cond_5_name>Applesauce (unsweetened)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>55103000</Survey_Food_Code>
+    <display_name>Blueberry pancakes</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>91300010</cond_4_code>
+    <cond_4_name>Syrup</cond_4_name>
+    <cond_5_code>63101120</cond_5_code>
+    <cond_5_name>Applesauce (unsweetened)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>55105200</Survey_Food_Code>
+    <display_name>Whole wheat pancakes</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>91300010</cond_4_code>
+    <cond_4_name>Syrup</cond_4_name>
+    <cond_5_code>63101120</cond_5_code>
+    <cond_5_name>Applesauce (unsweetened)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>55201000</Survey_Food_Code>
+    <display_name>Waffle</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>91300010</cond_4_code>
+    <cond_4_name>Syrup</cond_4_name>
+    <cond_5_code>63101120</cond_5_code>
+    <cond_5_name>Applesauce (unsweetened)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>55202000</Survey_Food_Code>
+    <display_name>Bran, multigrain, or wheat waffle</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>91300010</cond_4_code>
+    <cond_4_name>Syrup</cond_4_name>
+    <cond_5_code>63101120</cond_5_code>
+    <cond_5_name>Applesauce (unsweetened)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>55211050</Survey_Food_Code>
+    <display_name>Lowfat waffle</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>91300010</cond_4_code>
+    <cond_4_name>Syrup</cond_4_name>
+    <cond_5_code>63101120</cond_5_code>
+    <cond_5_name>Applesauce (unsweetened)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>55301000</Survey_Food_Code>
+    <display_name>French toast</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>91300010</cond_4_code>
+    <cond_4_name>Syrup</cond_4_name>
+    <cond_5_code>91101020</cond_5_code>
+    <cond_5_name>Powdered sugar (confectioner's sugar)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>55301050</Survey_Food_Code>
+    <display_name>FRENCH TOAST STICKS</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>91300010</cond_4_code>
+    <cond_4_name>Syrup</cond_4_name>
+    <cond_5_code>91101020</cond_5_code>
+    <cond_5_name>Powdered sugar (confectioner's sugar)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>56101010</Survey_Food_Code>
+    <display_name>Spaghetti, macaroni, or pasta (plain)</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>56133000</Survey_Food_Code>
+    <display_name>Whole wheat spaghetti or pasta (plain)</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>56201010</Survey_Food_Code>
+    <display_name>Grits (hominy), no fat added</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>56201020</Survey_Food_Code>
+    <display_name>Grits (hominy) with butter added  (??)</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>56203010</Survey_Food_Code>
+    <display_name>Oatmeal (plain)</display_name>
+    <cond_1_code>11111000</cond_1_code>
+    <cond_1_name>Whole milk</cond_1_name>
+    <cond_2_code>11112210</cond_2_code>
+    <cond_2_name>1% milk (low fat)</cond_2_name>
+    <cond_3_code>11113000</cond_3_code>
+    <cond_3_name>Fat free milk (skim)</cond_3_name>
+    <cond_4_code>11320000</cond_4_code>
+    <cond_4_name>Soymilk, plain (calcium fortified)</cond_4_name>
+    <cond_5_code>91101010</cond_5_code>
+    <cond_5_name>White sugar (granulated or lump)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>56203030</Survey_Food_Code>
+    <display_name>Oatmeal (instant, flavored)</display_name>
+    <cond_1_code>11111000</cond_1_code>
+    <cond_1_name>Whole milk</cond_1_name>
+    <cond_2_code>11112210</cond_2_code>
+    <cond_2_name>1% milk (low fat)</cond_2_name>
+    <cond_3_code>11113000</cond_3_code>
+    <cond_3_name>Fat free milk (skim)</cond_3_name>
+    <cond_4_code>11320000</cond_4_code>
+    <cond_4_name>Soymilk, plain (calcium fortified)</cond_4_name>
+    <cond_5_code>91101010</cond_5_code>
+    <cond_5_name>White sugar (granulated or lump)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>56205010</Survey_Food_Code>
+    <display_name>White rice </display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>82101000</cond_4_code>
+    <cond_4_name>Vegetable oil</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>56205110</Survey_Food_Code>
+    <display_name>brown rice</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>82101000</cond_4_code>
+    <cond_4_name>Vegetable oil</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>56205210</Survey_Food_Code>
+    <display_name>wild rice</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>82101000</cond_4_code>
+    <cond_4_name>Vegetable oil</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>56205420</Survey_Food_Code>
+    <display_name>White rice cooked with butter or oil (??)</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>82101000</cond_4_code>
+    <cond_4_name>Vegetable oil</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>56207010</Survey_Food_Code>
+    <display_name>cream of wheat </display_name>
+    <cond_1_code>11111000</cond_1_code>
+    <cond_1_name>Whole milk</cond_1_name>
+    <cond_2_code>11112210</cond_2_code>
+    <cond_2_name>1% milk (low fat)</cond_2_name>
+    <cond_3_code>11113000</cond_3_code>
+    <cond_3_name>Fat free milk (skim)</cond_3_name>
+    <cond_4_code>11320000</cond_4_code>
+    <cond_4_name>Soymilk, plain (calcium fortified)</cond_4_name>
+    <cond_5_code>91101010</cond_5_code>
+    <cond_5_name>White sugar (granulated or lump)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>57101000</Survey_Food_Code>
+    <display_name>ALL-BRAN CEREAL</display_name>
+    <cond_1_code>11111000</cond_1_code>
+    <cond_1_name>Whole milk</cond_1_name>
+    <cond_2_code>11112210</cond_2_code>
+    <cond_2_name>1% milk (low fat)</cond_2_name>
+    <cond_3_code>11113000</cond_3_code>
+    <cond_3_name>Fat free milk (skim)</cond_3_name>
+    <cond_4_code>11320000</cond_4_code>
+    <cond_4_name>Soymilk, plain (calcium fortified)</cond_4_name>
+    <cond_5_code>91101010</cond_5_code>
+    <cond_5_name>White sugar (granulated or lump)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>57104000</Survey_Food_Code>
+    <display_name>APPLE JACKS CEREAL</display_name>
+    <cond_1_code>11111000</cond_1_code>
+    <cond_1_name>Whole milk</cond_1_name>
+    <cond_2_code>11112210</cond_2_code>
+    <cond_2_name>1% milk (low fat)</cond_2_name>
+    <cond_3_code>11113000</cond_3_code>
+    <cond_3_name>Fat free milk (skim)</cond_3_name>
+    <cond_4_code>11320000</cond_4_code>
+    <cond_4_name>Soymilk, plain (calcium fortified)</cond_4_name>
+    <cond_5_code>91101010</cond_5_code>
+    <cond_5_name>White sugar (granulated or lump)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>57117000</Survey_Food_Code>
+    <display_name>CAP'N CRUNCH CEREAL</display_name>
+    <cond_1_code>11111000</cond_1_code>
+    <cond_1_name>Whole milk</cond_1_name>
+    <cond_2_code>11112210</cond_2_code>
+    <cond_2_name>1% milk (low fat)</cond_2_name>
+    <cond_3_code>11113000</cond_3_code>
+    <cond_3_name>Fat free milk (skim)</cond_3_name>
+    <cond_4_code>11320000</cond_4_code>
+    <cond_4_name>Soymilk, plain (calcium fortified)</cond_4_name>
+    <cond_5_code>91101010</cond_5_code>
+    <cond_5_name>White sugar (granulated or lump)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>57123000</Survey_Food_Code>
+    <display_name>CHEERIOS</display_name>
+    <cond_1_code>11111000</cond_1_code>
+    <cond_1_name>Whole milk</cond_1_name>
+    <cond_2_code>11112210</cond_2_code>
+    <cond_2_name>1% milk (low fat)</cond_2_name>
+    <cond_3_code>11113000</cond_3_code>
+    <cond_3_name>Fat free milk (skim)</cond_3_name>
+    <cond_4_code>11320000</cond_4_code>
+    <cond_4_name>Soymilk, plain (calcium fortified)</cond_4_name>
+    <cond_5_code>91101010</cond_5_code>
+    <cond_5_name>White sugar (granulated or lump)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>57124000</Survey_Food_Code>
+    <display_name>CHEX CEREAL</display_name>
+    <cond_1_code>11111000</cond_1_code>
+    <cond_1_name>Whole milk</cond_1_name>
+    <cond_2_code>11112210</cond_2_code>
+    <cond_2_name>1% milk (low fat)</cond_2_name>
+    <cond_3_code>11113000</cond_3_code>
+    <cond_3_name>Fat free milk (skim)</cond_3_name>
+    <cond_4_code>11320000</cond_4_code>
+    <cond_4_name>Soymilk, plain (calcium fortified)</cond_4_name>
+    <cond_5_code>91101010</cond_5_code>
+    <cond_5_name>White sugar (granulated or lump)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>57125000</Survey_Food_Code>
+    <display_name>CINNAMON TOAST CRUNCH CEREAL</display_name>
+    <cond_1_code>11111000</cond_1_code>
+    <cond_1_name>Whole milk</cond_1_name>
+    <cond_2_code>11112210</cond_2_code>
+    <cond_2_name>1% milk (low fat)</cond_2_name>
+    <cond_3_code>11113000</cond_3_code>
+    <cond_3_name>Fat free milk (skim)</cond_3_name>
+    <cond_4_code>11320000</cond_4_code>
+    <cond_4_name>Soymilk, plain (calcium fortified)</cond_4_name>
+    <cond_5_code>91101010</cond_5_code>
+    <cond_5_name>White sugar (granulated or lump)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>57128000</Survey_Food_Code>
+    <display_name>COCOA PUFFS CEREAL</display_name>
+    <cond_1_code>11111000</cond_1_code>
+    <cond_1_name>Whole milk</cond_1_name>
+    <cond_2_code>11112210</cond_2_code>
+    <cond_2_name>1% milk (low fat)</cond_2_name>
+    <cond_3_code>11113000</cond_3_code>
+    <cond_3_name>Fat free milk (skim)</cond_3_name>
+    <cond_4_code>11320000</cond_4_code>
+    <cond_4_name>Soymilk, plain (calcium fortified)</cond_4_name>
+    <cond_5_code>91101010</cond_5_code>
+    <cond_5_name>White sugar (granulated or lump)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>57135000</Survey_Food_Code>
+    <display_name>CORN FLAKES</display_name>
+    <cond_1_code>11111000</cond_1_code>
+    <cond_1_name>Whole milk</cond_1_name>
+    <cond_2_code>11112210</cond_2_code>
+    <cond_2_name>1% milk (low fat)</cond_2_name>
+    <cond_3_code>11113000</cond_3_code>
+    <cond_3_name>Fat free milk (skim)</cond_3_name>
+    <cond_4_code>11320000</cond_4_code>
+    <cond_4_name>Soymilk, plain (calcium fortified)</cond_4_name>
+    <cond_5_code>91101010</cond_5_code>
+    <cond_5_name>White sugar (granulated or lump)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>57206700</Survey_Food_Code>
+    <display_name>Fiber One cereal</display_name>
+    <cond_1_code>11111000</cond_1_code>
+    <cond_1_name>Whole milk</cond_1_name>
+    <cond_2_code>11112210</cond_2_code>
+    <cond_2_name>1% milk (low fat)</cond_2_name>
+    <cond_3_code>11113000</cond_3_code>
+    <cond_3_name>Fat free milk (skim)</cond_3_name>
+    <cond_4_code>11320000</cond_4_code>
+    <cond_4_name>Soymilk, plain (calcium fortified)</cond_4_name>
+    <cond_5_code>91101010</cond_5_code>
+    <cond_5_name>White sugar (granulated or lump)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>57207000</Survey_Food_Code>
+    <display_name>BRAN FLAKES CEREAL</display_name>
+    <cond_1_code>11111000</cond_1_code>
+    <cond_1_name>Whole milk</cond_1_name>
+    <cond_2_code>11112210</cond_2_code>
+    <cond_2_name>1% milk (low fat)</cond_2_name>
+    <cond_3_code>11113000</cond_3_code>
+    <cond_3_name>Fat free milk (skim)</cond_3_name>
+    <cond_4_code>11320000</cond_4_code>
+    <cond_4_name>Soymilk, plain (calcium fortified)</cond_4_name>
+    <cond_5_code>91101010</cond_5_code>
+    <cond_5_name>White sugar (granulated or lump)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>57213000</Survey_Food_Code>
+    <display_name>FROOT LOOPS CEREAL</display_name>
+    <cond_1_code>11111000</cond_1_code>
+    <cond_1_name>Whole milk</cond_1_name>
+    <cond_2_code>11112210</cond_2_code>
+    <cond_2_name>1% milk (low fat)</cond_2_name>
+    <cond_3_code>11113000</cond_3_code>
+    <cond_3_name>Fat free milk (skim)</cond_3_name>
+    <cond_4_code>11320000</cond_4_code>
+    <cond_4_name>Soymilk, plain (calcium fortified)</cond_4_name>
+    <cond_5_code>91101010</cond_5_code>
+    <cond_5_name>White sugar (granulated or lump)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>57214000</Survey_Food_Code>
+    <display_name>FROSTED MINI-WHEATS CEREAL</display_name>
+    <cond_1_code>11111000</cond_1_code>
+    <cond_1_name>Whole milk</cond_1_name>
+    <cond_2_code>11112210</cond_2_code>
+    <cond_2_name>1% milk (low fat)</cond_2_name>
+    <cond_3_code>11113000</cond_3_code>
+    <cond_3_name>Fat free milk (skim)</cond_3_name>
+    <cond_4_code>11320000</cond_4_code>
+    <cond_4_name>Soymilk, plain (calcium fortified)</cond_4_name>
+    <cond_5_code>91101010</cond_5_code>
+    <cond_5_name>White sugar (granulated or lump)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>57223000</Survey_Food_Code>
+    <display_name>FRUITY PEBBLES CEREAL</display_name>
+    <cond_1_code>11111000</cond_1_code>
+    <cond_1_name>Whole milk</cond_1_name>
+    <cond_2_code>11112210</cond_2_code>
+    <cond_2_name>1% milk (low fat)</cond_2_name>
+    <cond_3_code>11113000</cond_3_code>
+    <cond_3_name>Fat free milk (skim)</cond_3_name>
+    <cond_4_code>11320000</cond_4_code>
+    <cond_4_name>Soymilk, plain (calcium fortified)</cond_4_name>
+    <cond_5_code>91101010</cond_5_code>
+    <cond_5_name>White sugar (granulated or lump)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>57224000</Survey_Food_Code>
+    <display_name>GOLDEN GRAHAMS CEREAL</display_name>
+    <cond_1_code>11111000</cond_1_code>
+    <cond_1_name>Whole milk</cond_1_name>
+    <cond_2_code>11112210</cond_2_code>
+    <cond_2_name>1% milk (low fat)</cond_2_name>
+    <cond_3_code>11113000</cond_3_code>
+    <cond_3_name>Fat free milk (skim)</cond_3_name>
+    <cond_4_code>11320000</cond_4_code>
+    <cond_4_name>Soymilk, plain (calcium fortified)</cond_4_name>
+    <cond_5_code>91101010</cond_5_code>
+    <cond_5_name>White sugar (granulated or lump)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>57228000</Survey_Food_Code>
+    <display_name>granola</display_name>
+    <cond_1_code>11111000</cond_1_code>
+    <cond_1_name>Whole milk</cond_1_name>
+    <cond_2_code>11112210</cond_2_code>
+    <cond_2_name>1% milk (low fat)</cond_2_name>
+    <cond_3_code>11113000</cond_3_code>
+    <cond_3_name>Fat free milk (skim)</cond_3_name>
+    <cond_4_code>11320000</cond_4_code>
+    <cond_4_name>Soymilk, plain (calcium fortified)</cond_4_name>
+    <cond_5_code>91101010</cond_5_code>
+    <cond_5_name>White sugar (granulated or lump)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>57229000</Survey_Food_Code>
+    <display_name>lowfat granola</display_name>
+    <cond_1_code>11111000</cond_1_code>
+    <cond_1_name>Whole milk</cond_1_name>
+    <cond_2_code>11112210</cond_2_code>
+    <cond_2_name>1% milk (low fat)</cond_2_name>
+    <cond_3_code>11113000</cond_3_code>
+    <cond_3_name>Fat free milk (skim)</cond_3_name>
+    <cond_4_code>11320000</cond_4_code>
+    <cond_4_name>Soymilk, plain (calcium fortified)</cond_4_name>
+    <cond_5_code>91101010</cond_5_code>
+    <cond_5_name>White sugar (granulated or lump)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>57230000</Survey_Food_Code>
+    <display_name>grape-nuts cereal</display_name>
+    <cond_1_code>11111000</cond_1_code>
+    <cond_1_name>Whole milk</cond_1_name>
+    <cond_2_code>11112210</cond_2_code>
+    <cond_2_name>1% milk (low fat)</cond_2_name>
+    <cond_3_code>11113000</cond_3_code>
+    <cond_3_name>Fat free milk (skim)</cond_3_name>
+    <cond_4_code>11320000</cond_4_code>
+    <cond_4_name>Soymilk, plain (calcium fortified)</cond_4_name>
+    <cond_5_code>91101010</cond_5_code>
+    <cond_5_name>White sugar (granulated or lump)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>57237100</Survey_Food_Code>
+    <display_name>HONEY BUNCHES OF OATS CEREAL</display_name>
+    <cond_1_code>11111000</cond_1_code>
+    <cond_1_name>Whole milk</cond_1_name>
+    <cond_2_code>11112210</cond_2_code>
+    <cond_2_name>1% milk (low fat)</cond_2_name>
+    <cond_3_code>11113000</cond_3_code>
+    <cond_3_name>Fat free milk (skim)</cond_3_name>
+    <cond_4_code>11320000</cond_4_code>
+    <cond_4_name>Soymilk, plain (calcium fortified)</cond_4_name>
+    <cond_5_code>91101010</cond_5_code>
+    <cond_5_name>White sugar (granulated or lump)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>57238000</Survey_Food_Code>
+    <display_name>Honeycomb cereal</display_name>
+    <cond_1_code>11111000</cond_1_code>
+    <cond_1_name>Whole milk</cond_1_name>
+    <cond_2_code>11112210</cond_2_code>
+    <cond_2_name>1% milk (low fat)</cond_2_name>
+    <cond_3_code>11113000</cond_3_code>
+    <cond_3_name>Fat free milk (skim)</cond_3_name>
+    <cond_4_code>11320000</cond_4_code>
+    <cond_4_name>Soymilk, plain (calcium fortified)</cond_4_name>
+    <cond_5_code>91101010</cond_5_code>
+    <cond_5_name>White sugar (granulated or lump)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>57241000</Survey_Food_Code>
+    <display_name>HONEY NUT CHEERIOS</display_name>
+    <cond_1_code>11111000</cond_1_code>
+    <cond_1_name>Whole milk</cond_1_name>
+    <cond_2_code>11112210</cond_2_code>
+    <cond_2_name>1% milk (low fat)</cond_2_name>
+    <cond_3_code>11113000</cond_3_code>
+    <cond_3_name>Fat free milk (skim)</cond_3_name>
+    <cond_4_code>11320000</cond_4_code>
+    <cond_4_name>Soymilk, plain (calcium fortified)</cond_4_name>
+    <cond_5_code>91101010</cond_5_code>
+    <cond_5_name>White sugar (granulated or lump)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>57243000</Survey_Food_Code>
+    <display_name>HONEY SMACKS CEREAL</display_name>
+    <cond_1_code>11111000</cond_1_code>
+    <cond_1_name>Whole milk</cond_1_name>
+    <cond_2_code>11112210</cond_2_code>
+    <cond_2_name>1% milk (low fat)</cond_2_name>
+    <cond_3_code>11113000</cond_3_code>
+    <cond_3_name>Fat free milk (skim)</cond_3_name>
+    <cond_4_code>11320000</cond_4_code>
+    <cond_4_name>Soymilk, plain (calcium fortified)</cond_4_name>
+    <cond_5_code>91101010</cond_5_code>
+    <cond_5_name>White sugar (granulated or lump)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>57301500</Survey_Food_Code>
+    <display_name>KASHI, PUFFED</display_name>
+    <cond_1_code>11111000</cond_1_code>
+    <cond_1_name>Whole milk</cond_1_name>
+    <cond_2_code>11112210</cond_2_code>
+    <cond_2_name>1% milk (low fat)</cond_2_name>
+    <cond_3_code>11113000</cond_3_code>
+    <cond_3_name>Fat free milk (skim)</cond_3_name>
+    <cond_4_code>11320000</cond_4_code>
+    <cond_4_name>Soymilk, plain (calcium fortified)</cond_4_name>
+    <cond_5_code>91101010</cond_5_code>
+    <cond_5_name>White sugar (granulated or lump)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>57303100</Survey_Food_Code>
+    <display_name>KIX CEREAL</display_name>
+    <cond_1_code>11111000</cond_1_code>
+    <cond_1_name>Whole milk</cond_1_name>
+    <cond_2_code>11112210</cond_2_code>
+    <cond_2_name>1% milk (low fat)</cond_2_name>
+    <cond_3_code>11113000</cond_3_code>
+    <cond_3_name>Fat free milk (skim)</cond_3_name>
+    <cond_4_code>11320000</cond_4_code>
+    <cond_4_name>Soymilk, plain (calcium fortified)</cond_4_name>
+    <cond_5_code>91101010</cond_5_code>
+    <cond_5_name>White sugar (granulated or lump)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>57304100</Survey_Food_Code>
+    <display_name>LIFE CEREAL (PLAIN &amp; CINNAMON)</display_name>
+    <cond_1_code>11111000</cond_1_code>
+    <cond_1_name>Whole milk</cond_1_name>
+    <cond_2_code>11112210</cond_2_code>
+    <cond_2_name>1% milk (low fat)</cond_2_name>
+    <cond_3_code>11113000</cond_3_code>
+    <cond_3_name>Fat free milk (skim)</cond_3_name>
+    <cond_4_code>11320000</cond_4_code>
+    <cond_4_name>Soymilk, plain (calcium fortified)</cond_4_name>
+    <cond_5_code>91101010</cond_5_code>
+    <cond_5_name>White sugar (granulated or lump)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>57305100</Survey_Food_Code>
+    <display_name>LUCKY CHARMS CEREAL</display_name>
+    <cond_1_code>11111000</cond_1_code>
+    <cond_1_name>Whole milk</cond_1_name>
+    <cond_2_code>11112210</cond_2_code>
+    <cond_2_name>1% milk (low fat)</cond_2_name>
+    <cond_3_code>11113000</cond_3_code>
+    <cond_3_name>Fat free milk (skim)</cond_3_name>
+    <cond_4_code>11320000</cond_4_code>
+    <cond_4_name>Soymilk, plain (calcium fortified)</cond_4_name>
+    <cond_5_code>91101010</cond_5_code>
+    <cond_5_name>White sugar (granulated or lump)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>57330000</Survey_Food_Code>
+    <display_name>RAISIN BRAN CEREAL</display_name>
+    <cond_1_code>11111000</cond_1_code>
+    <cond_1_name>Whole milk</cond_1_name>
+    <cond_2_code>11112210</cond_2_code>
+    <cond_2_name>1% milk (low fat)</cond_2_name>
+    <cond_3_code>11113000</cond_3_code>
+    <cond_3_name>Fat free milk (skim)</cond_3_name>
+    <cond_4_code>11320000</cond_4_code>
+    <cond_4_name>Soymilk, plain (calcium fortified)</cond_4_name>
+    <cond_5_code>91101010</cond_5_code>
+    <cond_5_name>White sugar (granulated or lump)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>57336000</Survey_Food_Code>
+    <display_name>RICE CHEX CEREAL</display_name>
+    <cond_1_code>11111000</cond_1_code>
+    <cond_1_name>Whole milk</cond_1_name>
+    <cond_2_code>11112210</cond_2_code>
+    <cond_2_name>1% milk (low fat)</cond_2_name>
+    <cond_3_code>11113000</cond_3_code>
+    <cond_3_name>Fat free milk (skim)</cond_3_name>
+    <cond_4_code>11320000</cond_4_code>
+    <cond_4_name>Soymilk, plain (calcium fortified)</cond_4_name>
+    <cond_5_code>91101010</cond_5_code>
+    <cond_5_name>White sugar (granulated or lump)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>57339000</Survey_Food_Code>
+    <display_name>RICE KRISPIES CEREAL</display_name>
+    <cond_1_code>11111000</cond_1_code>
+    <cond_1_name>Whole milk</cond_1_name>
+    <cond_2_code>11112210</cond_2_code>
+    <cond_2_name>1% milk (low fat)</cond_2_name>
+    <cond_3_code>11113000</cond_3_code>
+    <cond_3_name>Fat free milk (skim)</cond_3_name>
+    <cond_4_code>11320000</cond_4_code>
+    <cond_4_name>Soymilk, plain (calcium fortified)</cond_4_name>
+    <cond_5_code>91101010</cond_5_code>
+    <cond_5_name>White sugar (granulated or lump)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>57344000</Survey_Food_Code>
+    <display_name>SPECIAL K CEREAL</display_name>
+    <cond_1_code>11111000</cond_1_code>
+    <cond_1_name>Whole milk</cond_1_name>
+    <cond_2_code>11112210</cond_2_code>
+    <cond_2_name>1% milk (low fat)</cond_2_name>
+    <cond_3_code>11113000</cond_3_code>
+    <cond_3_name>Fat free milk (skim)</cond_3_name>
+    <cond_4_code>11320000</cond_4_code>
+    <cond_4_name>Soymilk, plain (calcium fortified)</cond_4_name>
+    <cond_5_code>91101010</cond_5_code>
+    <cond_5_name>White sugar (granulated or lump)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>57347000</Survey_Food_Code>
+    <display_name>CORN POPS CEREAL</display_name>
+    <cond_1_code>11111000</cond_1_code>
+    <cond_1_name>Whole milk</cond_1_name>
+    <cond_2_code>11112210</cond_2_code>
+    <cond_2_name>1% milk (low fat)</cond_2_name>
+    <cond_3_code>11113000</cond_3_code>
+    <cond_3_name>Fat free milk (skim)</cond_3_name>
+    <cond_4_code>11320000</cond_4_code>
+    <cond_4_name>Soymilk, plain (calcium fortified)</cond_4_name>
+    <cond_5_code>91101010</cond_5_code>
+    <cond_5_name>White sugar (granulated or lump)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>57349000</Survey_Food_Code>
+    <display_name>FROSTED FLAKES</display_name>
+    <cond_1_code>11111000</cond_1_code>
+    <cond_1_name>Whole milk</cond_1_name>
+    <cond_2_code>11112210</cond_2_code>
+    <cond_2_name>1% milk (low fat)</cond_2_name>
+    <cond_3_code>11113000</cond_3_code>
+    <cond_3_name>Fat free milk (skim)</cond_3_name>
+    <cond_4_code>11320000</cond_4_code>
+    <cond_4_name>Soymilk, plain (calcium fortified)</cond_4_name>
+    <cond_5_code>91101010</cond_5_code>
+    <cond_5_name>White sugar (granulated or lump)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>57406100</Survey_Food_Code>
+    <display_name>TOTAL CEREAL</display_name>
+    <cond_1_code>11111000</cond_1_code>
+    <cond_1_name>Whole milk</cond_1_name>
+    <cond_2_code>11112210</cond_2_code>
+    <cond_2_name>1% milk (low fat)</cond_2_name>
+    <cond_3_code>11113000</cond_3_code>
+    <cond_3_name>Fat free milk (skim)</cond_3_name>
+    <cond_4_code>11320000</cond_4_code>
+    <cond_4_name>Soymilk, plain (calcium fortified)</cond_4_name>
+    <cond_5_code>91101010</cond_5_code>
+    <cond_5_name>White sugar (granulated or lump)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>57407100</Survey_Food_Code>
+    <display_name>TRIX CEREAL</display_name>
+    <cond_1_code>11111000</cond_1_code>
+    <cond_1_name>Whole milk</cond_1_name>
+    <cond_2_code>11112210</cond_2_code>
+    <cond_2_name>1% milk (low fat)</cond_2_name>
+    <cond_3_code>11113000</cond_3_code>
+    <cond_3_name>Fat free milk (skim)</cond_3_name>
+    <cond_4_code>11320000</cond_4_code>
+    <cond_4_name>Soymilk, plain (calcium fortified)</cond_4_name>
+    <cond_5_code>91101010</cond_5_code>
+    <cond_5_name>White sugar (granulated or lump)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>57417000</Survey_Food_Code>
+    <display_name>SHREDDED WHEAT</display_name>
+    <cond_1_code>11111000</cond_1_code>
+    <cond_1_name>Whole milk</cond_1_name>
+    <cond_2_code>11112210</cond_2_code>
+    <cond_2_name>1% milk (low fat)</cond_2_name>
+    <cond_3_code>11113000</cond_3_code>
+    <cond_3_name>Fat free milk (skim)</cond_3_name>
+    <cond_4_code>11320000</cond_4_code>
+    <cond_4_name>Soymilk, plain (calcium fortified)</cond_4_name>
+    <cond_5_code>91101010</cond_5_code>
+    <cond_5_name>White sugar (granulated or lump)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>57418000</Survey_Food_Code>
+    <display_name>WHEATIES CEREAL</display_name>
+    <cond_1_code>11111000</cond_1_code>
+    <cond_1_name>Whole milk</cond_1_name>
+    <cond_2_code>11112210</cond_2_code>
+    <cond_2_name>1% milk (low fat)</cond_2_name>
+    <cond_3_code>11113000</cond_3_code>
+    <cond_3_name>Fat free milk (skim)</cond_3_name>
+    <cond_4_code>11320000</cond_4_code>
+    <cond_4_name>Soymilk, plain (calcium fortified)</cond_4_name>
+    <cond_5_code>91101010</cond_5_code>
+    <cond_5_name>White sugar (granulated or lump)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>58100110</Survey_Food_Code>
+    <display_name>Beef and bean burrito</display_name>
+    <cond_1_code>12310100</cond_1_code>
+    <cond_1_name>Sour cream</cond_1_name>
+    <cond_2_code>63409010</cond_2_code>
+    <cond_2_name>Guacamole</cond_2_name>
+    <cond_3_code>74402100</cond_3_code>
+    <cond_3_name>Salsa</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>58100130</Survey_Food_Code>
+    <display_name>Beef and cheese burrito (no beans)</display_name>
+    <cond_1_code>12310100</cond_1_code>
+    <cond_1_name>Sour cream</cond_1_name>
+    <cond_2_code>63409010</cond_2_code>
+    <cond_2_name>Guacamole</cond_2_name>
+    <cond_3_code>74402100</cond_3_code>
+    <cond_3_name>Salsa</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>58100140</Survey_Food_Code>
+    <display_name>Beef, bean, and cheese burrito </display_name>
+    <cond_1_code>12310100</cond_1_code>
+    <cond_1_name>Sour cream</cond_1_name>
+    <cond_2_code>63409010</cond_2_code>
+    <cond_2_name>Guacamole</cond_2_name>
+    <cond_3_code>74402100</cond_3_code>
+    <cond_3_name>Salsa</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>58100310</Survey_Food_Code>
+    <display_name>Bean burrito</display_name>
+    <cond_1_code>12310100</cond_1_code>
+    <cond_1_name>Sour cream</cond_1_name>
+    <cond_2_code>63409010</cond_2_code>
+    <cond_2_name>Guacamole</cond_2_name>
+    <cond_3_code>74402100</cond_3_code>
+    <cond_3_name>Salsa</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>58100320</Survey_Food_Code>
+    <display_name>Bean and cheese burrito</display_name>
+    <cond_1_code>12310100</cond_1_code>
+    <cond_1_name>Sour cream</cond_1_name>
+    <cond_2_code>63409010</cond_2_code>
+    <cond_2_name>Guacamole</cond_2_name>
+    <cond_3_code>74402100</cond_3_code>
+    <cond_3_name>Salsa</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>58100530</Survey_Food_Code>
+    <display_name>Beef and cheese enchilada</display_name>
+    <cond_1_code>12310100</cond_1_code>
+    <cond_1_name>Sour cream</cond_1_name>
+    <cond_2_code>63409010</cond_2_code>
+    <cond_2_name>Guacamole</cond_2_name>
+    <cond_3_code>74402100</cond_3_code>
+    <cond_3_name>Salsa</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>58100600</Survey_Food_Code>
+    <display_name>Chicken enchilada</display_name>
+    <cond_1_code>12310100</cond_1_code>
+    <cond_1_name>Sour cream</cond_1_name>
+    <cond_2_code>63409010</cond_2_code>
+    <cond_2_name>Guacamole</cond_2_name>
+    <cond_3_code>74402100</cond_3_code>
+    <cond_3_name>Salsa</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>58100710</Survey_Food_Code>
+    <display_name>Bean enchilada</display_name>
+    <cond_1_code>12310100</cond_1_code>
+    <cond_1_name>Sour cream</cond_1_name>
+    <cond_2_code>63409010</cond_2_code>
+    <cond_2_name>Guacamole</cond_2_name>
+    <cond_3_code>74402100</cond_3_code>
+    <cond_3_name>Salsa</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>58100800</Survey_Food_Code>
+    <display_name>Cheese enchilada</display_name>
+    <cond_1_code>12310100</cond_1_code>
+    <cond_1_name>Sour cream</cond_1_name>
+    <cond_2_code>63409010</cond_2_code>
+    <cond_2_name>Guacamole</cond_2_name>
+    <cond_3_code>74402100</cond_3_code>
+    <cond_3_name>Salsa</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>58101300</Survey_Food_Code>
+    <display_name>Beef taco with cheese and lettuce</display_name>
+    <cond_1_code>12310100</cond_1_code>
+    <cond_1_name>Sour cream</cond_1_name>
+    <cond_2_code>63409010</cond_2_code>
+    <cond_2_name>Guacamole</cond_2_name>
+    <cond_3_code>74402100</cond_3_code>
+    <cond_3_name>Salsa</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>58101320</Survey_Food_Code>
+    <display_name>Beef taco (cheese, lettuce, tomato, salsa)</display_name>
+    <cond_1_code>12310100</cond_1_code>
+    <cond_1_name>Sour cream</cond_1_name>
+    <cond_2_code>63409010</cond_2_code>
+    <cond_2_name>Guacamole</cond_2_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>58101400</Survey_Food_Code>
+    <display_name>Beef soft taco</display_name>
+    <cond_1_code>12310100</cond_1_code>
+    <cond_1_name>Sour cream</cond_1_name>
+    <cond_2_code>63409010</cond_2_code>
+    <cond_2_name>Guacamole</cond_2_name>
+    <cond_3_code>74402100</cond_3_code>
+    <cond_3_name>Salsa</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>58101450</Survey_Food_Code>
+    <display_name>Chicken soft taco</display_name>
+    <cond_1_code>12310100</cond_1_code>
+    <cond_1_name>Sour cream</cond_1_name>
+    <cond_2_code>63409010</cond_2_code>
+    <cond_2_name>Guacamole</cond_2_name>
+    <cond_3_code>74402100</cond_3_code>
+    <cond_3_name>Salsa</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>58101720</Survey_Food_Code>
+    <display_name>Bean taco (cheese, lettuce, tomato, salsa)</display_name>
+    <cond_1_code>12310100</cond_1_code>
+    <cond_1_name>Sour cream</cond_1_name>
+    <cond_2_code>63409010</cond_2_code>
+    <cond_2_name>Guacamole</cond_2_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>58101910</Survey_Food_Code>
+    <display_name>Taco salad with beef, cheese, corn chips</display_name>
+    <cond_1_code>12310100</cond_1_code>
+    <cond_1_name>Sour cream</cond_1_name>
+    <cond_2_code>63409010</cond_2_code>
+    <cond_2_name>Guacamole</cond_2_name>
+    <cond_3_code>74402100</cond_3_code>
+    <cond_3_name>Salsa</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>58103110</Survey_Food_Code>
+    <display_name>Tamale (with meat or chicken)</display_name>
+    <cond_1_code>12310100</cond_1_code>
+    <cond_1_name>Sour cream</cond_1_name>
+    <cond_2_code>63409010</cond_2_code>
+    <cond_2_name>Guacamole</cond_2_name>
+    <cond_3_code>74402100</cond_3_code>
+    <cond_3_name>Salsa</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>58104100</Survey_Food_Code>
+    <display_name>Cheese nachos</display_name>
+    <cond_1_code>12310100</cond_1_code>
+    <cond_1_name>Sour cream</cond_1_name>
+    <cond_2_code>63409010</cond_2_code>
+    <cond_2_name>Guacamole</cond_2_name>
+    <cond_3_code>74402100</cond_3_code>
+    <cond_3_name>Salsa</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>58104180</Survey_Food_Code>
+    <display_name>Beef and bean nachos</display_name>
+    <cond_1_code>12310100</cond_1_code>
+    <cond_1_name>Sour cream</cond_1_name>
+    <cond_2_code>63409010</cond_2_code>
+    <cond_2_name>Guacamole</cond_2_name>
+    <cond_3_code>74402100</cond_3_code>
+    <cond_3_name>Salsa</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>58104250</Survey_Food_Code>
+    <display_name>Chicken nachos</display_name>
+    <cond_1_code>12310100</cond_1_code>
+    <cond_1_name>Sour cream</cond_1_name>
+    <cond_2_code>63409010</cond_2_code>
+    <cond_2_name>Guacamole</cond_2_name>
+    <cond_3_code>74402100</cond_3_code>
+    <cond_3_name>Salsa</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>58104510</Survey_Food_Code>
+    <display_name>Beef chimachanga</display_name>
+    <cond_1_code>12310100</cond_1_code>
+    <cond_1_name>Sour cream</cond_1_name>
+    <cond_2_code>63409010</cond_2_code>
+    <cond_2_name>Guacamole</cond_2_name>
+    <cond_3_code>74402100</cond_3_code>
+    <cond_3_name>Salsa</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>58104530</Survey_Food_Code>
+    <display_name>Chicken chimichanga</display_name>
+    <cond_1_code>12310100</cond_1_code>
+    <cond_1_name>Sour cream</cond_1_name>
+    <cond_2_code>63409010</cond_2_code>
+    <cond_2_name>Guacamole</cond_2_name>
+    <cond_3_code>74402100</cond_3_code>
+    <cond_3_name>Salsa</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>58104710</Survey_Food_Code>
+    <display_name>Cheese quesadilla</display_name>
+    <cond_1_code>12310100</cond_1_code>
+    <cond_1_name>Sour cream</cond_1_name>
+    <cond_2_code>63409010</cond_2_code>
+    <cond_2_name>Guacamole</cond_2_name>
+    <cond_3_code>74402100</cond_3_code>
+    <cond_3_name>Salsa</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>58104730</Survey_Food_Code>
+    <display_name>Meat and cheese quesadilla</display_name>
+    <cond_1_code>12310100</cond_1_code>
+    <cond_1_name>Sour cream</cond_1_name>
+    <cond_2_code>63409010</cond_2_code>
+    <cond_2_name>Guacamole</cond_2_name>
+    <cond_3_code>74402100</cond_3_code>
+    <cond_3_name>Salsa</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>58104810</Survey_Food_Code>
+    <display_name>Taquitoes</display_name>
+    <cond_1_code>12310100</cond_1_code>
+    <cond_1_name>Sour cream</cond_1_name>
+    <cond_2_code>63409010</cond_2_code>
+    <cond_2_name>Guacamole</cond_2_name>
+    <cond_3_code>74402100</cond_3_code>
+    <cond_3_name>Salsa</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>58105000</Survey_Food_Code>
+    <display_name>Chicken fajitas with veggies &amp; guacamole</display_name>
+    <cond_1_code>12310100</cond_1_code>
+    <cond_1_name>Sour cream</cond_1_name>
+    <cond_2_code>74402100</cond_2_code>
+    <cond_2_name>Salsa</cond_2_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>58105050</Survey_Food_Code>
+    <display_name>Beef fajitas with veggies</display_name>
+    <cond_1_code>12310100</cond_1_code>
+    <cond_1_name>Sour cream</cond_1_name>
+    <cond_2_code>63409010</cond_2_code>
+    <cond_2_name>Guacamole</cond_2_name>
+    <cond_3_code>74402100</cond_3_code>
+    <cond_3_name>Salsa</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>58200100</Survey_Food_Code>
+    <display_name>Wrap sandwich (meat, vegetables, rice)</display_name>
+    <cond_1_code>12310100</cond_1_code>
+    <cond_1_name>Sour cream</cond_1_name>
+    <cond_2_code>63409010</cond_2_code>
+    <cond_2_name>Guacamole</cond_2_name>
+    <cond_3_code>74402100</cond_3_code>
+    <cond_3_name>Salsa</cond_3_name>
+    <cond_4_code>14104010</cond_4_code>
+    <cond_4_name>Cheese (cheddar, Swiss, etc.)</cond_4_name>
+    <cond_5_code>14109030</cond_5_code>
+    <cond_5_name>Lowfat cheese (cheddar, Swiss, etc.)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>58200200</Survey_Food_Code>
+    <display_name>Wrap sandwich (vegetables, rice)</display_name>
+    <cond_1_code>12310100</cond_1_code>
+    <cond_1_name>Sour cream</cond_1_name>
+    <cond_2_code>63409010</cond_2_code>
+    <cond_2_name>Guacamole</cond_2_name>
+    <cond_3_code>74402100</cond_3_code>
+    <cond_3_name>Salsa</cond_3_name>
+    <cond_4_code>14104010</cond_4_code>
+    <cond_4_name>Cheese (cheddar, Swiss, etc.)</cond_4_name>
+    <cond_5_code>14109030</cond_5_code>
+    <cond_5_name>Lowfat cheese (cheddar, Swiss, etc.)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>61101010</Survey_Food_Code>
+    <display_name>Grapefruit (raw)</display_name>
+    <cond_1_code>91101010</cond_1_code>
+    <cond_1_name>White sugar (granulated or lump)</cond_1_name>
+    <cond_2_code>91102010</cond_2_code>
+    <cond_2_name>brown sugar</cond_2_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>71101000</Survey_Food_Code>
+    <display_name>WHITE POTATO, BAKED, PEEL NOT EATEN</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>12310100</cond_4_code>
+    <cond_4_name>Sour cream</cond_4_name>
+    <cond_5_code>83112500</cond_5_code>
+    <cond_5_name>Creamy dressing (ranch)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>71101110</Survey_Food_Code>
+    <display_name>WHITE POT,BAKED,PEEL EATEN,FAT NOT ADDED IN COOKING</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>12310100</cond_4_code>
+    <cond_4_name>Sour cream</cond_4_name>
+    <cond_5_code>83112500</cond_5_code>
+    <cond_5_name>Creamy dressing (ranch)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>71103010</Survey_Food_Code>
+    <display_name>Boiled potatoes (no butter or oil added) </display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>71103020</Survey_Food_Code>
+    <display_name>Boiled potatoes (butter or oil added) </display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>71104010</Survey_Food_Code>
+    <display_name>WHITE POTATO, ROASTED, FAT NOT ADDED</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>74303000</cond_4_code>
+    <cond_4_name>Ketchup (catsup)</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>71401020</Survey_Food_Code>
+    <display_name>French fries, oven-baked</display_name>
+    <cond_1_code>74303000</cond_1_code>
+    <cond_1_name>Ketchup (catsup)</cond_1_name>
+    <cond_2_code>83107000</cond_2_code>
+    <cond_2_name>Mayonnaise, regular</cond_2_name>
+    <cond_3_code>14420100</cond_3_code>
+    <cond_3_name>Cheese spread or dip (Velveeta, Cheez Wiz)</cond_3_name>
+    <cond_4_code>83112500</cond_4_code>
+    <cond_4_name>Creamy dressing (ranch)</cond_4_name>
+    <cond_5_code>83200100</cond_5_code>
+    <cond_5_name>Low-calorie salad dressing</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>71401030</Survey_Food_Code>
+    <display_name>French fries, deep fried</display_name>
+    <cond_1_code>74303000</cond_1_code>
+    <cond_1_name>Ketchup (catsup)</cond_1_name>
+    <cond_2_code>83107000</cond_2_code>
+    <cond_2_name>Mayonnaise, regular</cond_2_name>
+    <cond_3_code>14420100</cond_3_code>
+    <cond_3_name>Cheese spread or dip (Velveeta, Cheez Wiz)</cond_3_name>
+    <cond_4_code>83112500</cond_4_code>
+    <cond_4_name>Creamy dressing (ranch)</cond_4_name>
+    <cond_5_code>83200100</cond_5_code>
+    <cond_5_name>Low-calorie salad dressing</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>71403000</Survey_Food_Code>
+    <display_name>Home fries</display_name>
+    <cond_1_code>74303000</cond_1_code>
+    <cond_1_name>Ketchup (catsup)</cond_1_name>
+    <cond_2_code>83107000</cond_2_code>
+    <cond_2_name>Mayonnaise, regular</cond_2_name>
+    <cond_3_code>83112500</cond_3_code>
+    <cond_3_name>Creamy dressing (ranch)</cond_3_name>
+    <cond_4_code>74402100</cond_4_code>
+    <cond_4_name>Salsa</cond_4_name>
+    <cond_5_code>83200100</cond_5_code>
+    <cond_5_name>Low-calorie salad dressing</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>71405020</Survey_Food_Code>
+    <display_name>Hash browns</display_name>
+    <cond_1_code>74303000</cond_1_code>
+    <cond_1_name>Ketchup (catsup)</cond_1_name>
+    <cond_2_code>83107000</cond_2_code>
+    <cond_2_name>Mayonnaise, regular</cond_2_name>
+    <cond_3_code>83112500</cond_3_code>
+    <cond_3_name>Creamy dressing (ranch)</cond_3_name>
+    <cond_4_code>74402100</cond_4_code>
+    <cond_4_name>Salsa</cond_4_name>
+    <cond_5_code>83200100</cond_5_code>
+    <cond_5_name>Low-calorie salad dressing</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>71411000</Survey_Food_Code>
+    <display_name>Potato skin with cheese &amp; bacon</display_name>
+    <cond_1_code>12310100</cond_1_code>
+    <cond_1_name>Sour cream</cond_1_name>
+    <cond_2_code>83112500</cond_2_code>
+    <cond_2_name>Creamy dressing (ranch)</cond_2_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>71501010</Survey_Food_Code>
+    <display_name>Mashed potatoes (made with milk, no butter)</display_name>
+    <cond_1_code>28500000</cond_1_code>
+    <cond_1_name>Chicken gravy</cond_1_name>
+    <cond_2_code>28500040</cond_2_code>
+    <cond_2_name>Beef gravy</cond_2_name>
+    <cond_3_code>81101000</cond_3_code>
+    <cond_3_name>Butter</cond_3_name>
+    <cond_4_code>81102020</cond_4_code>
+    <cond_4_name>Tub margarine</cond_4_name>
+    <cond_5_code>81104010</cond_5_code>
+    <cond_5_name>Reduced calorie spread (margarine type)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>71501020</Survey_Food_Code>
+    <display_name>Mashed potatoes (made with milk and butter)</display_name>
+    <cond_1_code>28500000</cond_1_code>
+    <cond_1_name>Chicken gravy</cond_1_name>
+    <cond_2_code>28500040</cond_2_code>
+    <cond_2_name>Beef gravy</cond_2_name>
+    <cond_3_code>81101000</cond_3_code>
+    <cond_3_name>Butter</cond_3_name>
+    <cond_4_code>81102020</cond_4_code>
+    <cond_4_name>Tub margarine</cond_4_name>
+    <cond_5_code>81104010</cond_5_code>
+    <cond_5_name>Reduced calorie spread (margarine type)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>71501030</Survey_Food_Code>
+    <display_name>Mashed potatoes (made with butter)</display_name>
+    <cond_1_code>28500000</cond_1_code>
+    <cond_1_name>Chicken gravy</cond_1_name>
+    <cond_2_code>28500040</cond_2_code>
+    <cond_2_name>Beef gravy</cond_2_name>
+    <cond_3_code>81101000</cond_3_code>
+    <cond_3_name>Butter</cond_3_name>
+    <cond_4_code>81102020</cond_4_code>
+    <cond_4_name>Tub margarine</cond_4_name>
+    <cond_5_code>81104010</cond_5_code>
+    <cond_5_name>Reduced calorie spread (margarine type)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>71505000</Survey_Food_Code>
+    <display_name>Tator tots</display_name>
+    <cond_1_code>74303000</cond_1_code>
+    <cond_1_name>Ketchup (catsup)</cond_1_name>
+    <cond_2_code>83112500</cond_2_code>
+    <cond_2_name>Creamy dressing (ranch)</cond_2_name>
+    <cond_3_code>83107000</cond_3_code>
+    <cond_3_name>Mayonnaise, regular</cond_3_name>
+    <cond_4_code>83200100</cond_4_code>
+    <cond_4_name>Low-calorie salad dressing</cond_4_name>
+    <cond_5_code>14420100</cond_5_code>
+    <cond_5_name>Cheese spread or dip (Velveeta, Cheez Wiz)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>71701000</Survey_Food_Code>
+    <display_name>Potato pancake (latke)</display_name>
+    <cond_1_code>12310100</cond_1_code>
+    <cond_1_name>Sour cream</cond_1_name>
+    <cond_2_code>63101120</cond_2_code>
+    <cond_2_name>Applesauce (unsweetened)</cond_2_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>71930100</Survey_Food_Code>
+    <display_name>Cassava</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>82101000</cond_4_code>
+    <cond_4_name>Vegetable oil</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>72116000</Survey_Food_Code>
+    <display_name>Romaine lettuce </display_name>
+    <cond_1_code>83112500</cond_1_code>
+    <cond_1_name>Creamy dressing (ranch)</cond_1_name>
+    <cond_2_code>83106000</cond_2_code>
+    <cond_2_name>Italian dressing (oil and vinegar)</cond_2_name>
+    <cond_3_code>83200100</cond_3_code>
+    <cond_3_name>Low-calorie salad dressing</cond_3_name>
+    <cond_4_code>83101000</cond_4_code>
+    <cond_4_name>Blue cheese dressing</cond_4_name>
+    <cond_5_code>83104000</cond_5_code>
+    <cond_5_name>French dressing</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>72118211</Survey_Food_Code>
+    <display_name>Greens, cooked without fat </display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>64401000</cond_4_code>
+    <cond_4_name>Vinegar</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>72125100</Survey_Food_Code>
+    <display_name>Raw spinach</display_name>
+    <cond_1_code>83112500</cond_1_code>
+    <cond_1_name>Creamy dressing (ranch)</cond_1_name>
+    <cond_2_code>83106000</cond_2_code>
+    <cond_2_name>Italian dressing (oil and vinegar)</cond_2_name>
+    <cond_3_code>83200100</cond_3_code>
+    <cond_3_name>Low-calorie salad dressing</cond_3_name>
+    <cond_4_code>83101000</cond_4_code>
+    <cond_4_name>Blue cheese dressing</cond_4_name>
+    <cond_5_code>83104000</cond_5_code>
+    <cond_5_name>French dressing</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>72125212</Survey_Food_Code>
+    <display_name>Spinach (no butter or oil added)</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>64401000</cond_4_code>
+    <cond_4_name>Vinegar</cond_4_name>
+    <cond_5_code>12110100</cond_5_code>
+    <cond_5_name>Light cream (coffee or table cream)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>72201100</Survey_Food_Code>
+    <display_name>Raw broccoli</display_name>
+    <cond_1_code>83112500</cond_1_code>
+    <cond_1_name>Creamy dressing (ranch)</cond_1_name>
+    <cond_2_code>83106000</cond_2_code>
+    <cond_2_name>Italian dressing (oil and vinegar)</cond_2_name>
+    <cond_3_code>83200100</cond_3_code>
+    <cond_3_name>Low-calorie salad dressing</cond_3_name>
+    <cond_4_code>83101000</cond_4_code>
+    <cond_4_name>Blue cheese dressing</cond_4_name>
+    <cond_5_code>83104000</cond_5_code>
+    <cond_5_name>French dressing</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>72201211</Survey_Food_Code>
+    <display_name>Broccoli (no butter or oil added)</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>14420100</cond_4_code>
+    <cond_4_name>Cheese spread or dip (Velveeta, Cheez Wiz)</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>73101010</Survey_Food_Code>
+    <display_name>Raw carrots</display_name>
+    <cond_1_code>83112500</cond_1_code>
+    <cond_1_name>Creamy dressing (ranch)</cond_1_name>
+    <cond_2_code>83106000</cond_2_code>
+    <cond_2_name>Italian dressing (oil and vinegar)</cond_2_name>
+    <cond_3_code>83200100</cond_3_code>
+    <cond_3_name>Low-calorie salad dressing</cond_3_name>
+    <cond_4_code>83101000</cond_4_code>
+    <cond_4_name>Blue cheese dressing</cond_4_name>
+    <cond_5_code>83104000</cond_5_code>
+    <cond_5_name>French dressing</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>73102211</Survey_Food_Code>
+    <display_name>Carrots (no butter or oil added)</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>82101000</cond_4_code>
+    <cond_4_name>Vegetable oil</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>73111212</Survey_Food_Code>
+    <display_name>Peas and carrots</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>82101000</cond_4_code>
+    <cond_4_name>Vegetable oil</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>73303010</Survey_Food_Code>
+    <display_name>Baked winter squash</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>82101000</cond_4_code>
+    <cond_4_name>Vegetable oil</cond_4_name>
+    <cond_5_code>91102010</cond_5_code>
+    <cond_5_name>brown sugar</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>73403010</Survey_Food_Code>
+    <display_name>Baked sweetpotato</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>82101000</cond_4_code>
+    <cond_4_name>Vegetable oil</cond_4_name>
+    <cond_5_code>91102010</cond_5_code>
+    <cond_5_name>brown sugar</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>73409000</Survey_Food_Code>
+    <display_name>Mashed sweetpotato </display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>82101000</cond_4_code>
+    <cond_4_name>Vegetable oil</cond_4_name>
+    <cond_5_code>91102010</cond_5_code>
+    <cond_5_name>brown sugar</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>75105000</Survey_Food_Code>
+    <display_name>Raw cabbage</display_name>
+    <cond_1_code>83112500</cond_1_code>
+    <cond_1_name>Creamy dressing (ranch)</cond_1_name>
+    <cond_2_code>83106000</cond_2_code>
+    <cond_2_name>Italian dressing (oil and vinegar)</cond_2_name>
+    <cond_3_code>83200100</cond_3_code>
+    <cond_3_name>Low-calorie salad dressing</cond_3_name>
+    <cond_4_code>83107000</cond_4_code>
+    <cond_4_name>Mayonnaise, regular</cond_4_name>
+    <cond_5_code>83204000</cond_5_code>
+    <cond_5_name>Low calorie mayonnaise</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>75107000</Survey_Food_Code>
+    <display_name>Raw cauliflower</display_name>
+    <cond_1_code>83112500</cond_1_code>
+    <cond_1_name>Creamy dressing (ranch)</cond_1_name>
+    <cond_2_code>83106000</cond_2_code>
+    <cond_2_name>Italian dressing (oil and vinegar)</cond_2_name>
+    <cond_3_code>83200100</cond_3_code>
+    <cond_3_name>Low-calorie salad dressing</cond_3_name>
+    <cond_4_code>83101000</cond_4_code>
+    <cond_4_name>Blue cheese dressing</cond_4_name>
+    <cond_5_code>83104000</cond_5_code>
+    <cond_5_name>French dressing</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>75109000</Survey_Food_Code>
+    <display_name>Raw celery</display_name>
+    <cond_1_code>83112500</cond_1_code>
+    <cond_1_name>Creamy dressing (ranch)</cond_1_name>
+    <cond_2_code>83106000</cond_2_code>
+    <cond_2_name>Italian dressing (oil and vinegar)</cond_2_name>
+    <cond_3_code>83200100</cond_3_code>
+    <cond_3_name>Low-calorie salad dressing</cond_3_name>
+    <cond_4_code>83101000</cond_4_code>
+    <cond_4_name>Blue cheese dressing</cond_4_name>
+    <cond_5_code>83104000</cond_5_code>
+    <cond_5_name>French dressing</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>75111000</Survey_Food_Code>
+    <display_name>Cucumber  </display_name>
+    <cond_1_code>83112500</cond_1_code>
+    <cond_1_name>Creamy dressing (ranch)</cond_1_name>
+    <cond_2_code>83106000</cond_2_code>
+    <cond_2_name>Italian dressing (oil and vinegar)</cond_2_name>
+    <cond_3_code>83200100</cond_3_code>
+    <cond_3_name>Low-calorie salad dressing</cond_3_name>
+    <cond_4_code>12310100</cond_4_code>
+    <cond_4_name>Sour cream</cond_4_name>
+    <cond_5_code>64401000</cond_5_code>
+    <cond_5_name>Vinegar</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>75113000</Survey_Food_Code>
+    <display_name>Lettuce  </display_name>
+    <cond_1_code>83112500</cond_1_code>
+    <cond_1_name>Creamy dressing (ranch)</cond_1_name>
+    <cond_2_code>83106000</cond_2_code>
+    <cond_2_name>Italian dressing (oil and vinegar)</cond_2_name>
+    <cond_3_code>83200100</cond_3_code>
+    <cond_3_name>Low-calorie salad dressing</cond_3_name>
+    <cond_4_code>83101000</cond_4_code>
+    <cond_4_name>Blue cheese dressing</cond_4_name>
+    <cond_5_code>83104000</cond_5_code>
+    <cond_5_name>French dressing</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>75114000</Survey_Food_Code>
+    <display_name>Mixed salad greens</display_name>
+    <cond_1_code>83112500</cond_1_code>
+    <cond_1_name>Creamy dressing (ranch)</cond_1_name>
+    <cond_2_code>83106000</cond_2_code>
+    <cond_2_name>Italian dressing (oil and vinegar)</cond_2_name>
+    <cond_3_code>83200100</cond_3_code>
+    <cond_3_name>Low-calorie salad dressing</cond_3_name>
+    <cond_4_code>83101000</cond_4_code>
+    <cond_4_name>Blue cheese dressing</cond_4_name>
+    <cond_5_code>83104000</cond_5_code>
+    <cond_5_name>French dressing</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>75115000</Survey_Food_Code>
+    <display_name>Raw mushrooms</display_name>
+    <cond_1_code>83112500</cond_1_code>
+    <cond_1_name>Creamy dressing (ranch)</cond_1_name>
+    <cond_2_code>83106000</cond_2_code>
+    <cond_2_name>Italian dressing (oil and vinegar)</cond_2_name>
+    <cond_3_code>83200100</cond_3_code>
+    <cond_3_name>Low-calorie salad dressing</cond_3_name>
+    <cond_4_code>83101000</cond_4_code>
+    <cond_4_name>Blue cheese dressing</cond_4_name>
+    <cond_5_code>83104000</cond_5_code>
+    <cond_5_name>French dressing</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>75122100</Survey_Food_Code>
+    <display_name>Raw sweet pepper (bell pepper)</display_name>
+    <cond_1_code>83112500</cond_1_code>
+    <cond_1_name>Creamy dressing (ranch)</cond_1_name>
+    <cond_2_code>83106000</cond_2_code>
+    <cond_2_name>Italian dressing (oil and vinegar)</cond_2_name>
+    <cond_3_code>83200100</cond_3_code>
+    <cond_3_name>Low-calorie salad dressing</cond_3_name>
+    <cond_4_code>83101000</cond_4_code>
+    <cond_4_name>Blue cheese dressing</cond_4_name>
+    <cond_5_code>83104000</cond_5_code>
+    <cond_5_name>French dressing</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>75143000</Survey_Food_Code>
+    <display_name>Tossed salad (lettuce and vegetables)</display_name>
+    <cond_1_code>83112500</cond_1_code>
+    <cond_1_name>Creamy dressing (ranch)</cond_1_name>
+    <cond_2_code>83106000</cond_2_code>
+    <cond_2_name>Italian dressing (oil and vinegar)</cond_2_name>
+    <cond_3_code>83200100</cond_3_code>
+    <cond_3_name>Low-calorie salad dressing</cond_3_name>
+    <cond_4_code>83101000</cond_4_code>
+    <cond_4_name>Blue cheese dressing</cond_4_name>
+    <cond_5_code>83104000</cond_5_code>
+    <cond_5_name>French dressing</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>75201011</Survey_Food_Code>
+    <display_name>Artichoke, no butter or oil added</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>83107000</cond_4_code>
+    <cond_4_name>Mayonnaise, regular</cond_4_name>
+    <cond_5_code>83204000</cond_5_code>
+    <cond_5_name>Low calorie mayonnaise</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>75202011</Survey_Food_Code>
+    <display_name>Asparagus, no butter or oil added</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>83107000</cond_4_code>
+    <cond_4_name>Mayonnaise, regular</cond_4_name>
+    <cond_5_code>82101000</cond_5_code>
+    <cond_5_name>Vegetable oil</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>75204011</Survey_Food_Code>
+    <display_name>Green lima beans, no butter or oil added</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>82101000</cond_4_code>
+    <cond_4_name>Vegetable oil</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>75205023</Survey_Food_Code>
+    <display_name>Green beans, no butter or oil added</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>82101000</cond_4_code>
+    <cond_4_name>Vegetable oil</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>75207011</Survey_Food_Code>
+    <display_name>Cooked bean sprouts, no butter or oil added</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>82101000</cond_4_code>
+    <cond_4_name>Vegetable oil</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>75208011</Survey_Food_Code>
+    <display_name>Beets, no butter or oil added</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>82101000</cond_4_code>
+    <cond_4_name>Vegetable oil</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>75209012</Survey_Food_Code>
+    <display_name>Brussel sprouts, no butter or oil added</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>82101000</cond_4_code>
+    <cond_4_name>Vegetable oil</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>75211020</Survey_Food_Code>
+    <display_name>Cooked cabbage</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>82101000</cond_4_code>
+    <cond_4_name>Vegetable oil</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>75214011</Survey_Food_Code>
+    <display_name>Cooked cauliflower</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>82101000</cond_4_code>
+    <cond_4_name>Vegetable oil</cond_4_name>
+    <cond_5_code>14420100</cond_5_code>
+    <cond_5_name>Cheese spread or dip (Velveeta, Cheez Wiz)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>75216171</Survey_Food_Code>
+    <display_name>Yellow or white corn, no butter or oil added</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>82101000</cond_4_code>
+    <cond_4_name>Vegetable oil</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>75217010</Survey_Food_Code>
+    <display_name>Eggplant, no butter or oil added</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>82101000</cond_4_code>
+    <cond_4_name>Vegetable oil</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>75219011</Survey_Food_Code>
+    <display_name>Cooked mushrooms, no butter or oil added</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>82101000</cond_4_code>
+    <cond_4_name>Vegetable oil</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>75220011</Survey_Food_Code>
+    <display_name>Okra, no butter or oil added</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>82101000</cond_4_code>
+    <cond_4_name>Vegetable oil</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>75221011</Survey_Food_Code>
+    <display_name>Cooked onions, no butter or oil added</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>82101000</cond_4_code>
+    <cond_4_name>Vegetable oil</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>75223011</Survey_Food_Code>
+    <display_name>Blackeye peas, no fat added</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>82101000</cond_4_code>
+    <cond_4_name>Vegetable oil</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>75224021</Survey_Food_Code>
+    <display_name>Green peas, no butter or oil added</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>82101000</cond_4_code>
+    <cond_4_name>Vegetable oil</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>75226010</Survey_Food_Code>
+    <display_name>Cooked sweet peppers, no butter or oil added</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>82101000</cond_4_code>
+    <cond_4_name>Vegetable oil</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>75230010</Survey_Food_Code>
+    <display_name>Sauerkraut, no fat added</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>82101000</cond_4_code>
+    <cond_4_name>Vegetable oil</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>75231011</Survey_Food_Code>
+    <display_name>Snowpeas, no butter or oil added</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>82101000</cond_4_code>
+    <cond_4_name>Vegetable oil</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>75233011</Survey_Food_Code>
+    <display_name>Zucchini or summer squash, no butter or oil added</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>82101000</cond_4_code>
+    <cond_4_name>Vegetable oil</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>75234011</Survey_Food_Code>
+    <display_name>Turnip, no butter or oil added</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>82101000</cond_4_code>
+    <cond_4_name>Vegetable oil</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>75311012</Survey_Food_Code>
+    <display_name>Mixed vegetables, no butter or oil added</display_name>
+    <cond_1_code>81101000</cond_1_code>
+    <cond_1_name>Butter</cond_1_name>
+    <cond_2_code>81102020</cond_2_code>
+    <cond_2_name>Tub margarine</cond_2_name>
+    <cond_3_code>81104010</cond_3_code>
+    <cond_3_name>Reduced calorie spread (margarine type)</cond_3_name>
+    <cond_4_code>82101000</cond_4_code>
+    <cond_4_name>Vegetable oil</cond_4_name>
+    <cond_5_code>14420100</cond_5_code>
+    <cond_5_name>Cheese spread or dip (Velveeta, Cheez Wiz)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>75414030</Survey_Food_Code>
+    <display_name>Fried mushrooms</display_name>
+    <cond_1_code>83112500</cond_1_code>
+    <cond_1_name>Creamy dressing (ranch)</cond_1_name>
+    <cond_2_code>83200100</cond_2_code>
+    <cond_2_name>Low-calorie salad dressing</cond_2_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>75414500</Survey_Food_Code>
+    <display_name>Fried okra</display_name>
+    <cond_1_code>83112500</cond_1_code>
+    <cond_1_name>Creamy dressing (ranch)</cond_1_name>
+    <cond_2_code>83200100</cond_2_code>
+    <cond_2_name>Low-calorie salad dressing</cond_2_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>75415020</Survey_Food_Code>
+    <display_name>Onion rings</display_name>
+    <cond_1_code>74303000</cond_1_code>
+    <cond_1_name>Ketchup (catsup)</cond_1_name>
+    <cond_2_code>74406010</cond_2_code>
+    <cond_2_name>Barbeque sauce</cond_2_name>
+    <cond_3_code>83112500</cond_3_code>
+    <cond_3_name>Creamy dressing (ranch)</cond_3_name>
+    <cond_4_code>83200100</cond_4_code>
+    <cond_4_name>Low-calorie salad dressing</cond_4_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>75418010</Survey_Food_Code>
+    <display_name>Breaded fried summer squash</display_name>
+    <cond_1_code>83112500</cond_1_code>
+    <cond_1_name>Creamy dressing (ranch)</cond_1_name>
+    <cond_2_code>83200100</cond_2_code>
+    <cond_2_name>Low-calorie salad dressing</cond_2_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>75440170</Survey_Food_Code>
+    <display_name>Breaded fried vegetable sticks</display_name>
+    <cond_1_code>83112500</cond_1_code>
+    <cond_1_name>Creamy dressing (ranch)</cond_1_name>
+    <cond_2_code>83200100</cond_2_code>
+    <cond_2_name>Low-calorie salad dressing</cond_2_name>
+    <cond_3_code>91361010</cond_3_code>
+    <cond_3_name>Sweet and sour sauce</cond_3_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>75440200</Survey_Food_Code>
+    <display_name>Vegetable tempura</display_name>
+    <cond_1_code>91361010</cond_1_code>
+    <cond_1_name>Sweet and sour sauce</cond_1_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>77300000</Survey_Food_Code>
+    <display_name>Wrap sandwich (vegetables only)</display_name>
+    <cond_1_code>12310100</cond_1_code>
+    <cond_1_name>Sour cream</cond_1_name>
+    <cond_2_code>63409010</cond_2_code>
+    <cond_2_name>Guacamole</cond_2_name>
+    <cond_3_code>74402100</cond_3_code>
+    <cond_3_name>Salsa</cond_3_name>
+    <cond_4_code>14104010</cond_4_code>
+    <cond_4_name>Cheese (cheddar, Swiss, etc.)</cond_4_name>
+    <cond_5_code>14109030</cond_5_code>
+    <cond_5_name>Lowfat cheese (cheddar, Swiss, etc.)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>92101000</Survey_Food_Code>
+    <display_name>Coffee</display_name>
+    <cond_1_code>91101010</cond_1_code>
+    <cond_1_name>White sugar (granulated or lump)</cond_1_name>
+    <cond_2_code>12120100</cond_2_code>
+    <cond_2_name>Half &amp; Half</cond_2_name>
+    <cond_3_code>12210200</cond_3_code>
+    <cond_3_name>Coffee Mate creamer (liquid)</cond_3_name>
+    <cond_4_code>12210250</cond_4_code>
+    <cond_4_name>Coffee Mate Lite creamer (liquid)</cond_4_name>
+    <cond_5_code>11112210</cond_5_code>
+    <cond_5_name>1% milk (low fat)</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>92101900</Survey_Food_Code>
+    <display_name>Latte</display_name>
+    <cond_1_code>91101010</cond_1_code>
+    <cond_1_name>White sugar (granulated or lump)</cond_1_name>
+    <cond_2_code>12140000</cond_2_code>
+    <cond_2_name>Whipped cream, sweetened</cond_2_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>92161000</Survey_Food_Code>
+    <display_name>Cappuccino</display_name>
+    <cond_1_code>91101010</cond_1_code>
+    <cond_1_name>White sugar (granulated or lump)</cond_1_name>
+    <cond_2_code>12140000</cond_2_code>
+    <cond_2_name>Whipped cream, sweetened</cond_2_name>
+  </Foods_Needing_Condiments_Row>
+  <Foods_Needing_Condiments_Row>
+    <Survey_Food_Code>92302000</Survey_Food_Code>
+    <display_name>Tea (unsweetened)</display_name>
+    <cond_1_code>91101010</cond_1_code>
+    <cond_1_name>White sugar (granulated or lump)</cond_1_name>
+    <cond_2_code>11111000</cond_2_code>
+    <cond_2_name>Whole milk</cond_2_name>
+    <cond_3_code>11112210</cond_3_code>
+    <cond_3_name>1% milk (low fat)</cond_3_name>
+    <cond_4_code>11113000</cond_4_code>
+    <cond_4_name>Fat free milk (skim)</cond_4_name>
+    <cond_5_code>61204010</cond_5_code>
+    <cond_5_name>Lemon juice</cond_5_name>
+  </Foods_Needing_Condiments_Row>
+</Foods_Needing_Condiments_Table>

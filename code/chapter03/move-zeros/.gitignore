@@ -1,0 +1,11 @@
+pom.xml
+*jar
+/lib/
+/classes/
+/out/
+/release/
+/target/
+.repl-0.0-3169
+.lein-deps-sum
+.lein-repl-history
+.lein-plugins/
