@@ -135,7 +135,7 @@ node-xml-lite@0.0.3 node_modules/node-xml-lite
     <h2>Mutually Recursive Functions</h2>
   
     <p>
-    While writing my solution, I had two separate functions: <code>process-children</code>, which iterated through all the <code>childs</code>. calling function <code>process-child</code> for each of them. However, a child element could itself have children, so <code>process-child</code> had to be able to call <code>process-children</code>. The term for this sort of situtation is that you have <em>mutually recursive functions</em>. Here’s the problem: ClojureScript requires you to define a function before you can use it, so you would think that you can’t have mutually recursive functions. Luckily, the inventor of Clojure foresaw this sort of situation and created the <code>declare</code> form which lets you declare a symbol that you will define later.  Thus, I was able to write code like this:
+    While writing my solution, I had two separate functions: <code>process-children</code>, which iterated through all the <code>childs</code>. calling function <code>process-child</code> for each of them. However, a child element could itself have children, so <code>process-child</code> had to be able to call <code>process-children</code>. The term for this sort of situtation is that you have <em>mutually recursive functions</em>. Here’s the problem: ClojureScript requires you to define a function before you can use it, so you would think that you can’t have mutually recursive functions. Luckily, the inventor of Clojure foresaw this sort of situation and created the <code>declare</code> form that lets you declare a symbol that you will define later.  Thus, I was able to write code like this:
     </p>
   
     <pre>(declare process-child)
