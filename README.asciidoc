@@ -1,7 +1,7 @@
 [preface]
 == Études for ClojureScript
 
-Welcome to _Études for ClojureScript.  In this book, you will find descriptions of programs that you can write in Script. The programs will usually be short, and each one has been designed to provide practice material for a particular ClojureScript programming concept. These programs have not been designed to be of considerable difficulty, though they may ask you to stretch a bit beyond the immediate material and examples that you find in the most ClojureScript books or online references.
+Welcome to _Études for ClojureScript_.  In this book, you will find descriptions of programs that you can write in Script. The programs will usually be short, and each one has been designed to provide practice material for a particular ClojureScript programming concept. These programs have not been designed to be of considerable difficulty, though they may ask you to stretch a bit beyond the immediate material and examples that you find in the most ClojureScript books or online references.
 
 This book is open source, so if you'd like to contribute, make a correction, or otherwise participate in the project, check out https://github.com/jdeisenberg/etudes-for-clojurescript[jdeisenberg/etudes-for-clojurescript] on GitHub for details. If we accept your work, we'll add you to the contributors chapter. (The repository may eventually move to O’Reilly Media.)
 
