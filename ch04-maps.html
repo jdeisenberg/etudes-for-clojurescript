@@ -397,10 +397,10 @@ data-type="xref">#SOLUTION04-ET01</a>
 <pre data-type="programlisting" data-code-language="clojure">(defn example [filename]
   (cme/with-open [file-descriptor (.openSync filesystem filename "r")]
              (println (cme/line-seq file-descriptor))))</pre>
-             
      <p>
      Note: You may want to use a smaller version of the file for testing. The code repository contains a file named <em>small_sample.csv</em> with 14 entries.
      </p>
+     </section>        
      
     <p>
     See a suggested solution: <a href="#SOLUTION04-ET03" data-type="xref">#SOLUTION04-ET03</a>
@@ -464,8 +464,23 @@ data-type="xref">#SOLUTION04-ET01</a>
     <p>
     Bonus points: write the code such that if you give <code>cross-tab</code> a <code>nil</code> for the column specifier, it will still work, returning only the totals for the row specifier. Then, re-implement <code>frequency-table</code> by calling <code>cross-tab</code> with <code>nil</code> for the column specifier. Hint: You will have to take the vector of vectors for the  “cross-tabulation” totals and make it a simple vector. Either <code>map</code> or <code>flatten</code> will be useful here.
     </p>
+    
+    <p>
+    See a suggested solution: <a href="#SOLUTION04-ET04" data-type="xref">#SOLUTION04-ET04</a>
+    </p>
     </section>
     
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section data-type="sect1" id="ETUDE04-05">
+  <h1>Étude 4-5: Cross-Tabulation Server</h1>
+  <p>
+  Well, as you can see, the output from the previous étude is ugly to the point of being nearly unreadable. This rather open-ended étude aims to fix that. Your mission, should you decide to accept it, is to set up the code in an Express server to deliver the results in a nice, readable HTML table.
+  </p>
+
+  <p>
+  See a suggested solution: <a href="#SOLUTION04-ET05" data-type="xref">#SOLUTION04-ET05</a>
+  </p>
   </section>
-  
+
 </section>
