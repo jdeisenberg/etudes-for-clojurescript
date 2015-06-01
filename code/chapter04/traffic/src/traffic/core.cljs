@@ -1,9 +1,14 @@
 (ns traffic.core
+  (:require-macros [hiccups.core :as hiccups])
   (:require [cljs.nodejs :as nodejs]
             [clojure.string :as str]
-            [cljs-made-easy.line-seq :as cme]))
+            [cljs-made-easy.line-seq :as cme]
+            [hiccups.runtime :as hiccupsrt]
+            [traffic.crosstab :as ct]))
 
 (nodejs/enable-util-print!)
+
+(def express (nodejs/require "express"))
 
 (def filesystem (js/require "fs")) ;;require nodejs lib
 
@@ -43,56 +48,111 @@
 
 (def traffic (create-data-structure "traffic_july_2014_edited.csv" headers))
 
-(defn frequency-table
-  "Accumulate frequencies for specifier (a heading keyword
-   or a function that returns a value) in data-map,
-   optionally returning a total."
-  [data-map specifier]
-  (let [result-map (reduce
-                    (fn [acc item]
-                      (let [v (if specifier (specifier item) nil)]
-                        (assoc acc v (+ 1 (get acc v)))))
-                    {} data-map)
-        result-seq (sort (seq result-map))
-        freq (map last result-seq)]
-    [(vec (map first result-seq)) (vec freq) (reduce + freq)]))
+(defn day [entry] (.substr (:date entry) 3 2))
+(defn hour [entry] (.substr (:time entry) 0 2))
 
-(defn marginal
-  "Get marginal totals for a frequency"
-  [freq]
-  (vec (map last (sort (seq freq)))))
+(def field-list [
+               ["Choose a field" nil]
+               ["Day" day]
+               ["Hour" hour]
+               ["Accident" :accident]
+               ["Injury" :injury]
+               ["Property Damage" :property-damage]
+               ["Fatal" :fatal]
+               ["Vehicle year" :year]
+               ["Vehicle Color" :color]
+               ["Driver's Race" :race]
+               ["Driver's Gender" :gender]
+               ["Driver's State" :driver-state]])
 
-(defn cross-tab
-  "Accumulate frequencies for given row and column in data-map,
-  returning row and column totals, plus grand total."
-  [data-map row-spec col-spec]
-  (let [[row-freq  col-freq cross-freq] (reduce
-                     (fn [acc item]
-                       (let [r (if row-spec (row-spec item) nil)
-                             c (if col-spec (col-spec item) nil)]
-                         [(assoc (first acc) r (+ 1 (get (first acc) r)))
-                          (assoc (second acc) c (+ 1 (get (second acc) c)))
-                          (assoc-in (last acc) [r c] (+ 1 (get-in (last acc) [r c])))]))
-                     [{} {} {}] data-map)
-        row-totals (marginal row-freq)]
-        [(vec (sort (keys row-freq)))
-         (vec (sort (keys col-freq)))
-         (vec (for [r (sort (keys row-freq))]
-                (vec (for [c (sort (keys col-freq))]
-                       (if-let [n (get-in cross-freq (list r c))] n 0)))))
-         row-totals
-         (marginal col-freq)
-         (reduce + row-totals)]))
+(defn traffic-menu
+  "Create a <select> menu with the given choice selected"
+  [option-list selection]
+  (map-indexed (fn [n item]
+                 (let [menu-text (first item)]
+                   [:option
+                    (if (= n selection){:value n :selected "selected"} {:value n})
+                    menu-text]))
+                 option-list))
 
-(defn frequency-from-crosstab
-  "Accumulate frequencies for specifier in data-map,
-  optionally returning a total. Use a call to cross-tab
-  to re-use code."
-  [data-map specifier]
-  (let [[row-labels _ row-totals _ grand-total] (cross-tab data-map specifier nil)]
-    [row-labels (vec (map first row-totals)) grand-total]))
+(defn field-name [n] (first (get field-list n)))
+(defn field-code [n] (last (get field-list n)))
+
+(defn add-table-row
+  [row-label counts row-total result]
+    (conj result (reduce (fn [acc item] (conj acc [:td item])) [:tr [:th row-label]] (conj counts row-total))))
+
+(defn html-table
+  [[row-labels col-labels counts row-totals col-totals grand-total]]
+  [:div
+   [:table
+    (if (not (nil? (first col-labels)))
+      [:thead (reduce (fn [acc item] (conj acc [:th item])) [:tr [:th "\u00a0"]]
+                      (conj col-labels "Total"))]
+      [:thead [:tr [:th "\u00a0"] [:th "Total"]]])
+    (if (not (nil? (first col-labels)))
+        (vec (loop [rl row-labels
+                    freq counts
+                    rt row-totals
+                    result [:tbody]]
+               (if-not (empty? rl)
+                 (recur (rest rl) (rest freq) (rest rt)
+                        (add-table-row (first rl) (first freq) (first rt) result))
+                 (add-table-row "Total" col-totals grand-total result))))
+        (vec (loop [rl row-labels
+                    rt row-totals
+                    result [:tbody]]
+               (if-not (empty? rl)
+                 (recur (rest rl) (rest rt)
+                        (conj result [:tr [:th (first rl)] [:td (first rt)]]))
+                 (conj result [:tr [:th "Total"] [:td grand-total]])))))]
+   ])
+
+(defn show-table
+  [row-spec col-spec]
+  (cond
+    (and (not= 0 row-spec) (not= 0 col-spec))
+      [:div [:h2 (str (field-name row-spec) " vs. " (field-name col-spec))]
+      (html-table (ct/cross-tab traffic (field-code row-spec) (field-code col-spec)))]
+    (not= 0 row-spec)
+      [:div [:h2 (field-name row-spec)]
+       (html-table (ct/cross-tab traffic (field-code row-spec) nil))]
+    :else
+      nil))
+
+(defn generate-page! [request response]
+  (let [query (.-query request)
+        col-spec (if query (js/parseInt (.-column query)) nil)
+        row-spec (if query (js/parseInt (.-row query)) nil)]
+    (.send response
+           (hiccups/html
+             [:html
+              [:head
+               [:title "Traffic Violations"]
+               [:meta {:http-equiv "Content-type"
+                       :content "text/html; charset=utf-8"}]
+               [:link {:rel "stylesheet" :type "text/css" :href "style.css"}]]
+              [:body
+               [:h1 "Traffic Violations"]
+               [:form {:action "http://localhost:3000"
+                       :method "get"}
+                "Row: "
+                [:select {:name "row"}
+                 (traffic-menu field-list row-spec)]
+                "Column: "[:select {:name "column"}
+                 (traffic-menu field-list col-spec)]
+                [:input {:type "submit" :value "Calculate"}]]
+               (show-table row-spec col-spec)
+               [:hr]
+               [:p "Source data: "
+                [:a {:href "http://catalog.data.gov/dataset/traffic-violations-56dda"}
+                 "Montgomery County Traffic Violation Database"]]]]))))
 
 (defn -main []
-  (println "Hello world!"))
+  (let [app (express)]
+    (.use app (.static express "."))
+    (.get app "/" generate-page!)
+    (.listen app 3000 (fn []
+                        (println "Server started on port 3000")))))
 
 (set! *main-cli-fn* -main)

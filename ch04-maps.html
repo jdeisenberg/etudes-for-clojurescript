@@ -475,9 +475,36 @@ data-type="xref">#SOLUTION04-ET01</a>
   <section data-type="sect1" id="ETUDE04-05">
   <h1>Étude 4-5: Cross-Tabulation Server</h1>
   <p>
-  Well, as you can see, the output from the previous étude is ugly to the point of being nearly unreadable. This rather open-ended étude aims to fix that. Your mission, should you decide to accept it, is to set up the code in an Express server to deliver the results in a nice, readable HTML table.
+  Well, as you can see, the output from the previous étude is ugly to the point of being nearly unreadable. This rather open-ended étude aims to fix that. Your mission, should you decide to accept it, is to set up the code in an Express server to deliver the results in a nice, readable HTML table. Here are some of the things I found out while coming up with a solution.
   </p>
 
+  <ul>
+    <li><p>
+    I wanted to use as much of the code from <a href="ETUDE04-02" data-type="xref">#ETUDE04-02</a>, so I decided on drop-down menus to choose the fields. However, a map was not a good choice for generating the menu. In the condiment server, it made sense to alphabetize the keys of the food map. In this étude, the field names are listed by conceptual groups; it doesn't make sense to alphabetize them, and the keys of a map are inherently unordered. Thus, I ended up making a list of lists.
+    </p></li>
+    
+    <li><p>
+    I used <code>map-indexed</code> to create the option menu such that each option had a numeric value. However, when the server reads the value from the request, it gets a string, and <code>5</code> is not equal to <code>"5"</code>. The fix was easy, but I lost a few minutes figuring out why my selected item wasn’t coming up when I came back from a request.
+    </p></li>
+    
+    <li><p>
+    The source file felt like it was getting too big, so I put the cross tabulation code into a separate file named <em>crosstab.cljs</em> in the <em>src/traffic</em> directory.
+    </p></li>
+    
+    <li><p>
+    I wanted to include a CSS file, so I put the specification in the header of the hiccups code. However, to make it work, I had to tell Express how to serve static files, using <code>"."</code> for the root directory in:
+    </p> 
+    <pre data-type="programlisting" data-code-language="clojure">(.use app (.static express "<em>path/to/root/directory</em>"))</pre>
+    </li>
+    
+    <li><p>
+    Having the REPL is really great for testing.
+    </p></li>
+    
+    <li><p>
+    I finished the program late at night. It does follow my philosophy of “the first way you think of doing it that works is the right way,” but I am unhappy with the solution. I would really like to unify the cases of one-dimensional and two-dimensional tables, and there seems to be a dreadful amount of unnecessary duplication. To paraphrase Don Marquis, my solution “isn’t moral, but it might be expedient.”
+    </p></li>
+  </ul>
   <p>
   See a suggested solution: <a href="#SOLUTION04-ET05" data-type="xref">#SOLUTION04-ET05</a>
   </p>
