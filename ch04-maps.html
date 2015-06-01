@@ -5,7 +5,7 @@
 In this chapter, you will work with maps (not to be confused with the 
 <code>map</code> function, though you can use <code>map</code> on a map). Also, 
 the études are designed to run on the server side with <a 
-href="https://nodejs.org/">Node.js</a>, so you may want to see how to set that 
+href="https://nodejs.org/">Node.js&#174;</a>, so you may want to see how to set that 
 up in <a href="#appendix_server_cljs" data-type="xref">#appendix_server_cljs</a>.
 </p>
 
@@ -48,7 +48,7 @@ up in <a href="#appendix_server_cljs" data-type="xref">#appendix_server_cljs</a>
 &lt;/Foods_Needing_Condiments_Table&gt;</pre>
 
   <p>
-  Your task, in this étude, is to take this JavaScript object build a ClojureScript map whose keys are the condiments and whose values are vectors of foods that go with those condiments. Thus, for the sample file, running the program from the command line the output would be this map (formatted and quotemarked for ease of reading):
+  Your task, in this étude, is to take this XML file and build a ClojureScript map whose keys are the condiments and whose values are vectors of foods that go with those condiments. Thus, for the sample file, running the program from the command line the output would be this map (formatted and quotemarked for ease of reading):
   </p>
   
   <pre>[etudes@localhost nodetest]$ node condiments.js test.xml
@@ -153,7 +153,7 @@ node-xml-lite@0.0.3 node_modules/node-xml-lite
     
   <p>
   There’s a lot of explanation in this étude, and you are probably thinking this is going to be a huge program. It sure seemed that way to me while I was writing it, but it turned that was mostly because I was doing lots of tests in the REPL and looking things up in documentation. When I looked at the resulting program, it was only 45 lines. Here it is: <a href="#SOLUTION04-ET01" 
-data-type="xref">#SOLUTION04-ET01</a>
+data-type="xref">#SOLUTION04-ET01</a>.
 
   </p>
   </section>
@@ -196,7 +196,7 @@ data-type="xref">#SOLUTION04-ET01</a>
     <section data-type="sect2" id="dynamic-html">
     <h2>Generating HTML from ClojureScript</h2>
     <p>
-    To generate the HTML dynamically, you will use the <code>html</code> function of the <a href="https://github.com/teropa/hiccups">hiccups</a> library. The function takes as its argument a vector that has a keyword as an element name, an optional map of attributes and values, and element content.  Here are some examples:
+    To generate the HTML dynamically, you will use the <code>html</code> function of the <a href="https://github.com/teropa/hiccups">hiccups</a> library. The function takes as its argument a vector that has a keyword as an element name, an optional map of attributes and values, and the element content.  Here are some examples:
       </p>
       
       <table>
@@ -246,7 +246,7 @@ data-type="xref">#SOLUTION04-ET01</a>
       <section data-type="sect2">
       <h2>Putting the Étude Together</h2>
       <p>
-      Your program will use the previous étude’s code to build the map of condiments and compatible foods from the XML file. To make the program easier to read, I put the code for creating the map into a separate file with its own namespace. Then use the same framework that was developed in <a href="#dynamic-html" data-type="xref">#dynamic-html</a>, with the generated page containing:
+      Your program will use the previous étude’s code to build the map of condiments and compatible foods from the XML file. Then use the same framework that was developed in <a href="#dynamic-html" data-type="xref">#dynamic-html</a>, with the generated page containing:
       </p>
       
       <ul>
@@ -259,7 +259,7 @@ data-type="xref">#SOLUTION04-ET01</a>
       Your code should alphabetize the condiment names and compatible foods. Some of the foods begin with capital letters; others with lower case. You will want to do a case-insensitive form. (Hint: use the form of <code>sort</code> that takes a comparison function.) 
       </p>
       
-      <p>See a suggested solution:  <a href="#SOLUTION04-ET02B" data-type="xref">#SOLUTION04-ET02B</a></p>
+      <p>See a suggested solution:  <a href="#SOLUTION04-ET02B" data-type="xref">#SOLUTION04-ET02B</a>. To make the program easier to read, I put the code for creating the map into a separate file with its own namespace.</p>
       
       </section>
     </section>
@@ -269,7 +269,7 @@ data-type="xref">#SOLUTION04-ET01</a>
   <section data-type="sect1" id="ETUDE04-03">
   <h1>Étude 4-3: Maps&#x2014;Frequency Table</h1>
   <p>
-  This étude uses an excerpt of the Montgomery County, Maryland (USA) traffic violation database, which you may find <a href="http://catalog.data.gov/dataset/traffic-violations-56dda">at this URL</a>. I have taken only the violations for July 2014, removed several of the columns of the data, and put the result into a TAB-separated value file named <em>traffic_july_2014_edited.csv</em>, which you may find at <em>URL to be determined later</em>. (Yes, I know CSV should be comma-separated, but using TAB makes life much easier.)
+  This étude uses an excerpt of the Montgomery County, Maryland (USA) traffic violation database, which you may find <a href="http://catalog.data.gov/dataset/traffic-violations-56dda">at this URL</a>. I have taken only the violations for July 2014, removed several of the columns of the data, and put the result into a TAB-separated value file named <em>traffic_july_2014_edited.csv</em>, which you may find <a href="https://github.com/jdeisenberg/etudes-for-clojurescript">in the GitHub repository</a>. (Yes, I know CSV should be comma-separated, but using TAB makes life much easier.)
   </p>
   
   <p>
@@ -303,11 +303,11 @@ data-type="xref">#SOLUTION04-ET01</a>
   </p>
   
   <p>
-  If you look at the data, you can see that the “Make” (vehicle manufacturer) column would need some cleaning up to be truly useful. For example, there are entries such as TOYOTA, TOYT, TOYO, and TOUOTA. Various other creative spellings and abbreviations abound in that column. Also, the Scion is listed as both a make and a model. Go figure.
+  If you look at the data, you will notice the “Make” (vehicle manufacturer) column would need some cleaning up to be truly useful. For example, there are entries such as TOYOTA, TOYT, TOYO, and TOUOTA. Various other creative spellings and abbreviations abound in that column. Also, the Scion is listed as both a make and a model. Go figure.
   </p>
   
   <p>
-  In this étude, you are going to write a Node.js project named <em>traffic</em> It will contain a function that reads the CSV file and creates a data structure (I suggest a vector of maps) for each row.  For example:
+  In this étude, you are going to write a Node.js project named <em>frequency</em> It will contain a function that reads the CSV file and creates a data structure (I suggest a vector of maps) for each row.  For example:
   </p>
 <pre>[{:date "07/31/2014", :time "22:08:00" ... :gender "F", :driver-state "MD"},
   {:date "07/31/2014", :time "21:27:00" ... :gender "F", :driver-state "MD"}, ...]</pre>
@@ -317,7 +317,6 @@ data-type="xref">#SOLUTION04-ET01</a>
   </p>
   
   <ul>
-  <li>Do <code>npm&#x0a0;install&#x0a0;line-by-line</code> in order to read the CSV file one line at a time. Documentation for the module is at <a href="https://www.npmjs.com/package/line-by-line">https://www.npmjs.com/package/line-by-line</a>.</li>
   <li>For the map, define a vector of heading keywords, such as:
     <pre data-type="programlisting" data-code-language="clojure">(def headings [:date :time ... :gender :driver-state])</pre>
     If there are columns you don’t want or need in the map, enter <code>nil</code> in the vector.</li>
@@ -371,7 +370,7 @@ data-type="xref">#SOLUTION04-ET01</a>
       <section data-type="sect2" id="read-csv-section">
     <h2>Reading the CSV File</h2>
     <p>
-    Reading a file one line at a time from node.js is a non-trivial matter. Luckily for you and me, Jonathan Boston (twitter/github: <a href="https://github.com/bostonou">bostonou</a>), author of the <a href="clojurescriptmadeeasy.com">ClojureScript Made Easy</a> blog <a href="http://clojurescriptmadeeasy.com/blog/cljs-read-files-line-by-line-on-nodejs-part-2.html">posted a wonderful solution</a> just days before I wrote this étude. He has kindly given me permission to use the code, which you can get <a href="https://gist.github.com/bostonou/a54c029fa6f29459eafe">at this GitHub gist</a>. Follow the instructions in the gist, and separate the Clojure and ClojureScript code. Your <em>src</em> directory will look like this:
+    Reading a file one line at a time from Node.js is a non-trivial matter. Luckily for you and me, Jonathan Boston (twitter/github: <a href="https://github.com/bostonou">bostonou</a>), author of the <a href="clojurescriptmadeeasy.com">ClojureScript Made Easy</a> blog <a href="http://clojurescriptmadeeasy.com/blog/cljs-read-files-line-by-line-on-nodejs-part-2.html">posted a wonderful solution</a> just days before I wrote this étude. He has kindly given me permission to use the code, which you can get <a href="https://gist.github.com/bostonou/a54c029fa6f29459eafe">at this GitHub gist</a>. Follow the instructions in the gist, and separate the Clojure and ClojureScript code. Your <em>src</em> directory will look like this:
     </p>
 <pre>src
 ├── cljs_made_easy
@@ -404,7 +403,7 @@ data-type="xref">#SOLUTION04-ET01</a>
      </section>        
      
     <p>
-    See a suggested solution: <a href="#SOLUTION04-ET03" data-type="xref">#SOLUTION04-ET03</a>
+    See a suggested solution: <a href="#SOLUTION04-ET03" data-type="xref">#SOLUTION04-ET03</a>.
     </p>
     </section>
     
@@ -446,11 +445,18 @@ data-type="xref">#SOLUTION04-ET01</a>
   </ul>
   
   <p>
-  The previous search on the full data set returns this result:
+  The previous search on the full data set returns this result, reformatted to avoid excessively long lines:
   </p>
  
-<pre>(cross-tab traffic hour :gender)
-[["00" "01" "02" "03" "04" "05" "06" "07" "08" "09" "10" "11" "12" "13" "14" "15" "16" "17" "18" "19" "20" "21" "22" "23"] ["F" "M" "U"] [[335 719 0] [165 590 0] [141 380 0] [96 249 0] [73 201 0] [63 119 0] [129 214 2] [380 625 0] [564 743 1] [481 704 0] [439 713 1] [331 527 0] [243 456 0] [280 525 0] [344 515 0] [276 407 0] [307 514 1] [317 553 0] [237 434 1] [181 461 0] [204 553 1] [289 657 0] [424 961 0] [433 956 0]] [1054 755 521 345 274 182 345 1005 1308 1185 1153 858 699 805 859 683 822 870 672 642 758 946 1385 1389] [6732 12776 7] 19515]</pre>
+<pre>(cross-tab traffic-data hour :gender)
+[["00" "01" "02" "03" "04" "05" "06" "07" "08" "09" "10" "11" "12"
+"13" "14" "15" "16" "17" "18" "19" "20" "21" "22" "23"] ["F" "M" "U"]
+[[335 719 0] [165 590 0] [141 380 0] [96 249 0] [73 201 0] [63 119 0]
+[129 214 2] [380 625 0] [564 743 1] [481 704 0] [439 713 1] [331 527 0]
+[243 456 0] [280 525 0] [344 515 0] [276 407 0] [307 514 1] [317 553 0]
+[237 434 1] [181 461 0] [204 553 1] [289 657 0] [424 961 0] [433 956 0]]
+[1054 755 521 345 274 182 345 1005 1308 1185 1153 858 699 805 859 683
+822 870 672 642 758 946 1385 1389] [6732 12776 7] 19515]</pre>
 
   <p>
   Here are some of the cross-tabulations that might be interesting:
@@ -467,7 +473,7 @@ data-type="xref">#SOLUTION04-ET01</a>
     </p>
     
     <p>
-    See a suggested solution: <a href="#SOLUTION04-ET04" data-type="xref">#SOLUTION04-ET04</a>
+    See a suggested solution: <a href="#SOLUTION04-ET04" data-type="xref">#SOLUTION04-ET04</a>.
     </p>
     </section>
     
@@ -481,11 +487,11 @@ data-type="xref">#SOLUTION04-ET01</a>
 
   <ul>
     <li><p>
-    I wanted to use as much of the code from <a href="ETUDE04-02" data-type="xref">#ETUDE04-02</a>, so I decided on drop-down menus to choose the fields. However, a map was not a good choice for generating the menu. In the condiment server, it made sense to alphabetize the keys of the food map. In this étude, the field names are listed by conceptual groups; it doesn't make sense to alphabetize them, and the keys of a map are inherently unordered. Thus, I ended up making a list of lists.
+    I wanted to use as much of the code from <a href="ETUDE04-02" data-type="xref">#ETUDE04-02</a> as possible, so I decided on drop-down menus to choose the fields. However, a map was not a good choice for generating the menu. In the condiment server, it made sense to alphabetize the keys of the food map. In this étude, the field names are listed by conceptual groups; it doesn't make sense to alphabetize them, and the keys of a map are inherently unordered. Thus, I ended up making a vector of vectors.
     </p></li>
     
     <li><p>
-    I used <code>map-indexed</code> to create the option menu such that each option had a numeric value. However, when the server reads the value from the request, it gets a string, and <code>5</code> is not equal to <code>"5"</code>. The fix was easy, but I lost a few minutes figuring out why my selected item wasn’t coming up when I came back from a request.
+    I used <code><a href="http://clojuredocs.org/clojure.core/map-indexed">map-indexed</a></code> to create the option menu such that each option had a numeric value. However, when the server reads the value from the request, it gets a string, and <code>5</code> is not equal to <code>"5"</code>. The fix was easy, but I lost a few minutes figuring out why my selected item wasn’t coming up when I came back from a request.
     </p></li>
     
     <li><p>
@@ -503,11 +509,11 @@ data-type="xref">#SOLUTION04-ET01</a>
     </p></li>
     
     <li><p>
-    I finished the program late at night. It does follow my philosophy of “the first way you think of doing it that works is the right way,” but I am unhappy with the solution. I would really like to unify the cases of one-dimensional and two-dimensional tables, and there seems to be a dreadful amount of unnecessary duplication. To paraphrase Don Marquis, my solution “isn’t moral, but it might be expedient.”
+    I finished the program late at night. Again, “the first way you think of doing it that works is the right way,” but I am unhappy with the solution. I would really like to unify the cases of one-dimensional and two-dimensional tables, and there seems to be a dreadful amount of unnecessary duplication. To paraphrase Don Marquis, my solution “isn’t moral, but it might be expedient.”
     </p></li>
   </ul>
   <p>
-  See a suggested solution: <a href="#SOLUTION04-ET05" data-type="xref">#SOLUTION04-ET05</a>
+  See a suggested solution: <a href="#SOLUTION04-ET05" data-type="xref">#SOLUTION04-ET05</a>.
   </p>
   </section>
 
