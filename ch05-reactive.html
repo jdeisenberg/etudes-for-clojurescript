@@ -17,20 +17,35 @@ In this chapter, you will write études that use three ClojureScript libraries t
 </ul>
 
 <p>
-All the études will implement the same web page: a page that displays an image that is 496 by 444 and lets you adjust its width, height, and (via CSS) its border. In all three libraries, you will build <em>components</em>, which are functions that, as the Quiescent documentation puts it, tell “how a particular piece of data should be rendered to the DOM.” Since they are functions, they can use all of ClojureScript’s computational power.
+All the études will implement the same web page: a page that displays an image and lets you adjust its width, height, and (via CSS) its border width and . In all three libraries, you will build <em>components</em>, which are functions that, as the Quiescent documentation puts it, tell “how a particular piece of data should be rendered to the DOM.” Since they are functions, they can use all of ClojureScript’s computational power.
 </p>
+
+<figure id="reactive_example_figure">
+<img src="images/reactive_example.png" alt="Screenshot showing user interface and image"/>
+<figcaption>Screenshot of Image Resize Web Page</figcaption>
+</figure>
 
 <p>
 The HTML for the page will include a <code>&lt;div&#160;id="interface"&gt;</code>, which is where the components will go.
 </p>
 
 <p>
-All three versions of this étude will declare an <code>atom</code> (with a slight variation for Reagant) to hold the state of the the application in a map.
+All three versions of this étude will declare an <code>atom</code> (with a slight variation for Reagant) to hold the state of the the application in a map. The page has to keep track of:
 </p>
+
+<ul>
+  <li>The image’s current width and height</li>
+  <li>Whether you want the width and height to stay in proportion or not</li>
+  <li>The border width and style (intially three pixels solid)&#8212;the color will be set to red for visibility</li>
+  <li>The image’s original width and height (needed to do proportional scaling properly)</li>
+</ul>
+
+<p>That gives us this atom.</p>
 
 <pre data-type="programlisting" data-code-language="clojure">(defonce status
          (atom {:w 0 :h 0 :proportional true
-                :border-width 1 :border-stye "solid"}))</pre>
+                :border-width 3 :border-style "solid"
+                :orig-w 0 :orig-h 0}))</pre>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
@@ -63,7 +78,7 @@ All three versions of this étude will declare an <code>atom</code> (with a slig
   </p>
   
   <p>
-  The only thing remaining to do is to render the component:
+  The only thing remaining to do is to render the component. In Quiescent, the <code>q/render</code> function renders a component once. If you want continuous rendering, you can use JavaScript’s <code>requestAnimationFrame</code> to repeat the process. Remember, when using React, only the components that have changed get re-rendered, so you don’t need to worry about that using <code>requestAnimationFrame</code> will eat your CPU alive.
   </p>
   
 <pre data-type="programlisting" data-code-language="clojure">(defn render
@@ -79,7 +94,7 @@ All three versions of this étude will declare an <code>atom</code> (with a slig
   </p>
   
   <p>
-  If you compile this code and then load the <em>index.html</em> file, you will see a zero in the input and output area - but you will also find that you cannot type into the field. That is because Quiescent and React always keep the DOM and the field value synchronized, and since the value in the atom never changes, neither can the field. To fix that, add this code to the input element (it is in bold):
+  If you compile this code and then load the <em>index.html</em> file, you will see a zero in the input and output area - but you will also find that you cannot type into the field. That is because Quiescent and React always keep the DOM value and the atom value synchronized, and since the value in the atom never changes, neither can the field. To fix that, add this code to the input element (it is in bold):
   </p>
   
 <pre data-type="programlisting" data-code-language="clojure">(d/input {:type "text"
@@ -98,6 +113,36 @@ All three versions of this étude will declare an <code>atom</code> (with a slig
   Voilà&#8212;your page now updates properly.
   </p>
 
+      <section data-type="sect2" id="quiescent-hints">
+      <h2>Hints</h2>
+      <ol>
+      <li><p>You will have to initialize the values for the image’s original width and height. To do this, you add an <code>:on-mount</code> clause to the keywords at the start of the image component. As the Quiescent documentation says, “<code>:on-mount</code> specifies a function which will be invoked once, immediately after initial rendering occurs. It is passed the DOM node, the value and any constant args passed to the render function.” Let’s change the preceding example to fill in the input field with the current minute (so, if it’s 10:20, the input field will have a 20 in it). Add this code to the <code>Example</code> component:</p>
+      
+<pre data-type="programlisting" data-code-language="clojure">(q/defcomponent Example
+  :name "Example"
+  <strong>:on-mount (fn [node val]
+     (swap! status assoc :w (.getMinutes (js/Date.))))</strong>
+  [status]
+  (d/div {}...</pre>
+      </li>
+      
+      <li><p>Handling the checkbox also requires some extra care. The value of the <code>checked</code> attribute isn’t the checkbox’s value, so you will have to use <code>:on-mount</code> to initialize the checkbox, and you will have to directly change the checkbox status with code like this:</p>
+      <pre data-type="programlisting" data-code-language="clojure">(set! (.-checked (.getElementById js/document "prop"))</pre>
+      </li>
+
+      <li><p>If you want to use a list to initialize the drop-down menu, you will need to define a component for menu options and then use <code>apply</code> and <code>map</code> cleverly. This took me a <em>long</em> time to get right, so I’m giving you the code for free with an abbreviated example.</p>
+      
+<pre data-type="programlisting" data-code-language="clojure">(q/defcomponent Option
+  [item]
+  (d/option {:value item} item))
+  
+;; then, in the component that builds the form:
+(apply d/select {:id "menu" :onChange change-border}
+   (map Option ["none" "solid" "dotted" "<em>etc.</em>"]))</pre>
+       </li>
+    </ol>
+
+      </section>
   
   </section>
 </section>
