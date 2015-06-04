@@ -2,7 +2,12 @@
 <h1>Reactive Programming</h1>
 
 <p>
-Reactive programming is a way of programming that lets you specify how data flows through user interface components; once this is set up, the DOM updating is handled for you automagically. (As noted in <a href="#chapter02" data-type="xref">#chapter02</a>, this is what all the Cool Kids<sup>&#8482;</sup> are using.) In this chapter, you will write études that use three ClojureScript libraries that interface with <a href="http://facebook.github.io/react/">Facebook&#174;’s React JavaScript library</a>:
+Reactive programming is a way of programming that lets you specify how data flows through user interface components; once this is set up, the DOM updating is handled for you automagically. (As noted in <a href="#chapter02" data-type="xref">#chapter02</a>, this is what all the Cool Kids<sup>&#8482;</sup> are using.)
+<em>Insert further verbiage about the wonderfulness of reactive programming</em>
+</p>
+
+<p>
+In this chapter, you will write études that use three ClojureScript libraries that interface with <a href="http://facebook.github.io/react/">Facebook&#174;’s React JavaScript library</a>. <a href="http://blog.peeja.com/blog/2014/10/01/react-four-ways-how-to-use-react-in-clojurescript/">This blog post</a> gives you a comparison of the libraries:
 </p>
 
 <ul>
@@ -12,7 +17,87 @@ Reactive programming is a way of programming that lets you specify how data flow
 </ul>
 
 <p>
-Watch this space...
+All the études will implement the same web page: a page that displays an image that is 496 by 444 and lets you adjust its width, height, and (via CSS) its border. In all three libraries, you will build <em>components</em>, which are functions that, as the Quiescent documentation puts it, tell “how a particular piece of data should be rendered to the DOM.” Since they are functions, they can use all of ClojureScript’s computational power.
 </p>
 
+<p>
+The HTML for the page will include a <code>&lt;div&#160;id="interface"&gt;</code>, which is where the components will go.
+</p>
+
+<p>
+All three versions of this étude will declare an <code>atom</code> (with a slight variation for Reagant) to hold the state of the the application in a map.
+</p>
+
+<pre data-type="programlisting" data-code-language="clojure">(defonce status
+         (atom {:w 0 :h 0 :proportional true
+                :border-width 1 :border-stye "solid"}))</pre>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+  <section data-type="sect1" id="ETUDE05-01">
+  <h1>Étude 5-1: Reactive Programming with Quiescent</h1>
+  <p>
+  To use Quiescent, add  <code>[quiescent "0.2.0-alpha1"]</code> to your project’s dependencies and add requirements to your namespace: 
+  </p>
+<pre data-type="programlisting" data-code-language="clojure">(:require [quiescent.core :as q]
+  [quiescent.dom :as d])</pre>
+  
+  <p>
+  As an example, let’s define a simple component that displays an input area and some text that goes with the <code>w</code> field in the atom that was defined previously.
+  </p>
+  
+<pre data-type="programlisting" data-code-language="clojure">(q/defcomponent Example
+  :name "Example"
+  [status]
+  (d/div {}
+    "Your input here: "
+    (d/input {:type "text"
+              :value (:w status)
+              :size "5"})
+    (d/br)
+    "Your input, squared: "
+    (d/span {} (* (:w status) (:w status)))))</pre>
+ 
+  <p>
+  The general format for creating an HTML element inside a component is to give its element name, a map of its attributes (or the empty map <code>{}</code> if there are no attributes, as on the <code>div</code>), and the element content, which may contain other elements. The <code>:name</code> before the parameter list gives the component a name for React to use. The key/value pairs before the parameter list make up the component configuration; this is described in detail <a href="https://github.com/levand/quiescent/blob/release/docs.md">in the Quiescent Documentation</a>. The value of the input field and <code>span</code> are provided by the current value of the <code>:w</code> key in the <code>status</code> atom.
+  </p>
+  
+  <p>
+  The only thing remaining to do is to render the component:
+  </p>
+  
+<pre data-type="programlisting" data-code-language="clojure">(defn render
+  "Render the current state atom, and schedule a render on the next frame"
+  []
+  (q/render (Example @status) (aget (.getElementsByTagName js/document "body") 0))
+  (.requestAnimationFrame js/window render))
+  
+  (render)</pre>
+  
+  <p>
+  Quiescent’s <code>render</code> function takes two arguments: A call to the component with its argument&#8212;in this case, the de-referenced atom, and the DOM node where you want the component rooted. In this case, the first (and, we hope, only) <code>&lt;body&gt;</code> element.
+  </p>
+  
+  <p>
+  If you compile this code and then load the <em>index.html</em> file, you will see a zero in the input and output area - but you will also find that you cannot type into the field. That is because Quiescent and React always keep the DOM and the field value synchronized, and since the value in the atom never changes, neither can the field. To fix that, add this code to the input element (it is in bold):
+  </p>
+  
+<pre data-type="programlisting" data-code-language="clojure">(d/input {:type "text"
+        :value (:w status)
+        <strong>:onChange update-value</strong>
+        :size "5"})</pre>
+
+  <p>
+  And then write the <code>update-value</code> function, which takes the value from the event target and puts it into the atom that keeps the page’s state.
+  </p>
+  
+<pre data-type="programlisting" data-code-language="clojure">(defn update-value [evt]
+  (swap! status assoc :w (.-value (.-target evt))))</pre>
+  
+  <p>
+  Voilà&#8212;your page now updates properly.
+  </p>
+
+  
+  </section>
 </section>
