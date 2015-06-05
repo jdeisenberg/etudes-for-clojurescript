@@ -12,8 +12,8 @@ In this chapter, you will write études that use three ClojureScript libraries t
 
 <ul>
   <li><a href="https://github.com/levand/quiescent">Quiescent</a></li>
-  <li><a href="http://reagent-project.github.io/">Reagent</a></li>
   <li><a href="https://github.com/omcljs/om">Om</a></li>
+  <li><a href="http://reagent-project.github.io/">Reagent</a></li>
 </ul>
 
 <p>
@@ -38,6 +38,7 @@ All three versions of this étude will declare an <code>atom</code> (with a slig
   <li>Whether you want the width and height to stay in proportion or not</li>
   <li>The border width and style (intially three pixels solid)&#8212;the color will be set to red for visibility</li>
   <li>The image’s original width and height (needed to do proportional scaling properly)</li>
+  <li>The image file name</li>
 </ul>
 
 <p>That gives us this atom.</p>
@@ -45,7 +46,7 @@ All three versions of this étude will declare an <code>atom</code> (with a slig
 <pre data-type="programlisting" data-code-language="clojure">(defonce status
          (atom {:w 0 :h 0 :proportional true
                 :border-width 3 :border-style "solid"
-                :orig-w 0 :orig-h 0}))</pre>
+                :orig-w 0 :orig-h 0 :src "clock.jpg"}))</pre>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
@@ -54,10 +55,11 @@ All three versions of this étude will declare an <code>atom</code> (with a slig
   <p>
   To use Quiescent, add  <code>[quiescent "0.2.0-alpha1"]</code> to your project’s dependencies and add requirements to your namespace: 
   </p>
-<pre data-type="programlisting" data-code-language="clojure">(:require [quiescent.core :as q]
-  [quiescent.dom :as d])</pre>
+<pre data-type="programlisting" data-code-language="clojure">(:require [om.core :as om]
+            [om.dom :as dom])</pre>
   
   <p>
+  Om is much closer to React than Quiescent is.
   As an example, let’s define a simple component that displays an input area and some text that goes with the <code>w</code> field in the atom that was defined previously.
   </p>
   
@@ -116,15 +118,8 @@ All three versions of this étude will declare an <code>atom</code> (with a slig
       <section data-type="sect2" id="quiescent-hints">
       <h2>Hints</h2>
       <ol>
-      <li><p>You will have to initialize the values for the image’s original width and height. To do this, you add an <code>:on-mount</code> clause to the keywords at the start of the image component. As the Quiescent documentation says, “<code>:on-mount</code> specifies a function which will be invoked once, immediately after initial rendering occurs. It is passed the DOM node, the value and any constant args passed to the render function.” Let’s change the preceding example to fill in the input field with the current minute (so, if it’s 10:20, the input field will have a 20 in it). Add this code to the <code>Example</code> component:</p>
-      
-<pre data-type="programlisting" data-code-language="clojure">(q/defcomponent Example
-  :name "Example"
-  <strong>:on-mount (fn [node val]
-     (swap! status assoc :w (.getMinutes (js/Date.))))</strong>
-  [status]
-  (d/div {}...</pre>
-      </li>
+      <li><p>You will have to initialize the values for the image’s original width and height. To do this, you add an <code>:onLoad</code> clause to the properties of the image component. Its value is a function that handles the event by setting the width, height, original width, and original height. Use the <code>naturalWidth</code> and <code>naturalHeight</code> properties of the image. Those properties do not work with Internet Explorer 8, but will work in Intenet Explorer 9+.
+      </p></li>
       
       <li><p>Handling the checkbox also requires some extra care. The value of the <code>checked</code> attribute isn’t the checkbox’s value, so you will have to use <code>:on-mount</code> to initialize the checkbox, and you will have to directly change the checkbox status with code like this:</p>
       <pre data-type="programlisting" data-code-language="clojure">(set! (.-checked (.getElementById js/document "prop"))</pre>
@@ -143,6 +138,16 @@ All three versions of this étude will declare an <code>atom</code> (with a slig
     </ol>
 
       </section>
-  
+  <p>See a suggested solution:  <a href="#SOLUTION05-ET01" data-type="xref">#SOLUTION05-ET01</a>.</p>
   </section>
+  
+  <section data-type="sect1" id="ETUDE05-02">
+  <h1>>Étude 5-2: Reactive Programming with Om</h1>
+  <p>
+  To use Om, add  <code>[org.omcljs/om "0.8.8"]</code> to your project’s dependencies and add requirements to your namespace: 
+  </p>
+<pre data-type="programlisting" data-code-language="clojure">(:require [quiescent.core :as q]
+  [quiescent.dom :as d])</pre>
+  </section>
+
 </section>
