@@ -158,7 +158,6 @@ All three versions of this étude will declare an <code>atom</code> (with a slig
   </p>
 <pre data-type="programlisting" data-code-language="clojure">(:require [om.core :as om]
             [om.dom :as dom])</pre>
-  </section>
 
     <p>
   As an example, let’s define a simple component that displays an input area and some text that goes with the <code>w</code> field in the atom that was defined previously. In the following code, <code>data</code> refers to a <em>cursor</em>, which is a path to the part of the application state that a component needs in order to do its work. (In this example, we could have stored the state locally to the component, but, again, the étude you will write will have inter-dependent components.)  The <code>owner</code> is the React component that is behind the scenes.
@@ -203,8 +202,6 @@ All three versions of this étude will declare an <code>atom</code> (with a slig
         (dom/p nil "Your input here: "
           (dom/input
             #js{:type "text" :size "5" :value (:n @data)}))
-        (dom/p nil "Square of number:" (* (:n @data) (:n @data))))))
+        (dom/p nil "Square of number:" (* (:n @data) (:n @data))))))</pre>
   </section>
 </section>
-
-
