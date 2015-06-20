@@ -55,11 +55,11 @@ All three versions of this étude will declare an <code>atom</code> (with a slig
   <p>
   To use Quiescent, add  <code>[quiescent "0.2.0-alpha1"]</code> to your project’s dependencies and add requirements to your namespace: 
   </p>
-<pre data-type="programlisting" data-code-language="clojure">(:require [om.core :as om]
-            [om.dom :as dom])</pre>
+  
+<pre data-type="programlisting" data-code-language="clojure">(:require [quiescent.core :as q]
+  [quiescent.dom :as d])</pre>
   
   <p>
-  Om is much closer to React than Quiescent is.
   As an example, let’s define a simple component that displays an input area and some text that goes with the <code>w</code> field in the atom that was defined previously.
   </p>
   
@@ -123,6 +123,16 @@ All three versions of this étude will declare an <code>atom</code> (with a slig
       
       <li><p>Handling the checkbox also requires some extra care. The value of the <code>checked</code> attribute isn’t the checkbox’s value, so you will have to use <code>:on-mount</code> to initialize the checkbox, and you will have to directly change the checkbox status with code like this:</p>
       <pre data-type="programlisting" data-code-language="clojure">(set! (.-checked (.getElementById js/document "prop"))</pre>
+      <p>
+      Here is an example of <code>:on-mount</code> to initialize the example’s input field to the current minute of the hour. <code>:on-mount</code> is followed by the definition of a function that has the current node as its argument.
+      </p>
+<pre data-type="programlisting" data-code-language="clojure">(q/defcomponent Example
+  :name "Example"
+  <strong>:on-mount (fn [node]
+    (swap! status assoc :w (.getMinutes (js/Date.))))</strong>
+  [status]
+  ;; etc.</pre>
+
       </li>
 
       <li><p>If you want to use a list to initialize the drop-down menu, you will need to define a component for menu options and then use <code>apply</code> and <code>map</code> cleverly. This took me a <em>long</em> time to get right, so I’m giving you the code for free with an abbreviated example.</p>
@@ -140,14 +150,61 @@ All three versions of this étude will declare an <code>atom</code> (with a slig
       </section>
   <p>See a suggested solution:  <a href="#SOLUTION05-ET01" data-type="xref">#SOLUTION05-ET01</a>.</p>
   </section>
-  
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
   <section data-type="sect1" id="ETUDE05-02">
   <h1>>Étude 5-2: Reactive Programming with Om</h1>
   <p>
-  To use Om, add  <code>[org.omcljs/om "0.8.8"]</code> to your project’s dependencies and add requirements to your namespace: 
+    Om is much closer to React than Quiescent is. To use Om, add  <code>[org.omcljs/om "0.8.8"]</code> to your project’s dependencies and add requirements to your namespace: 
   </p>
-<pre data-type="programlisting" data-code-language="clojure">(:require [quiescent.core :as q]
-  [quiescent.dom :as d])</pre>
+<pre data-type="programlisting" data-code-language="clojure">(:require [om.core :as om]
+            [om.dom :as dom])</pre>
   </section>
 
+    <p>
+  As an example, let’s define a simple component that displays an input area and some text that goes with the <code>w</code> field in the atom that was defined previously. In the following code, <code>data</code> refers to a <em>cursor</em>, which is a path to the part of the application state that a component needs in order to do its work. (In this example, we could have stored the state locally to the component, but, again, the étude you will write will have inter-dependent components.)  The <code>owner</code> is the React component that is behind the scenes.
+  </p>
+
+<pre data-type="programlisting" data-code-language="clojure">(defn example [data owner]
+  (reify
+    om/IRender
+    (render [_]
+      (dom/div nil
+        (dom/p nil "Your input here: "
+          (dom/input #js{:type "text" :size "5" :value (:w @data))
+        (dom/p nil "Square of number:" (* (:w @data) (:w @data)))))))</pre>
+        
+    <p>
+    Unlike Quiescent, which uses an ordinary ClojureScript map for attributes, you must use a JavaScript object for the attributes; hence the leading <code>#js</code>.
+    </p>
+    
+    <p>
+    That is the long form for defining a component. If you are going to simply render a component (rather than initialize it when it mounts, etc.) and you don’t need to access the owner, you can simplify the code with <code>om/component</code>.
+    </p>
+    
+<pre data-type="programlisting" data-code-language="clojure">(defn example [data owner]
+  (om/component
+      (dom/div nil
+        (dom/p nil "Your input here: "
+          (dom/input #js{:type "text" :size "5" :value (:w @data))
+        (dom/p nil "Square of number:" (* (:w @data) (:w @data)))))))</pre>
+    
+    <p>
+    Using the long form, here is how you would add code to initialize the input field to the minute of the current hour. It uses <code>om/transact!</code> which takes three arguments: the cursor, a key, and a function that returns the new value.
+    </p>
+    
+<pre data-type="programlisting" data-code-language="clojure">(defn example [data owner]
+  (reify
+    <strong>om/IWillMount
+    (will-mount [owner]
+      (om/transact! data :n (fn [_] (.getMinutes (js/Date.)))))</strong>
+    om/IRender
+    (render [_]
+      (dom/div nil
+        (dom/p nil "Your input here: "
+          (dom/input
+            #js{:type "text" :size "5" :value (:n @data)}))
+        (dom/p nil "Square of number:" (* (:n @data) (:n @data))))))
+  </section>
 </section>
+
+
