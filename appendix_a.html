@@ -1145,14 +1145,12 @@ Here are suggested solutions for the études. Of course, your solutions may well
 (set! *main-cli-fn* -main)</pre>
   </section>
 
-  <section data-type="sect1" id="SOLUTION05-ET01">
-  <h1>Solution 5-1</h1>
+  <section data-type="sect1" id="SOLUTION05-ET02">
+  <h1>Solution 5-2</h1>
 
-<pre data-type="programlisting" data-code-language="clojure">(ns react_q.core
+<pre data-type="programlisting" data-code-language="clojure">(ns react_r.core
   (:require [clojure.browser.repl :as repl]
-            [quiescent.core :as q]
-            [quiescent.dom :as d]
-            [quiescent.dom.uncontrolled :as du]))
+            [reagent.core :as reagent :refer [atom]]))
 
 (defonce conn
   (repl/connect "http://localhost:9000/repl"))
@@ -1208,71 +1206,74 @@ Here are suggested solutions for the études. Of course, your solutions may well
            :orig-h (.-naturalHeight node)
            :w (.-naturalWidth node) :h (.-naturalHeight node))))
 
-(q/defcomponent Image
-                "A component that displays an image"
-                :name "ImageWidget"
-                [status]
-                (d/img {:id "image"
-                        :src (:src status)
-                        :width (:w status)
-                        :height (:h status)
-                        :style {:float "right"
-                                :borderWidth (:border-width status)
-                                :borderColor "red"
-                                :borderStyle (:border-style status)}
-                        :onLoad set-dimensions
-                        }))
+(defn image
+  "A component that displays an image"
+  []
+  [:img {:id "image"
+  :src (:src @status)
+  :width (:w @status)
+  :height (:h @status)
+  :style {:float "right"
+      :borderWidth (:border-width @status)
+      :borderColor "red"
+      :borderStyle (:border-style @status)}
+  :on-load set-dimensions}])
 
-(q/defcomponent Option
-                [item]
-                (d/option {:value item} item))
+(defn option [item]
+  [:option {:value item :key item} item])
 
-(q/defcomponent Form
-                "Input form"
-                :name "FormWidget"
-                :on-mount (fn [node val]
-                            (set! (.-checked (.getElementById js/document "prop"))
-                                  (:proportional val)))
-                [status]
-                (d/form {:id "params"}
-                        "Width: "
-                        (d/input {:type "text" :size "5" :value (:w status)
-                                   :id "w"
-                                  :onChange resize})
-                        "Height: "
-                        (d/input {:type "text" :size "5":value (:h status)
-                                   :id "h"
-                                  :onChange resize})
-                        (d/br)
-                        (du/input {:type "checkbox"
-                                   :id "prop"
-                                  :onChange recheck
-                                  :value "proportional"})
-                        "Preserve Proportions"
-                        (d/br)
-                        "Border: "
-                        (d/input {:type "text" :size "5"
-                                  :value (:border-width status)
-                                  :id "bw"
-                                  :onChange change-border})
-                        "px "
-                        (apply d/select {:id "menu" :onChange change-border}
-                               (map Option border-style-list))))
+(defn cbox []
+ (do (println "CBOX")
+    [:input {:type "checkbox"
+             :id "prop"
+             :on-change recheck
+             :value "proportional"}]))
+             
+(defn form
+  "Input form"
+  []
+  [:form {:id "params"}
+    "Width: "
+    [:input {:type "text" :size "5" :value (:w @status)
+             :id "w"
+             :on-change resize}]
+    "Height: "
+    [:input {:type "text" :size "5":value (:h @status)
+             :id "h"
+             :on-change resize}]
+    [:br]
+    (cbox)
+    "Preserve Proportions"
+    [:br]
+    "Border: "
+    [:input {:type "text" :size "5"
+          :value (:border-width @status)
+          :id "bw"
+          :on-change change-border}]
+    "px "
 
-(q/defcomponent Interface
-                "User Interface"
-                :name "Interface"
-                [status]
-                (d/div {}
-                  (Image status)
-                  (Form status)))
+    [:select {:id "menu" :on-change change-border}
+      (for [item border-style-list]
+         (option item))]])
+
+(defn interface-without-init []
+  [:div
+    (image)
+    (form)])
+
+(def interface
+  (with-meta interface-without-init
+    {:component-did-mount
+      (fn [this]
+       (set! (.-checked (.getElementById js/document "prop"))
+             (:proportional @status))
+        )}))
+
 
 (defn render
-  "Render the current state atom, and schedule a render on the next
-  frame"
+  "Render the current state atom"
   []
-  (q/render (Interface @status) (.getElementById js/document "interface"))
-  (.requestAnimationFrame js/window render))
+  (reagent/render [interface] (.getElementById js/document "interface")))
 
 (render)</pre>
   </section>
