@@ -4,9 +4,15 @@
 <p>
     Another way to get Clojure is to use <a href="http://leiningen.org/">Leiningen</a>, a tool (as the website puts it) “for automating Clojure projects without setting your hair on fire.” Follow the download instructions at the Leiningen website, and then, as it says, type <code>lein</code>. Leiningen will download the self-install package and you will then be ready to create ClojureScript (and Clojure) projects.
 </p>
+
 <p>
-    Leiningen lets you create projects based on <em>templates</em>. You create a new project with a command of the form
-    <code>lein&#160;new&#160;<em>template-name</em>&#160;<em>project-name</em></code>. There are plenty of templates out there, but the one I’m going to use in this book is the minimal <em>mies</em> template. Use the <code>git</code> utility to download the latest version and install it:
+    Leiningen lets you create projects based on <em>templates</em>. You create a new project with a command of the form <code>lein&#160;new&#160;<em>template-name</em>&#160;<em>project-name</em></code>. There are plenty of templates out there, but the two I’m going to use in this book are the minimal <em>mies</em> template and the more advanced <em>figwheel</em> template.
+</p>
+
+<section data-type="sect1" id="AP_C-MIES">
+<h1>The <em>mies</em> Template</h1>
+<p>
+     Use the <code>git</code> utility to download the latest version and install it:
 </p>
     
 <pre data-type="programlisting">[etudes@localhost ~]$ <strong>git clone https://github.com/swannodette/mies.git</strong>
@@ -100,6 +106,49 @@ cljs.user=> </pre>
    <p>
     This is not to say that <em>mies</em> is the only template you can use; a search for <em>clojurescript template</em> at <a href="https://clojars.org/">https://clojars.org/</a> will produce a whole list of templates with varying purposes. Choose whichever works best for you.
     </p>
+</section>
 
+  <section data-type="sect1" id="AP_C-FIGWHEEL">
+  <h1>The <em>figwheel</em> Template</h1>
+  <p>
+  The <em>figwheel</em> template is designed to make interactive development easy. Here is the file structure that you get from the command <code>lein&#160;new&#160;figwheel&#160;example2</code>
+  </p>
+
+<pre>example2
+├── .gitignore
+├── project.clj
+├── README.md
+├── resources
+│   └── public
+│       ├── css
+│       │   └── style.css
+│       └── index.html
+└── src
+    └── example2
+        └── core.cljs</pre>
+        
+  <p>
+  The <em>project.clj</em> file contains the information about your project’s requirements and dependencies. Your code goes in the <em>core.cljs</em> file. To compile and run the code,
+  open a terminal window and type <code>lein&#160;figwheel</code>, then go to <code>http://localhost:3449</code> in your browser. You will have a REPL prompt in the terminal
+  window, and figwheel will monitor your source directory for changes.
+  </p>
+  
+  <p>
+   <a href="#figwheel_compile_figure" data-type="xref">#figwheel_compile_figure</a> shows the result of a good compile after making a change to the <em>core.cljs</em> file; <a href="#figwheel_error_figure" data-type="xref">#figwheel_error_figure</a> shows the result of a compile error. Notice that
+   figwheel points out the line in the ClojureScript file where the error occurred.
+   </p>
+   
+   <figure id="#figwheel_compile_figure">
+   <img src="images/figwheel1.png" alt="Screenshot of good compile"/>
+   <figcaption>Screenshot of Result of Good Compilation</figcaption>
+   </figure>
+
+   <figure id="#figwheel_error_figure">
+   <img src="images/figwheel2.png" alt="Screenshot of bad compile"/>
+   <figcaption>Screenshot of Result of Error in Compilation</figcaption>
+   </figure>
+
+   
+</section>
 </section>
 
