@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg5500"
+   sodipodi:docname="Pause.svg"
+   viewBox="0 0 120 120.11"
+   version="1.1"
+   inkscape:version="0.91 r13725">
+  <defs
+     id="defs5502">
+    <filter
+       id="filter4049"
+       inkscape:collect="always"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         id="feGaussianBlur4051"
+         stdDeviation="2.9886041"
+         inkscape:collect="always" />
+    </filter>
+    <linearGradient
+       id="linearGradient4345"
+       y2="258.57"
+       gradientUnits="userSpaceOnUse"
+       x2="692.45"
+       gradientTransform="matrix(0.29708469,0,0,0.60948182,49.196753,287.10745)"
+       y1="441.76"
+       x1="693.75"
+       inkscape:collect="always">
+      <stop
+         id="stop3799"
+         style="stop-color:#002b00"
+         offset="0" />
+      <stop
+         id="stop3801"
+         style="stop-color:#00aa00"
+         offset="1" />
+    </linearGradient>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     bordercolor="#666666"
+     inkscape:pageshadow="2"
+     inkscape:window-y="-3"
+     fit-margin-left="0"
+     pagecolor="#ffffff"
+     fit-margin-top="0"
+     inkscape:window-maximized="1"
+     inkscape:zoom="4"
+     inkscape:window-x="-3"
+     inkscape:window-height="1033"
+     showgrid="false"
+     borderopacity="1.0"
+     inkscape:current-layer="layer1"
+     inkscape:cx="7.37247"
+     inkscape:cy="28.218269"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1920"
+     inkscape:pageopacity="0.0"
+     inkscape:document-units="px" />
+  <g
+     id="layer1"
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     transform="translate(-191.63 -440.47)">
+    <rect
+       x="307.01999"
+       y="452.56"
+       width="199.24001"
+       height="199.24001"
+       ry="16.889"
+       style="fill:#1f241c;fill-rule:evenodd;stroke:#ffffff;stroke-width:0.75972003;filter:url(#filter4049)"
+       id="rect4317"
+       transform="matrix(0.55984,0,0,0.56034,23.981,191.11)" />
+    <rect
+       x="195.86307"
+       y="444.69748"
+       width="111.54253"
+       height="111.64214"
+       ry="9.463582"
+       style="fill:url(#linearGradient4345);fill-rule:evenodd"
+       id="rect4319" />
+    <rect
+       x="195.82948"
+       y="452.58707"
+       width="111.34098"
+       height="3.1022663"
+       style="fill:#d7f4d7;fill-rule:evenodd"
+       id="rect4321" />
+    <g
+       transform="matrix(0.55984,0,0,0.56034,26.162976,188.19814)"
+       id="g4930">
+      <rect
+         x="366.35999"
+         y="502.82001"
+         width="31.18"
+         height="109.13"
+         style="fill:#ffffff;fill-rule:evenodd"
+         id="rect4347" />
+      <rect
+         x="407.94"
+         y="502.82001"
+         width="31.18"
+         height="109.13"
+         style="fill:#ffffff;fill-rule:evenodd"
+         id="rect4349" />
+    </g>
+  </g>
+  <metadata
+     id="metadata28">
+    <rdf:RDF>
+      <cc:Work>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/publicdomain/" />
+        <dc:publisher>
+          <cc:Agent
+             rdf:about="http://openclipart.org/">
+            <dc:title>Openclipart</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:title>Pause Icon</dc:title>
+        <dc:date>2011-09-19T16:54:25</dc:date>
+        <dc:description>Pause icon for music player\n</dc:description>
+        <dc:source>https://openclipart.org/detail/161395/pause-icon-by-gsagri04</dc:source>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>gsagri04</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>Home</rdf:li>
+            <rdf:li>Inkscape</rdf:li>
+            <rdf:li>box</rdf:li>
+            <rdf:li>button</rdf:li>
+            <rdf:li>clip-art</rdf:li>
+            <rdf:li>domain</rdf:li>
+            <rdf:li>forward</rdf:li>
+            <rdf:li>icon</rdf:li>
+            <rdf:li>juke</rdf:li>
+            <rdf:li>multimedia</rdf:li>
+            <rdf:li>music</rdf:li>
+            <rdf:li>pause</rdf:li>
+            <rdf:li>play</rdf:li>
+            <rdf:li>player</rdf:li>
+            <rdf:li>public</rdf:li>
+            <rdf:li>reverse</rdf:li>
+            <rdf:li>song</rdf:li>
+            <rdf:li>stop</rdf:li>
+            <rdf:li>track</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>

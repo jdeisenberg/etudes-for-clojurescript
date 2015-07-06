@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   viewBox="0 0 600 300"
+   height="300"
+   width="600">
+  <style type="text/css">
+  text {
+    font-size:25px;
+    line-height:125%;
+    font-family:sans-serif;
+    fill:#000000;
+    fill-opacity:1;
+    stroke:none;
+    stroke-width:1px;
+    stroke-opacity:1;
+  }
+  </style>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(0,-752.36219)"
+     id="layer1">
+    <g>
+        <title id="group_A">0%</title>
+       <rect
+       y="785.36218"
+       x="33"
+       height="44"
+       width="104"
+       id="bldg_A"
+       style="fill:green;fill-opacity:0;stroke:#000000;stroke-opacity:1" />
+       <text
+       y="817.2558"
+       x="76.595749"
+       xml:space="preserve">A</text>
+     </g>
+ 
+     <g>
+         <title id="group_B">0%</title>
+       <rect
+       transform="matrix(0,1,-1,0,0,0)"
+       y="-123.85256"
+       x="906.50964"
+       height="74.705124"
+       width="102.70512"
+       id="bldg_B"
+       style="fill:green;fill-opacity:0;stroke:#000000;stroke-opacity:1" />
+       <text
+       y="962.53857"
+       x="79.752953"
+       xml:space="preserve">B</text>
+    </g>
+    
+    <g>
+        <title id="group_C">0%</title>
+    <rect
+       y="827.36218"
+       x="191"
+       height="44"
+       width="104"
+       id="bldg_C"
+       style="fill:green;fill-opacity:0;stroke:#000000;stroke-opacity:1" />
+     <text
+       y="860.33185"
+       x="234.51134"
+       xml:space="preserve">C</text>
+     </g>
+    
+     <g>
+         <title id="group_D">0%</title>
+       <path
+       id="bldg_D"
+       d="m 177,915.36219 106,0 0,88.00001 -62,0 0,-39.00001 -44,0 z"
+       style="fill:green;fill-opacity:0;fill-rule:evenodd;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+       <text
+       y="961.47473"
+       x="236.22562"
+       xml:space="preserve">D</text>
+    </g>
+    
+    <g>
+        <title id="group_FLD">0%</title>
+    <rect
+       y="774.36218"
+       x="486"
+       height="84"
+       width="102"
+       id="bldg_FLD"
+       style="fill:green;fill-opacity:0;stroke:#808080;stroke-opacity:1" />
+    <text
+       y="820.93359"
+       x="507.42856"
+       style="fill:#808080;fill-opacity:1"
+       xml:space="preserve">Field</text>
+    </g>
+    
+    <g>
+        <title id="group_GYM">0%</title>
+    <path
+       d="m 517.40424,866.19195 39.5881,-0.4835 20.21276,34.04255 -19.37533,34.52605 -39.5881,0.48349 -20.21276,-34.04255 z"
+       id="bldg_GYM"
+       style="fill:green;fill-opacity:0;stroke:#000000;stroke-opacity:1" />
+        <text
+       y="909.47479"
+       x="511.49469"
+       style="font-size:22.5px"
+       xml:space="preserve">Gym</text>
+     </g>
+        
+     <g>
+         <title id="group_M">0%</title>
+    <path
+       id="bldg_M"
+       d="m 377.68206,790.71714 73.32469,0 0,142.77946 -105.20499,0 0,-76.67786 31.8803,0 z"
+       style="fill:green;fill-opacity:0;fill-rule:evenodd;stroke:#000000;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+       <text
+       y="879.47473"
+       x="395.65421"
+      xml:space="preserve">M</text>
+    </g>
+       
+    <g>
+        <title id="group_N">0%</title>
+      <rect
+       y="980.28772"
+       x="347.87234"
+       height="41.489361"
+       width="42.553192"
+       id="bldg_N"
+       style="fill:green;fill-opacity:0;stroke:#000000;stroke-opacity:1" />
+      <text
+       y="1010.6176"
+       x="358.92328"
+       xml:space="preserve">N</text>
+    </g>
+    
+    <g>
+        <title id="group_P">0%</title>
+    <rect
+       y="980.28772"
+       x="417.02127"
+       height="41.489361"
+       width="42.553192"
+       id="bldg_P"
+       style="fill:green;fill-opacity:0;stroke:#000000;stroke-opacity:1" />
+       <text
+       id="text4204-0-4-9"
+       y="1010.6176"
+       x="427.49472"
+       xml:space="preserve">P</text>
+    </g>
+   </g>
+</svg>

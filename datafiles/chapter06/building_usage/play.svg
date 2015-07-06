@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg5800"
+   sodipodi:docname="Play-Icon.svg"
+   viewBox="0 0 120 120.11"
+   version="1.1"
+   inkscape:version="0.91 r13725">
+  <defs
+     id="defs5802">
+    <filter
+       id="filter4049"
+       inkscape:collect="always"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         id="feGaussianBlur4051"
+         stdDeviation="2.9886041"
+         inkscape:collect="always" />
+    </filter>
+    <linearGradient
+       id="linearGradient5728"
+       y2="258.57"
+       gradientUnits="userSpaceOnUse"
+       x2="692.45"
+       gradientTransform="matrix(0.29708469,0,0,0.60948182,178.95575,208.88114)"
+       y1="441.76"
+       x1="693.75"
+       inkscape:collect="always">
+      <stop
+         id="stop3799"
+         style="stop-color:#002b00"
+         offset="0" />
+      <stop
+         id="stop3801"
+         style="stop-color:#00aa00"
+         offset="1" />
+    </linearGradient>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     bordercolor="#666666"
+     inkscape:pageshadow="2"
+     inkscape:window-y="-3"
+     fit-margin-left="0"
+     pagecolor="#ffffff"
+     fit-margin-top="0"
+     inkscape:window-maximized="1"
+     inkscape:zoom="2.5"
+     inkscape:window-x="-3"
+     inkscape:window-height="1033"
+     showgrid="false"
+     borderopacity="1.0"
+     inkscape:current-layer="layer1"
+     inkscape:cx="-21.4"
+     inkscape:cy="-50.018386"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1920"
+     inkscape:pageopacity="0.0"
+     inkscape:document-units="px" />
+  <g
+     id="layer1"
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     transform="translate(-321.39 -362.24)">
+    <rect
+       x="307.01999"
+       y="673.41998"
+       width="199.24001"
+       height="199.24001"
+       ry="16.889"
+       style="fill:#1f241c;fill-rule:evenodd;stroke:#ffffff;stroke-width:0.75972003;filter:url(#filter4049)"
+       id="rect5685"
+       transform="matrix(0.55984,0,0,0.56034,153.74,-10.873)" />
+    <rect
+       x="325.62207"
+       y="366.47116"
+       width="111.54253"
+       height="111.64214"
+       ry="9.463582"
+       style="fill:url(#linearGradient5728);fill-rule:evenodd"
+       id="rect5687" />
+    <rect
+       x="325.58847"
+       y="374.36075"
+       width="111.34098"
+       height="3.1022663"
+       style="fill:#d7f4d7;fill-rule:evenodd"
+       id="rect5689" />
+    <path
+       d="M 508.77772,463.34749 248.6692,393.65162 439.08185,203.23896 Z"
+       inkscape:flatsided="true"
+       inkscape:rounded="0"
+       sodipodi:cx="398.84293"
+       sodipodi:cy="353.41269"
+       inkscape:randomized="0"
+       transform="matrix(-0.16372521,-0.07007612,0.04359642,-0.26317489,424.71936,543.21921)"
+       sodipodi:arg2="1.8325957"
+       sodipodi:arg1="0.78539816"
+       inkscape:transform-center-y="0.069407879"
+       sodipodi:r2="77.735641"
+       sodipodi:r1="155.47128"
+       inkscape:transform-center-x="13.827214"
+       sodipodi:sides="3"
+       sodipodi:type="star"
+       style="fill:#ffffff;fill-rule:evenodd"
+       id="path5751" />
+  </g>
+  <metadata
+     id="metadata4892">
+    <rdf:RDF>
+      <cc:Work>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/publicdomain/" />
+        <dc:publisher>
+          <cc:Agent
+             rdf:about="http://openclipart.org/">
+            <dc:title>Openclipart</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:title>Play Icon</dc:title>
+        <dc:date>2011-09-19T16:55:52</dc:date>
+        <dc:description>Play Icon for music player</dc:description>
+        <dc:source>https://openclipart.org/detail/161401/play-icon-by-gsagri04</dc:source>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>gsagri04</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>Home</rdf:li>
+            <rdf:li>Inkscape</rdf:li>
+            <rdf:li>box</rdf:li>
+            <rdf:li>button</rdf:li>
+            <rdf:li>clip-art</rdf:li>
+            <rdf:li>domain</rdf:li>
+            <rdf:li>forward</rdf:li>
+            <rdf:li>icon</rdf:li>
+            <rdf:li>juke</rdf:li>
+            <rdf:li>multimedia</rdf:li>
+            <rdf:li>music</rdf:li>
+            <rdf:li>pause</rdf:li>
+            <rdf:li>play</rdf:li>
+            <rdf:li>player</rdf:li>
+            <rdf:li>public</rdf:li>
+            <rdf:li>reverse</rdf:li>
+            <rdf:li>song</rdf:li>
+            <rdf:li>stop</rdf:li>
+            <rdf:li>track</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>

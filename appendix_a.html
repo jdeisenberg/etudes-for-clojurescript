@@ -1408,5 +1408,276 @@ Here are suggested solutions for the études. Of course, your solutions may well
 
 (render)</pre>
   </section>
+  
+  <section data-type="sect1" id="SOLUTION06-ET01">
+  <h1>Solution 6-1</h1>
+  <p>
+  In this étude, I named the project <em>building_usage</em> and had a module named <em>roster.cljs</em> to create the data structures. I also had a module named <em>utils.cljs</em> to handle conversion of time of day to number of minutes past midnight, which makes it easy to calculate durations. There is also a utility routine to convert that format to 24-hour time.
+  </p>
+  
+  <p>
+  The <em>roster.cljs</em> file includes the raw CSV as a gigantic string (well, if you consider 72K bytes to be gigantic), including columns I am not using. The <code>build-data-structure</code> function creates:
+  </p>
+  
+  <ul>
+     <li>A map with a day name as key...
+        <ul>
+          <li>and whose value is a map with building name as a key...
+            <ul>
+              <li>whose value is a map with time (number of 15-minute intervals since midnight) as key
+                <ul>
+                   <li>and whose value is the number of rooms occupied</li>
+                 </ul>
+               </li>
+             </ul>
+           </li>
+         </ul>
+       </li>
+     </ul>
+     
+  <p>
+  For this very small subset of the data:
+  </p>
+  
+<pre>(def roster-string "W;01:00 PM;03:25 PM;C283
+TH;06:30 PM;09:35 PM;D207
+W;02:45 PM;05:35 PM;C244
+TH;06:00 PM;09:05 PM;D208")</pre>
+
+  <p>The resulting map:</p>
+
+<pre>{"Wednesday"
+  {"C" {64 1, 65 1, 66 1, 67 1, 68 1, 69 1, 70 1, 52 1, 53 1, 54 1, 55 1, 56 1,
+        57 1, 58 1, 59 2, 60 2, 61 2, 62 1, 63 1}},
+"Thursday"
+  {"D" {72 1, 73 1, 74 2, 75 2, 76 2, 77 2, 78 2, 79 2, 80 2, 81 2, 82 2, 83 2,
+        84 2, 85 1, 86 1}}}</pre>
+
+  <section data-type="sect2">
+  <h2>File building_usage/src/roster.cljs</h2>
+
+<pre data-type="programlisting" data-code-language="clojure">(ns building_usage.roster
+  (:require [clojure.string :as str]
+            [building_usage.utils :as utils]))
+
+;; many lines omitted
+(def roster-string "MW;01:00 PM;03:25 PM;C283
+TH;06:30 PM;09:35 PM;D207
+W;02:45 PM;05:35 PM;C244
+TH;06:00 PM;09:05 PM;D208")
+
+(def day-map {"M" "Monday", "T" "Tuesday",
+  "W" "Wednesday", "R" "Thursday"
+  "F" "Friday", "S" "Saturday", "N" "Sunday"})
+
+(defn add-entries
+  "Increment the usage count for the building on the given days and times.
+  If there is not an entry yet, created 96 zeros (24 hours at 15-minute intervals)"
+  [acc day building intervals]
+  (let [current (get-in acc [(day-map day) building])
+        before (if (nil? current) (into [] (repeat 96 0)) current)
+        after (reduce (fn [acc item] (assoc acc item (inc (get acc item)))) before intervals)]
+     (assoc-in acc [(day-map day) building] after)))
+
+(defn building-map-entry
+  "Split incoming line into parts, then add entries into the count vector
+   for each day and time interval for the appropriate building."
+  [acc line]
+  (let [[days start-time end-time room] (str/split line #";")
+        day-list (rest (str/split (str/replace (str/replace days #"TH" "R") #"SU" "N") #""))
+        start-interval (quot (utils/to-minutes start-time) 15)
+        end-interval (quot (+ 14 (utils/to-minutes end-time)) 15)
+        building (str/replace room #"([A-Z]+).*$" "$1")]
+    (loop [d day-list
+           result acc]
+      (if (empty? d)
+          result
+          (recur (rest d)
+                 (add-entries result (first d) building (range start-interval end-interval)))))))
+        
+(defn building-usage-map []
+  (let [lines (str/split-lines roster-string)]
+    (reduce building-map-entry {} lines)))
+
+(defn room-list
+  "Create a map building -> set of rooms in building"
+  [acc line]
+  (let [[_ _ _ room] (str/split line #";")
+        building (str/replace room #"([A-Z]+).*$" "$1")
+        current (acc building)]
+    (assoc acc building (if (nil? current) #{room} (conj current room)))))
+        
+(defn total-rooms []
+  "Create map with building as key and number of rooms in building as value."
+  (let [lines (str/split-lines roster-string)
+        room-list (reduce room-list {} lines)]
+    (into {} (map (fn [[k v]] [k (count (room-list k))]) room-list))))</pre>
+    </section>
+  <section data-type="sect2">
+  <h2>File building_usage/src/utils.cljs</h2>
+<pre data-type="programlisting" data-code-language="clojure">(ns building_usage.utils)
+
+(defn to-minutes [time-string]
+  (let [[_ hr minute am-pm] (re-matches #"(?i)(\d\d?):(\d\d)\s*([AP])\.?M\.?" time-string)
+        hour (+ (mod (js/parseInt hr) 12) (if (= (.toUpperCase am-pm) "A") 0 12))]
+    (+ (* hour 60) (js/parseInt minute))))
+
+(defn pad [n] (if (&lt; n 10) (str "0" n) (.toString n)))
+
+(defn to-am-pm [total-minutes]
+  (let [h (quot total-minutes 60)
+        m (mod total-minutes 60)
+        hour (if (= (mod h 12) 0) 12 (mod h 12))
+        suffix (if (&lt; h 12) "AM" "PM")]
+    (str hour ":" (pad m) " " suffix)))
+    
+(defn to-24-hr [total-minutes]
+  (str (pad (quot total-minutes 60)) (pad (mod total-minutes 60))))</pre>
+</section>
 </section>
 
+  <section data-type="sect1" id="SOLUTION06-ET02">
+  <h1>Solution 6-2</h1>
+  
+  <p>
+  In this solution, I am using <code>setInterval</code> to advance the animation rather than <code>requestAnimationFrame</code>. This is because I don’t need smooth animation; I really want one “frame” every 1.5 seconds.
+  </p>
+  
+  <section data-type="sect2">
+  <h1>File <em>core.cljs</em></h1>
+<pre data-type="programlisting" data-code-language="clojure">(ns ^:figwheel-always building_usage.core
+    (:require [building_usage.roster :as roster]
+              [building_usage.utils :as utils]
+              [goog.dom :as dom]
+              [goog.events :as events]))
+
+(enable-console-print!)
+
+(def days ["Monday" "Tuesday" "Wednesday" "Thursday"
+           "Friday" "Saturday" "Sunday"])
+
+(def buildings ["A" "B" "C" "D" "FLD" "GYM"
+                "M" "N" "P"])
+(def svg (.-contentDocument (dom/getElement "campus_map")))
+
+;; define your app data so that it doesn't get over-written on reload
+(defonce app-state (atom {:day "Monday" :interval 24
+                          :usage (roster/building-usage-map)
+                          :room-count (roster/room-count)
+                          :running false
+                          :interval-id nil}))
+
+(defn update-map []
+  (let [{:keys [day interval usage room-count]} @app-state]
+    (doseq [b buildings]
+      (let [n (get-in usage [day b interval])
+            percent (/ n (room-count b))]
+        (set! (.-fillOpacity
+                (.-style (.getElementById svg (str "bldg_" b)))) percent)
+        (println (.-title (.getElementById svg (str "group_" b))))
+        (set! (.-textContent(.getElementById svg (str "group_" b)))
+              (str (int (* 100 (min 1.0 percent))) "%"))
+        ))))
+
+(defn update-atom [evt]
+  (do
+    (swap! app-state assoc :day (.-value (dom/getElement "day"))
+           :interval (quot (utils/to-minutes (.-value (dom/getElement "time"))) 15))
+    (update-map)))
+
+(defn display-day-time [day interval]
+  (set! (.-innerHTML (dom/getElement "show"))
+                     (str day " " (utils/to-am-pm (* 15 interval)))))
+
+(declare advance-time)
+
+(defn play-button [evt]
+  (if (@app-state :running)
+    (do
+      (.clearInterval js/window (@app-state :interval-id))
+      (swap! app-state assoc :running false :interval-id nil)
+      (set! (.-value (dom/getElement "time")) (utils/to-am-pm (* 15 (@app-state :interval))))
+      (set! (.-className (dom/getElement "edit")) "visible")
+      (set! (.-className (dom/getElement "show")) "hidden")
+      (set! (.-src (dom/getElement "play")) "images/play.svg"))
+    (do
+      (swap! app-state assoc :running true :interval-id (.setInterval js/window advance-time 1500))
+      (display-day-time (@app-state :day) (@app-state :interval))
+      (set! (.-className (dom/getElement "edit")) "hidden")
+      (set! (.-className (dom/getElement "show")) "visible")
+      (set! (.-src (dom/getElement "play")) "images/pause.svg"))))
+
+(defn advance-time [dom-time-stamp]
+  (let [{:keys [day lastUpdate interval]} @app-state
+        next-interval (inc interval)]
+    (if (>= next-interval 96)
+      (play-button nil)
+      (do
+        (update-map)
+        (swap! app-state assoc :interval next-interval)
+        (display-day-time day next-interval)))))
+
+(do
+  (events/listen (dom/getElement "time") "change" update-atom)
+  (events/listen (dom/getElement "day") "change" update-atom)
+  (events/listen (dom/getElement "play") "click" play-button))
+
+
+(defn on-js-reload []
+  ;; optionally touch your app-state to force rerendering depending on
+  ;; your application
+  ;; (swap! app-state update-in [:__figwheel_counter] inc)
+)</pre>
+  </section>
+  
+  <section data-type="sect2">
+  <h1>File <em>index.html</em></h1>
+  
+<pre data-type="programlisting" data-code-language="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;link href="css/style.css" rel="stylesheet" type="text/css"&gt;
+    &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id="app"&gt;
+      &lt;h2&gt;Building Usage&lt;/h2&gt;
+      &lt;p class="bigLabel"&gt;
+      &lt;span id="edit" class="visible"&gt;
+      &lt;select id="day" class="bigLabel"&gt;
+        &lt;option value="Monday"&gt;Monday&lt;/option&gt;
+        &lt;option value="Tuesday"&gt;Tuesday&lt;/option&gt;
+        &lt;option value="Wednesday"&gt;Wednesday&lt;/option&gt;
+        &lt;option value="Thursday"&gt;Thursday&lt;/option&gt;
+        &lt;option value="Friday"&gt;Friday&lt;/option&gt;
+        &lt;option value="Saturday"&gt;Saturday&lt;/option&gt;
+        &lt;option value="Sunday"&gt;Sunday&lt;/option&gt;
+      &lt;/select&gt;
+
+      &lt;input class="bigLabel" id="time" value="6:00 AM" size="8"/&gt;
+      &lt;/span&gt;
+      
+      &lt;span id="show" class="hidden"&gt;
+      &lt;/span&gt;
+      
+      &lt;img src="images/play.svg" width="45" height="45" alt="play" id="play"/&gt;
+     &lt;/p&gt;
+     
+     &lt;div&gt;
+      &lt;object id="campus_map" data="images/campus_map.svg"
+        type="image/svg+xml" style="border: 1px solid gray"&gt;
+        &lt;p&gt;Alas, your browser can not load this SVG file.&lt;/p&gt;
+      &lt;/object&gt;
+     &lt;/div&gt;
+    &lt;script src="js/compiled/building_usage.js" type="text/javascript"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre>
+  </section>
+  </section>
+  
+  <section data-type="sect1" id="SOLUTION06-ET03">
+  <h1>Solution 6-3</h1>
+  <p>Watch this space.</p>
+  </section>
+
+</section>
