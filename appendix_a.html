@@ -1574,7 +1574,6 @@ TH;06:00 PM;09:05 PM;D208")
             percent (/ n (room-count b))]
         (set! (.-fillOpacity
                 (.-style (.getElementById svg (str "bldg_" b)))) percent)
-        (println (.-title (.getElementById svg (str "group_" b))))
         (set! (.-textContent(.getElementById svg (str "group_" b)))
               (str (int (* 100 (min 1.0 percent))) "%"))
         ))))
