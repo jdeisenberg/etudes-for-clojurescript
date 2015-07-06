@@ -1676,7 +1676,130 @@ TH;06:00 PM;09:05 PM;D208")
   
   <section data-type="sect1" id="SOLUTION06-ET03">
   <h1>Solution 6-3</h1>
-  <p>Watch this space.</p>
-  </section>
+  <section data-type="sect2">
+  <h1>File <em>core.cljs</em></h1>
 
+<pre data-type="programlisting" data-code-language="clojure">(ns ^:figwheel-always building_usage2.core
+    (:require [building_usage2.roster :as roster]
+              [building_usage2.utils :as utils]
+              [goog.dom :as dom]
+              [goog.events :as events]))
+
+(enable-console-print!)
+
+(def days ["Monday" "Tuesday" "Wednesday" "Thursday"
+           "Friday" "Saturday" "Sunday"])
+
+(def buildings ["A" "B" "C" "D" "FLD" "GYM"
+               "M" "N" "P"])
+
+(def building-totals (roster/room-count))
+
+(def usage (roster/building-usage-map))
+
+(defn make-labels [items]
+  "Intersperse blank labels between the labels for the hours so that
+  the number of labels equals the number of data points."
+  (let [result (reduce (fn [acc item] (apply conj acc [item "" "" ""])) [] items)]
+    result))
+
+(defn create-chart [data]
+  (let [ctx (.getContext (dom/getElement "chart") "2d")
+        chart (js/Chart. ctx)
+        ;; Note: everything needs to be converted to JavaScript
+        ;; objects and arrays to make Chartjs happy.
+        graph-info #js {:labels (clj->js (make-labels (range 0 24)))
+                        :datasets #js [ #js {:label "Usage"
+                                       :fillColor "rgb(0, 128, 0)"
+                                       :strokeColor "rgb(0, 128, 0)"
+                                        :highlightStroke "rgb(255, 0,0)"
+                                       :data (clj->js data)}]}
+
+        ;; Override default animation, and set scale
+        ;; of y-axis to go from 0-100 in all cases.
+        options #js {:animation false
+                     :scaleBeginAtZero true
+                     :scaleShowGridLines true
+                     :scaleGridLineColor "rgba(0,0,0,.05)"
+                     :scaleGridLineWidth 1
+                     :scaleShowVerticalLines true
+                     :scaleOverride true
+                     :scaleSteps 10
+                     :scaleStepWidth 10
+                     :scaleStartValue 0}]
+    (.Bar chart graph-info options)))
+
+(defn to-percent [counts building]
+  "Convert counts of rooms occupied to a percentage;
+  max out at 100%"
+  (let [total (get building-totals building)]
+    (map (fn [item] (min 100 (* 100 (/ item total)))) counts)))
+
+(defn update-graph [evt]
+  (let [day (.-value (dom/getElement "day"))
+        building (.-value (dom/getElement "building"))
+        data (if (and (not= "" day) (not= "" building))
+               (to-percent (get-in usage [day building]) building)
+               nil)]
+    (if (not (nil? data)) (create-chart data) nil)))
+
+(do
+  (events/listen (dom/getElement "day") "change" update-graph)
+  (events/listen (dom/getElement "building") "change" update-graph))
+
+(defn on-js-reload []
+  ;; optionally touch your app-state to force rerendering depending on
+  ;; your application
+  ;; (swap! app-state update-in [:__figwheel_counter] inc)
+)</pre>
+  </section>
+  
+  <section data-type="sect2">
+  <h1>File <em>index.html</em></h1>
+  
+<pre data-type="programlisting" data-code-language="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;link href="css/style.css" rel="stylesheet" type="text/css"/&gt;
+    &lt;script type="text/javascript" src="Chart.min.js"&gt;&lt;/script&gt;
+    &lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id="app"&gt;
+      &lt;h2&gt;Building Usage&lt;/h2&gt;
+      &lt;p class="bigLabel"&gt;
+        &lt;select id="day" class="bigLabel"&gt;
+          &lt;option value=""&gt;Choose a day&lt;/option&gt;
+          &lt;option value="Monday"&gt;Monday&lt;/option&gt;
+          &lt;option value="Tuesday"&gt;Tuesday&lt;/option&gt;
+          &lt;option value="Wednesday"&gt;Wednesday&lt;/option&gt;
+          &lt;option value="Thursday"&gt;Thursday&lt;/option&gt;
+          &lt;option value="Friday"&gt;Friday&lt;/option&gt;
+          &lt;option value="Saturday"&gt;Saturday&lt;/option&gt;
+          &lt;option value="Sunday"&gt;Sunday&lt;/option&gt;
+        &lt;/select&gt;
+
+        Building
+        &lt;select id="building" class="bigLabel"&gt;
+          &lt;option value=""&gt;--&lt;/option&gt;
+          &lt;option value="A"&gt;A&lt;/option&gt;
+          &lt;option value="B"&gt;B&lt;/option&gt;
+          &lt;option value="C"&gt;C&lt;/option&gt;
+          &lt;option value="D"&gt;D&lt;/option&gt;
+          &lt;option value="FLD"&gt;FLD&lt;/option&gt;
+          &lt;option value="GYM"&gt;Gym&lt;/option&gt;
+          &lt;option value="M"&gt;M&lt;/option&gt;
+          &lt;option value="N"&gt;N&lt;/option&gt;
+          &lt;option value="P"&gt;P&lt;/option&gt;
+        &lt;/select&gt;
+      &lt;/p&gt;
+
+      &lt;canvas id="chart" width="600" height="300"&gt;&lt;/canvas&gt;
+
+      &lt;script src="js/compiled/building_usage2.js" type="text/javascript"&gt;&lt;/script&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre>
+</section>
+</section>
 </section>

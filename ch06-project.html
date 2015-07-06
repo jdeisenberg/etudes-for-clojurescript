@@ -1,5 +1,5 @@
 <section data-type="chapter" id="chapter06">
-<h1>Room Usage Project</h1>
+<h1>Interlude: Room Usage Project</h1>
 
 <p>
 Once again, it’s time to put together what you have learned into a somewhat open-ended project. Presume you are an administrator at a college and need to know how well the classroom buildings are utilized. The github repostiory for this book has a file named <em>roster.csv</em> in the <em>datafiles/chapter06/building_usage</em> directory. The roster file contains data for a list of class sections at a community college. This is real data, except the room numbers have been changed to “anonymize” the data. The file consists of a series of lines like this:
@@ -87,11 +87,16 @@ The ultimate goal of this chapter is to produce a program that will let you visu
   <section data-type="sect1" id="ETUDE06-03">
   <h1>Étude 6-3: Visualizing the Data (Version 2)</h1>
   <p>
-  I learned a lot of interesting things while writing the preceding étude, but, to be honest, it wasn’t anywhere near as exciting looking as I thought it would be. A more traditional visualization&#8212;a bar chart&#8212;gives a lot more information in a very readable form.
+  I learned a lot of interesting things while writing the preceding étude, but, to be honest, it wasn’t anywhere near as exciting looking as I thought it would be. A more traditional visualization&#8212;a bar chart&#8212;gives a lot more information in a very readable form, as you can see in <a href="#building_usage_barchart_figure" data-type="xref">#building_usage_barchart_figure</a>.
   </p>
   
+  <figure id="building_usage_barchart_figure">
+      <img src="images/building_usage_2.png" alt="Screenshot of barchart of building usage"/>
+      <figcaption>Screenshot of Building Usage Bar Chart</figcaption>
+  </figure> 
+  
   <p>
-  While it would be an interesting exercise to write a bar chart program, it is easier to use an existing library, so I downloaded <a href="http://www.chartjs.org/">ChartJS</a> and installed the minimized JavaScript in the <em>public</em> directory. You may use any charting package you wish for your solution (or, if you feel tremendously ambitious, you may write your own).
+  While it would be an interesting exercise to write a bar chart program, it is easier to use an existing library, so I downloaded <a href="http://www.chartjs.org/">ChartJS</a> (version 1.0, not the alpha version 2.0 as of this writing) and installed the minimized JavaScript in the <em>public</em> directory. You may use any charting package you wish for your solution. If you feel tremendously ambitious, you may write your own.
   </p>
   
     <p>
