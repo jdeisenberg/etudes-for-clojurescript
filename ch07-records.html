@@ -1,0 +1,144 @@
+<section data-type="chapter" id="chapter07">
+<h1>Records and Protocols</h1>
+
+<p>
+In this chapter, you will write études that use <a href="http://clojuredocs.org/clojure.core/defprotocol"><code>defprotocol</code></a> and <a href="http://clojuredocs.org/clojure.core/defrecord"><code>defrecord</code></a> to implement addition, subtraction, multiplication, and division of rational and complex numbers.
+</p>
+  
+<p>
+As an example, we will build a record that keeps track of a duration in terms of minutes and seconds, and implement a protocol that can add two durations and can convert a duration to a string. 
+</p>
+
+<pre data-type="programlisting" data-code-language="clojure">(defrecord Duration [min sec])</pre>
+
+<p>
+Once you have this record defined, you can use it as follows:
+</p>
+
+<pre data-type="programlisting">proto.core=&gt; 
+proto.core=&gt; (def d (Duration. 2 29)) ;; Create a new duration of 2 minutes and 29 seconds
+#proto.core.Duration{:min 2, :sec 29}
+proto.core=&gt; (:min d) ;; extract values
+2
+proto.core=&gt; (:sec d)
+29</pre>
+
+
+<p>
+Since a duration is a special kind of number, we will implement a protocol for handling special numbers. It has two methods: <code>plus</code> (to add two special numbers) and <code>canonical</code> (to convert the special number to “canonical form.” For example, the canonical form of 2 minutes and 73 seconds is 3 minutes and 13 seconds.
+</p>
+
+<pre data-type="programlisting" data-code-language="clojure">(defprotocol SpecialNumber
+    (plus [this other])
+    (canonical [this]))</pre>
+    
+<p>
+The <code>plus</code> method takes two parameters: <code>this</code> record and an <code>other</code> duration.  When you define protocols, the first parameter of every method is the object you are interested in manipulating.
+</p>
+
+<p>
+Now you can implement these methods by adding to <code>defrecord</code>. Here is the code for <code>canonical</code>
+</p>
+
+<pre class="programlisting" data-code-language="clojurescript">(defrecord Duration [min sec]
+    SpecialNumber
+
+    (plus [this other]
+        "Just add minutes and seconds part,
+        and let canonical do the rest."
+        (let [m (+ (:min this) (:min other))
+              s (+ (:sec this) (:sec other))]
+            (canonical (Duration. m s))))
+
+    (canonical [this]
+        (let [s (mod (:sec this) 60)
+              m (+ (:min this) (quot (:sec this) 60))]
+            (Duration. m s))))</pre>
+
+<p>
+And it works:
+</p>
+
+<pre data-type="programlisting">proto.core=&gt; (canonical (Duration. 2 29))
+#proto.core.Duration{:min 2, :sec 29}
+proto.core=&gt; (canonical (Duration. 2 135))
+#proto.core.Duration{:min 4, :sec 15}
+proto.core=&gt; (plus (Duration. 2 29) (Duration. 3 40))
+#proto.core.Duration{:min 6, :sec 9}</pre>
+
+<p>
+That’s all very nice, but what if you want to display the duration in a form that looks nice, like <code>2:09</code>? You can do this by implementing the <code>toString</code> method of the <code>Object</code> protocol. Add this code to the <code>defrecord</code>:
+</p>
+
+<pre data-type="programlisting" data-code-language="clojurescript">    Object
+    (toString [this]
+        (let [s (:sec this)]
+            (str (:min this) ":" (if (&lt; s 10) "0" "") s)))</pre>
+
+<p>
+And voilà; <code>str</code> will now convert your durations properly:
+</p>
+
+<pre data-type="programlisting">proto.core=&gt; (str (Duration. 4 45))
+"4:45"</pre>
+
+  <section data-type="sect1" id="ETUDE07-01">
+  <h1>Étude 7-1: Rational Numbers</h1>
+  <p>
+  Clojure has rational numbers; if you enter <code>(/ 6 8)</code> in the REPL, you get back <code>3/4</code>. ClojureScript doesn’t do that, so you will implement rational numbers by adding the <code>minus</code>, <code>mul</code>, and <code>div</code> methods to the <code>SpecialNumbers</code> protocol. You will then define a record named <code>Rational</code> for holding a rational number using its numerator and denominator. Implement all the methods of the protocol for rational numbers (including <code>canonical</code> and <code>toString</code>).
+  </p>
+  
+  <p>
+  The canonical form of a rational number is the fraction reduced to lowest terms; thus:
+  </p>
+  
+  <pre data-type="programlisting">proto.core=&gt; (canonical (Rational. 6 8))
+#proto.core.Rational{:num 3, :denom 4}</pre>
+
+  <p>
+  To reduce a fraction, you divide its numerator and denominator by the greatest common divisor (GCD) of the two numbers. Here is Dijkstra’s algorithm for GCD of numbers <i>m</i> and <i>n</i>, with an extra bit for handling zeros:
+  </p>
+  
+  <ul>
+    <li>If either <i>m</i> or <i>n</i> is zero, return zero.</li>
+    <li>If <i>m</i> equals <i>n</i>, return <i>m</i>.</li>
+    <li>If <i>m</i> is greater than <i>n</i>, return the GCD of (<i>m</i> &#x2212; <i>n</i>) and <i>n</i>.</li>
+    <li>Otherwise, return the GCD of <i>m</i> and (<i>n</i> &#x2212; <i>m</i>).</li>
+  </ul>
+  
+  <p>
+  The cool thing about this algorithm for finding the greatest common divisor is that it doesn’t do any division at all! Notice that it is recursively defined, so this is a wonderful place for you to learn to use <code>recur</code>.  (Hint: <code>cond</code> is also quite useful here.)
+  </p>
+  
+  <p>
+  When converting to canonical form, if you have a zero in the numerator, just keep the rational number exactly as it is.
+  </p>
+  
+  <p>
+  See a suggested solution: <a href="#SOLUTION07-ET01" data-type="xref">#SOLUTION07-ET01</a>.
+  </p>
+
+  </section>
+
+   
+  <section data-type="sect1" id="ETUDE06-03">
+  <h1>Étude 6-3: Visualizing the Data (Version 2)</h1>
+  <p>
+  I learned a lot of interesting things while writing the preceding étude, but, to be honest, it wasn’t anywhere near as exciting looking as I thought it would be. A more traditional visualization&#8212;a bar chart&#8212;gives a lot more information in a very readable form, as you can see in <a href="#building_usage_barchart_figure" data-type="xref">#building_usage_barchart_figure</a>.
+  </p>
+  
+  <figure id="building_usage_barchart_figure">
+      <img src="images/building_usage_2.png" alt="Screenshot of barchart of building usage"/>
+      <figcaption>Screenshot of Building Usage Bar Chart</figcaption>
+  </figure> 
+  
+  <p>
+  While it would be an interesting exercise to write a bar chart program, it is easier to use an existing library, so I downloaded <a href="http://www.chartjs.org/">ChartJS</a> (version 1.0, not the alpha version 2.0 as of this writing) and installed the minimized JavaScript in the <em>public</em> directory. You may use any charting package you wish for your solution. If you feel tremendously ambitious, you may write your own.
+  </p>
+  
+    <p>
+  See a suggested solution: <a href="#SOLUTION06-ET03" data-type="xref">#SOLUTION06-ET03</a>.
+  </p>
+
+  </section>
+</section>
