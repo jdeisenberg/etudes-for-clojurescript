@@ -119,5 +119,276 @@ And voilà; <code>str</code> will now convert your durations properly:
   </p>
 
   </section>
+  <section data-type="sect1" id="ETUDE07-02">
+  <h1>Étude 7-2: Complex Numbers</h1>
+  
+  <p>
+  Extend this project further by adding a record and protocol for complex numbers. A complex number has the form <i>a</i> + <i>b</i>i, where <i>a</i> is the real part and <i>b</i> is the imaginary part. The letter <strong>i</strong> stands for the square root of negative 1.:
+  </p>
+  
+  <p>
+  Here are formulas for doing arithmetic on complex numbers.
+  </p>
+  
+
+<math display="block">
+  <semantics>
+    <mtable>
+      <mtr>
+        <mtd>
+          <mrow>
+            <mrow>
+              <mrow>
+                <mrow>
+                  <mo fence="true" stretchy="false">(</mo>
+                  <mrow>
+                    <mrow>
+                      <mi>a</mi>
+                      <mo stretchy="false">+</mo>
+                      <mi mathvariant="italic">bi</mi>
+                    </mrow>
+                  </mrow>
+                  <mo fence="true" stretchy="false">)</mo>
+                </mrow>
+                <mo stretchy="false">+</mo>
+                <mrow>
+                  <mo fence="true" stretchy="false">(</mo>
+                  <mrow>
+                    <mrow>
+                      <mi>c</mi>
+                      <mo stretchy="false">+</mo>
+                      <mi mathvariant="italic">di</mi>
+                    </mrow>
+                  </mrow>
+                  <mo fence="true" stretchy="false">)</mo>
+                </mrow>
+              </mrow>
+              <mo stretchy="false">=</mo>
+              <mrow>
+                <mrow>
+                  <mo fence="true" stretchy="false">(</mo>
+                  <mrow>
+                    <mrow>
+                      <mi>a</mi>
+                      <mo stretchy="false">+</mo>
+                      <mi>c</mi>
+                    </mrow>
+                  </mrow>
+                  <mo fence="true" stretchy="false">)</mo>
+                </mrow>
+                <mo stretchy="false">+</mo>
+                <mrow>
+                  <mo fence="true" stretchy="false">(</mo>
+                  <mrow>
+                    <mrow>
+                      <mi>b</mi>
+                      <mo stretchy="false">+</mo>
+                      <mi>d</mi>
+                    </mrow>
+                  </mrow>
+                  <mo fence="true" stretchy="false">)</mo>
+                </mrow>
+              </mrow>
+            </mrow>
+            <mi>i</mi>
+          </mrow>
+        </mtd>
+      </mtr>
+      <mtr>
+        <mtd>
+          <mrow>
+            <mrow>
+              <mrow>
+                <mrow>
+                  <mo fence="true" stretchy="false">(</mo>
+                  <mrow>
+                    <mrow>
+                      <mi>a</mi>
+                      <mo stretchy="false">+</mo>
+                      <mi mathvariant="italic">bi</mi>
+                    </mrow>
+                  </mrow>
+                  <mo fence="true" stretchy="false">)</mo>
+                </mrow>
+                <mo stretchy="false">&#8722;</mo>
+                <mrow>
+                  <mo fence="true" stretchy="false">(</mo>
+                  <mrow>
+                    <mrow>
+                      <mi>c</mi>
+                      <mo stretchy="false">+</mo>
+                      <mi mathvariant="italic">di</mi>
+                    </mrow>
+                  </mrow>
+                  <mo fence="true" stretchy="false">)</mo>
+                </mrow>
+              </mrow>
+              <mo stretchy="false">=</mo>
+              <mrow>
+                <mrow>
+                  <mo fence="true" stretchy="false">(</mo>
+                  <mrow>
+                    <mrow>
+                      <mi>a</mi>
+                      <mo stretchy="false">&#8722;</mo>
+                      <mi>c</mi>
+                    </mrow>
+                  </mrow>
+                  <mo fence="true" stretchy="false">)</mo>
+                </mrow>
+                <mo stretchy="false">+</mo>
+                <mrow>
+                  <mo fence="true" stretchy="false">(</mo>
+                  <mrow>
+                    <mrow>
+                      <mi>b</mi>
+                      <mo stretchy="false">&#8722;</mo>
+                      <mi>d</mi>
+                    </mrow>
+                  </mrow>
+                  <mo fence="true" stretchy="false">)</mo>
+                </mrow>
+              </mrow>
+            </mrow>
+            <mi>i</mi>
+          </mrow>
+        </mtd>
+      </mtr>
+      <mtr>
+        <mtd>
+          <mrow>
+            <mrow>
+              <mo fence="true" stretchy="false">(</mo>
+              <mrow>
+                <mrow>
+                  <mi>a</mi>
+                  <mo stretchy="false">+</mo>
+                  <mi mathvariant="italic">bi</mi>
+                </mrow>
+              </mrow>
+              <mo fence="true" stretchy="false">)</mo>
+            </mrow>
+            <mrow>
+              <mrow>
+                <mo fence="true" stretchy="false">(</mo>
+                <mrow>
+                  <mrow>
+                    <mi>c</mi>
+                    <mo stretchy="false">+</mo>
+                    <mi mathvariant="italic">di</mi>
+                  </mrow>
+                </mrow>
+                <mo fence="true" stretchy="false">)</mo>
+              </mrow>
+              <mo stretchy="false">=</mo>
+              <mrow>
+                <mrow>
+                  <mo fence="true" stretchy="false">(</mo>
+                  <mrow>
+                    <mrow>
+                      <mi mathvariant="italic">ac</mi>
+                      <mo stretchy="false">&#8722;</mo>
+                      <mi mathvariant="italic">bd</mi>
+                    </mrow>
+                  </mrow>
+                  <mo fence="true" stretchy="false">)</mo>
+                </mrow>
+                <mo stretchy="false">+</mo>
+                <mrow>
+                  <mo fence="true" stretchy="false">(</mo>
+                  <mrow>
+                    <mrow>
+                      <mi mathvariant="italic">bc</mi>
+                      <mo stretchy="false">+</mo>
+                      <mi mathvariant="italic">ad</mi>
+                    </mrow>
+                  </mrow>
+                  <mo fence="true" stretchy="false">)</mo>
+                </mrow>
+              </mrow>
+            </mrow>
+            <mi>i</mi>
+          </mrow>
+        </mtd>
+      </mtr>
+      <mtr>
+        <mtd>
+          <mrow>
+            <mfrac>
+              <mrow>
+                <mi>a</mi>
+                <mo stretchy="false">+</mo>
+                <mi mathvariant="italic">bi</mi>
+              </mrow>
+              <mrow>
+                <mi>c</mi>
+                <mo stretchy="false">+</mo>
+                <mi mathvariant="italic">di</mi>
+              </mrow>
+            </mfrac>
+            <mo stretchy="false">=</mo>
+            <mrow>
+              <mrow>
+                <mo fence="true" stretchy="true">(</mo>
+                <mrow>
+                  <mfrac>
+                    <mrow>
+                      <mi mathvariant="italic">ac</mi>
+                      <mo stretchy="false">+</mo>
+                      <mi mathvariant="italic">bd</mi>
+                    </mrow>
+                    <mrow>
+                      <msup>
+                        <mi>c</mi>
+                        <mn>2</mn>
+                      </msup>
+                      <mo stretchy="false">+</mo>
+                      <msup>
+                        <mi>d</mi>
+                        <mn>2</mn>
+                      </msup>
+                    </mrow>
+                  </mfrac>
+                </mrow>
+                <mo fence="true" stretchy="true">)</mo>
+              </mrow>
+              <mo stretchy="false">+</mo>
+              <mrow>
+                <mo fence="true" stretchy="true">(</mo>
+                <mrow>
+                  <mfrac>
+                    <mrow>
+                      <mi mathvariant="italic">bc</mi>
+                      <mo stretchy="false">&#8722;</mo>
+                      <mi mathvariant="italic">ad</mi>
+                    </mrow>
+                    <mrow>
+                      <msup>
+                        <mi>c</mi>
+                        <mn>2</mn>
+                      </msup>
+                      <mo stretchy="false">+</mo>
+                      <msup>
+                        <mi>d</mi>
+                        <mn>2</mn>
+                      </msup>
+                    </mrow>
+                  </mfrac>
+                </mrow>
+                <mo fence="true" stretchy="true">)</mo>
+                <mi>i</mi>
+              </mrow>
+            </mrow>
+          </mrow>
+        </mtd>
+      </mtr>
+    </mtable>
+  </semantics>
+</math>
+  <p>
+  See a suggested solution: <a href="#SOLUTION07-ET02" data-type="xref">#SOLUTION07-ET02</a>.
+  </p>
+
+  </section>
 
 </section>
