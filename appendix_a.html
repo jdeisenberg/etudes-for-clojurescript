@@ -1849,4 +1849,114 @@ TH;06:00 PM;09:05 PM;D208")
                                      (* (:denom r1) (:num r2))))))</pre>
 
 </section>
+
+<section data-type="sect1" id="SOLUTION07-ET02">
+  <h1>Solution 7-2</h1>
+<pre data-type="programlisting" data-code-language="clojure">(ns ^:figwheel-always proto.core)
+
+(enable-console-print!)
+
+(defprotocol SpecialNumber
+  (plus [this b])
+  (minus [this b])
+  (mul [this b])
+  (div [this b])
+  (canonical [this]))
+
+(defrecord Duration [min sec]
+    Object
+    (toString [this]
+        (let [s (:sec this)]
+            (str (:min this) ":" (if (< s 10) "0" "") s)))
+
+    SpecialNumber
+
+    (plus [this other]
+        "Just add minutes and seconds part,
+        and let canonical do the rest."
+        (let [m (+ (:min this) (:min other))
+              s (+ (:sec this) (:sec other))]
+            (canonical (Duration. m s))))
+
+    (canonical [this]
+        (let [s (mod (:sec this) 60)
+              m (+ (:min this) (quot (:sec this) 60))]
+            (Duration. m s))))
+
+(defn gcd [mm nn]
+    (let [m (js/Math.abs mm)
+          n (js/Math.abs nn)]
+        (cond
+            (= m n) m
+            (> m n) (recur (- m n) n)
+            :else (recur m (- n m)))))
+
+(defrecord Rational [num denom]
+
+    Object
+    (toString [r] (str (:num r) "/" (:denom r)))
+
+    SpecialNumber
+
+    (canonical [r]
+        (let [d (if (> (:denom r) 0) (:denom r) (- (:denom r)))
+              n (if (> (:denom r) 0) (:num r) (- (:num r)))
+              g (if (or (zero? n) (zero? d)) 0 (gcd n d))]
+            (if-not (= g 0)
+                (Rational. (/ n g) (/ d g))
+                r)))
+
+    (plus [this r2]
+        (let [n (+ (* (:num this) (:denom r2))
+                   (* (:num r2) (:denom this)))
+              d (* (:denom this) (:denom r2))]
+            (canonical (Rational. n d))))
+
+    (minus [r1 r2] (plus r1 (Rational. (- (:num r2)) (:denom r2))))
+
+    (mul [r1 r2] (canonical (Rational. (* (:num r1) (:num r2))
+                                       (* (:denom r1) (:denom r2)))))
+
+    (div [r1 r2] (canonical (Rational. (* (:num r1) (:denom r2))
+                                       (* (:denom r1) (:num r2))))))
+
+(defrecord Complex [re im]
+    Object
+    (toString [c]
+        (let [{:keys [re im]} c]
+            (str (if (zero? re) "" re)
+                 (if-not (zero? im)
+                     ; note: the order of the conditions here
+                     ; is absoutely crucial in order to get the
+                     ; leading minus sign
+                     (str (cond
+                              (< im 0) "-"
+                              (zero? re) ""
+                              :else "+")
+                          (js/Math.abs im) "i")))))
+
+    SpecialNumber
+    (canonical [c] c)
+
+    (plus [this other]
+        (Complex. (+ (:re this) (:re other)) (+ (:im this) (:im other))))
+
+    (minus [this other]
+        (Complex. (- (:re this) (:re other)) (- (:im this) (:im other))))
+
+    (mul [this other]
+        ; better living through destructuring
+        (let [{a :re b :im} this
+              {c :re d :im} other]
+          (Complex. (- (* a c) (* b d)) (+ (* b c) (* a d)))))
+
+    (div [this other]
+        (let [{a :re b :im} this
+              {c :re d :im} other
+              denom (+ (* c c) (* d d))]
+              denom (+ (* c c) (* d d))]
+          (println a b c d denom)
+          (Complex. (/ (+ (* a c) (* b d)) denom) (/ (- (* b c) (* a d)) denom)))))</pre>
+</section>
+
 </section>

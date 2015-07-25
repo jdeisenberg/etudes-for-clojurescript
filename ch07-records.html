@@ -89,18 +89,19 @@ And voilà; <code>str</code> will now convert your durations properly:
   </p>
   
   <p>
-  The canonical form of a rational number is the fraction reduced to lowest terms; thus:
+  The canonical form of a rational number is the fraction reduced to lowest terms, with the denominator always positive; thus:
   </p>
   
   <pre data-type="programlisting">proto.core=&gt; (canonical (Rational. 6 8))
-#proto.core.Rational{:num 3, :denom 4}</pre>
+#proto.core.Rational{:num 3, :denom 4}
+proto.core=&gt; (canonical (Rational. 6 -9))
+#proto.core.Rational{:num -2, :denom 3}</pre>
 
   <p>
-  To reduce a fraction, you divide its numerator and denominator by the greatest common divisor (GCD) of the two numbers. Here is Dijkstra’s algorithm for GCD of numbers <i>m</i> and <i>n</i>, with an extra bit for handling zeros:
+  To reduce a fraction, you divide its numerator and denominator by the greatest common divisor (GCD) of the two numbers. The GCD is defined only for positive numbers. Here is Dijkstra’s algorithm for GCD of numbers <i>m</i> and <i>n</i>:
   </p>
   
   <ul>
-    <li>If either <i>m</i> or <i>n</i> is zero, return zero.</li>
     <li>If <i>m</i> equals <i>n</i>, return <i>m</i>.</li>
     <li>If <i>m</i> is greater than <i>n</i>, return the GCD of (<i>m</i> &#x2212; <i>n</i>) and <i>n</i>.</li>
     <li>Otherwise, return the GCD of <i>m</i> and (<i>n</i> &#x2212; <i>m</i>).</li>
@@ -385,6 +386,25 @@ And voilà; <code>str</code> will now convert your durations properly:
     </mtable>
   </semantics>
 </math>
+  <p>
+  The canonical form of a complex number is just itself. Here is what conversion of complex numbers to strings should look like:
+  </p>
+  
+  <pre data-type="programlisting">proto.core=&gt; (str (Complex. 3 7))
+"3+7i"
+proto.core=&gt; (str (Complex. 3 -7))
+"3-7i"
+proto.core=&gt; (str (Complex. 3 0))
+"3"
+proto.core=&gt; (str (Complex. 0 3))
+"3i"
+proto.core=&gt; (str (Complex. 0 -3))
+"-3i"
+proto.core=&gt; (str (Complex. 0 7))
+"7i"
+proto.core=&gt; (str (Complex. 0 -7))
+"-7i"</pre>
+
   <p>
   See a suggested solution: <a href="#SOLUTION07-ET02" data-type="xref">#SOLUTION07-ET02</a>.
   </p>
