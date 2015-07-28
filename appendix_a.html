@@ -1817,42 +1817,52 @@ TH;06:00 PM;09:05 PM;D208")
     (div [this b])
     (canonical [this]))
 
-(defn gcd [m n]
+(defn gcd [mm nn]
+  (let [m (js/Math.abs mm)
+        n (js/Math.abs nn)]
     (cond
-        (or (= m 0) (= n 0)) 0
-        (= m n) m
-        (> m n) (recur (- m n) n)
-        :else (recur m (- n m))))
+      (= m n) m
+      (> m n) (recur (- m n) n)
+      :else (recur m (- n m)))))
 
 (defrecord Rational [num denom]
 
-    Object
-    (toString [r] (str (:num r) "/" (:denom r)))
+  Object
+  (toString [r] (str (:num r) "/" (:denom r)))
 
-    SpecialNumber
+  SpecialNumber
 
-    (canonical [r]
-        (let [g (gcd (:num r) (:denom r))]
-            (if-not (= g 0)
-                (Rational. (/ (:num r) g) (/ (:denom r) g))
-                r)))
-    
-    (plus [this r2]
-        (let [n (+ (* (:num this) (:denom r2))
-                   (* (:num r2) (:denom this)))
-              d (* (:denom this) (:denom r2))]
-            (canonical (Rational. n d))))
-    (minus [r1 r2] (plus r1 (Rational. (- (:num r2)) (:denom r2))))
-    (mul [r1 r2] (canonical (Rational. (* (:num r1) (:num r2))
+  (canonical [r]
+    (let [d (if (>= (:denom r) 0) (:denom r) (- (:denom r)))
+          n (if (>= (:denom r) 0) (:num r) (- (:num r)))
+          g (if (or (zero? n) (zero? d)) 1 (gcd n d))]
+      (if-not (= g 0)
+        (Rational. (/ n g) (/ d g))
+        r)))
+
+  (plus [this r2]
+    (let [{n1 :num d1 :denom} this
+          {n2 :num d2 :denom} r2
+          n (+ (* n1 d2) (* n2 d1))
+          d (* d1 d2)]
+      (println n1 d1 n2 d2 n d)
+      (if (= d1 d2)
+        (canonical (Rational. (+ n1 n2) d1))
+        (canonical (Rational. n d)))))
+
+  (minus [r1 r2] (plus r1 (Rational. (- (:num r2)) (:denom r2))))
+
+  (mul [r1 r2] (canonical (Rational. (* (:num r1) (:num r2))
                                      (* (:denom r1) (:denom r2)))))
-    (div [r1 r2] (canonical (Rational. (* (:num r1) (:denom r2))
+
+  (div [r1 r2] (canonical (Rational. (* (:num r1) (:denom r2))
                                      (* (:denom r1) (:num r2))))))</pre>
 
-</section>
+  </section>
 
-<section data-type="sect1" id="SOLUTION07-ET02">
+  <section data-type="sect1" id="SOLUTION07-ET02">
   <h1>Solution 7-2</h1>
-<pre data-type="programlisting" data-code-language="clojure">(ns ^:figwheel-always proto.core)
+  <pre data-type="programlisting" data-code-language="clojurescript">(ns ^:figwheel-always proto.core)
 
 (enable-console-print!)
 
@@ -1863,62 +1873,7 @@ TH;06:00 PM;09:05 PM;D208")
   (div [this b])
   (canonical [this]))
 
-(defrecord Duration [min sec]
-    Object
-    (toString [this]
-        (let [s (:sec this)]
-            (str (:min this) ":" (if (< s 10) "0" "") s)))
-
-    SpecialNumber
-
-    (plus [this other]
-        "Just add minutes and seconds part,
-        and let canonical do the rest."
-        (let [m (+ (:min this) (:min other))
-              s (+ (:sec this) (:sec other))]
-            (canonical (Duration. m s))))
-
-    (canonical [this]
-        (let [s (mod (:sec this) 60)
-              m (+ (:min this) (quot (:sec this) 60))]
-            (Duration. m s))))
-
-(defn gcd [mm nn]
-    (let [m (js/Math.abs mm)
-          n (js/Math.abs nn)]
-        (cond
-            (= m n) m
-            (> m n) (recur (- m n) n)
-            :else (recur m (- n m)))))
-
-(defrecord Rational [num denom]
-
-    Object
-    (toString [r] (str (:num r) "/" (:denom r)))
-
-    SpecialNumber
-
-    (canonical [r]
-        (let [d (if (> (:denom r) 0) (:denom r) (- (:denom r)))
-              n (if (> (:denom r) 0) (:num r) (- (:num r)))
-              g (if (or (zero? n) (zero? d)) 0 (gcd n d))]
-            (if-not (= g 0)
-                (Rational. (/ n g) (/ d g))
-                r)))
-
-    (plus [this r2]
-        (let [n (+ (* (:num this) (:denom r2))
-                   (* (:num r2) (:denom this)))
-              d (* (:denom this) (:denom r2))]
-            (canonical (Rational. n d))))
-
-    (minus [r1 r2] (plus r1 (Rational. (- (:num r2)) (:denom r2))))
-
-    (mul [r1 r2] (canonical (Rational. (* (:num r1) (:num r2))
-                                       (* (:denom r1) (:denom r2)))))
-
-    (div [r1 r2] (canonical (Rational. (* (:num r1) (:denom r2))
-                                       (* (:denom r1) (:num r2))))))
+;; code for duration and rational not duplicated
 
 (defrecord Complex [re im]
     Object
@@ -1930,7 +1885,7 @@ TH;06:00 PM;09:05 PM;D208")
                      ; is absoutely crucial in order to get the
                      ; leading minus sign
                      (str (cond
-                              (< im 0) "-"
+                              (&lt; im 0) "-"
                               (zero? re) ""
                               :else "+")
                           (js/Math.abs im) "i")))))
@@ -1957,6 +1912,90 @@ TH;06:00 PM;09:05 PM;D208")
               denom (+ (* c c) (* d d))]
           (println a b c d denom)
           (Complex. (/ (+ (* a c) (* b d)) denom) (/ (- (* b c) (* a d)) denom)))))</pre>
-</section>
+  </section>
 
+  <section data-type="sect1" id="SOLUTION07-ET03">
+  <h1>Solution 7-3</h1>
+  <pre data-type="programlisting" data-code-language="clojurescript">(ns ^ :figwheel-always test.test-cases
+  (:require-macros [cljs.test :refer [deftest is are]])
+  (:require [cljs.test :as t]
+            [proto.core :as p]))
+
+(deftest duration1
+  (is (= (p/canonical (p/Duration. 3 84)) (p/Duration. 4 24))))
+
+(deftest duration-str
+  (are [m1 s1 expected]
+    (= (str (p/Duration. m1 s1) expected))
+    1 10  "1  10"
+    1 9 "1  09"
+    1 60 "2  00"
+    3 145 "5  25"
+    0 0 "0  00"))
+
+(deftest gcd-test
+  (are [x y] (= x y)
+             (p/gcd 3 5) 1
+             (p/gcd 12 14) 2
+             (p/gcd 35 55) 5))
+
+(deftest rational-plus
+  (are [x y z]
+    (let [[a b] x
+          [c d] y
+          [rn rd] z]
+      (= (p/plus (p/Rational. a b) (p/Rational. c d)) (p/Rational. rn rd)))
+    [1 2] [1 3] [5 6]
+    [2 8] [3 12] [1 2]
+    [0 4] [0 5] [0 20]
+    [1 0] [1 0] [2 0]))
+
+(deftest rational-minus
+  (are [x y z]
+    (let [[a b] x
+          [c d] y
+          [rn rd] z]
+      (= (p/minus (p/Rational. a b) (p/Rational. c d)) (p/Rational. rn rd)))
+    [6 8] [6 12] [1 4]
+    [1 4] [3 4] [-1 2]
+    [1 4] [1 4] [0 4]))
+
+(deftest rational-multiply
+  (are [x y z]
+    (let [[a b] x
+          [c d] y
+          [rn rd] z]
+      (= (p/mul (p/Rational. a b) (p/Rational. c d)) (p/Rational. rn rd)))
+    [1 3] [1 4] [1 12]
+    [3 4] [4 3] [1 1]))
+
+(deftest rational-divide
+  (are [x y z]
+    (let [[a b] x
+          [c d] y
+          [rn rd] z]
+      (= (p/div (p/Rational. a b) (p/Rational. c d)) (p/Rational. rn rd)))
+    [1 3] [1 4] [4 3]
+    [3 4] [4 3] [9 16]))
+
+(deftest complex-str
+  (are [r i result]
+    (= (str (p/Complex. r i)) result)
+  3 7 "3+7i"
+  3 -7 "3-7i"
+  -3 7 "-3+7i"
+  -3 -7 "-3-7i"
+  0 7 "7i"
+  3 0 "3"))
+
+(deftest complex-math
+  (are [r1 i1 f r2 i2 r3 i3]
+    (= (f (p/Complex. r1 i1) (p/Complex. r2 i2)) (p/Complex. r3 i3))
+     1 2  p/plus  3 4  4 6
+     1 -2  p/plus  -3 4 -2 2
+     1 2  p/minus  3 4  -2 -2
+     1 2  p/mul  3 4  -5 10
+     0 2  p/mul  3 -4  8 6
+     3 4  p/div  1 2  2.2 -0.4
+     1 -2  p/div  3 -4  0.44 -0.08))</pre>
 </section>

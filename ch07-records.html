@@ -6,7 +6,7 @@ In this chapter, you will write études that use <a href="http://clojuredocs.org
 </p>
   
 <p>
-As an example, we will build a record that keeps track of a duration in terms of minutes and seconds, and implement a protocol that can add two durations and can convert a duration to a string. 
+As an example, we will build a record that keeps track of a duration in terms of minutes and seconds, and implement a protocol that can add two durations and can convert a duration to a string. It is in a project named <em>proto</em>.
 </p>
 
 <pre data-type="programlisting" data-code-language="clojure">(defrecord Duration [min sec])</pre>
@@ -131,7 +131,6 @@ proto.core=&gt; (canonical (Rational. 6 -9))
   Here are formulas for doing arithmetic on complex numbers.
   </p>
   
-
 <math display="block">
   <semantics>
     <mtable>
@@ -407,6 +406,110 @@ proto.core=&gt; (str (Complex. 0 -7))
 
   <p>
   See a suggested solution: <a href="#SOLUTION07-ET02" data-type="xref">#SOLUTION07-ET02</a>.
+  </p>
+
+  </section>
+  
+  <section data-type="sect1" id="ETUDE07-03">
+  <h1>Étude 7-3: Writing Tests</h1>
+  
+  <p>
+  Through the book so far, I have been very lax in writing unit tests for my code. At least for this chapter, that changes.
+  </p>
+  
+  <p>
+  Many projects put their tests in a separate <em>test</em> folder, so you should create one now, and, inside of it, make a file named <em>test_cases.cljs</em>. Then give it these contents (they presume that your project is named <em>proto</em>.
+  </p>
+  
+  <pre data-type="programlisting" data-code-language="clojurescript">(ns ^:figwheel-always test.test-cases
+  (:require-macros [cljs.test :refer [deftest is are]])
+  (:require [cljs.test :as t]
+            [proto.core :as p]))</pre>
+            
+  <p>
+  Notice that the namespace is <code>test-cases</code>; the file name is translated to <em>test_cases</em>.
+  </p>
+  
+  <p>
+  The <code>:require-macros</code> is something new; macros are like functions, except that they generate Clojurescript code. The three macros that you will use are <code>deftest</code>, <code>if</code>, and <code>are</code>.  First, let’s define a test that will check that the canonical form of 3 minutes and 84 seconds is 4 minutes and 24 seconds.
+  </p>
+  
+  <pre data-type="programlisting" data-code-language="clojurescript">(deftest duration1
+  (is (= (p/canonical (p/Duration. 3 84)) (p/Duration. 4 24))))</pre>
+  
+  <p>
+  The <code>deftest</code> macro creates the test, and the <code>is</code> macro makes a testable assertion; the body of <code>is</code> should yield a boolean value. You can run tests from the REPL.
+  </p>
+  
+  <pre data-type="programlisting">cljs.user=&gt; (in-ns 'proto.core)
+nil
+proto.core=&gt; (require '[cljs.test :as t])
+nil
+proto.core=&gt; (t/run-tests 'test.test-cases)
+
+Testing test.test-cases
+
+Ran 1 tests containing 1 assertions.
+0 failures, 0 errors.
+nil</pre>
+
+  <p>
+  If you want to test several additions, you could write several different <code>deftest</code>s, but if they all follow the same model, you can use <code>are</code>, which is followed by a vector of parameter names, an expression to evaluate (which can contain <code>let</code>), and then a series of sets of arguments to be evaluated. In the following example, the parameter names vector is on the first line, the second and third line are the expression to evaluate, and the remaining lines are sets of arguments to assert. (Thus, the first set will plug in 1 for <code>m1</code>, 10 for <code>s1</code>,and <code>"1:10"</code> for <code>expected</code> and then test the expression with those values.)
+  </p>
+  
+  <pre data-type="programlisting" data-code-language="clojurescript">(deftest duration-str
+  (are [m1 s1 expected]
+    (= (str (p/Duration. m1 s1) expected))
+    1 10  "1:10"
+    1 9 "1:09"
+    1 60 "2:00"
+    3 145 "5:25"
+    0 0 "0:00")</pre>
+  
+  <div data-type="warning">
+  You cannot use destructuring in the arguments to <code>are</code>, but you can use destructuring in a <code>let</code> within the expression you are testing. Also, when you save the test file, you may have to do the <code>(require&#160;'[cljs.test&#160;:as&#160;t])</code> in the REPL again in order to try your tests again.
+  </div>
+
+  <p>
+  In this étude, you will write a series of tests for the rational and complex numbers. As you will note, some of the tests I used for durations were designed to try “edge cases” in the hopes of making the algorithms fail. Here are some of the things you might consider testing:
+  </p>
+  
+  <table>
+    <thead>
+      <tr><th>Expression</th><th>Expected result</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>gcd(3, 5)</td><td>1</td></tr>
+      <tr><td>gcd(12, 14)</td><td>2</td></tr>
+      <tr><td>gcd(35, 55)</td><td>5</td></tr>
+      <tr><td>1/2 + 1/3</td><td>5/6</td></tr>
+      <tr><td>2/8 + 3/12</td><td>1/2</td></tr>
+      <tr><td>0/4 + 0/5</td><td>0/20</td></tr>
+      <tr><td>1/0 + 1/0</td><td>0/0</td></tr>
+      <tr><td>6/8 - 6/12</td><td>1/4</td></tr>
+      <tr><td>1/4 - 3/4</td><td>-1/2</td></tr>
+      <tr><td>1/3 * 1/4</td><td>1/12</td></tr>
+      <tr><td>3/4 * 4/3</td><td>1/1</td></tr>
+      <tr><td>1/3 ÷ 1/4</td><td>4/3</td></tr>
+      <tr><td>3/4 ÷ 4/3</td><td>9/16</td></tr>
+      <tr><td>(str (Complex. 3 7))</td><td>"3+7i"</td></tr>
+      <tr><td>(str (Complex. 3 -7))</td><td>"3-7i"</td></tr>
+      <tr><td>(str (Complex. -3 7))</td><td>"-3+7i"</td></tr>
+      <tr><td>(str (Complex. -3 -7))</td><td>"-3-7i"</td></tr>
+      <tr><td>(str (Complex. 0 7))</td><td>"7i"</td></tr>
+      <tr><td>(str (Complex. 3 0))</td><td>"3"</td></tr>
+      <tr><td>(1 + 2i) + (3 + 4i)</td><td>4 + 6i</td></tr>
+      <tr><td>(1 - 2i) + (-3 + 4i)</td><td>-2 + 2i</td></tr>
+      <tr><td>(1 + 2i) - (3 + 4i)</td><td>-2 - 2i</td></tr>
+      <tr><td>(1 + 2i) * (3 + 4i)</td><td>-5 + 10i</td></tr>
+      <tr><td>2i * (3 - 4i)</td><td>8 + 6i</td></tr>
+      <tr><td>(3 + 4i) ÷ (1 + 2i)</td><td>2.2 - 0.4i</td></tr> 
+      <tr><td>(1 - 2i) ÷ (3 - 4i)</td><td>0.44 -0.08i</td></tr>
+    </tbody>
+  </table>
+
+  <p>
+  See a suggested solution: <a href="#SOLUTION07-ET03" data-type="xref">#SOLUTION07-ET03</a>.
   </p>
 
   </section>
