@@ -37,7 +37,7 @@ Both versions of this étude will declare an <code>atom</code> (with a slight va
 
 <p>That gives us this atom.</p>
 
-<pre data-type="programlisting" data-code-language="clojure">(defonce status
+<pre data-type="programlisting" data-code-language="clojurescript">(defonce status
          (atom {:w 0 :h 0 :proportional true
                 :border-width 3 :border-style "solid"
                 :orig-w 0 :orig-h 0 :src "clock.jpg"}))</pre>
@@ -50,14 +50,14 @@ Both versions of this étude will declare an <code>atom</code> (with a slight va
   To use Quiescent, add  <code>[quiescent "0.2.0-alpha1"]</code> to your project’s dependencies and add requirements to your namespace: 
   </p>
   
-<pre data-type="programlisting" data-code-language="clojure">(:require [quiescent.core :as q]
+<pre data-type="programlisting" data-code-language="clojurescript">(:require [quiescent.core :as q]
   [quiescent.dom :as d])</pre>
   
   <p>
   As an example, let’s define a simple component that displays an input area and some text that goes with the <code>w</code> field in the atom that was defined previously.
   </p>
   
-<pre data-type="programlisting" data-code-language="clojure">(q/defcomponent Example
+<pre data-type="programlisting" data-code-language="clojurescript">(q/defcomponent Example
   :name "Example"
   [status]
   (d/div {}
@@ -77,7 +77,7 @@ Both versions of this étude will declare an <code>atom</code> (with a slight va
   The only thing remaining to do is to render the component. In Quiescent, the <code>q/render</code> function renders a component once. If you want continuous rendering, you can use JavaScript’s <code>requestAnimationFrame</code> to repeat the process. Remember, when using React, only the components that have changed get re-rendered, so you don’t need to worry about that using <code>requestAnimationFrame</code> will eat your CPU alive.
   </p>
   
-<pre data-type="programlisting" data-code-language="clojure">(defn render
+<pre data-type="programlisting" data-code-language="clojurescript">(defn render
   "Render the current state atom, and schedule a render on the next frame"
   []
   (q/render (Example @status) (aget (.getElementsByTagName js/document "body") 0))
@@ -93,7 +93,7 @@ Both versions of this étude will declare an <code>atom</code> (with a slight va
   If you compile this code and then load the <em>index.html</em> file, you will see a zero in the input and output area - but you will also find that you cannot type into the field. That is because Quiescent and React always keep the DOM value and the atom value synchronized, and since the value in the atom never changes, neither can the field. To fix that, add this code to the input element (it is in bold):
   </p>
   
-<pre data-type="programlisting" data-code-language="clojure">(d/input {:type "text"
+<pre data-type="programlisting" data-code-language="clojurescript">(d/input {:type "text"
         :value (:w status)
         <strong>:onChange update-value</strong>
         :size "5"})</pre>
@@ -102,7 +102,7 @@ Both versions of this étude will declare an <code>atom</code> (with a slight va
   And then write the <code>update-value</code> function, which takes the value from the event target and puts it into the atom that keeps the page’s state.
   </p>
   
-<pre data-type="programlisting" data-code-language="clojure">(defn update-value [evt]
+<pre data-type="programlisting" data-code-language="clojurescript">(defn update-value [evt]
   (swap! status assoc :w (.-value (.-target evt))))</pre>
   
   <p>
@@ -116,11 +116,11 @@ Both versions of this étude will declare an <code>atom</code> (with a slight va
       </p></li>
       
       <li><p>Handling the checkbox also requires some extra care. The value of the <code>checked</code> attribute isn’t the checkbox’s value, so you will have to use <code>:on-mount</code> to initialize the checkbox, and you will have to directly change the checkbox status with code like this:</p>
-      <pre data-type="programlisting" data-code-language="clojure">(set! (.-checked (.getElementById js/document "prop"))</pre>
+      <pre data-type="programlisting" data-code-language="clojurescript">(set! (.-checked (.getElementById js/document "prop"))</pre>
       <p>
       Here is an example of <code>:on-mount</code> to initialize the example’s input field to the current minute of the hour. <code>:on-mount</code> is followed by the definition of a function that has the current node as its argument.
       </p>
-<pre data-type="programlisting" data-code-language="clojure">(q/defcomponent Example
+<pre data-type="programlisting" data-code-language="clojurescript">(q/defcomponent Example
   :name "Example"
   <strong>:on-mount (fn [node]
     (swap! status assoc :w (.getMinutes (js/Date.))))</strong>
@@ -131,7 +131,7 @@ Both versions of this étude will declare an <code>atom</code> (with a slight va
 
       <li><p>If you want to use a list to initialize the drop-down menu, you will need to define a component for menu options and then use <code>apply</code> and <code>map</code> cleverly. This took me a <em>long</em> time to get right, so I’m giving you the code for free with an abbreviated example.</p>
       
-<pre data-type="programlisting" data-code-language="clojure">(q/defcomponent Option
+<pre data-type="programlisting" data-code-language="clojurescript">(q/defcomponent Option
   [item]
   (d/option {:value item} item))
   
@@ -153,7 +153,7 @@ Both versions of this étude will declare an <code>atom</code> (with a slight va
   To use Reagent, add  <code>[reagent "0.5.0"]</code> to your project’s dependencies and add this requirement to your namespace: 
   </p>
   
-<pre data-type="programlisting" data-code-language="clojure">(:require [reagent.core :as reagent :refer [atom])</pre>
+<pre data-type="programlisting" data-code-language="clojurescript">(:require [reagent.core :as reagent :refer [atom])</pre>
   
   <p>
   Note the <code>:refer [atom]</code> clause; Reagent has its own definition of <code>atom</code> that plays nicely with React; it is defined so that you can use it exactly the way you would use a normal ClojureScript atom.
@@ -163,7 +163,7 @@ Both versions of this étude will declare an <code>atom</code> (with a slight va
   As an example, let’s define a simple component that displays an input area and some text that goes with the <code>w</code> field in the atom that was defined previously.
   </p>
   
-<pre data-type="programlisting" data-code-language="clojure">(defn example []
+<pre data-type="programlisting" data-code-language="clojurescript">(defn example []
  [:div
   "Your input here:"
   [:input {:type "text"
@@ -181,7 +181,7 @@ Both versions of this étude will declare an <code>atom</code> (with a slight va
   The only thing remaining to do is to render the component. You don’t have to request animation frames; Reagent handles that for you.
   </p>
   
-<pre data-type="programlisting" data-code-language="clojure">(defn run []
+<pre data-type="programlisting" data-code-language="clojurescript">(defn run []
   (reagent/render [example]
                   (aget (.getElementsByTagName js/document "body") 0)))
           
@@ -196,7 +196,7 @@ Both versions of this étude will declare an <code>atom</code> (with a slight va
   If you compile this code and then load the <em>index.html</em> file, you will see a zero in the input and output area - but you will also find that you cannot type into the field. That is because Reagent and React always keep the DOM value and the atom value synchronized, and since the value in the atom never changes, neither can the field. To fix that, add this code to the input element (it is in bold):
   </p>
   
-<pre data-type="programlisting" data-code-language="clojure">(d/input {:type "text"
+<pre data-type="programlisting" data-code-language="clojurescript">(d/input {:type "text"
         :value (:w status)
         <strong>:on-change update-value</strong>
         :size "5"})</pre>
@@ -205,7 +205,7 @@ Both versions of this étude will declare an <code>atom</code> (with a slight va
   And then write the <code>update-value</code> function, which takes the value from the event target and puts it into the atom that keeps the page’s state.
   </p>
   
-<pre data-type="programlisting" data-code-language="clojure">(defn update-value [evt]
+<pre data-type="programlisting" data-code-language="clojurescript">(defn update-value [evt]
   (swap! status assoc :w (.-value (.-target evt))))</pre>
   
   <p>
@@ -219,13 +219,13 @@ Both versions of this étude will declare an <code>atom</code> (with a slight va
       </p></li>
       
       <li><p>Handling the checkbox also requires some extra care. The value of the <code>checked</code> attribute isn’t the checkbox’s value, so you will have to directly change the checkbox status with code like this:</p>
-      <pre data-type="programlisting" data-code-language="clojure">(set! (.-checked (.getElementById js/document "prop"))</pre>
+      <pre data-type="programlisting" data-code-language="clojurescript">(set! (.-checked (.getElementById js/document "prop"))</pre>
       
       <p>
       Initializing the checkbox takes a bit more work in Reagent. You must define a symbol that adds meta-information to the <code>example</code> component. This information includes a function that does the initialization. Here is an example that initializes the example’s input field to the current minute of the hour. You then render the new component:
       </p>
       
-<pre data-type="programlisting" data-code-language="clojure">(def init-example
+<pre data-type="programlisting" data-code-language="clojurescript">(def init-example
   (with-meta example
     {:component-will-mount
      (fn [this]
@@ -235,7 +235,7 @@ Both versions of this étude will declare an <code>atom</code> (with a slight va
 
       <li><p>If you want to use a list to initialize the drop-down menu, you will need to define a component for menu options and then use <code>for</code>. This took me a <em>long</em> time to get right, so I’m giving you the code for free with an abbreviated example. React is not happy if each <code>option</code> does not have a unique key, so this code adds it.</p>
       
-<pre data-type="programlisting" data-code-language="clojure">(defn option [item]
+<pre data-type="programlisting" data-code-language="clojurescript">(defn option [item]
   [:option {:value item :key item} item])
   
 ;; then, in the component that builds the form:
@@ -256,14 +256,14 @@ Both versions of this étude will declare an <code>atom</code> (with a slight va
   <p>
     Om is much closer to React than Quiescent is. To use Om, add  <code>[org.omcljs/om "0.8.8"]</code> to your project’s dependencies and add requirements to your namespace: 
   </p>
-<pre data-type="programlisting" data-code-language="clojure">(:require [om.core :as om]
+<pre data-type="programlisting" data-code-language="clojurescript">(:require [om.core :as om]
             [om.dom :as dom])</pre>
 
     <p>
   As an example, let’s define a simple component that displays an input area and some text that goes with the <code>w</code> field in the atom that was defined previously. In the following code, <code>data</code> refers to a <em>cursor</em>, which is a path to the part of the application state that a component needs in order to do its work. (In this example, we could have stored the state locally to the component, but, again, the étude you will write will have inter-dependent components.)  The <code>owner</code> is the React component that is behind the scenes.
   </p>
 
-<pre data-type="programlisting" data-code-language="clojure">(defn example [data owner]
+<pre data-type="programlisting" data-code-language="clojurescript">(defn example [data owner]
   (reify
     om/IRender
     (render [_]
@@ -280,7 +280,7 @@ Both versions of this étude will declare an <code>atom</code> (with a slight va
     That is the long form for defining a component. If you are going to simply render a component (rather than initialize it when it mounts, etc.) and you don’t need to access the owner, you can simplify the code with <code>om/component</code>.
     </p>
     
-<pre data-type="programlisting" data-code-language="clojure">(defn example [data owner]
+<pre data-type="programlisting" data-code-language="clojurescript">(defn example [data owner]
   (om/component
       (dom/div nil
         (dom/p nil "Your input here: "
@@ -291,7 +291,7 @@ Both versions of this étude will declare an <code>atom</code> (with a slight va
     Using the long form, here is how you would add code to initialize the input field to the minute of the current hour. It uses <code>om/transact!</code> which takes three arguments: the cursor, a key, and a function that returns the new value.
     </p>
     
-<pre data-type="programlisting" data-code-language="clojure">(defn example [data owner]
+<pre data-type="programlisting" data-code-language="clojurescript">(defn example [data owner]
   (reify
     <strong>om/IWillMount
     (will-mount [owner]

@@ -9,7 +9,7 @@ In this chapter, you will write études that use <a href="http://clojuredocs.org
 As an example, we will build a record that keeps track of a duration in terms of minutes and seconds, and implement a protocol that can add two durations and can convert a duration to a string. It is in a project named <em>proto</em>.
 </p>
 
-<pre data-type="programlisting" data-code-language="clojure">(defrecord Duration [min sec])</pre>
+<pre data-type="programlisting" data-code-language="clojurescript">(defrecord Duration [min sec])</pre>
 
 <p>
 Once you have this record defined, you can use it as follows:
@@ -28,7 +28,7 @@ proto.core=&gt; (:sec d)
 Since a duration is a special kind of number, we will implement a protocol for handling special numbers. It has two methods: <code>plus</code> (to add two special numbers) and <code>canonical</code> (to convert the special number to “canonical form.” For example, the canonical form of 2 minutes and 73 seconds is 3 minutes and 13 seconds.
 </p>
 
-<pre data-type="programlisting" data-code-language="clojure">(defprotocol SpecialNumber
+<pre data-type="programlisting" data-code-language="clojurescript">(defprotocol SpecialNumber
     (plus [this other])
     (canonical [this]))</pre>
     

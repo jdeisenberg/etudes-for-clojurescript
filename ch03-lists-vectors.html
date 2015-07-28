@@ -53,7 +53,7 @@ formulas.core=&gt; (ordinal-day 31 9 2015)
   that library to your <code>require</code>:
   </p>
 
-<pre data-type="programlisting" data-code-language="clojure">(ns stats.core
+<pre data-type="programlisting" data-code-language="clojurescript">(ns stats.core
   (:require [clojure.browser.repl :as repl]
             <strong>[clojure.string :as str]</strong>))</pre>
 
@@ -350,7 +350,7 @@ teeth.core=&gt;</pre>
   To determine which of the radio buttons is selected, you use code like this in Enfocus, where <code>ef</code> is the abbreviation for the <code>enfocus.core</code> namespace:
   </p>
   
-<pre data-type="programlisting" data-code-language="clojure">(ef/from "input[name='locationType']" (ef/get-prop :checked)))</pre>
+<pre data-type="programlisting" data-code-language="clojurescript">(ef/from "input[name='locationType']" (ef/get-prop :checked)))</pre>
 
   <p>The selector is a CSS style selector, and the expression returns a list of the status of the two radio buttons, with <code>true</code> if selected and <code>false</code> if not.</p>
 
@@ -358,7 +358,7 @@ teeth.core=&gt;</pre>
   If you are using Domina, use code like this, again using a CSS selector:
   </p>
 
-<pre data-type="programlisting" data-code-language="clojure">(def radio (domina/nodes (domina.css/sel "input[name='locationType']")))
+<pre data-type="programlisting" data-code-language="clojurescript">(def radio (domina/nodes (domina.css/sel "input[name='locationType']")))
 (domina/value (first radio))</pre>
 
   <p>

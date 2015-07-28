@@ -96,20 +96,20 @@ formulas.core=> (centripetal 30 2)</pre>
     <li>The common sub-formula <math display="inline"><mrow><msup><mrow><mo stretchy="false">(</mo><mrow id="XM5"><mn>1</mn><mo>+</mo><mi>r</mi></mrow><mo stretchy="false">)</mo></mrow><mi>n</mi></msup></mrow></math>
     
    <p>To raise a number to a power, invoke the JavaScript <code>pow</code> function with code in this format:</p>
-  <pre data-type="programlisting" data-code-language="clojure">(.pow js/Math <em>number</em> <em>power</em>)
+  <pre data-type="programlisting" data-code-language="clojurescript">(.pow js/Math <em>number</em> <em>power</em>)
 ;; Thus, to calculate 3 to the fifth power:
 (.pow js/Math 3 5)</pre>
 
   <p>You can also use this shorthand:</p>
   
-  <pre data-type="programlisting" data-code-language="clojure">(js/Math.pow 3 5)</pre>
+  <pre data-type="programlisting" data-code-language="clojurescript">(js/Math.pow 3 5)</pre>
   
   <p>You will learn more about interacting with JavaScript in <a href="#chapter02" data-type="xref">#chapter02</a>.</p></li>
   </ul>
   
   <p>Here is some sample output for a loan of $1,000.00 at 5.5% for 15 years. You can also check the results of your function against the results of the <code>PMT</code> function in your favorite spreadsheet.</p>
   
-<pre data-type="programlisting" data-code-language="clojure">formulas.core=> (monthly-payment 1000 5.5 15). 
+<pre data-type="programlisting" data-code-language="clojurescript">formulas.core=> (monthly-payment 1000 5.5 15). 
 458.3333333333333</pre>
   
   <p>See a suggested solution: <a href="#SOLUTION01-ET04" data-type="xref">#SOLUTION01-ET04</a></p>
@@ -124,7 +124,7 @@ formulas.core=> (centripetal 30 2)</pre>
   sunshine for the day, using the formula <a href="http://mathforum.org/library/drmath/view/56478.html">explained at the “Ask Dr. Math” web site</a>.  The latitude is in degrees, but JavaScript’s trigonometric functions use radians, so you will need a function to convert degrees to radians, and I’ll give you that for free:
   </p>
   
-<pre data-type="programlisting" data-code-language="clojure">(defn radians
+<pre data-type="programlisting" data-code-language="clojurescript">(defn radians
   "Convert degrees to radians"
   [degrees]
   (* (/ (.-PI js/Math) 180) degrees))</pre>

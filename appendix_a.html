@@ -7,7 +7,7 @@ Here are suggested solutions for the études. Of course, your solutions may well
 
   <section data-type="sect1" id="SOLUTION01-ET02">
   <h1>Solution 1-2</h1>
-<pre data-type="programlisting" data-code-language="clojure">(ns formulas.core
+<pre data-type="programlisting" data-code-language="clojurescript">(ns formulas.core
   (:require [clojure.browser.repl :as repl]))
 
 (defonce conn
@@ -45,7 +45,7 @@ Here are suggested solutions for the études. Of course, your solutions may well
 
   <section data-type="sect1" id="SOLUTION01-ET03">
   <h1>Solution 1-3</h1>
-<pre data-type="programlisting" data-code-language="clojure">(def G 6.6784e-11)
+<pre data-type="programlisting" data-code-language="clojurescript">(def G 6.6784e-11)
 
 (defn gravitational-force
   "Calculate gravitational force of two objects of
@@ -56,7 +56,7 @@ Here are suggested solutions for the études. Of course, your solutions may well
   
   <section data-type="sect1" id="SOLUTION01-ET04">
   <h1>Solution 1-4</h1>
-<pre data-type="programlisting" data-code-language="clojure">(defn monthly-payment
+<pre data-type="programlisting" data-code-language="clojurescript">(defn monthly-payment
   "Calculate monthly payment on a loan of amount p,
   with annual percentage rate apr, and a given number of years"
   [p apr years]
@@ -68,7 +68,7 @@ Here are suggested solutions for the études. Of course, your solutions may well
 
  <section data-type="sect1" id="SOLUTION01-ET05">
   <h1>Solution 1-5</h1>
-<pre data-type="programlisting" data-code-language="clojure">(defn radians
+<pre data-type="programlisting" data-code-language="clojurescript">(defn radians
   "Convert degrees to radians"
   [degrees]
   (* (/ (.-PI js/Math) 180) degrees))
@@ -88,7 +88,7 @@ Here are suggested solutions for the études. Of course, your solutions may well
 
   <section data-type="sect1" id="SOLUTION02-ET01">
   <h1>Solution 2-1</h1>
-<pre data-type="programlisting" data-code-language="clojure">(ns daylight_js.core
+<pre data-type="programlisting" data-code-language="clojurescript">(ns daylight_js.core
   (:require [clojure.browser.repl :as repl]))
 
 (enable-console-print!)
@@ -131,7 +131,7 @@ Here are suggested solutions for the études. Of course, your solutions may well
   <h1>Solution 2-2</h1>
   <p>Much of the code is duplicated from the previous étude, only new code is shown here, with ellipses to represent omitted code.</p>
   
-<pre data-type="programlisting" data-code-language="clojure">(ns daylight_gc.core
+<pre data-type="programlisting" data-code-language="clojurescript">(ns daylight_gc.core
   (:require [clojure.browser.repl :as repl]
             [goog.dom :as dom]
             [goog.events :as events]))
@@ -160,7 +160,7 @@ Here are suggested solutions for the études. Of course, your solutions may well
   <h1>Solution 2-3</h1>
   <p>Much of the code is duplicated from the previous étude. Only new code is shown here, with ellipses to represent omitted code.</p>
   
-<pre data-type="programlisting" data-code-language="clojure">(ns daylight_dommy.core
+<pre data-type="programlisting" data-code-language="clojurescript">(ns daylight_dommy.core
   (:require [clojure.browser.repl :as repl]
             [dommy.core :as dommy :refer-macros [sel sel1]]))
             
@@ -188,7 +188,7 @@ Here are suggested solutions for the études. Of course, your solutions may well
   <h1>Solution 2-4</h1>
   <p>Much of the code is duplicated from the previous étude. Only new code is shown here, with ellipses to represent omitted code.</p>
   
-<pre data-type="programlisting" data-code-language="clojure">(ns daylight_domina.core
+<pre data-type="programlisting" data-code-language="clojurescript">(ns daylight_domina.core
   (:require [clojure.browser.repl :as repl]
             [domina]
             [domina.events :as events]))        
@@ -218,7 +218,7 @@ Here are suggested solutions for the études. Of course, your solutions may well
   <h1>Solution 2-5</h1>
   <p>Much of the code is duplicated from the previous étude. Only new code is shown here, with ellipses to represent omitted code.</p>
   
-<pre data-type="programlisting" data-code-language="clojure">(ns daylight_enfocus.core
+<pre data-type="programlisting" data-code-language="clojurescript">(ns daylight_enfocus.core
   (:require [clojure.browser.repl :as repl]
             [enfocus.core :as ef]
             [enfocus.events :as ev]))
@@ -243,7 +243,7 @@ Here are suggested solutions for the études. Of course, your solutions may well
 
   <section data-type="sect1" id="SOLUTION03-ET01">
   <h1>Solution 3-1</h1>
-<pre data-type="programlisting" data-code-language="clojure">(defn move-zeros
+<pre data-type="programlisting" data-code-language="clojurescript">(defn move-zeros
   "Move zeros to end of a list or vector of numbers"
   [numbers]
   (let [nonzero (filter (fn[x] (not= x 0)) numbers)]
@@ -254,7 +254,7 @@ Here are suggested solutions for the études. Of course, your solutions may well
   
   <section data-type="sect1" id="SOLUTION03-ET02">
   <h1>Solution 3-2</h1>
-<pre data-type="programlisting" data-code-language="clojure">(ns daylight_by_date.core
+<pre data-type="programlisting" data-code-language="clojurescript">(ns daylight_by_date.core
   (:require [clojure.browser.repl :as repl]
             [clojure.string :as str]
             [domina]
@@ -325,7 +325,7 @@ Here are suggested solutions for the études. Of course, your solutions may well
   <section data-type="sect1" id="SOLUTION03-ET03">
   <h1>Solution 3-3</h1>
 
-<pre data-type="programlisting" data-code-language="clojure">(defn mean
+<pre data-type="programlisting" data-code-language="clojurescript">(defn mean
   "Compute mean of a sequence of numbers."
   [x]
   (let [n (count x)]
@@ -363,7 +363,7 @@ Here are suggested solutions for the études. Of course, your solutions may well
   This solution uses the Domina library to interact with the web page. The <code>ns</code> special form needs to be updated to require the correct libraries.
   </p>
   
-<pre data-type="programlisting" data-code-language="clojure">(ns stats.core
+<pre data-type="programlisting" data-code-language="clojurescript">(ns stats.core
   (:require [clojure.browser.repl :as repl]
             [clojure.string :as str]
             [domina :as dom]
@@ -373,7 +373,7 @@ Here are suggested solutions for the études. Of course, your solutions may well
   This is the additional code for interacting with the web page.
   </p>
   
-<pre data-type="programlisting" data-code-language="clojure">(defn calculate
+<pre data-type="programlisting" data-code-language="clojurescript">(defn calculate
   "Event handler"
   [evt]
   (let [numbers (map js/window.parseFloat
@@ -391,7 +391,7 @@ Here are suggested solutions for the études. Of course, your solutions may well
   <section data-type="sect1" id="SOLUTION03-ET05">
   <h1>Solution 3-5</h1>
 
-<pre data-type="programlisting" data-code-language="clojure">(ns teeth.core
+<pre data-type="programlisting" data-code-language="clojurescript">(ns teeth.core
   (:require [clojure.browser.repl :as repl]))
 
 (defonce conn
@@ -430,7 +430,7 @@ Here are suggested solutions for the études. Of course, your solutions may well
   <section data-type="sect1" id="SOLUTION03-ET06">
   <h1>Solution 3-6</h1>
 
-<pre data-type="programlisting" data-code-language="clojure">(ns make_teeth.core
+<pre data-type="programlisting" data-code-language="clojurescript">(ns make_teeth.core
   (:require [clojure.browser.repl :as repl]))
 
 (defonce conn
@@ -467,7 +467,7 @@ Here are suggested solutions for the études. Of course, your solutions may well
   This suggested solution uses the <a href="https://github.com/ckirkendall/enfocus">Enfocus</a> library to interact with the web page.
   </p>
   
-<pre data-type="programlisting" data-code-language="clojure">(ns daylight_summary.core
+<pre data-type="programlisting" data-code-language="clojurescript">(ns daylight_summary.core
   (:require [clojure.browser.repl :as repl]
             [enfocus.core :as ef]
             [enfocus.events :as ev]))
@@ -549,7 +549,7 @@ Here are suggested solutions for the études. Of course, your solutions may well
   <section data-type="sect1" id="SOLUTION04-ET01">
   <h1>Solution 4-1</h1>
 
-<pre data-type="programlisting" data-code-language="clojure">(ns condiments.core
+<pre data-type="programlisting" data-code-language="clojurescript">(ns condiments.core
   (:require [cljs.nodejs :as nodejs]))
 
 (nodejs/enable-util-print!)
@@ -602,7 +602,7 @@ Here are suggested solutions for the études. Of course, your solutions may well
   This is a sample web server that simply echoes back the user’s input. Use this as a guide for the remainder of the étude.
   </p>
 
-<pre data-type="programlisting" data-code-language="clojure">(ns servertest.core
+<pre data-type="programlisting" data-code-language="clojurescript">(ns servertest.core
   (:require-macros [hiccups.core :as hiccups])
   (:require [cljs.nodejs :as nodejs]
             [hiccups.runtime :as hiccupsrt]))
@@ -645,7 +645,7 @@ Here are suggested solutions for the études. Of course, your solutions may well
   This is a solution for the condiment matcher web page. It has separated the code for creating the condiment map from the XML page into a separate file to keep the code cleaner.
   </p>
   
-<pre data-type="programlisting" data-code-language="clojure">(ns foodserver.mapmaker)
+<pre data-type="programlisting" data-code-language="clojurescript">(ns foodserver.mapmaker)
 
 (def xml (js/require "node-xml-lite"))
 
@@ -688,7 +688,7 @@ Here are suggested solutions for the études. Of course, your solutions may well
     
     <p>Here is the main file.</p>
     
-<pre data-type="programlisting" data-code-language="clojure">(ns foodserver.core
+<pre data-type="programlisting" data-code-language="clojurescript">(ns foodserver.core
   (:require-macros [hiccups.core :as hiccups])
   (:require [cljs.nodejs :as nodejs]
             [hiccups.runtime :as hiccupsrt]
@@ -763,7 +763,7 @@ Here are suggested solutions for the études. Of course, your solutions may well
   
   <section data-type="sect2">
   <h2>File cljs_made_easy/line_seq.clj</h2>
-<pre data-type="programlisting" data-code-language="clojure"> ;; This is a macro, and must be in clojure. It's name and location is the same as
+<pre data-type="programlisting" data-code-language="clojurescript"> ;; This is a macro, and must be in clojure. It's name and location is the same as
 ;; the cljs file, except with a .clj extension.
 (ns cljs-made-easy.line-seq
   (:refer-clojure :exclude [with-open]))
@@ -779,7 +779,7 @@ Here are suggested solutions for the études. Of course, your solutions may well
   
   <section data-type="sect2">
   <h2>File cljs_made_easy/line_seq.cljs</h2>
-<pre data-type="programlisting" data-code-language="clojure">(ns cljs-made-easy.line-seq
+<pre data-type="programlisting" data-code-language="clojurescript">(ns cljs-made-easy.line-seq
   (:require clojure.string)
   (:require-macros [cljs-made-easy.line-seq :refer [with-open]]))
 
@@ -813,7 +813,7 @@ Here are suggested solutions for the études. Of course, your solutions may well
   <p>
   And this is the code to create the frequency table
   </p>
-<pre data-type="programlisting" data-code-language="clojure">(ns frequency.core
+<pre data-type="programlisting" data-code-language="clojurescript">(ns frequency.core
   (:require [cljs.nodejs :as nodejs]
             [clojure.string :as str]
             [cljs-made-easy.line-seq :as cme]))
@@ -884,7 +884,7 @@ Here are suggested solutions for the études. Of course, your solutions may well
   <p>
   The code for reading the CSV file is unchanged from the previous étude, so I won’t repeat it here.
   </p>
-<pre data-type="programlisting" data-code-language="clojure">(ns crosstab.core
+<pre data-type="programlisting" data-code-language="clojurescript">(ns crosstab.core
   (:require [cljs.nodejs :as nodejs]
             [clojure.string :as str]
             [cljs-made-easy.line-seq :as cme]))
@@ -985,7 +985,7 @@ Here are suggested solutions for the études. Of course, your solutions may well
   <p>
   The cross-tabulation functions from <a href="#SOLUTION04-ET04" data-type="xref">#SOLUTION04-ET04</a> are moved to a file named <em>crosstab.cljs</em> and the initial <code>(ns...)</code> changed accordingly.
   </p>
-<pre data-type="programlisting" data-code-language="clojure">(ns traffic.core
+<pre data-type="programlisting" data-code-language="clojurescript">(ns traffic.core
   (:require-macros [hiccups.core :as hiccups])
   (:require [cljs.nodejs :as nodejs]
             [clojure.string :as str]
@@ -1147,7 +1147,7 @@ Here are suggested solutions for the études. Of course, your solutions may well
 
   <section data-type="sect1" id="SOLUTION05-ET01">
   <h1>Solution 5-1</h1>
-<pre data-type="programlisting" data-code-language="clojure">(ns react_q.core
+<pre data-type="programlisting" data-code-language="clojurescript">(ns react_q.core
   (:require [clojure.browser.repl :as repl]
             [quiescent.core :as q]
             [quiescent.dom :as d]
@@ -1279,7 +1279,7 @@ Here are suggested solutions for the études. Of course, your solutions may well
   <section data-type="sect1" id="SOLUTION05-ET02">
   <h1>Solution 5-2</h1>
 
-<pre data-type="programlisting" data-code-language="clojure">(ns react_r.core
+<pre data-type="programlisting" data-code-language="clojurescript">(ns react_r.core
   (:require [clojure.browser.repl :as repl]
             [reagent.core :as reagent :refer [atom]]))
 
@@ -1456,7 +1456,7 @@ TH;06:00 PM;09:05 PM;D208")</pre>
   <section data-type="sect2">
   <h2>File building_usage/src/roster.cljs</h2>
 
-<pre data-type="programlisting" data-code-language="clojure">(ns building_usage.roster
+<pre data-type="programlisting" data-code-language="clojurescript">(ns building_usage.roster
   (:require [clojure.string :as str]
             [building_usage.utils :as utils]))
 
@@ -1515,7 +1515,7 @@ TH;06:00 PM;09:05 PM;D208")
     </section>
   <section data-type="sect2">
   <h2>File building_usage/src/utils.cljs</h2>
-<pre data-type="programlisting" data-code-language="clojure">(ns building_usage.utils)
+<pre data-type="programlisting" data-code-language="clojurescript">(ns building_usage.utils)
 
 (defn to-minutes [time-string]
   (let [[_ hr minute am-pm] (re-matches #"(?i)(\d\d?):(\d\d)\s*([AP])\.?M\.?" time-string)
@@ -1545,7 +1545,7 @@ TH;06:00 PM;09:05 PM;D208")
   
   <section data-type="sect2">
   <h1>File <em>core.cljs</em></h1>
-<pre data-type="programlisting" data-code-language="clojure">(ns ^:figwheel-always building_usage.core
+<pre data-type="programlisting" data-code-language="clojurescript">(ns ^:figwheel-always building_usage.core
     (:require [building_usage.roster :as roster]
               [building_usage.utils :as utils]
               [goog.dom :as dom]
@@ -1679,7 +1679,7 @@ TH;06:00 PM;09:05 PM;D208")
   <section data-type="sect2">
   <h1>File <em>core.cljs</em></h1>
 
-<pre data-type="programlisting" data-code-language="clojure">(ns ^:figwheel-always building_usage2.core
+<pre data-type="programlisting" data-code-language="clojurescript">(ns ^:figwheel-always building_usage2.core
     (:require [building_usage2.roster :as roster]
               [building_usage2.utils :as utils]
               [goog.dom :as dom]
@@ -1805,7 +1805,7 @@ TH;06:00 PM;09:05 PM;D208")
 
 <section data-type="sect1" id="SOLUTION07-ET01">
   <h1>Solution 7-1</h1>
-<pre data-type="programlisting" data-code-language="clojure">(ns ^:figwheel-always proto.core
+<pre data-type="programlisting" data-code-language="clojurescript">(ns ^:figwheel-always proto.core
     (:require))
 
 (enable-console-print!)

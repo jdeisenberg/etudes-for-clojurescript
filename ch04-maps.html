@@ -318,7 +318,7 @@ data-type="xref">#SOLUTION04-ET01</a>.
   
   <ul>
   <li>For the map, define a vector of heading keywords, such as:
-    <pre data-type="programlisting" data-code-language="clojure">(def headings [:date :time ... :gender :driver-state])</pre>
+    <pre data-type="programlisting" data-code-language="clojurescript">(def headings [:date :time ... :gender :driver-state])</pre>
     If there are columns you don’t want or need in the map, enter <code>nil</code> in the vector.</li>
   <li>Use <code>zipmap</code> to make it easy to construct a map for each row. You will have to get rid of the <code>nil</code> entry; <code>dissoc</code> is your friend here.</li>
   </ul>
@@ -334,7 +334,7 @@ data-type="xref">#SOLUTION04-ET01</a>.
   You can take advantage of ClojureScript’s higher order functions here. The specifier is a function that takes one entry (a “row”) in the data structure and returns a value. So, if you wanted a frequency table to figure out how many violations there are in each hour of the day, you would write code like this:
   </p>
    
-<pre data-type="programlisting" data-code-language="clojure">(defn hour [csv-row]
+<pre data-type="programlisting" data-code-language="clojurescript">(defn hour [csv-row]
   (.substr (csv-row :time) 0 2))
 
 (defn frequency-table [all-data col-spec]
@@ -348,7 +348,7 @@ data-type="xref">#SOLUTION04-ET01</a>.
   Note that, because keyword access to maps works like a function, you could get the frequency of genders by doing this call:
   </p>
   
-<pre data-type="programlisting" data-code-language="clojure">(frequency-table traffic-data :gender true)</pre>
+<pre data-type="programlisting" data-code-language="clojurescript">(frequency-table traffic-data :gender true)</pre>
   <p>
   The return value from <code>frequency-table</code> will be a vector that consists of:
   </p>
@@ -383,7 +383,7 @@ data-type="xref">#SOLUTION04-ET01</a>.
     Inside the <em>core.cljs</em> file, you will have these requirements:
     </p>
     
-<pre data-type="programlisting" data-code-language="clojure">(ns traffic.core
+<pre data-type="programlisting" data-code-language="clojurescript">(ns traffic.core
   (:require [cljs.nodejs :as nodejs]
             [clojure.string :as str]
             [cljs-made-easy.line-seq :as cme]))
@@ -394,7 +394,7 @@ data-type="xref">#SOLUTION04-ET01</a>.
     You can then read a file like this, using <code><a href="http://clojuredocs.org/clojure.core/with-open">with-open</a></code> and <code><a href="http://clojuredocs.org/clojure.core/line-seq">line-seq</a></code> very much as they are used in Clojure. In the following code, the call to <code>.openSync</code> has three arguments: the filesystem defined earlier, the file name, and the file mode, with <code>"r"</code> for reading.
     </p>
     
-<pre data-type="programlisting" data-code-language="clojure">(defn example [filename]
+<pre data-type="programlisting" data-code-language="clojurescript">(defn example [filename]
   (cme/with-open [file-descriptor (.openSync filesystem filename "r")]
              (println (cme/line-seq file-descriptor))))</pre>
      <p>
@@ -423,7 +423,7 @@ data-type="xref">#SOLUTION04-ET01</a>.
   Again, the row and column specifiers are functions. So, if you wanted a cross-tabulation with hour of day as the rows and gender as the columns, you might write code like this:
   </p>
    
-<pre data-type="programlisting" data-code-language="clojure">(defn hour [csv-row]
+<pre data-type="programlisting" data-code-language="clojurescript">(defn hour [csv-row]
   (.substr (csv-row :time) 0 2))
   
 (defn cross-tab [all-data row-spec col-spec]
@@ -506,7 +506,7 @@ data-type="xref">#SOLUTION04-ET01</a>.
     <li><p>
     I wanted to include a CSS file, so I put the specification in the header of the hiccups code. However, to make it work, I had to tell Express how to serve static files, using <code>"."</code> for the root directory in:
     </p> 
-    <pre data-type="programlisting" data-code-language="clojure">(.use app (.static express "<em>path/to/root/directory</em>"))</pre>
+    <pre data-type="programlisting" data-code-language="clojurescript">(.use app (.static express "<em>path/to/root/directory</em>"))</pre>
     </li>
     
     <li><p>
