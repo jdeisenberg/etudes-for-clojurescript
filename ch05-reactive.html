@@ -42,6 +42,22 @@ Both versions of this étude will declare an <code>atom</code> (with a slight va
                 :border-width 3 :border-style "solid"
                 :orig-w 0 :orig-h 0 :src "clock.jpg"}))</pre>
 
+<p>
+To update an atom’s data, use the <code><a href="http://clojuredocs.org/clojure.core/swap!">swap!</a></code> function (for individual map values) and <code>reset!</code> (for the entire value of the atom).  The <code>swap!</code> function takes as its
+arguments:
+</p>
+
+<ul>
+  <li>the atom to be modified</li>
+  <li>A function to apply to the atom</li>
+  <li>The arguments to that function (if any)</li>
+</ul>
+
+<p>
+Consider the following from the REPL (given the preceding definition of <code>status</code>).
+</p>
+
+<!-- Fill in -->
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
   <section data-type="sect1" id="ETUDE05-01">
