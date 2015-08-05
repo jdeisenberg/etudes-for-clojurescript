@@ -24,7 +24,60 @@ The HTML for the page will include a <code>&lt;div&#160;id="interface"&gt;</code
 </p>
 
 <p>
-Both versions of this étude will declare an <code>atom</code> (with a slight variation for Reagant) to hold the state of the the application in a map. The page has to keep track of:
+Both versions of this étude will declare an <code>atom</code> (with a slight variation for Reagant) to hold the state of the the application in a map. Let’s do a quick review of atoms by defining an atom with a single value:
+</p>
+
+<pre data-type="programlisting">(def quantity (atom 32))
+cljs.user=&gt; #&lt;Atom:32&gt;</pre>
+
+<p>
+To access the data in an atom, you must dereference it with the `@` operator:
+</p>
+
+<pre data-type="programlisting">cljs.user=&gt;@quantity
+32</pre>
+
+<p>
+To update an atom’s data, use the <code><a href="http://clojuredocs.org/clojure.core/swap!">swap!</a></code> function (for individual map values) and <code>reset!</code> (for the entire value of the atom).  The <code>swap!</code> function takes as its
+arguments:
+</p>
+
+<ul>
+  <li>the atom to be modified</li>
+  <li>A function to apply to the atom</li>
+  <li>The arguments to that function (if any)</li>
+</ul>
+
+<p>
+Thus, in the REPL:
+</p>
+
+<pre data-type="programlisting">cljs.user=&gt; (swap! quantity inc)
+33
+cljs.user=&gt; (swap! quantity * 2)
+66
+cljs.user=&gt; (reset! quantity 47)
+47
+cljs.user=&gt; quantity
+#&lt;Atom: 47&gt;
+cljs.user=&gt; @quantity
+47</pre>
+
+<p>
+However, in most ClojureScript programs, you do not create an atom for each part of the state you need to save. Instead, you will most often use a map.
+</p>
+
+<pre data-type="programlisting">cljs.user=&gt; (def inventory (atom {:quantity 32 :price 3.75}))
+#&lt;Atom: {:quantity 32, :price 3.75}&gt;
+cljs.user=&gt; (swap! inventory assoc :price 4.22)
+{:quantity 32, :price 4.22}
+cljs.user=&gt; (swap! inventory assoc :quantity (inc (:quantity @inventory)))
+{:quantity 33, :price 4.22}
+cljs.user=&gt; @inventory
+{:quantity 33, :price 4.22}</pre>
+
+<p>
+Back to the program for this étude. The page has to keep track of:
 </p>
 
 <ul>
@@ -41,21 +94,6 @@ Both versions of this étude will declare an <code>atom</code> (with a slight va
          (atom {:w 0 :h 0 :proportional true
                 :border-width 3 :border-style "solid"
                 :orig-w 0 :orig-h 0 :src "clock.jpg"}))</pre>
-
-<p>
-To update an atom’s data, use the <code><a href="http://clojuredocs.org/clojure.core/swap!">swap!</a></code> function (for individual map values) and <code>reset!</code> (for the entire value of the atom).  The <code>swap!</code> function takes as its
-arguments:
-</p>
-
-<ul>
-  <li>the atom to be modified</li>
-  <li>A function to apply to the atom</li>
-  <li>The arguments to that function (if any)</li>
-</ul>
-
-<p>
-Consider the following from the REPL (given the preceding definition of <code>status</code>).
-</p>
 
 <!-- Fill in -->
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -->
