@@ -5,6 +5,8 @@ Welcome to _Études for ClojureScript_.  In this book, you will find description
 
 This book is open source, so if you'd like to contribute, make a correction, or otherwise participate in the project, check out https://github.com/jdeisenberg/etudes-for-clojurescript[jdeisenberg/etudes-for-clojurescript] on GitHub for details. If we accept your work, we'll add you to the contributors chapter. (The repository may eventually move to O’Reilly Media.)
 
+The HTML, ePub, and PDF versions are currently living at http://catcode.com/etudes-for-clojurescript/.
+
 ////
 The online version of the book is at http://chimera.labs.oreilly.com/books/1234000000726[Études for Erlang] on O'Reilly Labs.
 ////
