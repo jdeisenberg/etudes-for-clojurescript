@@ -263,7 +263,7 @@ true</pre>
 
     </section>
     
-    <section data-type="sect2" id="closure-dom">
+    <section data-type="sect2" id="dommy-dom">
     <h2>Using dommy to Access the DOM</h2>
     <p>
     Dommy has two functions for accessing elements: <code>sel1</code> and <code>sel</code>.  <code>sel1</code> will return a single HTML node; <code>sel</code> will return a JavaScript array of all matching elements. The <em>index.html</em> file has three <code>&lt;input/&gt;</code> elements. Compare the results:
@@ -337,7 +337,7 @@ daylight_dommy.core=&gt;
   
   <p>The <a href="https://github.com/levand/domina">Domina</a> library is very similar in approach to dommy. In this étude, you will use Domina to interact with the web page.</p>
   
-    <section data-type="sect2" id="dommy-require">
+    <section data-type="sect2" id="domina-require">
     <h2>Putting Domina into Your Project</h2>
     <p>
     To use Domina, you need to change the first lines of your <em>core.cljs</em> file to require the code that maniuplates the DOM and handles events. In this example, the project has been named <code>daylight_domina</code>.
@@ -361,7 +361,7 @@ daylight_dommy.core=&gt;
                  <strong>[domina "1.0.3"]</strong>]</pre>
     </section>
     
-    <section data-type="sect2" id="closure-dom">
+    <section data-type="sect2" id="domina-dom">
     <h2>Using Domina to Access the DOM</h2>
     <p>
     In Domina, you can access an item by its ID, by a CSS class, or by an XPath expression. This étude only uses the first of these methods with the <code>by-id</code> function.
@@ -433,7 +433,7 @@ daylight_domina.core=&gt; </pre>
   
   <p>The <a href="https://github.com/ckirkendall/enfocus">Enfocus</a> library is very different from dommy and Domina.</p>
   
-    <section data-type="sect2" id="dommy-require">
+    <section data-type="sect2" id="enfocus-require">
     <h2>Putting Enfocus into Your Project</h2>
     <p>
     To use Enfocus, you need to change the first lines of your <em>core.cljs</em> file to require the code that maniuplates the DOM and handles events. In this example, the project has been named <code>daylight_enfocus</code>.
@@ -453,7 +453,7 @@ daylight_domina.core=&gt; </pre>
                  <strong>[enfocus "2.1.0"]</strong>]</pre>
     </section>
     
-    <section data-type="sect2" id="closure-dom">
+    <section data-type="sect2" id="enfocus-dom">
     <h2>Using Enfocus to Access the DOM</h2>
     <p>
     The idea behind Enfocus is that you select a node and then do transformations on it. This is a very powerful concept, but this étude will use only its simplest forms. First, set up namespaces:
@@ -490,7 +490,7 @@ daylight_enfocus.core=&gt; ;; look at web page to see result</pre>
 nil</pre>
     </section>
     
-    <section data-type="sect2" id="domina-events">
+    <section data-type="sect2" id="enfocus-events">
     <h2>Using Enfocus to Handle Events</h2>
     <p>
     Here is the code to add and remove an event listener.
