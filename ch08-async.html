@@ -13,7 +13,7 @@ In this chapter, you will write an étude that uses <a href="http://clojuredocs.
 Here are two examples of using <em>core.async</em>. In the first example, Amy and Brian are going to send each other the numbers 5 down to zero, stopping at zero, in a project named <code>async1</code>. You will need to add some <code>:require</code> and <code>:require-macro</code> specifications to your namespace:
 </p>
 
-<pre data-type="programlisting" data-code-language="clojurescript">(ns ^:figwheel-always async1.core
+<pre>(ns ^:figwheel-always async1.core
   (:require-macros [cljs.core.async.macros :refer [go go-loop]])
     (:require [cljs.core.async
                :refer [&lt;! &gt;! timeout alts! chan close!]]))</pre>
