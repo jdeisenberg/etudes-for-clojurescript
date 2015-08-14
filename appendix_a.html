@@ -1999,4 +1999,86 @@ TH;06:00 PM;09:05 PM;D208")
      3 4  p/div  1 2  2.2 -0.4
      1 -2  p/div  3 -4  0.44 -0.08))</pre>
   </section>
+  
+  <section data-type="sect1" id="SOLUTION08-ET00A">
+  <h1>Sample core.async Program 1</h1>
+  <pre data-type="programlisting" data-code-language="clojurescript">(ns ^:figwheel-always async1.core
+  (:require-macros [cljs.core.async.macros :refer [go go-loop]])
+    (:require [cljs.core.async
+               :refer  [&lt;! &gt;! timeout alts! chan close!]]))
+
+(enable-console-print!)
+
+(defn on-js-reload [])
+
+(def amy (chan))
+(def brian (chan))
+
+(defn amy-send []
+  (go (loop [n 5]
+           (println "Amy sends" n "to Brian")
+           (&gt;! brian n)
+           (if (&gt; n 0) (recur (dec n)) nil))))
+
+(defn amy-receive []
+  (go-loop [x nil]
+           (let [reply (&lt;! brian)]
+             (println "Amy receives" reply "from Brian")
+             (if (&gt; reply 0) (recur nil) (close! amy)))))
+
+(defn brian-send []
+  (go-loop [n 5]
+           (println "Brian sends" n "to Amy")
+           (&gt;! amy n)
+           (if (&gt; n 0) (recur (dec n)) nil)))
+
+(defn brian-receive []
+  (go-loop [x nil]
+           (let [reply (&lt;! amy)]
+             (println "Brian receives" reply "from Amy")
+             (if (&gt; reply 0) (recur nil) (close! brian)))))
+
+(defn async-test []
+  (do
+    (println "Starting...")
+    (amy-send)
+    (amy-receive)
+    (brian-send)
+    (brian-receive)))</pre>
+  </section>
+  
+  
+  <section data-type="sect1" id="SOLUTION08-ET00B">
+  <h1>Sample core.async Program 2</h1>
+  <pre data-type="programlisting" data-code-language="clojurescript">(ns ^:figwheel-always async2.core
+  (:require-macros [cljs.core.async.macros :refer [go go-loop]])
+    (:require [cljs.core.async :as a
+               :refer  [&lt;! &gt;! timeout alts! chan close!]]))
+
+(enable-console-print!)
+
+(defn on-js-reload [])
+
+(defn activate [[from-str from-chan] [to-str to-chan] start-value]
+  (go-loop [n start-value]
+           (if (&gt;= n 0)
+             (do
+               (println from-str "sends" n "to" to-str)
+               (&gt;! to-chan n))
+             nil)
+           (let [reply (&lt;! from-chan)]
+             (println from-str "gets" reply)
+             (if (&gt;= reply 0) (recur (dec reply))
+                             (do
+                               (close! from-chan)
+                               (close! to-chan)
+                               (println "Finished"))))))
+
+(defn async-test []
+  (let [amy (chan)
+        brian (chan)]
+    (activate ["Amy" amy] ["Brian" brian] 8)
+    (activate ["Brian" brian] ["Amy" amy] -1)))</pre>
+  </section>
+
 </section>
