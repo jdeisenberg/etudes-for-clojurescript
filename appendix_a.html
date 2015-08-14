@@ -2005,46 +2005,48 @@ TH;06:00 PM;09:05 PM;D208")
   <pre data-type="programlisting" data-code-language="clojurescript">(ns ^:figwheel-always async1.core
   (:require-macros [cljs.core.async.macros :refer [go go-loop]])
     (:require [cljs.core.async
-               :refer  [&lt;! &gt;! timeout alts! chan close!]]))
+               :refer  [<! >! timeout alts! chan close!]]))
 
 (enable-console-print!)
 
 (defn on-js-reload [])
 
-(def amy (chan))
+(def annie (chan))
 (def brian (chan))
 
-(defn amy-send []
+(defn annie-send []
   (go (loop [n 5]
-           (println "Amy sends" n "to Brian")
-           (&gt;! brian n)
-           (if (&gt; n 0) (recur (dec n)) nil))))
+           (println "Annie:" n "-> Brian")
+           (>! brian n)
+           (if (pos? n) (recur (dec n)) nil))))
 
-(defn amy-receive []
+(defn annie-receive []
   (go-loop [x nil]
            (let [reply (&lt;! brian)]
-             (println "Amy receives" reply "from Brian")
-             (if (&gt; reply 0) (recur nil) (close! amy)))))
+             (println "Annie:" reply "&lt;- Brian")
+             (if (pos? reply) (recur nil) (close! annie)))))
 
 (defn brian-send []
   (go-loop [n 5]
-           (println "Brian sends" n "to Amy")
-           (&gt;! amy n)
-           (if (&gt; n 0) (recur (dec n)) nil)))
+           (println "Brian:" n "-> Annie")
+           (>! annie n)
+           (if (pos? n) (recur (dec n)) nil)))
 
 (defn brian-receive []
   (go-loop [x nil]
-           (let [reply (&lt;! amy)]
-             (println "Brian receives" reply "from Amy")
-             (if (&gt; reply 0) (recur nil) (close! brian)))))
+           (let [reply (&lt;! annie)]
+             (println "Brian:" reply "&lt;- Annie")
+             (if (pos? reply) (recur nil) (close! brian)))))
 
 (defn async-test []
   (do
     (println "Starting...")
-    (amy-send)
-    (amy-receive)
+    (annie-send)
+    (annie-receive)
     (brian-send)
-    (brian-receive)))</pre>
+    (brian-receive)))
+
+</pre>
   </section>
   
   
@@ -2053,32 +2055,30 @@ TH;06:00 PM;09:05 PM;D208")
   <pre data-type="programlisting" data-code-language="clojurescript">(ns ^:figwheel-always async2.core
   (:require-macros [cljs.core.async.macros :refer [go go-loop]])
     (:require [cljs.core.async :as a
-               :refer  [&lt;! &gt;! timeout alts! chan close!]]))
+               :refer  [<! >! timeout alts! chan close!]]))
 
 (enable-console-print!)
 
 (defn on-js-reload [])
 
-(defn activate [[from-str from-chan] [to-str to-chan] start-value]
-  (go-loop [n start-value]
-           (if (&gt;= n 0)
-             (do
-               (println from-str "sends" n "to" to-str)
-               (&gt;! to-chan n))
-             nil)
-           (let [reply (&lt;! from-chan)]
-             (println from-str "gets" reply)
-             (if (&gt;= reply 0) (recur (dec reply))
-                             (do
-                               (close! from-chan)
-                               (close! to-chan)
-                               (println "Finished"))))))
+(defn decrement! [[from-str from-chan] [to-str to-chan] &amp; [start-value]]
+  (go-loop [n (or start-value (dec (&lt;! from-chan)))]
+           (println from-str ":" n "->" to-str)
+           (>! to-chan n)
+           (when-let [reply (&lt;! from-chan)]
+             (println from-str ":" reply "&lt;-" to-str)
+             (if (pos? reply)
+               (recur (dec reply))
+               (do
+                 (close! from-chan)
+                 (close! to-chan)
+                 (println "Finished"))))))
 
 (defn async-test []
-  (let [amy (chan)
+  (let [annie (chan)
         brian (chan)]
-    (activate ["Amy" amy] ["Brian" brian] 8)
-    (activate ["Brian" brian] ["Amy" amy] -1)))</pre>
+    (decrement! ["Annie" annie] ["Brian" brian] 8)
+    (decrement! ["Brian" brian] ["Annie" annie])))</pre>
   </section>
 
 </section>

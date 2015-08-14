@@ -10,7 +10,7 @@ In this chapter, you will write an étude that uses <a href="http://clojuredocs.
 </p>
   
 <p>
-Here are two examples of using <em>core.async</em>. In the first example, Amy and Brian are going to send each other the numbers 5 down to zero, stopping at zero, in a project named <code>async1</code>. You will need to add some <code>:require</code> and <code>:require-macro</code> specifications to your namespace:
+Here are two examples of using <em>core.async</em>. In the first example, Annie and Brian are going to send each other the numbers 5 down to zero, stopping at zero, in a project named <code>async1</code>. You will need to add some <code>:require</code> and <code>:require-macro</code> specifications to your namespace:
 </p>
 
 <pre data-type="programlisting" data-code-language="clojurescript">(ns ^:figwheel-always async1.core
@@ -19,38 +19,38 @@ Here are two examples of using <em>core.async</em>. In the first example, Amy an
                :refer [&lt;! &gt;! timeout alts! chan close!]]))</pre>
 
 <p>
-Then, define a <em>channel</em> for both Amy and Brian:
+Then, define a <em>channel</em> for both Annie and Brian:
 </p>
 
-<pre data-type="programlisting" data-code-language="clojurescript">(def amy (chan))
+<pre data-type="programlisting" data-code-language="clojurescript">(def annie (chan))
 (def brian (chan))</pre>
 
 <p>
-Amy gets two processes: one for sending messages to Brian and another for receiving messages from him.
+Annie gets two processes: one for sending messages to Brian and another for receiving messages from him.
 </p>
 
-<pre data-type="programlisting" data-code-language="clojurescript">(defn amy-send []
+<pre data-type="programlisting" data-code-language="clojurescript">(defn annie-send []
   (go (loop [n 5]
-           (println "Amy sends" n "to Brian")
-           (&gt;! brian n)
-           (if (&gt; n 0) (recur (dec n)) nil))))
+           (println "Annie sends" n "t` Brian")
+           (>! brian n)
+           (when (pos? n) (recur (dec n)))))
 
-(defn amy-receive []
+(defn annie-receive []
   (go-loop [_ nil]
            (let [reply (&lt;! brian)]
-             (println "Amy receives" reply "from Brian")
-             (if (&gt; reply 0) (recur nil) (close! amy)))))</pre>
+             (println "Annie receives" reply "from Brian")
+             (if (&gt; reply 0) (recur nil) (close! annie)))))</pre>
 
 <p>
-In the <code>amy-send</code> function, you see the <code>go</code> function, which asynchronously executes its body and immediately returns to the calling function. The <code>&gt;!</code> function sends data to a channel. The loop continues until <code>n</code> equals zero, at which point the function returns <code>nil</code>.
+In the <code>annie-send</code> function, you see the <code>go</code> function, which asynchronously executes its body and immediately returns to the calling function. The <code>&gt;!</code> function sends data to a channel. The loop continues until <code>n</code> equals zero, at which point the function returns <code>nil</code>.
 </p>
 
 <p>
-Because <code>go</code> and <code>loop</code> occur together so often, ClojureScript has the <code>go-loop</code> construct, which you see in the <code>amy-receive</code> function. That function loops (but does not need the loop variable) until it has received the zero, at which point it performs a <code>close!</code> on the channel.
+Because <code>go</code> and <code>loop</code> occur together so often, ClojureScript has the <code>go-loop</code> construct, which you see in the <code>annie-receive</code> function. That function loops (but does not need the loop variable) until it has received the zero, at which point it performs a <code>close!</code> on the channel.
 </p>
 
 <p>
-A similar pair of functions <code>brian-send</code> and <code>brian-receive</code> do Brian’s sending and receiving tasks (they are not shown here).
+A similar pair of functions <code>brian-send</code> and <code>brian-receive</code> do Brian’s sending and receiving tasks (they are not shown here). You may have noticed there’s a lot of duplication here; we’ll get rid of it in the next example.
 </p>
 
 <p>
@@ -60,8 +60,8 @@ All that remains to be done is write a function that invokes these processes:
 <pre data-type="programlisting" data-code-language="clojurescript">(defn async-test []
   (do
     (println "Starting...")
-    (amy-send)
-    (amy-receive)
+    (annie-send)
+    (annie-receive)
     (brian-send)
     (brian-receive)))</pre>
 
@@ -70,90 +70,95 @@ Here is the console log output from invoking <code>async-test</code>. You can se
 </p>
 
 <pre>
-Amy sends 5 to Brian
-Amy receives 5 from Brian
-Brian sends 5 to Amy
-Brian receives 5 from Amy
-Amy sends 4 to Brian
-Amy sends 3 to Brian
-Brian sends 4 to Amy
-Brian sends 3 to Amy
-Amy receives 4 from Brian
-Amy receives 3 from Brian
-Brian receives 4 from Amy
-Brian receives 3 from Amy
-Amy sends 2 to Brian
-Amy sends 1 to Brian
-Brian sends 2 to Amy
-Brian sends 1 to Amy
-Amy receives 2 from Brian
-Amy receives 1 from Brian
-Brian receives 2 from Amy
-Brian receives 1 from Amy
-Amy sends 0 to Brian
-Brian sends 0 to Amy
-Amy receives 0 from Brian
-Brian receives 0 from Amy</pre>
+Starting...
+Annie: 5 -&gt; Brian 
+Annie: 5 &lt;- Brian 
+Brian: 5 -&gt; Annie 
+Brian: 5 &lt;- Annie 
+Annie: 4 -&gt; Brian 
+Annie: 3 -&gt; Brian 
+Brian: 4 -&gt; Annie 
+Brian: 3 -&gt; Annie 
+Annie: 4 &lt;- Brian 
+Annie: 3 &lt;- Brian 
+Brian: 4 &lt;- Annie 
+Brian: 3 &lt;- Annie 
+Annie: 2 -&gt; Brian 
+Annie: 1 -&gt; Brian 
+Brian: 2 -&gt; Annie 
+Brian: 1 -&gt; Annie 
+Annie: 2 &lt;- Brian 
+Annie: 1 &lt;- Brian 
+Brian: 2 &lt;- Annie 
+Brian: 1 &lt;- Annie 
+Annie: 0 -&gt; Brian 
+Brian: 0 -&gt; Annie 
+Annie: 0 &lt;- Brian 
+Brian: 0 &lt;- Annie 
+</pre>
 
 <p>
 You can see the entire program here: <a href="#SOLUTION08-ET00A" data-type="xref">#SOLUTION08-ET00A</a>.
 </p>
 
 <p>
-The next example using <em>core.async</em>, in a project named <code>async2</code>, has processes that communicate with one another in a semi-synchronized manner. In this case, Amy will start off by sending Brian the number 8; he will send her a 7; she sends back 6, and so on, down to zero.
+The next example using <em>core.async</em>, in a project named <code>async2</code>, has processes that communicate with one another in a semi-synchronized manner. In this case, Annie will start off by sending Brian the number 8; he will send her a 7; she sends back 6, and so on, down to zero.
 </p>
 
 <p>
 In this case, both people do the same thing: send the next lower number to their partner, then await the partner’s reply. Here is the function to activate the process for the two partners. The <code>from-str</code> and <code>to-str</code> parameters are used for the debug output. 
 </p>
 
-<pre data-type="programlisting" data-code-language="clojurescript">(defn activate [[from-str from-chan] [to-str to-chan] start-value]
-  (go-loop [n start-value]
-           (if (&gt;= n 0)
-             (do
-               (println from-str "sends" n "to" to-str)
-               (&gt;! to-chan n))
-             nil)
-           (let [reply (&lt;! from-chan)]
-             (println from-str "gets" reply)
-             (if (&gt;= reply 0) (recur (dec reply))
-                             (do
-                               (close! from-chan)
-                               (close! to-chan)
-                               (println "Finished"))))))</pre>
+<pre data-type="programlisting" data-code-language="clojurescript">(defn decrement! [[from-str from-chan] [to-str to-chan] &amp; [start-value]]
+  (go-loop [n (or start-value (dec (&lt;! from-chan)))]
+           (println from-str ":" n "->" to-str)
+           (>! to-chan n)
+           (when-let [reply (&lt;! from-chan)]
+             (println from-str ":" reply "&lt;-" to-str)
+             (if (pos? reply)
+               (recur (dec reply))
+               (do
+                 (close! from-chan)
+                 (close! to-chan)
+                 (println "Finished"))))))</pre>
 
 <p>
-The first <code>if</code> expression will take care of the asymmetry in the processes; Amy starts the sending, and Brian starts by receiving her data.
+There are several clever tricks going on in this function.  The <code>&amp; [start-value]</code> allows an optional starting value. There’s an asymmetry in the processes; Annie starts the sending, and Brian starts by receiving her data. Thus, Annie will start with 8 as her <code>start-value</code>; Brian will omit that argument. The completion of this bit of kabuki is in <code>(or&nbsp;start-value&nbsp;(dec&nbsp;(&lt;!&nbsp;from-chan)))</code>; if <code>start-value</code> is <code>nil</code> (which evaluates to false), you take one less than the received value as your starting value.
+</p>
+
+<p>
+Similarly, the <code>when-let</code> clause is executed only when the reply from <code>from-chan</code> is  true (i.e., not <code>nil</code>).
 </p>
 
 <pre data-type="programlisting" data-code-language="clojurescript">(defn async-test []
-  (let [amy (chan)
+  (let [annie (chan)
         brian (chan)]
-    (activate ["Amy" amy] ["Brian" brian] 8)
-    (activate ["Brian" brian] ["Amy" amy] -1)))</pre>
+    (activate ["Annie" annie] ["Brian" brian] 8)
+    (activate ["Brian" brian] ["Annie" annie])))</pre>
 
 <p>
 Here is the output from invoking <code>async-test</code>.
 </p>
 
-<pre>Amy sends 8 to Brian
-Brian gets 8
-Brian sends 7 to Amy
-Amy gets 7
-Amy sends 6 to Brian
-Brian gets 6
-Brian sends 5 to Amy
-Amy gets 5
-Amy sends 4 to Brian
-Brian gets 4
-Brian sends 3 to Amy
-Amy gets 3
-Amy sends 2 to Brian
-Brian gets 2
-Brian sends 1 to Amy
-Amy gets 1
-Amy sends 0 to Brian
-Brian gets 0</pre>
+<pre>Annie : 8 -&gt; Brian
+Brian : 7 -&gt; Annie
+Annie : 7 &lt;- Brian
+Annie : 6 -&gt; Brian
+Brian : 6 &lt;- Annie
+Brian : 5 -&gt; Annie
+Annie : 5 &lt;- Brian
+Annie : 4 -&gt; Brian
+Brian : 4 &lt;- Annie
+Brian : 3 -&gt; Annie
+Annie : 3 &lt;- Brian
+Annie : 2 -&gt; Brian
+Brian : 2 &lt;- Annie
+Brian : 1 -&gt; Annie
+Annie : 1 &lt;- Brian
+Annie : 0 -&gt; Brian
+Brian : 0 &lt;- Annie
+Finished</pre>
+
 <p>
 You can see the entire program here: <a href="#SOLUTION08-ET00B" data-type="xref">#SOLUTION08-ET00B</a>.
 </p>
