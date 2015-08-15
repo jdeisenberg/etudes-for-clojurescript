@@ -2020,23 +2020,33 @@ TH;06:00 PM;09:05 PM;D208")
            (>! brian n)
            (if (pos? n) (recur (dec n)) nil))))
 
+(defn annie-send []
+  (go (loop [n 5]
+           (println "Annie:" n "-> Brian")
+           (>! brian n)
+           (when (pos? n) (recur (dec n))))))
+
 (defn annie-receive []
-  (go-loop [x nil]
+  (go-loop []
            (let [reply (&lt;! brian)]
              (println "Annie:" reply "&lt;- Brian")
-             (if (pos? reply) (recur nil) (close! annie)))))
+             (if (pos? reply)
+               (recur)
+               (close! annie)))))
 
 (defn brian-send []
   (go-loop [n 5]
            (println "Brian:" n "-> Annie")
            (>! annie n)
-           (if (pos? n) (recur (dec n)) nil)))
+           (when (pos? n) (recur (dec n)))))
 
 (defn brian-receive []
-  (go-loop [x nil]
+  (go-loop []
            (let [reply (&lt;! annie)]
              (println "Brian:" reply "&lt;- Annie")
-             (if (pos? reply) (recur nil) (close! brian)))))
+             (if (pos? reply)
+               (recur)
+               (close! brian)))))
 
 (defn async-test []
   (do
