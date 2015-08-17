@@ -1,10 +1,6 @@
 <section data-type="chapter" id="chapter08">
 <h1>Asynchronous processing</h1>
 
-<!--
-for learning, i’d start with atom, since it is really just atom, deref/@, swap!, and reset! in a nutshell
--->
-
 <p>
 In this chapter, you will write an étude that uses <a href="http://clojuredocs.org/clojure.core.async"><em>core.async</em></a> to do asynchronous processing.
 </p>
@@ -125,7 +121,7 @@ In this case, both people do the same thing: send the next lower number to their
                  (println "Finished"))))))</pre>
 
 <p>
-There are several clever tricks going on in this function.  The <code>&amp; [start-value]</code> allows an optional starting value. There’s an asymmetry in the processes; Annie starts the sending, and Brian starts by receiving her data. Thus, Annie will start with 8 as her <code>start-value</code>; Brian will omit that argument. The completion of this bit of kabuki is in <code>(or&nbsp;start-value&nbsp;(dec&nbsp;(&lt;!&nbsp;from-chan)))</code>; if <code>start-value</code> is <code>nil</code> (which evaluates to false), you take one less than the received value as your starting value.
+There are several clever tricks going on in this function.  The <code>&amp; [start-value]</code> allows an optional starting value. There’s an asymmetry in the processes; Annie starts the sending, and Brian starts by receiving her data. Thus, Annie will start with 8 as her <code>start-value</code>; Brian will omit that argument. The completion of this bit of kabuki is in <code>(or&#160;start-value&#160;(dec&#160;(&lt;!&#160;from-chan)))</code>; if <code>start-value</code> is <code>nil</code> (which evaluates to false), you take one less than the received value as your starting value.
 </p>
 
 <p>
@@ -177,11 +173,15 @@ You can see the entire program here: <a href="#SOLUTION08-ET00B" data-type="xref
   </p>
 
   <p>
-  Two players each take 26 cards from a shuffled deck. Each person puts her top card face up on the table. Whoever has the higher value card wins that battle, takes both cards, and puts them at the bottom of her stack. What happens the if the cards have the same value? Then the players go to "war." Each person puts the next two cards from their stack face down in the pile and a third card face up. High card wins, and the winner takes all the cards for the bottom of her stack. If the cards match again, the war continues with another set of three cards from each person. If a person has fewer than three cards when a war happens, he puts in all his cards.
+  Two players each take 26 cards from a shuffled deck. Each person puts their top card face up on the table. Whoever has the higher value card wins that battle, takes both cards, and puts them at the bottom of her stack. What happens the if the cards have the same value? Then the players go to "war." Each person puts the next two cards from their stack face down in the pile and a third card face up. High card wins, and the winner takes all the cards for the bottom of their stack. If the cards match again, the war continues with another set of three cards from each person. If a person has fewer than three cards when a war happens, they put in all their cards.
   </p>
   
   <p>
   Repeat this entire procedure until one person has all the cards. That player wins the game. In this game, aces are considered to have the highest value, and King > Queen > Jack.
+  </p>
+  
+  <p>
+  A game can go on for a <em>very</em> long time, so I have added a new rule: if the game goes more than a pre-determined maximum number of rounds (50 in my program), stop playing. The person who has fewer cards win. If the number of cards is equal, it’s a tie.
   </p>
   </section>
   
@@ -233,11 +233,10 @@ You can see the entire program here: <a href="#SOLUTION08-ET00B" data-type="xref
   <p>In my code, the dealer had to keep track of:</p>
 
   <ul>
-  <li>The process IDs of the players (this was a list)</li>
+  <li>The players’ channels</li>
   <li>The current state of play (see the following)</li>
   <li>Cards received from player 1 for this battle</li>
   <li>Cards received from player 2 for this battle</li>
-  <li>The number of players who had given the dealer cards so far (0, 1, or 2)</li>
   <li>The pile of cards in the middle of the table</li>
   </ul>
 
@@ -249,17 +248,23 @@ You can see the entire program here: <a href="#SOLUTION08-ET00B" data-type="xref
   <dt>Pre-battle</dt>
   <dd>Tell the players to send me cards. If the pile is empty, then it’s a normal battle; give me one card each. If the pile isn’t empty, then it’s a war; give me three cards.</dd>
   
-  <dt>Await battle</dt>
-  <dd> Wait to receive the cards from the players. Add one to the count every
-  time I get a player’s cards. When the count reaches two, I’m ready for...
-
-  <dt>Check Cards</dt>
-  <dd>
-  If either player has sent me an empty list for their cards, then that player is out of cards, so the other player must be the winner.
+  <dt>Battle</dt>
+  <dd> Wait to receive the cards from the players. 
+  If either player has sent me an empty list for their cards, then that player is out of cards, so the other player must be the winner. Send both players a message to quit looping for messages.
   
   <p>
-  If I really have cards from both players, compare them. If one player is a winner, give that player the pile plus the cards currently in play. If the cards match, add the cards currently in play to the pile, and go back to “Pre-battle” state.
+  If I really have cards from both players, compare them. If one player has the high card, give that player the pile plus the cards currently in play, and go into post-battle state. Otherwise, the cards match. Add the cards currently in play to the pile, and go back to “Pre-battle” state.
   </p>
+  </dd>
+  
+  <dt>Post-battle</dt>
+  <dd>
+  Wait for the person to pick up the cards sent by the dealer. If you’ve hit the maximum number of rounds, go to long-game state. Otherwise, go back to “Pre-battle” state.
+  </dd>
+  
+  <dt>Long-game</dt>
+  <dd>
+  The game has taken too many moves. Ask both players for the number of cards they have, and tell them both to quit looping. The winner is the player with the smaller number of cards (or a tie if they have the same number of cards).
   </dd>
   </dl>
 
@@ -288,7 +293,7 @@ You can see the entire program here: <a href="#SOLUTION08-ET00B" data-type="xref
   <section data-type="sect2" id="war-deck">
   <h2>Representing the Deck</h2>
   <p>
-  I decided to represent the deck as a vector of the numbers 0 through 51 (inclusive); 0 through 12 are the Ace through King of clubs, 13 through 25 are diamonds, then hearts, then spades. (That is, the suits are in English alphabetical order.) You will find ClojureScript’s <code>shuffle</code> function to be quite useful. I wrote a small module in a file named <em>cards.cljs</em> for functions such as converting a card number to its suit and name and finding a card’s value. 
+  I decided to represent the deck as a vector of the numbers 0 through 51 (inclusive); 0 through 12 are the Ace through King of clubs, 13 through 25 are diamonds, then hearts, then spades. (That is, the suits are in English alphabetical order.) You will find ClojureScript’s <code>shuffle</code> function to be quite useful. I wrote a small module in a file named <em>utils.cljs</em> for functions such as converting a card number to its suit and name and finding a card’s value. 
   </p>
   
   <p>

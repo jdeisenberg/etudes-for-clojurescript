@@ -2005,7 +2005,7 @@ TH;06:00 PM;09:05 PM;D208")
   <pre data-type="programlisting" data-code-language="clojurescript">(ns ^:figwheel-always async1.core
   (:require-macros [cljs.core.async.macros :refer [go go-loop]])
     (:require [cljs.core.async
-               :refer  [<! >! timeout alts! chan close!]]))
+               :refer  [&lt;! >! timeout alts! chan close!]]))
 
 (enable-console-print!)
 
@@ -2065,7 +2065,7 @@ TH;06:00 PM;09:05 PM;D208")
   <pre data-type="programlisting" data-code-language="clojurescript">(ns ^:figwheel-always async2.core
   (:require-macros [cljs.core.async.macros :refer [go go-loop]])
     (:require [cljs.core.async :as a
-               :refer  [<! >! timeout alts! chan close!]]))
+               :refer  [&lt;! >! timeout alts! chan close!]]))
 
 (enable-console-print!)
 
@@ -2091,4 +2091,159 @@ TH;06:00 PM;09:05 PM;D208")
     (decrement! ["Brian" brian] ["Annie" annie])))</pre>
   </section>
 
+  <section data-type="sect1" id="SOLUTION08-ET01">
+  <h1>Solution 8-1</h1>
+  <pre data-type="programlisting" data-code-language="clojurescript">(ns ^:figwheel-always cardgame.core
+  (:require-macros [cljs.core.async.macros :refer [go go-loop]])
+  (:require [cljs.core.async
+             :refer  [&lt;! >! timeout alts! chan close! put!]]
+            [cardgame.utils :as utils]))
+
+(enable-console-print!)
+
+(def max-rounds 50) ;; max # of rounds per game
+
+;; create a channel for each player and the dealers
+
+(def player1 (chan))
+(def player2 (chan))
+(def dealer (chan))
+
+(defn on-js-reload [])
+
+;; I have added a player-name for debug output;
+;; it's not needed for the program to work.
+
+(defn player-process
+  "Arguments are channel, channel name, and initial
+  set of cards. Players either give the dealer cards
+  or receive cards from her. They send their player
+  number back to the dealer so that she can distinguish
+  the inputs. The :show command is for debugging;
+  the :card-count is for stopping a game after a
+  given number of rounds, and the :quit command finishes the loop."
+  [player player-name init-cards]
+  (do
+    (println "Starting"  player-name "with" init-cards)
+    (go (loop [my-cards init-cards]
+             (let [[message args] (&lt;! player)]
+               (condp = message
+                 :give (do
+                         (println player-name
+                                  "has" my-cards
+                                  "sending dealer" (take args my-cards))
+                         (>! dealer [player-name (take args my-cards)])
+                         (recur (vec (drop args my-cards))))
+                 :receive (do
+                            (println player-name "receives" args "add to" my-cards)
+                            (>! dealer "Received cards")
+                            (recur (apply conj my-cards args)))
+                 :show (do (println my-cards) (recur my-cards))
+                 :card-count (do
+                               (>! dealer [player-name (count my-cards)])
+                               (recur my-cards))
+                 :quit nil))))))
+
+(defn determine-game-winner
+  "If either of the players is out of cards, the other player wins."
+  [card1 card2]
+  (cond
+    (empty? card1) "Player 1"
+    (empty? card2) "Player 2"
+    :else nil))
+
+(defn make-new-pile
+  "Convenience function to join the current pile
+  plus the players' cards into a new pile."
+  [pile card1 card2]
+  (apply conj (apply conj pile card1) card2))
+
+(defn put-all!
+  "Convenience function to send same message to
+  all players. The (doall) is necessary to force
+  evaluation."
+  [info]
+  (doall (map (fn [p] (put! p info)) [player1 player2])))
+
+(defn arrange
+  "Since we can't guarantee which order the cards come in,
+  we arrange the dealer's messages so that player 1's card(s)
+  always precede player 2's card(s)"
+  [[pa ca] [pb cb]]
+  (if (= pa "Player 1") [ca cb] [cb ca]))
+
+(defn do-battle
+  "Returns a vector giving the winner (if any) and the
+  new pile of cards, given the current pile, the players' cards,
+  and the number of rounds played.
+  If someone's card is empty, the other person is the winner.
+  If the number of rounds is at the maximum, the person with
+     the smaller number of cards wins.
+  If one player has a higher card, the other player has
+  to take all the cards (returning an empty pile); if they
+  match, the result is the pile plus the cards"
+  [pile card1 card2 n-rounds]
+  (let [c1 (utils/value (last card1))
+        c2 (utils/value (last card2))
+        game-winner (determine-game-winner card1 card2)
+        new-pile (make-new-pile pile card1 card2)]
+    (println (utils/text (last card1)) "vs." (utils/text (last card2)))
+    (when-not game-winner
+        (cond
+        (> c1 c2) (put! player2 [:receive new-pile])
+        (&lt; c1 c2) (put! player1 [:receive new-pile])))
+      [game-winner (if (= c1 c2) new-pile (vector))]))
+
+(defn play-game
+  "The game starts by dividing the shuffled deck and
+  gives each player half.
+  Pre-battle state: ask each player to give a card
+    (or 3 cards if the pile isn't empty)
+  Battle state: wait for each player to send cards and evalute.
+  Post-battle: wait for person who lost hand (if not a tie)
+    to receive cards
+  Long-game: Too many rounds. Winner is person with most cards"
+  []
+  (let [deck (utils/short-deck)
+        half (/ (count deck) 2)]
+    (player-process player1 "Player 1" (vec (take half deck)))
+    (player-process player2 "Player 2" (vec (drop half deck)))
+    (go (loop [pile []
+               state :pre-battle
+               n-rounds 1]
+             (condp = state
+               :pre-battle (do
+                             (println "** Starting round" n-rounds)
+                             (put-all! [:give (if (empty? pile) 1 3)])
+                             (recur pile :battle n-rounds))
+
+               :battle (let [d1 (&lt;! dealer) ;; block until
+                             d2 (&lt;! dealer) ;; both players send cards
+                             [card1 card2] (arrange d1 d2)
+                             [game-winner new-pile] (do-battle pile card1 card2 n-rounds)]
+                         (&lt;! (timeout 300))
+                         (if-not game-winner
+                           (recur new-pile :post-battle n-rounds)
+                           (do
+                             (put-all! [:quit nil])
+                             (println "Winner:" game-winner))))
+
+               :post-battle (do
+                              ;; wait until player picks up cards
+                              (when (empty? pile) (&lt;! dealer))
+                              (if (&lt; n-rounds max-rounds)
+                                (recur pile :pre-battle (inc n-rounds))
+                                (do
+                                  (put-all! [:card-count nil])
+                                  (recur pile :long-game 0))))
+               :long-game (let [[pa na] (&lt;! dealer)
+                                [pb nb] (&lt;! dealer)]
+                            (put-all! [:quit nil])
+                            (println pa "has" na "cards.")
+                            (println pb "has" nb "cards.")
+                            (println "Winner:" (cond
+                                                 (&lt; na nb) pa
+                                                 (> na nb) pb
+                                                 :else "tied"))))))))</pre>
+  </section>
 </section>
