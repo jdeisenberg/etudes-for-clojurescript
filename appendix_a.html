@@ -2062,6 +2062,7 @@ TH;06:00 PM;09:05 PM;D208")
   
   <section data-type="sect1" id="SOLUTION08-ET00B">
   <h1>Sample core.async Program 2</h1>
+  
   <pre data-type="programlisting" data-code-language="clojurescript">(ns ^:figwheel-always async2.core
   (:require-macros [cljs.core.async.macros :refer [go go-loop]])
     (:require [cljs.core.async :as a
@@ -2093,6 +2094,10 @@ TH;06:00 PM;09:05 PM;D208")
 
   <section data-type="sect1" id="SOLUTION08-ET01">
   <h1>Solution 8-1</h1>
+  <p>This solution is split into two files: <em>core.cljs</em> and <em>utils.cljs</em></p>
+  
+    <section data-type="sect2" id="SOLUTION08-ET01A">
+    <h2>File core.cljs</h2>
   <pre data-type="programlisting" data-code-language="clojurescript">(ns ^:figwheel-always cardgame.core
   (:require-macros [cljs.core.async.macros :refer [go go-loop]])
   (:require [cljs.core.async
@@ -2245,5 +2250,38 @@ TH;06:00 PM;09:05 PM;D208")
                                                  (&lt; na nb) pa
                                                  (> na nb) pb
                                                  :else "tied"))))))))</pre>
+     </section>
+     
+    <section data-type="sect2" id="SOLUTION08-ET01B">
+    <h2>File utils.cljs</h2>
+    <pre data-type="programlisting" data-code-language="clojurescript">(ns ^:figwheel-always cardgame.utils
+  (:require))
+
+(def suits ["clubs" "diamonds" "hearts" "spades"])
+(def names ["Ace" "2" "3" "4" "5" "6" "7" "8" "9" "10"
+            "Jack" "Queen" "King"])
+
+;; If there was no card at all (nil)
+;; return nil, otherwise aces are high.
+(defn value [card]
+  (let [v (when-not (nil? card) (mod card 13))]
+    (if (= v 0) 13 v)))
+
+(defn text [card]
+  (let [suit (quot card 13)
+        base (mod card 13)]
+    (if (nil? card)
+      "nil"
+      (str (get names base) " of " (get suits suit)))))
+
+(defn full-deck []
+  (shuffle (range 0 52)))
+
+;; give a short deck of Ace to 4 in clubs and diamonds only
+;; for testing purposes
+
+(defn short-deck []
+  (shuffle (list 0 1 2 3 4 5 13 14 15 16 17 18)))</pre>
+      </section>
   </section>
 </section>
