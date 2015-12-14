@@ -32,7 +32,7 @@
   [a b]
   (- (* 2 (+ (* a a) (* b b))) (* (+ a b) (+ a b))))
 
-(def G 6.6784e-11)
+(def G 6.67408e-11)
 
 (defn gravitational-force
   "Calculate gravitational force of two objects of
